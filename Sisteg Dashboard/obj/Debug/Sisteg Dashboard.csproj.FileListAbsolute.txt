@@ -1,0 +1,48 @@
+C:\Users\Wesley Ribeiro\source\repos\Sisteg Dashboard\Sisteg Dashboard\bin\Debug\Sisteg Dashboard.exe.config
+C:\Users\Wesley Ribeiro\source\repos\Sisteg Dashboard\Sisteg Dashboard\bin\Debug\Sisteg Dashboard.exe
+C:\Users\Wesley Ribeiro\source\repos\Sisteg Dashboard\Sisteg Dashboard\bin\Debug\Sisteg Dashboard.pdb
+C:\Users\Wesley Ribeiro\source\repos\Sisteg Dashboard\Sisteg Dashboard\bin\Debug\Interop.WMPLib.dll
+C:\Users\Wesley Ribeiro\source\repos\Sisteg Dashboard\Sisteg Dashboard\bin\Debug\AxInterop.WMPLib.dll
+C:\Users\Wesley Ribeiro\source\repos\Sisteg Dashboard\Sisteg Dashboard\obj\Debug\Sisteg Dashboard.csprojAssemblyReference.cache
+C:\Users\Wesley Ribeiro\source\repos\Sisteg Dashboard\Sisteg Dashboard\obj\Debug\Interop.WMPLib.dll
+C:\Users\Wesley Ribeiro\source\repos\Sisteg Dashboard\Sisteg Dashboard\obj\Debug\AxInterop.WMPLib.dll
+C:\Users\Wesley Ribeiro\source\repos\Sisteg Dashboard\Sisteg Dashboard\obj\Debug\Sisteg Dashboard.csproj.ResolveComReference.cache
+C:\Users\Wesley Ribeiro\source\repos\Sisteg Dashboard\Sisteg Dashboard\obj\Debug\Sisteg_Dashboard.Properties.Resources.resources
+C:\Users\Wesley Ribeiro\source\repos\Sisteg Dashboard\Sisteg Dashboard\obj\Debug\Sisteg Dashboard.csproj.GenerateResource.cache
+C:\Users\Wesley Ribeiro\source\repos\Sisteg Dashboard\Sisteg Dashboard\obj\Debug\Sisteg Dashboard.csproj.CoreCompileInputs.cache
+C:\Users\Wesley Ribeiro\source\repos\Sisteg Dashboard\Sisteg Dashboard\obj\Debug\Sisteg Dashboard.exe
+C:\Users\Wesley Ribeiro\source\repos\Sisteg Dashboard\Sisteg Dashboard\obj\Debug\Sisteg Dashboard.pdb
+C:\Users\Wesley Ribeiro\source\repos\Sisteg Dashboard\Sisteg Dashboard\obj\Debug\Sisteg_Dashboard.Form_splashScreen.resources
+C:\Users\Wesley Ribeiro\source\repos\Sisteg Dashboard\Sisteg Dashboard\bin\Debug\EntityFramework.dll
+C:\Users\Wesley Ribeiro\source\repos\Sisteg Dashboard\Sisteg Dashboard\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Wesley Ribeiro\source\repos\Sisteg Dashboard\Sisteg Dashboard\bin\Debug\System.Data.SQLite.dll
+C:\Users\Wesley Ribeiro\source\repos\Sisteg Dashboard\Sisteg Dashboard\bin\Debug\System.Data.SQLite.EF6.dll
+C:\Users\Wesley Ribeiro\source\repos\Sisteg Dashboard\Sisteg Dashboard\bin\Debug\System.Data.SQLite.Linq.dll
+C:\Users\Wesley Ribeiro\source\repos\Sisteg Dashboard\Sisteg Dashboard\bin\Debug\EntityFramework.xml
+C:\Users\Wesley Ribeiro\source\repos\Sisteg Dashboard\Sisteg Dashboard\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Wesley Ribeiro\source\repos\Sisteg Dashboard\Sisteg Dashboard\bin\Debug\System.Data.SQLite.xml
+C:\Users\Wesley Ribeiro\source\repos\Sisteg Dashboard\Sisteg Dashboard\obj\Debug\Sisteg Dashboard.csproj.CopyComplete
+C:\Users\Wesley Ribeiro\source\repos\Sisteg Dashboard\Sisteg Dashboard\obj\Debug\Sisteg_Dashboard.Client.resources
+C:\Users\Wesley Ribeiro\source\repos\Sisteg Dashboard\Sisteg Dashboard\obj\Debug\Sisteg_Dashboard.Product.resources
+C:\Users\Wesley Ribeiro\source\repos\Sisteg Dashboard\Sisteg Dashboard\obj\Debug\Sisteg_Dashboard.Budget.resources
+C:\Users\Wesley Ribeiro\source\repos\Sisteg Dashboard\Sisteg Dashboard\obj\Debug\Sisteg_Dashboard.Config.resources
+C:\Users\Wesley Ribeiro\source\repos\Sisteg Dashboard\Sisteg Dashboard\bin\Debug\Bunifu.UI.WinForms.BunifuButton.dll
+C:\Users\Wesley Ribeiro\source\repos\Sisteg Dashboard\Sisteg Dashboard\bin\Debug\Bunifu_UI_v1.5.3.dll
+C:\Users\Wesley Ribeiro\source\repos\Sisteg Dashboard\Sisteg Dashboard\bin\Debug\Bunifu.UI.WinForms.BunifuButton.xml
+C:\Users\Wesley Ribeiro\source\repos\Sisteg Dashboard\Sisteg Dashboard\bin\Debug\Bunifu_UI_v1.5.3.xml
+C:\Users\Wesley Ribeiro\source\repos\Sisteg Dashboard\Sisteg Dashboard\bin\Debug\Bunifu.UI.WinForms.BunifuDataGridView.dll
+C:\Users\Wesley Ribeiro\source\repos\Sisteg Dashboard\Sisteg Dashboard\bin\Debug\Bunifu.UI.WinForms.BunifuDataGridView.xml
+C:\Users\Wesley Ribeiro\source\repos\Sisteg Dashboard\Sisteg Dashboard\obj\Debug\Sisteg Dashboard.exe.config
+C:\Users\Wesley Ribeiro\source\repos\Sisteg Dashboard\Sisteg Dashboard\bin\Debug\Bunifu.UI.WinForms.BunifuCheckBox.dll
+C:\Users\Wesley Ribeiro\source\repos\Sisteg Dashboard\Sisteg Dashboard\bin\Debug\Bunifu.UI.WinForms.BunifuDropdown.dll
+C:\Users\Wesley Ribeiro\source\repos\Sisteg Dashboard\Sisteg Dashboard\bin\Debug\Bunifu.UI.WinForms.BunifuRadioButton.dll
+C:\Users\Wesley Ribeiro\source\repos\Sisteg Dashboard\Sisteg Dashboard\bin\Debug\Bunifu.UI.WinForms.BunifuCheckBox.xml
+C:\Users\Wesley Ribeiro\source\repos\Sisteg Dashboard\Sisteg Dashboard\bin\Debug\Bunifu.UI.WinForms.BunifuDropdown.xml
+C:\Users\Wesley Ribeiro\source\repos\Sisteg Dashboard\Sisteg Dashboard\bin\Debug\Bunifu.UI.WinForms.BunifuRadioButton.xml
+C:\Users\Wesley Ribeiro\source\repos\Sisteg Dashboard\Sisteg Dashboard\obj\Debug\Sisteg_Dashboard.addIncome.resources
+C:\Users\Wesley Ribeiro\source\repos\Sisteg Dashboard\Sisteg Dashboard\bin\Debug\Bunifu.UI.WinForms.BunifuDatePicker.dll
+C:\Users\Wesley Ribeiro\source\repos\Sisteg Dashboard\Sisteg Dashboard\bin\Debug\Bunifu.UI.WinForms.BunifuDatePicker.xml
+C:\Users\Wesley Ribeiro\source\repos\Sisteg Dashboard\Sisteg Dashboard\bin\Debug\Bunifu.UI.WinForms.BunifuTextbox.dll
+C:\Users\Wesley Ribeiro\source\repos\Sisteg Dashboard\Sisteg Dashboard\bin\Debug\Bunifu.UI.WinForms.BunifuTextbox.xml
+C:\Users\Wesley Ribeiro\source\repos\Sisteg Dashboard\Sisteg Dashboard\obj\Debug\Sisteg_Dashboard.Main.resources
+C:\Users\Wesley Ribeiro\source\repos\Sisteg Dashboard\Sisteg Dashboard\obj\Debug\Sisteg_Dashboard.AddExpense.resources
