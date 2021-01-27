@@ -95,6 +95,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Account.cs" />
+    <Compile Include="AddClient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddClient.Designer.cs">
+      <DependentUpon>AddClient.cs</DependentUpon>
+    </Compile>
     <Compile Include="AddExpense.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -113,11 +119,12 @@
     <Compile Include="Budget.Designer.cs">
       <DependentUpon>Budget.cs</DependentUpon>
     </Compile>
-    <Compile Include="Client.cs">
+    <Compile Include="Client.cs" />
+    <Compile Include="ClientForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Client.Designer.cs">
-      <DependentUpon>Client.cs</DependentUpon>
+    <Compile Include="ClientForm.Designer.cs">
+      <DependentUpon>ClientForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Config.cs">
       <SubType>Form</SubType>
@@ -148,6 +155,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AddClient.resx">
+      <DependentUpon>AddClient.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AddExpense.resx">
       <DependentUpon>AddExpense.cs</DependentUpon>
     </EmbeddedResource>
@@ -157,8 +167,8 @@
     <EmbeddedResource Include="Budget.resx">
       <DependentUpon>Budget.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Client.resx">
-      <DependentUpon>Client.cs</DependentUpon>
+    <EmbeddedResource Include="ClientForm.resx">
+      <DependentUpon>ClientForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Config.resx">
       <DependentUpon>Config.cs</DependentUpon>
@@ -322,6 +332,57 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="assets\img\homepage-sisteg-noExpenses.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\img\client-sisteg-bg.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\img\btn\btn-payParcel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\img\btn\btn_modify.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edit-button %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\img\note.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\img\note %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\img\btn\btn_payParcel_active.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\img\btn\btn_payRepeat.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\img\btn\btn_payRepeat_active.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\img\btn\btn_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\img\btn\btn_add_active.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\img\btn\btn_modify_active.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\img\edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edit-button %281%291.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edit %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\img\btn\btn_clientRegister.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\img\btn\btn_clientRegister_active.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

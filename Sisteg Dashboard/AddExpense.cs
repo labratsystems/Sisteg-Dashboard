@@ -14,8 +14,11 @@ namespace Sisteg_Dashboard
 {
     public partial class AddExpense : Form
     {
+        //DECLARAÇÃO DE VARIÁVEIS
         private static DataTable dataTableExpense;
         private static int idDespesa;
+
+        //INICIA INSTÂNCIA DO PAINEL CONJUNTO À UM DATABASE DE DESPESAS PARA ATUALIZAÇÃO E EXCLUSÃO, QUE PODE SER NULO EM CASO DE CADASTRO
         public AddExpense(DataTable dataTable)
         {
             InitializeComponent();
@@ -35,30 +38,12 @@ namespace Sisteg_Dashboard
 
                     this.txt_expenseObservations.Text = dataRow.ItemArray[6].ToString();
 
-                    if (Convert.ToBoolean(dataRow.ItemArray[7]) == true)
-                    {
-                        this.ckb_expenseReceived.Checked = true;
-                    }
-                    else
-                    {
-                        this.ckb_expenseReceived.Checked = false;
-                    }
-
+                    if (Convert.ToBoolean(dataRow.ItemArray[7]) == true) { this.ckb_expenseReceived.Checked = true; } else { this.ckb_expenseReceived.Checked = false; }
                     if (Convert.ToBoolean(dataRow.ItemArray[8]) == true)
                     {
                         this.ckb_repeatOrParcelValue.Checked = true;
-                        int selected = -1;
-                        int count = this.cbb_period.Items.Count;
-                        for (int i = 0; (i <= (count - 1)); i++)
-                        {
-                            this.cbb_period.selectedIndex = i;
-                            if ((string)(this.cbb_period.selectedValue) == dataRow.ItemArray[13].ToString())
-                            {
-                                selected = i;
-                                break;
-                            }
-                        }
-                        this.cbb_period.selectedIndex = selected;
+                        int indexPeriod = cbb_period.FindString(dataRow.ItemArray[13].ToString());
+                        this.cbb_period.SelectedIndex = indexPeriod;
                     }
                     else
                     {
@@ -129,6 +114,7 @@ namespace Sisteg_Dashboard
             }
         }
 
+        //EVITA TREMULAÇÃO DE COMPONENTES
         protected override CreateParams CreateParams
         {
             get
@@ -139,6 +125,7 @@ namespace Sisteg_Dashboard
             }
         }
 
+        //CADASTRAR DESPESA
         private void pcb_expenseRegister_MouseEnter(object sender, EventArgs e)
         {
             this.pcb_expenseRegister.Image = Properties.Resources.btn_expenseRegister_active;
@@ -163,14 +150,7 @@ namespace Sisteg_Dashboard
                 }
                 else
                 {
-                    if (valorDespesa.Contains("R$"))
-                    {
-                        expense.valorDespesa = Convert.ToDecimal(valorDespesa.Substring(2));
-                    }
-                    else
-                    {
-                        expense.valorDespesa = Convert.ToDecimal(txt_expenseValue.Text);
-                    }
+                    if (valorDespesa.Contains("R$")) { expense.valorDespesa = Convert.ToDecimal(valorDespesa.Substring(2)); } else { expense.valorDespesa = Convert.ToDecimal(txt_expenseValue.Text); }
                 }
             }
             else
@@ -179,25 +159,10 @@ namespace Sisteg_Dashboard
             }
             expense.descricaoDespesa = txt_expenseDescription.Text;
             expense.dataTransacao = Convert.ToDateTime(dtp_expenseDate.Text);
-            expense.categoriaDespesa = cbb_expenseCategory.selectedValue.ToString();
+            expense.categoriaDespesa = cbb_expenseCategory.SelectedValue.ToString();
             expense.observacoesDespesa = txt_expenseObservations.Text;
-            if (ckb_expenseReceived.Checked)
-            {
-                expense.pagamentoConfirmado = true;
-            }
-            else
-            {
-                expense.pagamentoConfirmado = false;
-            }
-
-            if (ckb_repeatOrParcelValue.Checked)
-            {
-                expense.repetirParcelarDespesa = true;
-            }
-            else
-            {
-                expense.repetirParcelarDespesa = false;
-            }
+            if (ckb_expenseReceived.Checked) { expense.pagamentoConfirmado = true; } else { expense.pagamentoConfirmado = false; }
+            if (ckb_repeatOrParcelValue.Checked) { expense.repetirParcelarDespesa = true; } else { expense.repetirParcelarDespesa = false; }
 
             if (rbtn_fixedValue.Checked)
             {
@@ -219,7 +184,7 @@ namespace Sisteg_Dashboard
                 expense.parcelarValorDespesa = false;
             }
 
-            expense.periodoRepetirParcelarDespesa = cbb_period.selectedValue.ToString();
+            expense.periodoRepetirParcelarDespesa = cbb_period.SelectedValue.ToString();
 
             if (Database.newExpense(expense))
             {
@@ -236,18 +201,8 @@ namespace Sisteg_Dashboard
                 this.lbl_parcelValue.Hide();
                 this.rbtn_parcelValue.Checked = false;
                 this.txt_repeatsOrParcels.Hide();
-                int selected = -1;
-                int count = this.cbb_period.Items.Count;
-                for (int i = 0; (i <= (count - 1)); i++)
-                {
-                    this.cbb_period.selectedIndex = i;
-                    if ((string)(this.cbb_period.selectedValue) == "Mensal")
-                    {
-                        selected = i;
-                        break;
-                    }
-                }
-                this.cbb_period.selectedIndex = selected;
+                int indexPeriod = this.cbb_period.FindString("Mensal");
+                this.cbb_period.SelectedIndex = indexPeriod;
                 this.cbb_period.Hide();
                 this.txt_expenseValue.Focus();
                 this.txt_expenseValue.Select();
@@ -258,6 +213,7 @@ namespace Sisteg_Dashboard
             }
         }
 
+        //ATUALIZAR DESPESA
         private void pcb_btnUpdate_MouseEnter(object sender, EventArgs e)
         {
             this.pcb_btnUpdate.Image = Properties.Resources.btn_edit_active;
@@ -283,14 +239,7 @@ namespace Sisteg_Dashboard
                 }
                 else
                 {
-                    if (valorDespesa.Contains("R$"))
-                    {
-                        expense.valorDespesa = Convert.ToDecimal(valorDespesa.Substring(2));
-                    }
-                    else
-                    {
-                        expense.valorDespesa = Convert.ToDecimal(txt_expenseValue.Text);
-                    }
+                    if (valorDespesa.Contains("R$")) { expense.valorDespesa = Convert.ToDecimal(valorDespesa.Substring(2)); } else { expense.valorDespesa = Convert.ToDecimal(txt_expenseValue.Text); }
                 }
             }
             else
@@ -299,26 +248,10 @@ namespace Sisteg_Dashboard
             }
             expense.descricaoDespesa = txt_expenseDescription.Text;
             expense.dataTransacao = Convert.ToDateTime(dtp_expenseDate.Text);
-            expense.categoriaDespesa = cbb_expenseCategory.selectedValue.ToString();
+            expense.categoriaDespesa = cbb_expenseCategory.SelectedValue.ToString();
             expense.observacoesDespesa = txt_expenseObservations.Text;
-            if (ckb_expenseReceived.Checked)
-            {
-                expense.pagamentoConfirmado = true;
-            }
-            else
-            {
-                expense.pagamentoConfirmado = false;
-            }
-
-            if (ckb_repeatOrParcelValue.Checked)
-            {
-                expense.repetirParcelarDespesa = true;
-            }
-            else
-            {
-                expense.repetirParcelarDespesa = false;
-            }
-
+            if (ckb_expenseReceived.Checked) { expense.pagamentoConfirmado = true; } else { expense.pagamentoConfirmado = false; }
+            if (ckb_repeatOrParcelValue.Checked) { expense.repetirParcelarDespesa = true; } else { expense.repetirParcelarDespesa = false; }
             if (rbtn_fixedValue.Checked)
             {
                 expense.valorFixoDespesa = true;
@@ -328,7 +261,6 @@ namespace Sisteg_Dashboard
             {
                 expense.valorFixoDespesa = false;
             }
-
             if (rbtn_parcelValue.Checked)
             {
                 expense.parcelarValorDespesa = true;
@@ -338,9 +270,7 @@ namespace Sisteg_Dashboard
             {
                 expense.parcelarValorDespesa = false;
             }
-
-            expense.periodoRepetirParcelarDespesa = cbb_period.selectedValue.ToString();
-
+            expense.periodoRepetirParcelarDespesa = cbb_period.SelectedValue.ToString();
             if (Database.updateExpense(expense))
             {
                 MessageBox.Show("Despesa atualizada com suceso!");
@@ -353,6 +283,7 @@ namespace Sisteg_Dashboard
             }
         }
 
+        //EXCLUIR DESPESA
         private void pcb_btnDelete_MouseEnter(object sender, EventArgs e)
         {
             this.pcb_btnDelete.Image = Properties.Resources.btn_delete_active;
@@ -367,14 +298,7 @@ namespace Sisteg_Dashboard
         {
             Expense expense = new Expense();
             expense.idDespesa = idDespesa;
-            if (Database.deleteExpense(expense))
-            {
-                MessageBox.Show("Despesa excluída com suceso!");
-            }
-            else
-            {
-                MessageBox.Show("Não foi possível excluída despesa!");
-            }
+            if (Database.deleteExpense(expense)) { MessageBox.Show("Despesa excluída com suceso!"); } else { MessageBox.Show("Não foi possível excluída despesa!"); }
             if (Application.OpenForms.OfType<Main>().Count() == 0)
             {
                 Main main = new Main();
@@ -383,6 +307,7 @@ namespace Sisteg_Dashboard
             }
         }
 
+        //CANCELAR CADASTRO OU EDIÇÃO
         private void pcb_btnCancel_MouseEnter(object sender, EventArgs e)
         {
             this.pcb_btnCancel.Image = Properties.Resources.btn_cancel_active;
@@ -403,11 +328,13 @@ namespace Sisteg_Dashboard
             }
         }
 
+        //ENCERRAR APLICAÇÃO
         private void pcb_appClose_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
 
+        //FORMATAÇÃO DOS COMPONENTES DO FORMULÁRIO
         private void dtp_expenseDate_MouseEnter(object sender, EventArgs e)
         {
             this.dtp_expenseDate.BackColor = Color.FromArgb(0, 104, 232);
@@ -422,6 +349,7 @@ namespace Sisteg_Dashboard
         {
             if (ckb_repeatOrParcelValue.Checked)
             {
+                this.panel_expense.AutoScrollMinSize = new Size(425, 520);
                 this.rbtn_fixedValue.Show();
                 this.rbtn_fixedValue.Checked = true;
                 this.lbl_fixedValue.Show();
@@ -432,6 +360,7 @@ namespace Sisteg_Dashboard
             }
             else
             {
+                this.panel_expense.AutoScrollMinSize = new Size(425, 347);
                 this.rbtn_fixedValue.Hide();
                 this.lbl_fixedValue.Hide();
                 this.rbtn_fixedValue.Checked = false;
@@ -445,31 +374,18 @@ namespace Sisteg_Dashboard
 
         private void rbtn_fixedValue_CheckedChanged(object sender, EventArgs e)
         {
-            if (rbtn_fixedValue.Checked)
-            {
-                this.txt_repeatsOrParcels.PlaceholderText = "Repetições";
-            }
+            if (rbtn_fixedValue.Checked) { this.txt_repeatsOrParcels.PlaceholderText = "Repetições"; }
         }
 
         private void rbtn_parcelValue_CheckedChanged(object sender, EventArgs e)
         {
-            if (rbtn_parcelValue.Checked)
-            {
-                this.txt_repeatsOrParcels.PlaceholderText = "Parcelas";
-            }
+            if (rbtn_parcelValue.Checked) { this.txt_repeatsOrParcels.PlaceholderText = "Parcelas"; }
         }
 
         private void txt_expenseValue_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.') && (e.KeyChar != ',') && (e.KeyChar != 'R') && (e.KeyChar != '$') && (e.KeyChar != ' '))
-            {
-                e.Handled = true;
-            }
-
-            if ((e.KeyChar == ',') && ((sender as TextBox).Text.IndexOf(',') > -1))
-            {
-                e.Handled = true;
-            }
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.') && (e.KeyChar != ',') && (e.KeyChar != 'R') && (e.KeyChar != '$') && (e.KeyChar != ' ')) { e.Handled = true; }
+            if ((e.KeyChar == ',') && ((sender as TextBox).Text.IndexOf(',') > -1)) { e.Handled = true; }
         }
     }
 }

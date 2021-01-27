@@ -118,27 +118,6 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="txt_repeatsOrParcels.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAAMgAAAAjCAYAAADR20XfAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAA9SURBVHhe7cMxEQAwCASwGkRznfHsKGBI7vIAAAAAAAAA
-        AAAAAAAAAAAAAAAAAAAAAAAAALimun8lUfdkACmSka1pfhi/AAAAAElFTkSuQmCC
-</value>
-  </data>
-  <data name="txt_expenseObservations.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAAMgAAAAjCAYAAADR20XfAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAA9SURBVHhe7cMxEQAwCASwGkRznfHsKGBI7vIAAAAAAAAA
-        AAAAAAAAAAAAAAAAAAAAAAAAALimun8lUfdkACmSka1pfhi/AAAAAElFTkSuQmCC
-</value>
-  </data>
-  <data name="txt_expenseDescription.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAAMgAAAAjCAYAAADR20XfAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAA9SURBVHhe7cMxEQAwCASwGkRznfHsKGBI7vIAAAAAAAAA
-        AAAAAAAAAAAAAAAAAAAAAAAAALimun8lUfdkACmSka1pfhi/AAAAAElFTkSuQmCC
-</value>
-  </data>
   <data name="pcb_btnUpdate.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAUgAAABHCAYAAABlNd5SAAAABGdBTUEAALGPC/xhBQAAABl0RVh0U29m
@@ -336,6 +315,38 @@
         61m+BWKz1usAAAAASUVORK5CYII=
 </value>
   </data>
+  <data name="txt_expenseValue.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAASwAAAAjCAYAAAAuXDcUAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABKSURBVHhe7cMxEQAwCASwGkRznfGYYGBI7vIAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABgR3X/SqJ6ezJK1dqkbSYzowAAAABJRU5ErkJg
+        gg==
+</value>
+  </data>
+  <data name="txt_expenseObservations.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAASwAAAAjCAYAAAAuXDcUAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABKSURBVHhe7cMxEQAwCASwGkRznfGYYGBI7vIAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABgR3X/SqJ6ezJK1dqkbSYzowAAAABJRU5ErkJg
+        gg==
+</value>
+  </data>
+  <data name="txt_expenseDescription.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAASwAAAAjCAYAAAAuXDcUAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABKSURBVHhe7cMxEQAwCASwGkRznfGYYGBI7vIAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABgR3X/SqJ6ezJK1dqkbSYzowAAAABJRU5ErkJg
+        gg==
+</value>
+  </data>
+  <data name="txt_repeatsOrParcels.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAASwAAAAjCAYAAAAuXDcUAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABKSURBVHhe7cMxEQAwCASwGkRznfGYYGBI7vIAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABgR3X/SqJ6ezJK1dqkbSYzowAAAABJRU5ErkJg
+        gg==
+</value>
+  </data>
   <data name="dtp_expenseDate.Icon" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
@@ -347,13 +358,6 @@
         cO3Q9i+TxhJYj3MWyTO1r74TwfjRuEtZnwXrcdlE8lCXdAS8YZ0Pc0P2OjuADayNBtB/SueE7zLAPHcE
         NrA2OoJacpdwCvr9Jawl9zHMEX0M16Dqi2gNqr6K1wIb6nciF/Cs3lyDcy3/OW6ab4sIoT3XqUa6AAAA
         AElFTkSuQmCC
-</value>
-  </data>
-  <data name="txt_expenseValue.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAAMgAAAAjCAYAAADR20XfAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAA9SURBVHhe7cMxEQAwCASwGkRznfHsKGBI7vIAAAAAAAAA
-        AAAAAAAAAAAAAAAAAAAAAAAAALimun8lUfdkACmSka1pfhi/AAAAAElFTkSuQmCC
 </value>
   </data>
 </root>

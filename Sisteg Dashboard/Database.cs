@@ -19,25 +19,6 @@ namespace Sisteg_Dashboard
             return connection;
         }
 
-        public static DataTable readTransactions(string query)
-        {
-            SQLiteDataAdapter dataAdapter = null;
-            DataTable dataTable = new DataTable();
-            try
-            {
-                var connection = databaseConnection();
-                var command = databaseConnection().CreateCommand();
-                command.CommandText = query;
-                dataAdapter = new SQLiteDataAdapter(command.CommandText, databaseConnection());
-                dataAdapter.Fill(dataTable);
-                connection.Close();
-                return dataTable;
-            }catch(Exception exception)
-            {
-                throw exception;
-            }
-        }
-
         public static Boolean checkIfItIsExpense(string id, string value, string date, string category)
         {
             DataTable dataTable = new DataTable();
@@ -90,7 +71,7 @@ namespace Sisteg_Dashboard
                 connection.Close();
                 return dataTable;
             }
-            catch (Exception exception)
+            catch(Exception exception)
             {
                 throw exception;
             }
@@ -124,7 +105,6 @@ namespace Sisteg_Dashboard
             }catch(Exception exception)
             {
                 throw exception;
-                return false;
             }
         }
 
@@ -161,7 +141,6 @@ namespace Sisteg_Dashboard
             catch (Exception exception)
             {
                 throw exception;
-                return false;
             }
         }
 
@@ -183,7 +162,6 @@ namespace Sisteg_Dashboard
             catch (Exception exception)
             {
                 throw exception;
-                return false;
             }
         }
 
@@ -216,7 +194,6 @@ namespace Sisteg_Dashboard
             catch (Exception exception)
             {
                 throw exception;
-                return false;
             }
         }
 
@@ -253,7 +230,6 @@ namespace Sisteg_Dashboard
             catch (Exception exception)
             {
                 throw exception;
-                return false;
             }
         }
 
@@ -275,7 +251,88 @@ namespace Sisteg_Dashboard
             catch (Exception exception)
             {
                 throw exception;
-                return false;
+            }
+        }
+
+        public static Boolean newClient(Client client)
+        {
+            try
+            {
+                var connection = databaseConnection();
+                var command = databaseConnection().CreateCommand();
+                command.CommandText = "INSERT INTO cliente (nomeCliente, enderecoCliente, numeroResidencia, cidadeCliente, estadoCliente, primeiroTelefoneCliente, tipoPrimeiroTelefoneCliente, segundoTelefoneCliente, tipoSegundoTelefoneCliente, terceirotelefoneCliente, tipoTerceiroTelefoneCliente) VALUES (@nomeCliente, @enderecoCliente, @numeroResidencia, @cidadeCliente, @estadoCliente, @primeiroTelefoneCliente, @tipoPrimeiroTelefoneCliente, @segundoTelefoneCliente, @tipoSegundoTelefoneCliente, @terceiroTelefoneCliente, @tipoTerceiroTelefoneCliente)";
+                command.Parameters.AddWithValue("@idCliente", client.idCliente);
+                command.Parameters.AddWithValue("@nomeCliente", client.nomeCliente);
+                command.Parameters.AddWithValue("@enderecoCliente", client.enderecoCliente);
+                command.Parameters.AddWithValue("@numeroResidencia", client.numeroResidencia);
+                command.Parameters.AddWithValue("@cidadeCliente", client.cidadeCliente);
+                command.Parameters.AddWithValue("@estadoCliente", client.estadoCliente);
+                command.Parameters.AddWithValue("@primeiroTelefoneCliente", client.primeiroTelefoneCliente);
+                command.Parameters.AddWithValue("@tipoPrimeiroTelefoneCliente", client.tipoPrimeiroTelefoneCliente);
+                command.Parameters.AddWithValue("@segundoTelefoneCliente", client.segundoTelefoneCliente);
+                command.Parameters.AddWithValue("@tipoSegundoTelefoneCliente", client.tipoSegundoTelefoneCliente);
+                command.Parameters.AddWithValue("@terceiroTelefoneCliente", client.terceiroTelefoneCliente);
+                command.Parameters.AddWithValue("@tipoTerceiroTelefoneCliente", client.tipoTerceiroTelefoneCliente);
+                command.ExecuteNonQuery();
+                connection.Close();
+                return true;
+            }
+            catch (Exception exception)
+            {
+                throw exception;
+            }
+        }
+
+        public static Boolean updateClient(Client client)
+        {
+            SQLiteDataAdapter dataAdapter = null;
+            DataTable dataTable = new DataTable();
+            try
+            {
+                var connection = databaseConnection();
+                var command = databaseConnection().CreateCommand();
+                command.CommandText = "UPDATE cliente SET nomeCliente = @nomeCliente, enderecoCliente = @enderecoCliente, numeroResidencia = @numeroResidencia, cidadeCliente = @cidadeCliente, estadoCliente = @estadoCliente, primeiroTelefoneCliente = @primeiroTelefoneCliente, tipoPrimeiroTelefoneCliente = @tipoPrimeiroTelefoneCliente, segundoTelefoneCliente = @segundoTelefoneCliente, tipoSegundoTelefoneCliente = @tipoSegundoTelefoneCliente, terceiroTelefoneCliente = @terceiroTelefoneCliente, tipoTerceiroTelefoneCliente = @tipoTerceiroTelefoneCliente WHERE idCliente = @idCliente;";
+                command.Parameters.AddWithValue("@nomeCliente", client.nomeCliente);
+                command.Parameters.AddWithValue("@enderecoCliente", client.enderecoCliente);
+                command.Parameters.AddWithValue("@numeroResidencia", client.numeroResidencia);
+                command.Parameters.AddWithValue("@cidadeCliente", client.cidadeCliente);
+                command.Parameters.AddWithValue("@estadoCliente", client.estadoCliente);
+                command.Parameters.AddWithValue("@idCliente", client.idCliente);
+                command.Parameters.AddWithValue("@primeiroTelefoneCliente", client.primeiroTelefoneCliente);
+                command.Parameters.AddWithValue("@tipoPrimeiroTelefoneCliente", client.tipoPrimeiroTelefoneCliente);
+                command.Parameters.AddWithValue("@segundoTelefoneCliente", client.segundoTelefoneCliente);
+                command.Parameters.AddWithValue("@tipoSegundoTelefoneCliente", client.tipoSegundoTelefoneCliente);
+                command.Parameters.AddWithValue("@terceiroTelefoneCliente", client.terceiroTelefoneCliente);
+                command.Parameters.AddWithValue("@tipoTerceiroTelefoneCliente", client.tipoTerceiroTelefoneCliente);
+                dataAdapter = new SQLiteDataAdapter(command.CommandText, connection);
+                command.ExecuteNonQuery();
+                connection.Close();
+                return true;
+            }
+            catch (Exception exception)
+            {
+                throw exception;
+            }
+        }
+
+        public static Boolean deleteClient(Client client)
+        {
+            SQLiteDataAdapter dataAdapter = null;
+            DataTable dataTable = new DataTable();
+            try
+            {
+                var connection = databaseConnection();
+                var commandClient = databaseConnection().CreateCommand();
+                commandClient.CommandText = "DELETE FROM cliente WHERE idCliente = @idCliente;";
+                commandClient.Parameters.AddWithValue("@idCliente", client.idCliente);
+                dataAdapter = new SQLiteDataAdapter(commandClient.CommandText, connection);
+                commandClient.ExecuteNonQuery();
+                connection.Close();
+                return true;
+            }
+            catch (Exception exception)
+            {
+                throw exception;
             }
         }
     }

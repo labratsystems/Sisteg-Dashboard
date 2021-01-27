@@ -20,6 +20,8 @@ namespace Sisteg_Dashboard
         {
             InitializeComponent();
             dataTableIncome = dataTable;
+            this.panel_income.VerticalScroll.Enabled = false;
+            this.panel_income.VerticalScroll.Visible = false;
             this.txt_incomeValue.Focus();
             this.txt_incomeValue.Select();
             if (dataTableIncome != null)
@@ -51,14 +53,14 @@ namespace Sisteg_Dashboard
                         int count = this.cbb_period.Items.Count;
                         for(int i = 0; (i <= (count -1)); i++)
                         {
-                            this.cbb_period.selectedIndex = i;
-                            if((string)(this.cbb_period.selectedValue) == dataRow.ItemArray[13].ToString())
+                            this.cbb_period.SelectedIndex = i;
+                            if((string)(this.cbb_period.SelectedValue) == dataRow.ItemArray[13].ToString())
                             {
                                 selected = i;
                                 break;
                             }
                         }
-                        this.cbb_period.selectedIndex = selected;
+                        this.cbb_period.SelectedIndex = selected;
                     }
                     else
                     {
@@ -179,7 +181,7 @@ namespace Sisteg_Dashboard
             }
             income.descricaoReceita = txt_incomeDescription.Text;
             income.dataTransacao = Convert.ToDateTime(dtp_incomeDate.Text);
-            income.categoriaReceita = cbb_incomeCategory.selectedValue.ToString();
+            income.categoriaReceita = cbb_incomeCategory.SelectedValue.ToString();
             income.observacoesReceita = txt_incomeObservations.Text;
             if (ckb_incomeReceived.Checked)
             {
@@ -219,7 +221,7 @@ namespace Sisteg_Dashboard
                 income.parcelarValorReceita = false;
             }
 
-            income.periodoRepetirParcelarReceita = cbb_period.selectedValue.ToString();
+            income.periodoRepetirParcelarReceita = cbb_period.SelectedValue.ToString();
 
             if (Database.newIncome(income))
             {
@@ -240,14 +242,14 @@ namespace Sisteg_Dashboard
                 int count = this.cbb_period.Items.Count;
                 for (int i = 0; (i <= (count - 1)); i++)
                 {
-                    this.cbb_period.selectedIndex = i;
-                    if ((string)(this.cbb_period.selectedValue) == "Mensal")
+                    this.cbb_period.SelectedIndex = i;
+                    if ((string)(this.cbb_period.SelectedValue) == "Mensal")
                     {
                         selected = i;
                         break;
                     }
                 }
-                this.cbb_period.selectedIndex = selected;
+                this.cbb_period.SelectedIndex = selected;
                 this.cbb_period.Hide();
                 this.txt_incomeValue.Focus();
                 this.txt_incomeValue.Select();
@@ -299,7 +301,7 @@ namespace Sisteg_Dashboard
             }
             income.descricaoReceita = txt_incomeDescription.Text;
             income.dataTransacao = Convert.ToDateTime(dtp_incomeDate.Text);
-            income.categoriaReceita = cbb_incomeCategory.selectedValue.ToString();
+            income.categoriaReceita = cbb_incomeCategory.SelectedValue.ToString();
             income.observacoesReceita = txt_incomeObservations.Text;
             if (ckb_incomeReceived.Checked)
             {
@@ -339,7 +341,7 @@ namespace Sisteg_Dashboard
                 income.parcelarValorReceita = false;
             }
 
-            income.periodoRepetirParcelarReceita = cbb_period.selectedValue.ToString();
+            income.periodoRepetirParcelarReceita = cbb_period.SelectedValue.ToString();
 
             if (Database.updateIncome(income))
             {
@@ -424,11 +426,15 @@ namespace Sisteg_Dashboard
             {
                 this.rbtn_fixedValue.Show();
                 this.rbtn_fixedValue.Checked = true;
+                this.rbtn_fixedValue.Location = new Point(14, 315);
                 this.lbl_fixedValue.Show();
                 this.rbtn_parcelValue.Show();
+                this.rbtn_parcelValue.Location = new Point(14, 351);
                 this.lbl_parcelValue.Show();
                 this.txt_repeatsOrParcels.Show();
+                this.txt_repeatsOrParcels.Location = new Point(16, 385);
                 this.cbb_period.Show();
+                this.cbb_period.Location = new Point(16, 431);
             }
             else
             {

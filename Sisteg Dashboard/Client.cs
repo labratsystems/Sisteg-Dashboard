@@ -1,111 +1,24 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace Sisteg_Dashboard
 {
-    public partial class Client : Form
+    class Client
     {
-        public Client()
-        {
-            InitializeComponent();
-        }
-
-        protected override CreateParams CreateParams
-        {
-            get
-            {
-                CreateParams handlerparam = base.CreateParams;
-                handlerparam.ExStyle |= 0x02000000;
-                return handlerparam;
-            }
-        }
-
-        private void pcb_btnMain_MouseEnter(object sender, EventArgs e)
-        {
-            this.pcb_btnMain.Image = Properties.Resources.btn_main_active;
-        }
-
-        private void pcb_btnMain_MouseLeave(object sender, EventArgs e)
-        {
-            this.pcb_btnMain.Image = Properties.Resources.btn_main;
-        }
-
-        private void pcb_btnMain_Click(object sender, EventArgs e)
-        {
-            if (Application.OpenForms.OfType<Main>().Count() == 0)
-            {
-                Main main = new Main();
-                main.Show();
-                this.Close();
-            }
-        }
-
-        private void pcb_btnProduct_MouseEnter(object sender, EventArgs e)
-        {
-            this.pcb_btnProduct.Image = Properties.Resources.btn_product_active;
-        }
-
-        private void pcb_btnProduct_MouseLeave(object sender, EventArgs e)
-        {
-            this.pcb_btnProduct.Image = Properties.Resources.btn_product;
-        }
-
-        private void pcb_btnProduct_Click(object sender, EventArgs e)
-        {
-            if (Application.OpenForms.OfType<Product>().Count() == 0)
-            {
-                Product product = new Product();
-                product.Show();
-                this.Close();
-            }
-        }
-
-        private void pcb_btnBudget_MouseEnter(object sender, EventArgs e)
-        {
-            this.pcb_btnBudget.Image = Properties.Resources.btn_budget_active;
-        }
-
-        private void pcb_btnBudget_MouseLeave(object sender, EventArgs e)
-        {
-            this.pcb_btnBudget.Image = Properties.Resources.btn_budget;
-        }
-
-        private void pcb_btnBudget_Click(object sender, EventArgs e)
-        {
-            if (Application.OpenForms.OfType<Budget>().Count() == 0)
-            {
-                Budget budget = new Budget();
-                budget.Show();
-                this.Close();
-            }
-        }
-
-        private void pcb_btnConfig_MouseEnter(object sender, EventArgs e)
-        {
-            this.pcb_btnConfig.Image = Properties.Resources.btn_config_active;
-        }
-
-        private void pcb_btnConfig_MouseLeave(object sender, EventArgs e)
-        {
-            this.pcb_btnConfig.Image = Properties.Resources.btn_config;
-        }
-
-        private void pcb_btnConfig_Click(object sender, EventArgs e)
-        {
-            if (Application.OpenForms.OfType<Config>().Count() == 0)
-            {
-                Config config = new Config();
-                config.Show();
-                this.Close();
-            }
-        }
+        public Int32 idCliente;
+        public string nomeCliente;
+        public string enderecoCliente;
+        public string numeroResidencia;
+        public string cidadeCliente;
+        public string estadoCliente;
+        public string primeiroTelefoneCliente;
+        public string tipoPrimeiroTelefoneCliente;
+        public string segundoTelefoneCliente;
+        public string tipoSegundoTelefoneCliente;
+        public string terceiroTelefoneCliente;
+        public string tipoTerceiroTelefoneCliente;
     }
 }

@@ -59,9 +59,9 @@ namespace Sisteg_Dashboard
 
         private void pcb_btnClient_Click(object sender, EventArgs e)
         {
-            if (Application.OpenForms.OfType<Client>().Count() == 0)
+            if (Application.OpenForms.OfType<ClientForm>().Count() == 0)
             {
-                Client client = new Client();
+                ClientForm client = new ClientForm();
                 client.Show();
                 this.Close();
             }

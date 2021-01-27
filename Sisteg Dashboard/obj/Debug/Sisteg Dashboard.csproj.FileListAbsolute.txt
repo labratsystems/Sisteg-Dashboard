@@ -22,7 +22,6 @@ C:\Users\Wesley Ribeiro\source\repos\Sisteg Dashboard\Sisteg Dashboard\bin\Debug
 C:\Users\Wesley Ribeiro\source\repos\Sisteg Dashboard\Sisteg Dashboard\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\Wesley Ribeiro\source\repos\Sisteg Dashboard\Sisteg Dashboard\bin\Debug\System.Data.SQLite.xml
 C:\Users\Wesley Ribeiro\source\repos\Sisteg Dashboard\Sisteg Dashboard\obj\Debug\Sisteg Dashboard.csproj.CopyComplete
-C:\Users\Wesley Ribeiro\source\repos\Sisteg Dashboard\Sisteg Dashboard\obj\Debug\Sisteg_Dashboard.Client.resources
 C:\Users\Wesley Ribeiro\source\repos\Sisteg Dashboard\Sisteg Dashboard\obj\Debug\Sisteg_Dashboard.Product.resources
 C:\Users\Wesley Ribeiro\source\repos\Sisteg Dashboard\Sisteg Dashboard\obj\Debug\Sisteg_Dashboard.Budget.resources
 C:\Users\Wesley Ribeiro\source\repos\Sisteg Dashboard\Sisteg Dashboard\obj\Debug\Sisteg_Dashboard.Config.resources
@@ -46,3 +45,5 @@ C:\Users\Wesley Ribeiro\source\repos\Sisteg Dashboard\Sisteg Dashboard\bin\Debug
 C:\Users\Wesley Ribeiro\source\repos\Sisteg Dashboard\Sisteg Dashboard\bin\Debug\Bunifu.UI.WinForms.BunifuTextbox.xml
 C:\Users\Wesley Ribeiro\source\repos\Sisteg Dashboard\Sisteg Dashboard\obj\Debug\Sisteg_Dashboard.Main.resources
 C:\Users\Wesley Ribeiro\source\repos\Sisteg Dashboard\Sisteg Dashboard\obj\Debug\Sisteg_Dashboard.AddExpense.resources
+C:\Users\Wesley Ribeiro\source\repos\Sisteg Dashboard\Sisteg Dashboard\obj\Debug\Sisteg_Dashboard.AddClient.resources
+C:\Users\Wesley Ribeiro\source\repos\Sisteg Dashboard\Sisteg Dashboard\obj\Debug\Sisteg_Dashboard.ClientForm.resources
