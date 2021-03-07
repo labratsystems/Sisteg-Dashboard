@@ -144,14 +144,9 @@ namespace Sisteg_Dashboard
             string valorDespesa = txt_expenseValue.Text;
             if (regexValor.IsMatch(valorDespesa))
             {
-                if (valorDespesa.Contains("R$ "))
-                {
-                    expense.valorDespesa = Convert.ToDecimal(valorDespesa.Substring(3));
-                }
-                else
-                {
-                    if (valorDespesa.Contains("R$")) { expense.valorDespesa = Convert.ToDecimal(valorDespesa.Substring(2)); } else { expense.valorDespesa = Convert.ToDecimal(txt_expenseValue.Text); }
-                }
+                if (valorDespesa.Contains("R$ ")) { expense.valorDespesa = Convert.ToDecimal(valorDespesa.Substring(3)); }
+                else if (valorDespesa.Contains("R$")) { expense.valorDespesa = Convert.ToDecimal(valorDespesa.Substring(2)); } 
+                else { expense.valorDespesa = Convert.ToDecimal(txt_expenseValue.Text); }
             }
             else
             {

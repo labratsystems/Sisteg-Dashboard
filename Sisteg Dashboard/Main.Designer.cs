@@ -66,7 +66,7 @@
             this.pcb_addIncome = new System.Windows.Forms.PictureBox();
             this.pcb_addExpense = new System.Windows.Forms.PictureBox();
             this.pcb_appClose = new System.Windows.Forms.PictureBox();
-            this.pcb_updateIncome = new System.Windows.Forms.PictureBox();
+            this.pcb_updateIncomeOrExpense = new System.Windows.Forms.PictureBox();
             this.pcb_previousMonth = new System.Windows.Forms.PictureBox();
             this.pcb_nextMonth = new System.Windows.Forms.PictureBox();
             this.lbl_noExpenses = new System.Windows.Forms.Label();
@@ -85,7 +85,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pcb_addIncome)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcb_addExpense)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcb_appClose)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pcb_updateIncome)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcb_updateIncomeOrExpense)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcb_previousMonth)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcb_nextMonth)).BeginInit();
             this.SuspendLayout();
@@ -454,18 +454,18 @@
             this.pcb_appClose.TabStop = false;
             this.pcb_appClose.Click += new System.EventHandler(this.pcb_appClose_Click);
             // 
-            // pcb_updateIncome
+            // pcb_updateIncomeOrExpense
             // 
-            this.pcb_updateIncome.BackColor = System.Drawing.Color.Transparent;
-            this.pcb_updateIncome.BackgroundImage = global::Sisteg_Dashboard.Properties.Resources.edit__2_;
-            this.pcb_updateIncome.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pcb_updateIncome.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pcb_updateIncome.Location = new System.Drawing.Point(357, 631);
-            this.pcb_updateIncome.Name = "pcb_updateIncome";
-            this.pcb_updateIncome.Size = new System.Drawing.Size(32, 32);
-            this.pcb_updateIncome.TabIndex = 29;
-            this.pcb_updateIncome.TabStop = false;
-            this.pcb_updateIncome.Click += new System.EventHandler(this.pcb_updateIncome_Click);
+            this.pcb_updateIncomeOrExpense.BackColor = System.Drawing.Color.Transparent;
+            this.pcb_updateIncomeOrExpense.BackgroundImage = global::Sisteg_Dashboard.Properties.Resources.edit__2_;
+            this.pcb_updateIncomeOrExpense.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pcb_updateIncomeOrExpense.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pcb_updateIncomeOrExpense.Location = new System.Drawing.Point(357, 631);
+            this.pcb_updateIncomeOrExpense.Name = "pcb_updateIncomeOrExpense";
+            this.pcb_updateIncomeOrExpense.Size = new System.Drawing.Size(32, 32);
+            this.pcb_updateIncomeOrExpense.TabIndex = 29;
+            this.pcb_updateIncomeOrExpense.TabStop = false;
+            this.pcb_updateIncomeOrExpense.Click += new System.EventHandler(this.pcb_updateIncome_Click);
             // 
             // pcb_previousMonth
             // 
@@ -520,7 +520,7 @@
             this.Controls.Add(this.lbl_noExpenses);
             this.Controls.Add(this.pcb_nextMonth);
             this.Controls.Add(this.pcb_previousMonth);
-            this.Controls.Add(this.pcb_updateIncome);
+            this.Controls.Add(this.pcb_updateIncomeOrExpense);
             this.Controls.Add(this.pcb_appClose);
             this.Controls.Add(this.pcb_addExpense);
             this.Controls.Add(this.pcb_addIncome);
@@ -562,7 +562,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pcb_addIncome)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcb_addExpense)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcb_appClose)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pcb_updateIncome)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcb_updateIncomeOrExpense)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcb_previousMonth)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcb_nextMonth)).EndInit();
             this.ResumeLayout(false);
@@ -590,7 +590,7 @@
         private System.Windows.Forms.PictureBox pcb_addIncome;
         private System.Windows.Forms.PictureBox pcb_addExpense;
         private System.Windows.Forms.PictureBox pcb_appClose;
-        private System.Windows.Forms.PictureBox pcb_updateIncome;
+        private System.Windows.Forms.PictureBox pcb_updateIncomeOrExpense;
         private System.Windows.Forms.PictureBox pcb_previousMonth;
         private System.Windows.Forms.PictureBox pcb_nextMonth;
         private System.Windows.Forms.Label lbl_noExpenses;

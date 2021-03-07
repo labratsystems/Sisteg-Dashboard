@@ -113,6 +113,18 @@
     <Compile Include="AddIncome.Designer.cs">
       <DependentUpon>AddIncome.cs</DependentUpon>
     </Compile>
+    <Compile Include="AddProduct.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddProduct.Designer.cs">
+      <DependentUpon>AddProduct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddSupplier.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddSupplier.Designer.cs">
+      <DependentUpon>AddSupplier.cs</DependentUpon>
+    </Compile>
     <Compile Include="Budget.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -141,11 +153,12 @@
     <Compile Include="Main.Designer.cs">
       <DependentUpon>Main.cs</DependentUpon>
     </Compile>
-    <Compile Include="Product.cs">
+    <Compile Include="Product.cs" />
+    <Compile Include="ProductForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Product.Designer.cs">
-      <DependentUpon>Product.cs</DependentUpon>
+    <Compile Include="ProductForm.Designer.cs">
+      <DependentUpon>ProductForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Splash Screen.cs">
       <SubType>Form</SubType>
@@ -155,6 +168,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Supplier.cs" />
     <EmbeddedResource Include="AddClient.resx">
       <DependentUpon>AddClient.cs</DependentUpon>
     </EmbeddedResource>
@@ -163,6 +177,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AddIncome.resx">
       <DependentUpon>AddIncome.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddProduct.resx">
+      <DependentUpon>AddProduct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddSupplier.resx">
+      <DependentUpon>AddSupplier.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Budget.resx">
       <DependentUpon>Budget.cs</DependentUpon>
@@ -176,8 +196,8 @@
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Product.resx">
-      <DependentUpon>Product.cs</DependentUpon>
+    <EmbeddedResource Include="ProductForm.resx">
+      <DependentUpon>ProductForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Splash Screen.resx">
       <DependentUpon>Splash Screen.cs</DependentUpon>
@@ -383,6 +403,24 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="assets\img\btn\btn_clientRegister_active.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\img\btn\btn_supplierRegister.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\img\btn\btn_productRegister.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\img\btn\btn_productRegister_active.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\img\btn\btn_supplierRegister_active.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\img\client-sisteg-bg-value.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\img\product-sisteg-bg.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

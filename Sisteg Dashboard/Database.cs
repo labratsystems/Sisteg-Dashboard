@@ -12,6 +12,7 @@ namespace Sisteg_Dashboard
     {
         private static SQLiteConnection connection;
 
+        //INICIA CONEXÃO COM BASE NA LOCALIZAÇÃO DO BANCO DE DADOS INTERNO DA APLICAÇÃO
         private static SQLiteConnection databaseConnection()
         {
             connection = new SQLiteConnection("Data Source=C:\\Users\\Wesley Ribeiro\\source\\repos\\Sisteg Dashboard\\Sisteg Dashboard\\database\\sistegDatabase.db");
@@ -19,6 +20,7 @@ namespace Sisteg_Dashboard
             return connection;
         }
 
+        //FUNÇÃO QUE CHECA SE A TRANSAÇÃO CORRESPONDE À UMA RECEITAO OU DESPESA
         public static Boolean checkIfItIsExpense(string id, string value, string date, string category)
         {
             DataTable dataTable = new DataTable();
@@ -43,6 +45,7 @@ namespace Sisteg_Dashboard
             }
         }
 
+        //LISTAR RECEITAS OU DESPESAS
         public static DataTable readExpensesOrIncomes(string query)
         {
             DataTable dataTable = new DataTable();
@@ -57,6 +60,7 @@ namespace Sisteg_Dashboard
             }
         }
 
+        //FUNÇÃO QUE EXECUTA UMA CONSULTA QUALQUER
         public static DataTable query(string query)
         {
             SQLiteDataAdapter dataAdapter = null;
@@ -77,6 +81,7 @@ namespace Sisteg_Dashboard
             }
         }
 
+        //CADASTRAR RECEITA
         public static Boolean newIncome(Income income)
         {
             try
@@ -108,6 +113,7 @@ namespace Sisteg_Dashboard
             }
         }
 
+        //ATUALIZAR RECEITA
         public static Boolean updateIncome(Income income)
         {
             SQLiteDataAdapter dataAdapter = null;
@@ -144,6 +150,7 @@ namespace Sisteg_Dashboard
             }
         }
 
+        //EXCLUIR RECEITA
         public static Boolean deleteIncome(Income income)
         {
             SQLiteDataAdapter dataAdapter = null;
@@ -165,6 +172,7 @@ namespace Sisteg_Dashboard
             }
         }
 
+        //CADASTRAR DESPESA
         public static Boolean newExpense(Expense expense)
         {
             try
@@ -197,6 +205,7 @@ namespace Sisteg_Dashboard
             }
         }
 
+        //ATUALIZAR DESPESA
         public static Boolean updateExpense(Expense expense)
         {
             SQLiteDataAdapter dataAdapter = null;
@@ -233,6 +242,7 @@ namespace Sisteg_Dashboard
             }
         }
 
+        //EXCLUIR DESPESA
         public static Boolean deleteExpense(Expense expense)
         {
             SQLiteDataAdapter dataAdapter = null;
@@ -254,6 +264,7 @@ namespace Sisteg_Dashboard
             }
         }
 
+        //ADICIONAR CLIENTE
         public static Boolean newClient(Client client)
         {
             try
@@ -261,7 +272,6 @@ namespace Sisteg_Dashboard
                 var connection = databaseConnection();
                 var command = databaseConnection().CreateCommand();
                 command.CommandText = "INSERT INTO cliente (nomeCliente, enderecoCliente, numeroResidencia, cidadeCliente, estadoCliente, primeiroTelefoneCliente, tipoPrimeiroTelefoneCliente, segundoTelefoneCliente, tipoSegundoTelefoneCliente, terceirotelefoneCliente, tipoTerceiroTelefoneCliente) VALUES (@nomeCliente, @enderecoCliente, @numeroResidencia, @cidadeCliente, @estadoCliente, @primeiroTelefoneCliente, @tipoPrimeiroTelefoneCliente, @segundoTelefoneCliente, @tipoSegundoTelefoneCliente, @terceiroTelefoneCliente, @tipoTerceiroTelefoneCliente)";
-                command.Parameters.AddWithValue("@idCliente", client.idCliente);
                 command.Parameters.AddWithValue("@nomeCliente", client.nomeCliente);
                 command.Parameters.AddWithValue("@enderecoCliente", client.enderecoCliente);
                 command.Parameters.AddWithValue("@numeroResidencia", client.numeroResidencia);
@@ -283,6 +293,8 @@ namespace Sisteg_Dashboard
             }
         }
 
+
+        //ATUALIZAR CLIENTE
         public static Boolean updateClient(Client client)
         {
             SQLiteDataAdapter dataAdapter = null;
@@ -297,13 +309,13 @@ namespace Sisteg_Dashboard
                 command.Parameters.AddWithValue("@numeroResidencia", client.numeroResidencia);
                 command.Parameters.AddWithValue("@cidadeCliente", client.cidadeCliente);
                 command.Parameters.AddWithValue("@estadoCliente", client.estadoCliente);
-                command.Parameters.AddWithValue("@idCliente", client.idCliente);
                 command.Parameters.AddWithValue("@primeiroTelefoneCliente", client.primeiroTelefoneCliente);
                 command.Parameters.AddWithValue("@tipoPrimeiroTelefoneCliente", client.tipoPrimeiroTelefoneCliente);
                 command.Parameters.AddWithValue("@segundoTelefoneCliente", client.segundoTelefoneCliente);
                 command.Parameters.AddWithValue("@tipoSegundoTelefoneCliente", client.tipoSegundoTelefoneCliente);
                 command.Parameters.AddWithValue("@terceiroTelefoneCliente", client.terceiroTelefoneCliente);
                 command.Parameters.AddWithValue("@tipoTerceiroTelefoneCliente", client.tipoTerceiroTelefoneCliente);
+                command.Parameters.AddWithValue("@idCliente", client.idCliente);
                 dataAdapter = new SQLiteDataAdapter(command.CommandText, connection);
                 command.ExecuteNonQuery();
                 connection.Close();
@@ -315,6 +327,7 @@ namespace Sisteg_Dashboard
             }
         }
 
+        //EXCLUIR CLIENTE
         public static Boolean deleteClient(Client client)
         {
             SQLiteDataAdapter dataAdapter = null;
@@ -325,6 +338,183 @@ namespace Sisteg_Dashboard
                 var commandClient = databaseConnection().CreateCommand();
                 commandClient.CommandText = "DELETE FROM cliente WHERE idCliente = @idCliente;";
                 commandClient.Parameters.AddWithValue("@idCliente", client.idCliente);
+                dataAdapter = new SQLiteDataAdapter(commandClient.CommandText, connection);
+                commandClient.ExecuteNonQuery();
+                connection.Close();
+                return true;
+            }
+            catch (Exception exception)
+            {
+                throw exception;
+            }
+        }
+
+        //CADASTRAR PRODUTO
+        public static Boolean newProduct(Product product)
+        {
+            try
+            {
+                var connection = databaseConnection();
+                var command = databaseConnection().CreateCommand();
+                command.CommandText = "INSERT INTO produto (idFornecedor, nomeProduto, valorUnitario) VALUES (@idFornecedor, @nomeProduto, @valorUnitario)";
+                command.Parameters.AddWithValue("@idFornecedor", product.idFornecedor);
+                command.Parameters.AddWithValue("@nomeProduto", product.nomeProduto);
+                command.Parameters.AddWithValue("@valorUnitario", product.valorUnitario);
+                command.ExecuteNonQuery();
+                connection.Close();
+                return true;
+            }
+            catch (Exception exception)
+            {
+                throw exception;
+            }
+        }
+
+        //ATUALIZAR PRODUTO
+        public static Boolean updateProduct(Product product)
+        {
+            SQLiteDataAdapter dataAdapter = null;
+            DataTable dataTable = new DataTable();
+            try
+            {
+                var connection = databaseConnection();
+                var command = databaseConnection().CreateCommand();
+                command.CommandText = "UPDATE produto SET idFornecedor = @idFornecedor, nomeProduto = @nomeProduto, valorUnitario = @valorUnitario WHERE idProduto = @idProduto;";
+                command.Parameters.AddWithValue("@idFornecedor", product.idFornecedor);
+                command.Parameters.AddWithValue("@nomeProduto", product.nomeProduto);
+                command.Parameters.AddWithValue("@valorUnitario", product.valorUnitario);
+                command.Parameters.AddWithValue("@idProduto", product.idProduto);
+                dataAdapter = new SQLiteDataAdapter(command.CommandText, connection);
+                command.ExecuteNonQuery();
+                connection.Close();
+                return true;
+            }
+            catch (Exception exception)
+            {
+                throw exception;
+            }
+        }
+
+        //EXCLUIR PRODUTO
+        public static Boolean deleteProduct(Product product)
+        {
+            SQLiteDataAdapter dataAdapter = null;
+            DataTable dataTable = new DataTable();
+            try
+            {
+                var connection = databaseConnection();
+                var command = databaseConnection().CreateCommand();
+                command.CommandText = "DELETE FROM produto WHERE idProduto = @idProduto;";
+                command.Parameters.AddWithValue("@idProduto", product.idProduto);
+                dataAdapter = new SQLiteDataAdapter(command.CommandText, connection);
+                command.ExecuteNonQuery();
+                connection.Close();
+                return true;
+            }
+            catch (Exception exception)
+            {
+                throw exception;
+            }
+        }
+
+        //EXCLUIR TODOS OS PRODUTOS
+        public static Boolean deleteAllProducts(Supplier supplier)
+        {
+            SQLiteDataAdapter dataAdapter = null;
+            DataTable dataTable = new DataTable();
+            try
+            {
+                var connection = databaseConnection();
+                var command = databaseConnection().CreateCommand();
+                command.CommandText = "DELETE FROM produto WHERE idFornecedor = @idFornecedor;";
+                command.Parameters.AddWithValue("@idFornecedor", supplier.idFornecedor);
+                dataAdapter = new SQLiteDataAdapter(command.CommandText, connection);
+                command.ExecuteNonQuery();
+                connection.Close();
+                return true;
+            }
+            catch (Exception exception)
+            {
+                throw exception;
+            }
+        }
+
+        //ADICIONAR FORNECEDOR
+        public static Boolean newSupplier(Supplier supplier)
+        {
+            try
+            {
+                var connection = databaseConnection();
+                var command = databaseConnection().CreateCommand();
+                command.CommandText = "INSERT INTO fornecedor (nomeFornecedor, enderecoFornecedor, numeroResidencia, cidadeFornecedor, estadoFornecedor, emailFornecedor, primeiroTelefoneFornecedor, tipoPrimeiroTelefoneFornecedor, segundoTelefoneFornecedor, tipoSegundoTelefoneFornecedor, terceirotelefoneFornecedor, tipoTerceiroTelefoneFornecedor) VALUES (@nomeFornecedor, @enderecoFornecedor, @numeroResidencia, @cidadeFornecedor, @estadoFornecedor, @emailFornecedor, @primeiroTelefoneFornecedor, @tipoPrimeiroTelefoneFornecedor, @segundoTelefoneFornecedor, @tipoSegundoTelefoneFornecedor, @terceiroTelefoneFornecedor, @tipoTerceiroTelefoneFornecedor)";
+                command.Parameters.AddWithValue("@nomeFornecedor", supplier.nomeFornecedor);
+                command.Parameters.AddWithValue("@enderecoFornecedor", supplier.enderecoFornecedor);
+                command.Parameters.AddWithValue("@numeroResidencia", supplier.numeroResidencia);
+                command.Parameters.AddWithValue("@cidadeFornecedor", supplier.cidadeFornecedor);
+                command.Parameters.AddWithValue("@estadoFornecedor", supplier.estadoFornecedor);
+                command.Parameters.AddWithValue("@emailFornecedor", supplier.emailFornecedor);
+                command.Parameters.AddWithValue("@primeiroTelefoneFornecedor", supplier.primeiroTelefoneFornecedor);
+                command.Parameters.AddWithValue("@tipoPrimeiroTelefoneFornecedor", supplier.tipoPrimeiroTelefoneFornecedor);
+                command.Parameters.AddWithValue("@segundoTelefoneFornecedor", supplier.segundoTelefoneFornecedor);
+                command.Parameters.AddWithValue("@tipoSegundoTelefoneFornecedor", supplier.tipoSegundoTelefoneFornecedor);
+                command.Parameters.AddWithValue("@terceiroTelefoneFornecedor", supplier.terceiroTelefoneFornecedor);
+                command.Parameters.AddWithValue("@tipoTerceiroTelefoneFornecedor", supplier.tipoTerceiroTelefoneFornecedor);
+                command.ExecuteNonQuery();
+                connection.Close();
+                return true;
+            }
+            catch (Exception exception)
+            {
+                throw exception;
+            }
+        }
+
+
+        //ATUALIZAR FORNECEDOR
+        public static Boolean updateSupplier(Supplier supplier)
+        {
+            SQLiteDataAdapter dataAdapter = null;
+            DataTable dataTable = new DataTable();
+            try
+            {
+                var connection = databaseConnection();
+                var command = databaseConnection().CreateCommand();
+                command.CommandText = "UPDATE fornecedor SET nomeFornecedor = @nomeFornecedor, enderecoFornecedor = @enderecoFornecedor, numeroResidencia = @numeroResidencia, cidadeFornecedor = @cidadeFornecedor, estadoFornecedor = @estadoFornecedor,  emailFornecedor = @emailFornecedor, primeiroTelefoneFornecedor = @primeiroTelefoneFornecedor, tipoPrimeiroTelefoneFornecedor = @tipoPrimeiroTelefoneFornecedor, segundoTelefoneFornecedor = @segundoTelefoneFornecedor, tipoSegundoTelefoneFornecedor = @tipoSegundoTelefoneFornecedor, terceiroTelefoneFornecedor = @terceiroTelefoneFornecedor, tipoTerceiroTelefoneFornecedor = @tipoTerceiroTelefoneFornecedor WHERE idFornecedor = @idFornecedor;";
+                command.Parameters.AddWithValue("@nomeFornecedor", supplier.nomeFornecedor);
+                command.Parameters.AddWithValue("@enderecoFornecedor", supplier.enderecoFornecedor);
+                command.Parameters.AddWithValue("@numeroResidencia", supplier.numeroResidencia);
+                command.Parameters.AddWithValue("@cidadeFornecedor", supplier.cidadeFornecedor);
+                command.Parameters.AddWithValue("@estadoFornecedor", supplier.estadoFornecedor);
+                command.Parameters.AddWithValue("@emailFornecedor", supplier.emailFornecedor);
+                command.Parameters.AddWithValue("@primeiroTelefoneFornecedor", supplier.primeiroTelefoneFornecedor);
+                command.Parameters.AddWithValue("@tipoPrimeiroTelefoneFornecedor", supplier.tipoPrimeiroTelefoneFornecedor);
+                command.Parameters.AddWithValue("@segundoTelefoneFornecedor", supplier.segundoTelefoneFornecedor);
+                command.Parameters.AddWithValue("@tipoSegundoTelefoneFornecedor", supplier.tipoSegundoTelefoneFornecedor);
+                command.Parameters.AddWithValue("@terceiroTelefoneFornecedor", supplier.terceiroTelefoneFornecedor);
+                command.Parameters.AddWithValue("@tipoTerceiroTelefoneFornecedor", supplier.tipoTerceiroTelefoneFornecedor);
+                command.Parameters.AddWithValue("@idFornecedor", supplier.idFornecedor);
+                dataAdapter = new SQLiteDataAdapter(command.CommandText, connection);
+                command.ExecuteNonQuery();
+                connection.Close();
+                return true;
+            }
+            catch (Exception exception)
+            {
+                throw exception;
+            }
+        }
+
+        //EXCLUIR FORNECEDOR
+        public static Boolean deleteSupplier(Supplier supplier)
+        {
+            SQLiteDataAdapter dataAdapter = null;
+            DataTable dataTable = new DataTable();
+            try
+            {
+                var connection = databaseConnection();
+                var commandClient = databaseConnection().CreateCommand();
+                commandClient.CommandText = "DELETE FROM fornecedor WHERE idFornecedor = @idFornecedor;";
+                commandClient.Parameters.AddWithValue("@idFornecedor", supplier.idFornecedor);
                 dataAdapter = new SQLiteDataAdapter(commandClient.CommandText, connection);
                 commandClient.ExecuteNonQuery();
                 connection.Close();

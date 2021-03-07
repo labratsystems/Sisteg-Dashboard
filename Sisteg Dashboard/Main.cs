@@ -15,6 +15,7 @@ namespace Sisteg_Dashboard
 {
     public partial class Main : Form
     {
+        //DECLARAÇÃO DE VARIÁVEIS
         Color[] myPalette = new Color[6]{
             Color.FromArgb(0, 104, 232),
             Color.FromKnownColor(KnownColor.Transparent),
@@ -26,6 +27,7 @@ namespace Sisteg_Dashboard
         private static int month = 0;
         private static DateTime dateTimeMonth = DateTime.Now;
 
+        //INICIA INSTÂNCIA DO PAINEL, POPULANDO OS GRÁFICOS, TABELAS E INSCRIÇÕES DO QUADRO COM AS INFORMAÇÕES DO BANCO DE DADOS DE ACORDO COM O MÊS
         public Main()
         {
             InitializeComponent();
@@ -43,6 +45,7 @@ namespace Sisteg_Dashboard
             this.renderLabels(this.lbl_monthExpenses, "SELECT SUM(valorDespesa) FROM despesa WHERE despesa.dataTransacao > datetime('now', 'start of month');");
         }
 
+        //EVITA TREMULAÇÃO DE COMPONENTES
         protected override CreateParams CreateParams
         {
             get
@@ -53,6 +56,7 @@ namespace Sisteg_Dashboard
             }
         }
 
+        //MENU DE NAVEGAÇÃO DA APLICAÇÃO
         private void pcb_btnClient_MouseEnter(object sender, EventArgs e)
         {
             this.pcb_btnClient.Image = Properties.Resources.btn_client_active;
@@ -85,10 +89,10 @@ namespace Sisteg_Dashboard
 
         private void pcb_btnProduct_Click(object sender, EventArgs e)
         {
-            if (Application.OpenForms.OfType<Product>().Count() == 0)
+            if (Application.OpenForms.OfType<ProductForm>().Count() == 0)
             {
-                Product product = new Product();
-                product.Show();
+                ProductForm productForm = new ProductForm();
+                productForm.Show();
                 this.Close();
             }
         }
@@ -133,6 +137,7 @@ namespace Sisteg_Dashboard
             }
         }
 
+        //FORMATAÇÃO A TABELA APÓS A DISPOSIÇÃO DOS DADOS
         private void dgv_transactions_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
         {
             dgv_transactions.Columns[1].DefaultCellStyle.Format = "C";
@@ -158,6 +163,7 @@ namespace Sisteg_Dashboard
             dgv_transactions.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
         }
 
+        //FUNÇÃO QUE RENDERIZA OS GRÁFICOS DE PIZZA DE ACORDO COM AS INFORMAÇÕES VINDAS DO BANCO DE DADOS
         private void renderCharts(System.Windows.Forms.DataVisualization.Charting.Chart chart, string query)
         {
             chart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
@@ -181,6 +187,7 @@ namespace Sisteg_Dashboard
             }
         }
 
+        //FUNÇÃO QUE RENDERIZA ESPECIFICAMENTE O GRÁFICO DE LINHA DE DESPESAS DIÁRIAS DE ACORDO COM AS INFORMAÇÕES VINDAS DO BANCO DE DADOS
         private void renderDailyExpensesChart(string query)
         {
             this.chart_dailyExpenses.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
@@ -211,6 +218,7 @@ namespace Sisteg_Dashboard
             }
         }
 
+        //FUNÇÃO QUE RENDERIZA AS INSCRIÇÕES NO QUADRO DE ACORDO COM AS INFORMAÇÕES VINDAS DO BANCO DE DADOS
         private void renderLabels(Label label, string query)
         {
             DataTable dataTable = Database.readExpensesOrIncomes(query);
@@ -227,6 +235,7 @@ namespace Sisteg_Dashboard
             }
         }
 
+        //ADICIONAR RECEITA
         private void pcb_addIncome_Click(object sender, EventArgs e)
         {
             if (Application.OpenForms.OfType<AddIncome>().Count() == 0)
@@ -240,11 +249,7 @@ namespace Sisteg_Dashboard
             }
         }
 
-        private void pcb_appClose_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
+        //ATUALIZAR RECEITA OU DESPESA
         private void pcb_updateIncome_Click(object sender, EventArgs e)
         {
             foreach(DataGridViewRow dataGridViewRow in this.dgv_transactions.SelectedRows)
@@ -276,6 +281,7 @@ namespace Sisteg_Dashboard
             }
         }
 
+        //ADICIONAR DESPESA
         private void pcb_addExpense_Click(object sender, EventArgs e)
         {
             if (Application.OpenForms.OfType<AddExpense>().Count() == 0)
@@ -289,6 +295,13 @@ namespace Sisteg_Dashboard
             }
         }
 
+        //ENCERRAR A APLICAÇÃO
+        private void pcb_appClose_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        //RETORNAR MÊS PARA ATUALIZAÇÃO DOS GRÁFICOS, TABELAS E INSCRIÇÕES NO FORMULÁRIO
         private void pcb_previousMonth_Click(object sender, EventArgs e)
         {
             month = month - 1;
@@ -379,6 +392,7 @@ namespace Sisteg_Dashboard
             }
         }
 
+        //AVANÇAR MÊS PARA ATUALIZAÇÃO DOS GRÁFICOS, TABELAS E INSCRIÇÕES NO FORMULÁRIO
         private void pcb_nextMonth_Click(object sender, EventArgs e)
         {
             month = month + 1;
@@ -469,6 +483,7 @@ namespace Sisteg_Dashboard
             }
         }
 
+        //LIMPAR DADOS DO FORMULÁRIO
         private void clearChartData()
         {
             this.dgv_transactions.DataSource = null;

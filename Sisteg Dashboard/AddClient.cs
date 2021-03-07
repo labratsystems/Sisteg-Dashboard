@@ -22,7 +22,6 @@ namespace Sisteg_Dashboard
             InitializeComponent();
             dataTableClient = dataTable;
             this.txt_clientName.Focus();
-            this.txt_clientName.Select();
             if (dataTableClient != null)
             {
                 foreach (DataRow dataRowClient in dataTableClient.Rows)
@@ -211,7 +210,6 @@ namespace Sisteg_Dashboard
                 client.tipoSegundoTelefoneCliente = cbb_secondTelephoneType.SelectedItem.ToString();
             }else if ((this.cbb_secondTelephoneType.SelectedIndex == -1) && (string.IsNullOrEmpty(this.txt_secondTel.Text)))
             {
-                MessageBox.Show("NULL 2");
                 client.segundoTelefoneCliente = null;
                 client.tipoSegundoTelefoneCliente = null;
             }
@@ -221,7 +219,6 @@ namespace Sisteg_Dashboard
                 client.tipoTerceiroTelefoneCliente = cbb_thirdTelephoneType.SelectedItem.ToString();
             }else if ((this.cbb_thirdTelephoneType.SelectedIndex == -1) && (string.IsNullOrEmpty(this.txt_thirdTel.Text)))
             {
-                MessageBox.Show("NULL 3");
                 client.terceiroTelefoneCliente = null;
                 client.tipoTerceiroTelefoneCliente = null;
             }
@@ -234,7 +231,6 @@ namespace Sisteg_Dashboard
             {
                 MessageBox.Show("Não foi possível atualizar cliente!");
             }
-
         }
 
         //EXCLUSÃO DE CLIENTE
@@ -258,7 +254,7 @@ namespace Sisteg_Dashboard
             }
             else
             {
-                MessageBox.Show("Não foi possível excluir despesa!");
+                MessageBox.Show("Não foi possível excluir cliente!");
             }
             if (Application.OpenForms.OfType<ClientForm>().Count() == 0)
             {
@@ -289,7 +285,7 @@ namespace Sisteg_Dashboard
             }
         }
 
-        //ENCERRAR APLICAÇÃO
+        //ENCERRAR A APLICAÇÃO
         private void pcb_appClose_Click(object sender, EventArgs e)
         {
             Application.Exit();

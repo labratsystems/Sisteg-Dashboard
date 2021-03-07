@@ -90,9 +90,9 @@ namespace Sisteg_Dashboard
 
         private void pcb_btnProduct_Click(object sender, EventArgs e)
         {
-            if (Application.OpenForms.OfType<Product>().Count() == 0)
+            if (Application.OpenForms.OfType<ProductForm>().Count() == 0)
             {
-                Product product = new Product();
+                ProductForm product = new ProductForm();
                 product.Show();
                 this.Close();
             }
