@@ -99,9 +99,9 @@ namespace Sisteg_Dashboard
 
         private void pcb_btnBudget_Click(object sender, EventArgs e)
         {
-            if (Application.OpenForms.OfType<Budget>().Count() == 0)
+            if (Application.OpenForms.OfType<BudgetForm>().Count() == 0)
             {
-                Budget budget = new Budget();
+                BudgetForm budget = new BudgetForm();
                 budget.Show();
                 this.Close();
             }

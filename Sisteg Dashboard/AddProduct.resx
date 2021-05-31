@@ -121,17 +121,19 @@
   <data name="txt_productValue.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAASwAAAAjCAYAAAAuXDcUAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABKSURBVHhe7cMxEQAwCASwGkRznfGYYGBI7vIAAAAAAAAA
-        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABgR3X/SqJ6ezJK1dqkbSYzowAAAABJRU5ErkJg
-        gg==
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAC2SURBVHhe7dTBCQJBAATBTU/UEI3MMMSHKJzscT7MYBtq
+        oD4TQA8zs9ROz9f9um0bwIpmo45cjTGPcbkBLGlv1G+CBaxMsIAMwQIyBAvIECwgQ7CADMECMgQLyBAs
+        IEOwgAzBAjIEC8gQLCBDsIAMwQIyBAvIECwgQ7CADMECMgQLyBAsIEOwgAzBAjIEC8gQLCBDsIAMwQIy
+        BAvIECwgQ7CAjL9gnd+fxzwAVjQbdeTKzKywMb5O9cvPLRioowAAAABJRU5ErkJggg==
 </value>
   </data>
   <data name="txt_productName.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAASwAAAAjCAYAAAAuXDcUAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABKSURBVHhe7cMxEQAwCASwGkRznfGYYGBI7vIAAAAAAAAA
-        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABgR3X/SqJ6ezJK1dqkbSYzowAAAABJRU5ErkJg
-        gg==
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAC2SURBVHhe7dTBCQJBAATBTU/UEI3MMMSHKJzscT7MYBtq
+        oD4TQA8zs9ROz9f9um0bwIpmo45cjTGPcbkBLGlv1G+CBaxMsIAMwQIyBAvIECwgQ7CADMECMgQLyBAs
+        IEOwgAzBAjIEC8gQLCBDsIAMwQIyBAvIECwgQ7CADMECMgQLyBAsIEOwgAzBAjIEC8gQLCBDsIAMwQIy
+        BAvIECwgQ7CAjL9gnd+fxzwAVjQbdeTKzKywMb5O9cvPLRioowAAAABJRU5ErkJggg==
 </value>
   </data>
   <data name="pcb_btnUpdate.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">

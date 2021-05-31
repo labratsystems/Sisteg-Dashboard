@@ -65,7 +65,7 @@ namespace Sisteg_Dashboard.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap addIncomeOrExpense_bg {
             get {
-                object obj = ResourceManager.GetObject("addIncomeOrExpense-bg", resourceCulture);
+                object obj = ResourceManager.GetObject("addIncomeOrExpense_bg", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -76,6 +76,26 @@ namespace Sisteg_Dashboard.Properties {
         internal static System.Drawing.Bitmap back {
             get {
                 object obj = ResourceManager.GetObject("back", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap bg_graphs {
+            get {
+                object obj = ResourceManager.GetObject("bg_graphs", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap bg_sisteg {
+            get {
+                object obj = ResourceManager.GetObject("bg_sisteg", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -173,16 +193,6 @@ namespace Sisteg_Dashboard.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap btn_client1 {
-            get {
-                object obj = ResourceManager.GetObject("btn_client1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap btn_clientRegister {
             get {
                 object obj = ResourceManager.GetObject("btn_clientRegister", resourceCulture);
@@ -216,6 +226,26 @@ namespace Sisteg_Dashboard.Properties {
         internal static System.Drawing.Bitmap btn_config_active {
             get {
                 object obj = ResourceManager.GetObject("btn_config_active", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap btn_confirmBudget {
+            get {
+                object obj = ResourceManager.GetObject("btn_confirmBudget", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap btn_confirmBudget_active {
+            get {
+                object obj = ResourceManager.GetObject("btn_confirmBudget_active", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -276,6 +306,46 @@ namespace Sisteg_Dashboard.Properties {
         internal static System.Drawing.Bitmap btn_expenseRegister_active {
             get {
                 object obj = ResourceManager.GetObject("btn_expenseRegister_active", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap btn_goBack {
+            get {
+                object obj = ResourceManager.GetObject("btn_goBack", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap btn_goBack_active {
+            get {
+                object obj = ResourceManager.GetObject("btn_goBack_active", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap btn_goForward {
+            get {
+                object obj = ResourceManager.GetObject("btn_goForward", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap btn_goForward_active {
+            get {
+                object obj = ResourceManager.GetObject("btn_goForward_active", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -345,7 +415,7 @@ namespace Sisteg_Dashboard.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap btn_payParcel {
             get {
-                object obj = ResourceManager.GetObject("btn-payParcel", resourceCulture);
+                object obj = ResourceManager.GetObject("btn_payParcel", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -376,6 +446,26 @@ namespace Sisteg_Dashboard.Properties {
         internal static System.Drawing.Bitmap btn_payRepeat_active {
             get {
                 object obj = ResourceManager.GetObject("btn_payRepeat_active", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap btn_print {
+            get {
+                object obj = ResourceManager.GetObject("btn_print", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap btn_print_active {
+            get {
+                object obj = ResourceManager.GetObject("btn_print_active", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -423,6 +513,46 @@ namespace Sisteg_Dashboard.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap btn_sendBudget {
+            get {
+                object obj = ResourceManager.GetObject("btn_sendBudget", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap btn_sendBudget_active {
+            get {
+                object obj = ResourceManager.GetObject("btn_sendBudget_active", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap btn_stats {
+            get {
+                object obj = ResourceManager.GetObject("btn_stats", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap btn_stats_active {
+            get {
+                object obj = ResourceManager.GetObject("btn_stats_active", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap btn_supplierRegister {
             get {
                 object obj = ResourceManager.GetObject("btn_supplierRegister", resourceCulture);
@@ -443,6 +573,26 @@ namespace Sisteg_Dashboard.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap budget_sisteg_bg {
+            get {
+                object obj = ResourceManager.GetObject("budget_sisteg_bg", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap budget_step_bg {
+            get {
+                object obj = ResourceManager.GetObject("budget_step_bg", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap cancel__4_ {
             get {
                 object obj = ResourceManager.GetObject("cancel__4_", resourceCulture);
@@ -453,9 +603,19 @@ namespace Sisteg_Dashboard.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap client_product_step_bg {
+            get {
+                object obj = ResourceManager.GetObject("client_product_step_bg", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap client_sisteg_bg {
             get {
-                object obj = ResourceManager.GetObject("client-sisteg-bg", resourceCulture);
+                object obj = ResourceManager.GetObject("client_sisteg_bg", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -473,9 +633,19 @@ namespace Sisteg_Dashboard.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap edit {
+            get {
+                object obj = ResourceManager.GetObject("edit", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap edit__2_ {
             get {
-                object obj = ResourceManager.GetObject("edit (2)", resourceCulture);
+                object obj = ResourceManager.GetObject("edit__2_", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -513,6 +683,26 @@ namespace Sisteg_Dashboard.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap note {
+            get {
+                object obj = ResourceManager.GetObject("note", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap note__2_ {
+            get {
+                object obj = ResourceManager.GetObject("note__2_", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap plus {
             get {
                 object obj = ResourceManager.GetObject("plus", resourceCulture);
@@ -525,7 +715,7 @@ namespace Sisteg_Dashboard.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap product_sisteg_bg {
             get {
-                object obj = ResourceManager.GetObject("product-sisteg-bg", resourceCulture);
+                object obj = ResourceManager.GetObject("product_sisteg_bg", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

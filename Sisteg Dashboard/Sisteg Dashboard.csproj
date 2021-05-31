@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="..\packages\EntityFramework.6.3.0\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.3.0\build\EntityFramework.props')" />
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -36,7 +36,13 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="BouncyCastle.Crypto, Version=1.8.9.0, Culture=neutral, PublicKeyToken=0e99375e54769942, processorArchitecture=MSIL">
+      <HintPath>..\packages\Portable.BouncyCastle.1.8.9\lib\net40\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
     <Reference Include="Bunifu.Core, Version=1.11.5.1, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9" />
+    <Reference Include="Bunifu.UI.WinForm.BunifuShadowPanel">
+      <HintPath>..\..\..\..\Downloads\Bunifu_UI_WinForms_1.11.5.1\Bunifu_UI_WinForms_1.11.5.1\Bunifu.UI.WinForm.BunifuShadowPanel.dll</HintPath>
+    </Reference>
     <Reference Include="Bunifu.UI.WinForms.BunifuButton">
       <HintPath>..\..\..\..\Downloads\Bunifu_UI_WinForms_1.11.5.1\Bunifu_UI_WinForms_1.11.5.1\Bunifu.UI.WinForms.BunifuButton.dll</HintPath>
     </Reference>
@@ -52,6 +58,9 @@
     <Reference Include="Bunifu.UI.WinForms.BunifuDropdown">
       <HintPath>..\..\..\..\Downloads\Bunifu_UI_WinForms_1.11.5.1\Bunifu_UI_WinForms_1.11.5.1\Bunifu.UI.WinForms.BunifuDropdown.dll</HintPath>
     </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuLabel">
+      <HintPath>..\..\..\..\Downloads\Bunifu_UI_WinForms_1.11.5.1\Bunifu_UI_WinForms_1.11.5.1\Bunifu.UI.WinForms.BunifuLabel.dll</HintPath>
+    </Reference>
     <Reference Include="Bunifu.UI.WinForms.BunifuRadioButton">
       <HintPath>..\..\..\..\Downloads\Bunifu_UI_WinForms_1.11.5.1\Bunifu_UI_WinForms_1.11.5.1\Bunifu.UI.WinForms.BunifuRadioButton.dll</HintPath>
     </Reference>
@@ -61,13 +70,56 @@
     <Reference Include="Bunifu_UI_v1.5.3">
       <HintPath>..\..\..\..\Downloads\Bunifu_UI_WinForms_1.11.5.1\Bunifu_UI_WinForms_1.11.5.1\Bunifu_UI_v1.5.3.dll</HintPath>
     </Reference>
+    <Reference Include="Common.Logging, Version=3.4.1.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Common.Logging.3.4.1\lib\net40\Common.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Common.Logging.Core, Version=3.4.1.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Common.Logging.Core.3.4.1\lib\net40\Common.Logging.Core.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.3.0\lib\net45\EntityFramework.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.3.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.barcodes, Version=7.1.15.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext7.7.1.15\lib\net45\itext.barcodes.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.forms, Version=7.1.15.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext7.7.1.15\lib\net45\itext.forms.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.io, Version=7.1.15.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext7.7.1.15\lib\net45\itext.io.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.kernel, Version=7.1.15.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext7.7.1.15\lib\net45\itext.kernel.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.layout, Version=7.1.15.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext7.7.1.15\lib\net45\itext.layout.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.pdfa, Version=7.1.15.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext7.7.1.15\lib\net45\itext.pdfa.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.sign, Version=7.1.15.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext7.7.1.15\lib\net45\itext.sign.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.styledxmlparser, Version=7.1.15.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext7.7.1.15\lib\net45\itext.styledxmlparser.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.svg, Version=7.1.15.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext7.7.1.15\lib\net45\itext.svg.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Logging, Version=1.1.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IdentityModel.Logging.1.1.2\lib\net451\Microsoft.IdentityModel.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Tokens, Version=5.1.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IdentityModel.Tokens.5.1.2\lib\net451\Microsoft.IdentityModel.Tokens.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.SQLite, Version=1.0.113.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
@@ -80,7 +132,11 @@
       <HintPath>..\packages\System.Data.SQLite.Linq.1.0.113.0\lib\net46\System.Data.SQLite.Linq.dll</HintPath>
     </Reference>
     <Reference Include="System.Design" />
+    <Reference Include="System.IdentityModel.Tokens.Jwt, Version=5.1.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IdentityModel.Tokens.Jwt.5.1.2\lib\net451\System.IdentityModel.Tokens.Jwt.dll</HintPath>
+    </Reference>
     <Reference Include="System.Management" />
+    <Reference Include="System.Net" />
     <Reference Include="System.Security" />
     <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
@@ -92,6 +148,13 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="Twilio, Version=5.61.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Twilio.5.61.0\lib\net451\Twilio.dll</HintPath>
+    </Reference>
+    <Reference Include="WhatsAppApi, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\WhatsAppAPI.15.4.29\lib\net40\WhatsAppApi.dll</HintPath>
+    </Reference>
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Account.cs" />
@@ -125,11 +188,13 @@
     <Compile Include="AddSupplier.Designer.cs">
       <DependentUpon>AddSupplier.cs</DependentUpon>
     </Compile>
-    <Compile Include="Budget.cs">
+    <Compile Include="Budget.cs" />
+    <Compile Include="BudgetedProduct.cs" />
+    <Compile Include="BudgetForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Budget.Designer.cs">
-      <DependentUpon>Budget.cs</DependentUpon>
+    <Compile Include="BudgetForm.Designer.cs">
+      <DependentUpon>BudgetForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Client.cs" />
     <Compile Include="ClientForm.cs">
@@ -137,6 +202,12 @@
     </Compile>
     <Compile Include="ClientForm.Designer.cs">
       <DependentUpon>ClientForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ClientStep.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ClientStep.Designer.cs">
+      <DependentUpon>ClientStep.cs</DependentUpon>
     </Compile>
     <Compile Include="Config.cs">
       <SubType>Form</SubType>
@@ -153,6 +224,7 @@
     <Compile Include="Main.Designer.cs">
       <DependentUpon>Main.cs</DependentUpon>
     </Compile>
+    <Compile Include="Parcel.cs" />
     <Compile Include="Product.cs" />
     <Compile Include="ProductForm.cs">
       <SubType>Form</SubType>
@@ -160,6 +232,19 @@
     <Compile Include="ProductForm.Designer.cs">
       <DependentUpon>ProductForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="BudgetStep.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BudgetStep.Designer.cs">
+      <DependentUpon>BudgetStep.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ProductStep.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProductStep.Designer.cs">
+      <DependentUpon>ProductStep.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Repeat.cs" />
     <Compile Include="Splash Screen.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -169,6 +254,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Supplier.cs" />
+    <Compile Include="Telephone.cs" />
     <EmbeddedResource Include="AddClient.resx">
       <DependentUpon>AddClient.cs</DependentUpon>
     </EmbeddedResource>
@@ -184,11 +270,14 @@
     <EmbeddedResource Include="AddSupplier.resx">
       <DependentUpon>AddSupplier.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Budget.resx">
-      <DependentUpon>Budget.cs</DependentUpon>
+    <EmbeddedResource Include="BudgetForm.resx">
+      <DependentUpon>BudgetForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ClientForm.resx">
       <DependentUpon>ClientForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ClientStep.resx">
+      <DependentUpon>ClientStep.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Config.resx">
       <DependentUpon>Config.cs</DependentUpon>
@@ -198,6 +287,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ProductForm.resx">
       <DependentUpon>ProductForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BudgetStep.resx">
+      <DependentUpon>BudgetStep.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProductStep.resx">
+      <DependentUpon>ProductStep.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Splash Screen.resx">
       <DependentUpon>Splash Screen.cs</DependentUpon>
@@ -246,191 +341,218 @@
     </COMReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="assets\img\btn\btn_budget.png" />
+    <None Include="bin\Debug\assets\img\addIncomeOrExpense-bg.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="assets\img\btn\btn_budget_active.png" />
+    <None Include="bin\Debug\assets\img\back.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="assets\img\btn\btn_client.png" />
+    <None Include="bin\Debug\assets\img\bg-graphs.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="assets\img\btn\btn_client_active.png" />
+    <None Include="bin\Debug\assets\img\bg-sisteg.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="assets\img\btn\btn_config.png" />
+    <None Include="bin\Debug\assets\img\bg-transactions.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="assets\img\btn\btn_config_active.png" />
+    <None Include="bin\Debug\assets\img\budget-sisteg-bg.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="assets\img\btn\btn_main.png" />
+    <None Include="bin\Debug\assets\img\budget-step-bg.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="assets\img\btn\btn_main_active.png" />
+    <None Include="bin\Debug\assets\img\cancel %284%29.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="assets\img\btn\btn_product.png" />
+    <None Include="bin\Debug\assets\img\client-product-step-bg.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="assets\img\btn\btn_product_active.png" />
+    <None Include="bin\Debug\assets\img\client-sisteg-bg.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="assets\img\btn\btn_stats.png" />
+    <None Include="bin\Debug\assets\img\client-sisteg-bg-value.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="assets\img\btn\btn_stats_active.png" />
+    <None Include="bin\Debug\assets\img\edit.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="assets\video\splashScreen.mp4" />
+    <None Include="bin\Debug\assets\img\homepage-sisteg.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="assets\img\sisteg-bg.jpg" />
+    <None Include="bin\Debug\assets\img\homepage-sisteg-noExpenses.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="assets\img\bg-graphs.png" />
+    <None Include="bin\Debug\assets\img\next.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="assets\img\bg-sisteg.jpg" />
+    <None Include="bin\Debug\assets\img\note %282%29.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="assets\img\bg-transactions.png" />
+    <None Include="bin\Debug\assets\img\note.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="assets\img\homepage-sisteg.jpg" />
+    <None Include="bin\Debug\assets\img\plus.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\plus.png" />
+    <None Include="bin\Debug\assets\img\product-sisteg-bg.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="assets\img\addIncomeOrExpense-bg.jpg" />
+    <None Include="bin\Debug\assets\img\btn\btn_add.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\cancel %284%29.png" />
+    <None Include="bin\Debug\assets\img\btn\btn_add_active.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="assets\img\btn\btn_cancel.png" />
+    <None Include="bin\Debug\assets\img\btn\btn_budget.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="assets\img\btn\btn_delete.png" />
+    <None Include="bin\Debug\assets\img\btn\btn_budget_active.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="assets\img\btn\btn_edit.png" />
+    <None Include="bin\Debug\assets\img\btn\btn_cancel.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="assets\img\btn\btn_incomeRegister.png" />
+    <None Include="bin\Debug\assets\img\btn\btn_cancel_active.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="assets\img\btn\btn_cancel_active.png" />
+    <None Include="bin\Debug\assets\img\btn\btn_client.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="assets\img\btn\btn_delete_active.png" />
+    <None Include="bin\Debug\assets\img\btn\btn_client_active.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="assets\img\btn\btn_edit_active.png" />
+    <None Include="bin\Debug\assets\img\btn\btn_clientRegister.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="assets\img\btn\btn_expenseRegister.png" />
+    <None Include="bin\Debug\assets\img\btn\btn_clientRegister_active.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="assets\img\btn\btn_expenseRegister_active.png" />
+    <None Include="bin\Debug\assets\img\btn\btn_config.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="assets\img\btn\btn_incomeRegister_active.png" />
+    <None Include="bin\Debug\assets\img\btn\btn_config_active.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="assets\img\cancel %284%29.png" />
+    <None Include="bin\Debug\assets\img\btn\btn_confirmBudget.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="assets\img\plus.png" />
+    <None Include="bin\Debug\assets\img\btn\btn_confirmBudget_active.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\back.png" />
+    <None Include="bin\Debug\assets\img\btn\btn_delete.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\next.png" />
+    <None Include="bin\Debug\assets\img\btn\btn_delete_active.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="assets\img\homepage-sisteg-noExpenses.jpg" />
+    <None Include="bin\Debug\assets\img\btn\btn_edit.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="assets\img\client-sisteg-bg.jpg" />
+    <None Include="bin\Debug\assets\img\btn\btn_edit_active.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="assets\img\btn\btn-payParcel.png" />
+    <None Include="bin\Debug\assets\img\btn\btn_expenseRegister.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="assets\img\btn\btn_modify.png" />
+    <None Include="bin\Debug\assets\img\btn\btn_expenseRegister_active.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\edit-button %281%29.png" />
+    <None Include="bin\Debug\assets\img\btn\btn_goBack.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="assets\img\note.png" />
+    <None Include="bin\Debug\assets\img\btn\btn_goBack_active.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="assets\img\note %282%29.png" />
+    <None Include="bin\Debug\assets\img\btn\btn_goForward.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="assets\img\btn\btn_payParcel_active.png" />
+    <None Include="bin\Debug\assets\img\btn\btn_goForward_active.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="assets\img\btn\btn_payRepeat.png" />
+    <None Include="bin\Debug\assets\img\btn\btn_incomeRegister.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="assets\img\btn\btn_payRepeat_active.png" />
+    <None Include="bin\Debug\assets\img\btn\btn_incomeRegister_active.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="assets\img\btn\btn_add.png" />
+    <None Include="bin\Debug\assets\img\btn\btn_main.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="assets\img\btn\btn_add_active.png" />
+    <None Include="bin\Debug\assets\img\btn\btn_main_active.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="assets\img\btn\btn_modify_active.png" />
+    <None Include="bin\Debug\assets\img\btn\btn_modify.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="assets\img\edit.png" />
+    <None Include="bin\Debug\assets\img\btn\btn_modify_active.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\edit-button %281%291.png" />
+    <None Include="bin\Debug\assets\img\btn\btn_payParcel_active.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\edit %282%29.png" />
+    <None Include="bin\Debug\assets\img\btn\btn_payRepeat.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="assets\img\btn\btn_clientRegister.png" />
+    <None Include="bin\Debug\assets\img\btn\btn_payRepeat_active.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="assets\img\btn\btn_clientRegister_active.png" />
+    <None Include="bin\Debug\assets\img\btn\btn_print.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="assets\img\btn\btn_supplierRegister.png" />
+    <None Include="bin\Debug\assets\img\btn\btn_print_active.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="assets\img\btn\btn_productRegister.png" />
+    <None Include="bin\Debug\assets\img\btn\btn_product.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="assets\img\btn\btn_productRegister_active.png" />
+    <None Include="bin\Debug\assets\img\btn\btn_product_active.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="assets\img\btn\btn_supplierRegister_active.png" />
+    <None Include="bin\Debug\assets\img\btn\btn_productRegister.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="assets\img\client-sisteg-bg-value.jpg" />
+    <None Include="bin\Debug\assets\img\btn\btn_productRegister_active.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="assets\img\product-sisteg-bg.jpg" />
+    <None Include="bin\Debug\assets\img\btn\btn_sendBudget.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\assets\img\btn\btn_sendBudget_active.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\assets\img\btn\btn_stats.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\assets\img\btn\btn_stats_active.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\assets\img\btn\btn_supplierRegister.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\assets\img\btn\btn_supplierRegister_active.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\assets\img\btn\btn-payParcel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\assets\video\splashScreen.mp4" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\assets\img\edit %282%29.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
       <ErrorText>Este projeto faz referência a pacotes do NuGet que não estão presentes neste computador. Use a Restauração de Pacotes do NuGet para baixá-los.  Para obter mais informações, consulte http://go.microsoft.com/fwlink/?LinkID=322105. O arquivo ausente é {0}.</ErrorText>
     </PropertyGroup>
-    <Error Condition="!Exists('..\packages\EntityFramework.6.3.0\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.3.0\build\EntityFramework.props'))" />
-    <Error Condition="!Exists('..\packages\EntityFramework.6.3.0\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.3.0\build\EntityFramework.targets'))" />
     <Error Condition="!Exists('..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.113.3\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.113.3\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
   </Target>
-  <Import Project="..\packages\EntityFramework.6.3.0\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.3.0\build\EntityFramework.targets')" />
   <Import Project="..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.113.3\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets" Condition="Exists('..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.113.3\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets')" />
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
 </Project>

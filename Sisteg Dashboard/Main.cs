@@ -33,16 +33,16 @@ namespace Sisteg_Dashboard
             InitializeComponent();
             DateTime month = dateTimeMonth.Date;
             this.lbl_noExpenses.Text = "Não há gastos no mês de " + month.ToString("MMMM");
-            this.dgv_transactions.DataSource = Database.query("SELECT idReceita AS 'ID:', valorReceita AS 'Valor:', dataTransacao AS 'Data:', categoriaReceita AS 'Categoria:' FROM receita WHERE receita.dataTransacao > datetime('now', 'start of month') UNION ALL SELECT idDespesa AS 'ID:', valorDespesa AS 'Valor:', dataTransacao AS 'Data:', categoriaDespesa AS 'Categoria:' FROM despesa WHERE despesa.dataTransacao > datetime('now', 'start of month') ORDER BY dataTransacao DESC; ");
-            this.renderCharts(this.chart_expenseCategory, "SELECT categoriaDespesa, SUM(valorDespesa) FROM despesa WHERE despesa.dataTransacao > datetime('now', 'start of month') GROUP BY categoriaDespesa;");
-            this.renderCharts(this.chart_incomeCategory, "SELECT categoriaReceita, SUM(valorReceita) FROM receita WHERE receita.dataTransacao > datetime('now', 'start of month') GROUP BY categoriaReceita;");
-            this.renderCharts(this.chart_expenseAcount, "SELECT nomeConta, SUM(valorReceita) FROM conta, receita WHERE receita.dataTransacao > datetime('now', 'start of month') GROUP BY nomeConta;");
-            this.renderCharts(this.chart_incomeAcount, "SELECT nomeConta, SUM(valorDespesa) FROM conta, despesa WHERE despesa.dataTransacao > datetime('now', 'start of month') GROUP BY nomeConta;");
-            this.renderDailyExpensesChart("SELECT dataTransacao, SUM(valorDespesa) FROM despesa WHERE despesa.dataTransacao > datetime('now', 'start of month') GROUP BY dataTransacao;");
+            this.dgv_transactions.DataSource = Database.query("SELECT idReceita AS 'ID:', valorReceita AS 'Valor:', dataTransacao AS 'Data:', categoriaReceita AS 'Categoria:' FROM receita WHERE recebimentoConfirmado = true AND receita.dataTransacao > datetime('now', 'start of month') UNION ALL SELECT idDespesa AS 'ID:', valorDespesa AS 'Valor:', dataTransacao AS 'Data:', categoriaDespesa AS 'Categoria:' FROM despesa WHERE pagamentoConfirmado = true AND despesa.dataTransacao > datetime('now', 'start of month') ORDER BY dataTransacao DESC; ");
+            this.renderCharts(this.chart_expenseCategory, "SELECT categoriaDespesa, SUM(valorDespesa) FROM despesa WHERE pagamentoConfirmado = true AND despesa.dataTransacao > datetime('now', 'start of month') GROUP BY categoriaDespesa;");
+            this.renderCharts(this.chart_incomeCategory, "SELECT categoriaReceita, SUM(valorReceita) FROM receita WHERE recebimentoConfirmado = true AND receita.dataTransacao > datetime('now', 'start of month') GROUP BY categoriaReceita;");
+            this.renderCharts(this.chart_expenseAcount, "SELECT nomeConta, SUM(valorReceita) FROM conta, receita WHERE recebimentoConfirmado = true AND receita.dataTransacao > datetime('now', 'start of month') GROUP BY nomeConta;");
+            this.renderCharts(this.chart_incomeAcount, "SELECT nomeConta, SUM(valorDespesa) FROM conta, despesa WHERE pagamentoConfirmado = true AND despesa.dataTransacao > datetime('now', 'start of month') GROUP BY nomeConta;");
+            this.renderDailyExpensesChart("SELECT dataTransacao, SUM(valorDespesa) FROM despesa WHERE pagamentoConfirmado = true AND despesa.dataTransacao > datetime('now', 'start of month') GROUP BY dataTransacao;");
             this.renderLabels(this.lbl_balance, "SELECT saldoConta FROM conta WHERE idConta = 1;");
-            this.renderLabels(this.lbl_dailyExpenses, "SELECT SUM(valorDespesa) FROM despesa WHERE despesa.dataTransacao = DATE('now', 'localtime');");
-            this.renderLabels(this.lbl_monthIncomes, "SELECT SUM(valorReceita) FROM receita WHERE receita.dataTransacao > datetime('now', 'start of month');");
-            this.renderLabels(this.lbl_monthExpenses, "SELECT SUM(valorDespesa) FROM despesa WHERE despesa.dataTransacao > datetime('now', 'start of month');");
+            this.renderLabels(this.lbl_dailyExpenses, "SELECT SUM(valorDespesa) FROM despesa WHERE pagamentoConfirmado = true AND despesa.dataTransacao = DATE('now', 'localtime');");
+            this.renderLabels(this.lbl_monthIncomes, "SELECT SUM(valorReceita) FROM receita WHERE recebimentoConfirmado = true AND receita.dataTransacao > datetime('now', 'start of month');");
+            this.renderLabels(this.lbl_monthExpenses, "SELECT SUM(valorDespesa) FROM despesa WHERE pagamentoConfirmado = true AND despesa.dataTransacao > datetime('now', 'start of month');");
         }
 
         //EVITA TREMULAÇÃO DE COMPONENTES
@@ -57,35 +57,23 @@ namespace Sisteg_Dashboard
         }
 
         //MENU DE NAVEGAÇÃO DA APLICAÇÃO
-        private void pcb_btnClient_MouseEnter(object sender, EventArgs e)
-        {
-            this.pcb_btnClient.Image = Properties.Resources.btn_client_active;
-        }
+        private void pcb_btnClient_MouseEnter(object sender, EventArgs e) { this.pcb_btnClient.Image = Properties.Resources.btn_client_active; }
 
-        private void pcb_btnClient_MouseLeave(object sender, EventArgs e)
-        {
-            this.pcb_btnClient.Image = Properties.Resources.btn_client;
-        }
+        private void pcb_btnClient_MouseLeave(object sender, EventArgs e) { this.pcb_btnClient.Image = Properties.Resources.btn_client; }
 
         private void pcb_btnClient_Click(object sender, EventArgs e)
         {
             if (Application.OpenForms.OfType<ClientForm>().Count() == 0)
             {
-                ClientForm client = new ClientForm();
-                client.Show();
+                ClientForm clientForm = new ClientForm();
+                clientForm.Show();
                 this.Close();
             }
         }
 
-        private void pcb_btnProduct_MouseEnter(object sender, EventArgs e)
-        {
-            this.pcb_btnProduct.Image = Properties.Resources.btn_product_active;
-        }
+        private void pcb_btnProduct_MouseEnter(object sender, EventArgs e) { this.pcb_btnProduct.Image = Properties.Resources.btn_product_active; }
 
-        private void pcb_btnProduct_MouseLeave(object sender, EventArgs e)
-        {
-            this.pcb_btnProduct.Image = Properties.Resources.btn_product;
-        }
+        private void pcb_btnProduct_MouseLeave(object sender, EventArgs e) { this.pcb_btnProduct.Image = Properties.Resources.btn_product; }
 
         private void pcb_btnProduct_Click(object sender, EventArgs e)
         {
@@ -97,35 +85,23 @@ namespace Sisteg_Dashboard
             }
         }
 
-        private void pcb_btnBudget_MouseEnter(object sender, EventArgs e)
-        {
-            this.pcb_btnBudget.Image = Properties.Resources.btn_budget_active;
-        }
+        private void pcb_btnBudget_MouseEnter(object sender, EventArgs e) { this.pcb_btnBudget.Image = Properties.Resources.btn_budget_active; }
 
-        private void pcb_btnBudget_MouseLeave(object sender, EventArgs e)
-        {
-            this.pcb_btnBudget.Image = Properties.Resources.btn_budget;
-        }
+        private void pcb_btnBudget_MouseLeave(object sender, EventArgs e) { this.pcb_btnBudget.Image = Properties.Resources.btn_budget; }
 
         private void pcb_btnBudget_Click(object sender, EventArgs e)
         {
-            if (Application.OpenForms.OfType<Budget>().Count() == 0)
+            if (Application.OpenForms.OfType<BudgetForm>().Count() == 0)
             {
-                Budget budget = new Budget();
+                BudgetForm budget = new BudgetForm();
                 budget.Show();
                 this.Close();
             }
         }
 
-        private void pcb_btnConfig_MouseEnter(object sender, EventArgs e)
-        {
-            this.pcb_btnConfig.Image = Properties.Resources.btn_config_active;
-        }
+        private void pcb_btnConfig_MouseEnter(object sender, EventArgs e) { this.pcb_btnConfig.Image = Properties.Resources.btn_config_active; }
 
-        private void pcb_btnConfig_MouseLeave(object sender, EventArgs e)
-        {
-            this.pcb_btnConfig.Image = Properties.Resources.btn_config;
-        }
+        private void pcb_btnConfig_MouseLeave(object sender, EventArgs e) { this.pcb_btnConfig.Image = Properties.Resources.btn_config; }
 
         private void pcb_btnConfig_Click(object sender, EventArgs e)
         {
@@ -140,18 +116,15 @@ namespace Sisteg_Dashboard
         //FORMATAÇÃO A TABELA APÓS A DISPOSIÇÃO DOS DADOS
         private void dgv_transactions_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
         {
-            dgv_transactions.Columns[1].DefaultCellStyle.Format = "C";
-            foreach (DataGridViewColumn dataGridViewColumn in dgv_transactions.Columns)
-            {
-                dataGridViewColumn.SortMode = DataGridViewColumnSortMode.NotSortable;
-            }
+            this.dgv_transactions.Columns[1].DefaultCellStyle.Format = "C";
+            foreach (DataGridViewColumn dataGridViewColumn in dgv_transactions.Columns) dataGridViewColumn.SortMode = DataGridViewColumnSortMode.NotSortable;
             foreach (DataGridViewRow dataGridViewRow in dgv_transactions.Rows)
             {
                 string id = dataGridViewRow.Cells[0].Value.ToString();
                 string value = (dataGridViewRow.Cells[1].Value.ToString()).Replace(',', '.');
                 string date = dataGridViewRow.Cells[2].Value.ToString();
                 string category = dataGridViewRow.Cells[3].Value.ToString();
-                if (Database.checkIfItIsExpense(id, value, date, category))
+                if (Database.query("SELECT idDespesa FROM despesa WHERE idDespesa = " + id).Rows.Count == 1)
                 {
                     dataGridViewRow.DefaultCellStyle.ForeColor = Color.FromArgb(243, 104, 82);
                     dataGridViewRow.DefaultCellStyle.SelectionForeColor = Color.FromArgb(243, 104, 82);
@@ -168,7 +141,7 @@ namespace Sisteg_Dashboard
         {
             chart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
             chart.PaletteCustomColors = myPalette;
-            DataTable dataTable = Database.readExpensesOrIncomes(query);
+            DataTable dataTable = Database.query(query);
             if (dataTable.Rows.Count > 0)
             {
                 chart.Show();
@@ -181,10 +154,7 @@ namespace Sisteg_Dashboard
                     chart.Series[0].Points.AddXY(label, graph);
                 }
             }
-            else
-            {
-                chart.Hide();
-            }
+            else chart.Hide();
         }
 
         //FUNÇÃO QUE RENDERIZA ESPECIFICAMENTE O GRÁFICO DE LINHA DE DESPESAS DIÁRIAS DE ACORDO COM AS INFORMAÇÕES VINDAS DO BANCO DE DADOS
@@ -193,7 +163,7 @@ namespace Sisteg_Dashboard
             this.chart_dailyExpenses.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
             this.chart_dailyExpenses.PaletteCustomColors = myPalette;
 
-            DataTable dataTable = Database.readExpensesOrIncomes(query);
+            DataTable dataTable = Database.query(query);
             if(dataTable.Rows.Count > 0)
             {
                 this.BackgroundImage = Properties.Resources.homepage_sisteg;
@@ -221,18 +191,8 @@ namespace Sisteg_Dashboard
         //FUNÇÃO QUE RENDERIZA AS INSCRIÇÕES NO QUADRO DE ACORDO COM AS INFORMAÇÕES VINDAS DO BANCO DE DADOS
         private void renderLabels(Label label, string query)
         {
-            DataTable dataTable = Database.readExpensesOrIncomes(query);
-            if (dataTable.Rows[0].ItemArray[0].ToString() != "")
-            {
-                foreach (DataRow dataRow in dataTable.Rows)
-                {
-                    label.Text = String.Format("{0:C}", dataRow.ItemArray[0]);
-                }
-            }
-            else
-            {
-                label.Text = "R$ 0,00";
-            }
+            DataTable dataTable = Database.query(query);
+            if (!String.IsNullOrEmpty(dataTable.Rows[0].ItemArray[0].ToString().Trim())) foreach (DataRow dataRow in dataTable.Rows) label.Text = String.Format("{0:C}", dataRow.ItemArray[0]); else label.Text = "R$ 0,00";
         }
 
         //ADICIONAR RECEITA
@@ -252,30 +212,35 @@ namespace Sisteg_Dashboard
         //ATUALIZAR RECEITA OU DESPESA
         private void pcb_updateIncome_Click(object sender, EventArgs e)
         {
-            foreach(DataGridViewRow dataGridViewRow in this.dgv_transactions.SelectedRows)
+            if(Convert.ToInt32(this.dgv_transactions.Rows.Count) == 0) MessageBox.Show("Não há receita ou despesa selecionada para editar!", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            else if (Convert.ToInt32(this.dgv_transactions.SelectedRows.Count) > 1) MessageBox.Show("Selecione apenas uma linha da tabela para editar!", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            else
             {
-                string id = dataGridViewRow.Cells[0].Value.ToString();
-                string value = dataGridViewRow.Cells[1].Value.ToString().Replace(',', '.');
-                string date = dataGridViewRow.Cells[2].Value.ToString();
-                string category = dataGridViewRow.Cells[3].Value.ToString();
-                if (Database.checkIfItIsExpense(id, value, date, category))
+                foreach (DataGridViewRow dataGridViewRow in this.dgv_transactions.SelectedRows)
                 {
-                    if (Application.OpenForms.OfType<AddExpense>().Count() == 0)
+                    string id = dataGridViewRow.Cells[0].Value.ToString();
+                    string value = dataGridViewRow.Cells[1].Value.ToString().Replace(',', '.');
+                    string date = dataGridViewRow.Cells[2].Value.ToString();
+                    string category = dataGridViewRow.Cells[3].Value.ToString();
+                    if (Database.query("SELECT idDespesa FROM despesa WHERE idDespesa = " + id).Rows.Count == 1)
                     {
-                        DataTable dataTable = Database.query("SELECT * FROM despesa WHERE idDespesa = " + id + ";");
-                        AddExpense addExpense = new AddExpense(dataTable);
-                        addExpense.Show();
-                        this.Close();
+                        if (Application.OpenForms.OfType<AddExpense>().Count() == 0)
+                        {
+                            DataTable dataTable = Database.query("SELECT * FROM despesa WHERE idDespesa = " + id + ";");
+                            AddExpense addExpense = new AddExpense(dataTable);
+                            addExpense.Show();
+                            this.Close();
+                        }
                     }
-                }
-                else
-                {
-                    if (Application.OpenForms.OfType<AddIncome>().Count() == 0)
+                    else
                     {
-                        DataTable dataTable = Database.query("SELECT * FROM receita WHERE idReceita = " + id + ";");
-                        AddIncome addIncome = new AddIncome(dataTable);
-                        addIncome.Show();
-                        this.Close();
+                        if (Application.OpenForms.OfType<AddIncome>().Count() == 0)
+                        {
+                            DataTable dataTable = Database.query("SELECT * FROM receita WHERE idReceita = " + id + ";");
+                            AddIncome addIncome = new AddIncome(dataTable);
+                            addIncome.Show();
+                            this.Close();
+                        }
                     }
                 }
             }
@@ -298,7 +263,7 @@ namespace Sisteg_Dashboard
         //ENCERRAR A APLICAÇÃO
         private void pcb_appClose_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            if (((DialogResult)MessageBox.Show("Tem certeza que deseja encerrar a aplicação?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2)).ToString().ToUpper() == "YES") Application.Exit();
         }
 
         //RETORNAR MÊS PARA ATUALIZAÇÃO DOS GRÁFICOS, TABELAS E INSCRIÇÕES NO FORMULÁRIO
@@ -312,83 +277,83 @@ namespace Sisteg_Dashboard
                 if (month == -2)
                 {
                     clearChartData();
-                    this.dgv_transactions.DataSource = Database.query("SELECT idReceita AS 'ID:', valorReceita AS 'Valor:', dataTransacao AS 'Data:', categoriaReceita AS 'Categoria:' FROM receita WHERE receita.dataTransacao > datetime('now', 'start of month', '-2 month') AND receita.dataTransacao < datetime('now', 'start of month', '-1 month') UNION ALL SELECT idDespesa AS 'ID:', valorDespesa AS 'Valor:', dataTransacao AS 'Data:', categoriaDespesa AS 'Categoria:' FROM despesa WHERE despesa.dataTransacao > datetime('now', 'start of month', '-2 month') AND despesa.dataTransacao < datetime('now', 'start of month', '-1 month') ORDER BY dataTransacao DESC; ");
-                    this.renderCharts(this.chart_expenseCategory, "SELECT categoriaDespesa, SUM(valorDespesa) FROM despesa WHERE despesa.dataTransacao > datetime('now', 'start of month', '-2 month') AND despesa.dataTransacao < datetime('now', 'start of month', '-1 month') GROUP BY categoriaDespesa;");
-                    this.renderCharts(this.chart_incomeCategory, "SELECT categoriaReceita, SUM(valorReceita) FROM receita WHERE receita.dataTransacao > datetime('now', 'start of month', '-2 month') AND receita.dataTransacao < datetime('now', 'start of month', '-1 month') GROUP BY categoriaReceita;");
-                    this.renderCharts(this.chart_expenseAcount, "SELECT nomeConta, SUM(valorReceita) FROM conta, receita WHERE receita.dataTransacao > datetime('now', 'start of month', '-2 month') AND receita.dataTransacao < datetime('now', 'start of month', '-1 month') GROUP BY nomeConta;");
-                    this.renderCharts(this.chart_incomeAcount, "SELECT nomeConta, SUM(valorDespesa) FROM conta, despesa WHERE despesa.dataTransacao > datetime('now', 'start of month', '-2 month') AND despesa.dataTransacao < datetime('now', 'start of month', '-1 month') GROUP BY nomeConta;");
-                    this.renderDailyExpensesChart("SELECT dataTransacao, SUM(valorDespesa) FROM despesa WHERE despesa.dataTransacao > datetime('now', 'start of month', '-2 month') AND despesa.dataTransacao < datetime('now', 'start of month', '-1 month') GROUP BY dataTransacao;");
-                    this.renderLabels(this.lbl_dailyExpenses, "SELECT SUM(valorDespesa) FROM despesa WHERE despesa.dataTransacao = datetime('now', 'start of day', '-2 month');");
-                    this.renderLabels(this.lbl_monthIncomes, "SELECT SUM(valorReceita) FROM receita WHERE receita.dataTransacao > datetime('now', 'start of month', '-2 month') AND receita.dataTransacao < datetime('now', 'start of month', '-1 month');");
-                    this.renderLabels(this.lbl_monthExpenses, "SELECT SUM(valorDespesa) FROM despesa WHERE despesa.dataTransacao > datetime('now', 'start of month', '-2 month') AND despesa.dataTransacao < datetime('now', 'start of month', '-1 month');");
+                    this.dgv_transactions.DataSource = Database.query("SELECT idReceita AS 'ID:', valorReceita AS 'Valor:', dataTransacao AS 'Data:', categoriaReceita AS 'Categoria:' FROM receita WHERE recebimentoConfirmado = true AND receita.dataTransacao > datetime('now', 'start of month', '-2 month') AND receita.dataTransacao < datetime('now', 'start of month', '-1 month') UNION ALL SELECT idDespesa AS 'ID:', valorDespesa AS 'Valor:', dataTransacao AS 'Data:', categoriaDespesa AS 'Categoria:' FROM despesa WHERE pagamentoConfirmado = true AND despesa.dataTransacao > datetime('now', 'start of month', '-2 month') AND despesa.dataTransacao < datetime('now', 'start of month', '-1 month') ORDER BY dataTransacao DESC; ");
+                    this.renderCharts(this.chart_expenseCategory, "SELECT categoriaDespesa, SUM(valorDespesa) FROM despesa WHERE pagamentoConfirmado = true AND despesa.dataTransacao > datetime('now', 'start of month', '-2 month') AND despesa.dataTransacao < datetime('now', 'start of month', '-1 month') GROUP BY categoriaDespesa;");
+                    this.renderCharts(this.chart_incomeCategory, "SELECT categoriaReceita, SUM(valorReceita) FROM receita WHERE recebimentoConfirmado = true AND receita.dataTransacao > datetime('now', 'start of month', '-2 month') AND receita.dataTransacao < datetime('now', 'start of month', '-1 month') GROUP BY categoriaReceita;");
+                    this.renderCharts(this.chart_expenseAcount, "SELECT nomeConta, SUM(valorReceita) FROM conta, receita WHERE recebimentoConfirmado = true AND receita.dataTransacao > datetime('now', 'start of month', '-2 month') AND receita.dataTransacao < datetime('now', 'start of month', '-1 month') GROUP BY nomeConta;");
+                    this.renderCharts(this.chart_incomeAcount, "SELECT nomeConta, SUM(valorDespesa) FROM conta, despesa WHERE pagamentoConfirmado = true AND despesa.dataTransacao > datetime('now', 'start of month', '-2 month') AND despesa.dataTransacao < datetime('now', 'start of month', '-1 month') GROUP BY nomeConta;");
+                    this.renderDailyExpensesChart("SELECT dataTransacao, SUM(valorDespesa) FROM despesa WHERE pagamentoConfirmado = true AND despesa.dataTransacao > datetime('now', 'start of month', '-2 month') AND despesa.dataTransacao < datetime('now', 'start of month', '-1 month') GROUP BY dataTransacao;");
+                    this.renderLabels(this.lbl_dailyExpenses, "SELECT SUM(valorDespesa) FROM despesa WHERE pagamentoConfirmado = true AND despesa.dataTransacao = datetime('now', 'start of day', '-2 month');");
+                    this.renderLabels(this.lbl_monthIncomes, "SELECT SUM(valorReceita) FROM receita WHERE recebimentoConfirmado = true AND receita.dataTransacao > datetime('now', 'start of month', '-2 month') AND receita.dataTransacao < datetime('now', 'start of month', '-1 month');");
+                    this.renderLabels(this.lbl_monthExpenses, "SELECT SUM(valorDespesa) FROM despesa WHERE pagamentoConfirmado = true AND despesa.dataTransacao > datetime('now', 'start of month', '-2 month') AND despesa.dataTransacao < datetime('now', 'start of month', '-1 month');");
                 }
                 else
                 {
                     clearChartData();
                     int monthLess = month + 1;
-                    this.dgv_transactions.DataSource = Database.query("SELECT idReceita AS 'ID:', valorReceita AS 'Valor:', dataTransacao AS 'Data:', categoriaReceita AS 'Categoria:' FROM receita WHERE receita.dataTransacao > datetime('now', 'start of month', '" + month + " month') AND receita.dataTransacao < datetime('now', 'start of month', '" + monthLess + " month') UNION ALL SELECT idDespesa AS 'ID:', valorDespesa AS 'Valor:', dataTransacao AS 'Data:', categoriaDespesa AS 'Categoria:' FROM despesa WHERE despesa.dataTransacao > datetime('now', 'start of month', '" + month + " month') AND despesa.dataTransacao < datetime('now', 'start of month', '" + monthLess + " month') ORDER BY dataTransacao DESC; ");
-                    this.renderCharts(this.chart_expenseCategory, "SELECT categoriaDespesa, SUM(valorDespesa) FROM despesa WHERE despesa.dataTransacao > datetime('now', 'start of month', '" + month + " month') AND despesa.dataTransacao < datetime('now', 'start of month', '" + monthLess + " month') GROUP BY categoriaDespesa;");
-                    this.renderCharts(this.chart_incomeCategory, "SELECT categoriaReceita, SUM(valorReceita) FROM receita WHERE receita.dataTransacao > datetime('now', 'start of month', '" + month + " month') AND receita.dataTransacao < datetime('now', 'start of month', '" + monthLess + " month') GROUP BY categoriaReceita;");
-                    this.renderCharts(this.chart_expenseAcount, "SELECT nomeConta, SUM(valorReceita) FROM conta, receita WHERE receita.dataTransacao > datetime('now', 'start of month', '" + month + " month') AND receita.dataTransacao < datetime('now', 'start of month', '" + monthLess + " month') GROUP BY nomeConta;");
-                    this.renderCharts(this.chart_incomeAcount, "SELECT nomeConta, SUM(valorDespesa) FROM conta, despesa WHERE despesa.dataTransacao > datetime('now', 'start of month', '" + month + " month') AND despesa.dataTransacao < datetime('now', 'start of month', '" + monthLess + " month') GROUP BY nomeConta;");
-                    this.renderDailyExpensesChart("SELECT dataTransacao, SUM(valorDespesa) FROM despesa WHERE despesa.dataTransacao > datetime('now', 'start of month', '" + month + " month') AND despesa.dataTransacao < datetime('now', 'start of month', '" + monthLess + " month') GROUP BY dataTransacao;");
-                    this.renderLabels(this.lbl_dailyExpenses, "SELECT SUM(valorDespesa) FROM despesa WHERE despesa.dataTransacao = datetime('now', 'start of day', '" + month + " month');");
-                    this.renderLabels(this.lbl_monthIncomes, "SELECT SUM(valorReceita) FROM receita WHERE receita.dataTransacao > datetime('now', 'start of month', '" + month + " month') AND receita.dataTransacao < datetime('now', 'start of month', '" + monthLess + " month');");
-                    this.renderLabels(this.lbl_monthExpenses, "SELECT SUM(valorDespesa) FROM despesa WHERE despesa.dataTransacao > datetime('now', 'start of month', '" + month + " month') AND despesa.dataTransacao < datetime('now', 'start of month', '" + monthLess + " month');");
+                    this.dgv_transactions.DataSource = Database.query("SELECT idReceita AS 'ID:', valorReceita AS 'Valor:', dataTransacao AS 'Data:', categoriaReceita AS 'Categoria:' FROM receita WHERE recebimentoConfirmado = true AND receita.dataTransacao > datetime('now', 'start of month', '" + month + " month') AND receita.dataTransacao < datetime('now', 'start of month', '" + monthLess + " month') UNION ALL SELECT idDespesa AS 'ID:', valorDespesa AS 'Valor:', dataTransacao AS 'Data:', categoriaDespesa AS 'Categoria:' FROM despesa WHERE pagamentoConfirmado = true AND despesa.dataTransacao > datetime('now', 'start of month', '" + month + " month') AND despesa.dataTransacao < datetime('now', 'start of month', '" + monthLess + " month') ORDER BY dataTransacao DESC; ");
+                    this.renderCharts(this.chart_expenseCategory, "SELECT categoriaDespesa, SUM(valorDespesa) FROM despesa WHERE pagamentoConfirmado = true AND despesa.dataTransacao > datetime('now', 'start of month', '" + month + " month') AND despesa.dataTransacao < datetime('now', 'start of month', '" + monthLess + " month') GROUP BY categoriaDespesa;");
+                    this.renderCharts(this.chart_incomeCategory, "SELECT categoriaReceita, SUM(valorReceita) FROM receita WHERE recebimentoConfirmado = true AND receita.dataTransacao > datetime('now', 'start of month', '" + month + " month') AND receita.dataTransacao < datetime('now', 'start of month', '" + monthLess + " month') GROUP BY categoriaReceita;");
+                    this.renderCharts(this.chart_expenseAcount, "SELECT nomeConta, SUM(valorReceita) FROM conta, receita WHERE recebimentoConfirmado = true AND receita.dataTransacao > datetime('now', 'start of month', '" + month + " month') AND receita.dataTransacao < datetime('now', 'start of month', '" + monthLess + " month') GROUP BY nomeConta;");
+                    this.renderCharts(this.chart_incomeAcount, "SELECT nomeConta, SUM(valorDespesa) FROM conta, despesa WHERE pagamentoConfirmado = true AND despesa.dataTransacao > datetime('now', 'start of month', '" + month + " month') AND despesa.dataTransacao < datetime('now', 'start of month', '" + monthLess + " month') GROUP BY nomeConta;");
+                    this.renderDailyExpensesChart("SELECT dataTransacao, SUM(valorDespesa) FROM despesa WHERE pagamentoConfirmado = true AND despesa.dataTransacao > datetime('now', 'start of month', '" + month + " month') AND despesa.dataTransacao < datetime('now', 'start of month', '" + monthLess + " month') GROUP BY dataTransacao;");
+                    this.renderLabels(this.lbl_dailyExpenses, "SELECT SUM(valorDespesa) FROM despesa WHERE pagamentoConfirmado = true AND despesa.dataTransacao = datetime('now', 'start of day', '" + month + " month');");
+                    this.renderLabels(this.lbl_monthIncomes, "SELECT SUM(valorReceita) FROM receita WHERE recebimentoConfirmado = true AND receita.dataTransacao > datetime('now', 'start of month', '" + month + " month') AND receita.dataTransacao < datetime('now', 'start of month', '" + monthLess + " month');");
+                    this.renderLabels(this.lbl_monthExpenses, "SELECT SUM(valorDespesa) FROM despesa WHERE pagamentoConfirmado = true AND despesa.dataTransacao > datetime('now', 'start of month', '" + month + " month') AND despesa.dataTransacao < datetime('now', 'start of month', '" + monthLess + " month');");
                 }
             }
             else if (month == -1)
             {
                 clearChartData();
-                this.dgv_transactions.DataSource = Database.query("SELECT idReceita AS 'ID:', valorReceita AS 'Valor:', dataTransacao AS 'Data:', categoriaReceita AS 'Categoria:' FROM receita WHERE receita.dataTransacao > datetime('now', 'start of month', '-1 month') AND receita.dataTransacao < datetime('now', 'start of month') UNION ALL SELECT idDespesa AS 'ID:', valorDespesa AS 'Valor:', dataTransacao AS 'Data:', categoriaDespesa AS 'Categoria:' FROM despesa WHERE despesa.dataTransacao > datetime('now', 'start of month', '-1 month') AND despesa.dataTransacao < datetime('now', 'start of month') ORDER BY dataTransacao DESC; ");
-                this.renderCharts(this.chart_expenseCategory, "SELECT categoriaDespesa, SUM(valorDespesa) FROM despesa WHERE despesa.dataTransacao > datetime('now', 'start of month', '-1 month') AND despesa.dataTransacao < datetime('now', 'start of month') GROUP BY categoriaDespesa;");
-                this.renderCharts(this.chart_incomeCategory, "SELECT categoriaReceita, SUM(valorReceita) FROM receita WHERE receita.dataTransacao > datetime('now', 'start of month', '-1 month') AND receita.dataTransacao < datetime('now', 'start of month') GROUP BY categoriaReceita;");
-                this.renderCharts(this.chart_expenseAcount, "SELECT nomeConta, SUM(valorReceita) FROM conta, receita WHERE receita.dataTransacao > datetime('now', 'start of month', '-1 month') AND receita.dataTransacao < datetime('now', 'start of month') GROUP BY nomeConta;");
-                this.renderCharts(this.chart_incomeAcount, "SELECT nomeConta, SUM(valorDespesa) FROM conta, despesa WHERE despesa.dataTransacao > datetime('now', 'start of month', '-1 month') AND despesa.dataTransacao < datetime('now', 'start of month') GROUP BY nomeConta;");
-                this.renderDailyExpensesChart("SELECT dataTransacao, SUM(valorDespesa) FROM despesa WHERE despesa.dataTransacao > datetime('now', 'start of month', '-1 month') AND despesa.dataTransacao < datetime('now', 'start of month') GROUP BY dataTransacao;");
-                this.renderLabels(this.lbl_dailyExpenses, "SELECT SUM(valorDespesa) FROM despesa WHERE despesa.dataTransacao = datetime('now', 'start of day', '-1 month');");
-                this.renderLabels(this.lbl_monthIncomes, "SELECT SUM(valorReceita) FROM receita WHERE receita.dataTransacao > datetime('now', 'start of month', '-1 month') AND receita.dataTransacao < datetime('now', 'start of month');");
-                this.renderLabels(this.lbl_monthExpenses, "SELECT SUM(valorDespesa) FROM despesa WHERE despesa.dataTransacao > datetime('now', 'start of month', '-1 month') AND despesa.dataTransacao < datetime('now', 'start of month');");
+                this.dgv_transactions.DataSource = Database.query("SELECT idReceita AS 'ID:', valorReceita AS 'Valor:', dataTransacao AS 'Data:', categoriaReceita AS 'Categoria:' FROM receita WHERE recebimentoConfirmado = true AND receita.dataTransacao > datetime('now', 'start of month', '-1 month') AND receita.dataTransacao < datetime('now', 'start of month') UNION ALL SELECT idDespesa AS 'ID:', valorDespesa AS 'Valor:', dataTransacao AS 'Data:', categoriaDespesa AS 'Categoria:' FROM despesa WHERE pagamentoConfirmado = true AND despesa.dataTransacao > datetime('now', 'start of month', '-1 month') AND despesa.dataTransacao < datetime('now', 'start of month') ORDER BY dataTransacao DESC; ");
+                this.renderCharts(this.chart_expenseCategory, "SELECT categoriaDespesa, SUM(valorDespesa) FROM despesa WHERE pagamentoConfirmado = true AND despesa.dataTransacao > datetime('now', 'start of month', '-1 month') AND despesa.dataTransacao < datetime('now', 'start of month') GROUP BY categoriaDespesa;");
+                this.renderCharts(this.chart_incomeCategory, "SELECT categoriaReceita, SUM(valorReceita) FROM receita WHERE recebimentoConfirmado = true AND receita.dataTransacao > datetime('now', 'start of month', '-1 month') AND receita.dataTransacao < datetime('now', 'start of month') GROUP BY categoriaReceita;");
+                this.renderCharts(this.chart_expenseAcount, "SELECT nomeConta, SUM(valorReceita) FROM conta, receita WHERE recebimentoConfirmado = true AND receita.dataTransacao > datetime('now', 'start of month', '-1 month') AND receita.dataTransacao < datetime('now', 'start of month') GROUP BY nomeConta;");
+                this.renderCharts(this.chart_incomeAcount, "SELECT nomeConta, SUM(valorDespesa) FROM conta, despesa WHERE pagamentoConfirmado = true AND despesa.dataTransacao > datetime('now', 'start of month', '-1 month') AND despesa.dataTransacao < datetime('now', 'start of month') GROUP BY nomeConta;");
+                this.renderDailyExpensesChart("SELECT dataTransacao, SUM(valorDespesa) FROM despesa WHERE pagamentoConfirmado = true AND despesa.dataTransacao > datetime('now', 'start of month', '-1 month') AND despesa.dataTransacao < datetime('now', 'start of month') GROUP BY dataTransacao;");
+                this.renderLabels(this.lbl_dailyExpenses, "SELECT SUM(valorDespesa) FROM despesa WHERE pagamentoConfirmado = true AND despesa.dataTransacao = datetime('now', 'start of day', '-1 month');");
+                this.renderLabels(this.lbl_monthIncomes, "SELECT SUM(valorReceita) FROM receita WHERE recebimentoConfirmado = true AND receita.dataTransacao > datetime('now', 'start of month', '-1 month') AND receita.dataTransacao < datetime('now', 'start of month');");
+                this.renderLabels(this.lbl_monthExpenses, "SELECT SUM(valorDespesa) FROM despesa WHERE pagamentoConfirmado = true AND despesa.dataTransacao > datetime('now', 'start of month', '-1 month') AND despesa.dataTransacao < datetime('now', 'start of month');");
             }
             else if (month == 0)
             {
                 clearChartData();
-                this.dgv_transactions.DataSource = Database.query("SELECT idReceita AS 'ID:', valorReceita AS 'Valor:', dataTransacao AS 'Data:', categoriaReceita AS 'Categoria:' FROM receita WHERE receita.dataTransacao > datetime('now', 'start of month') UNION ALL SELECT idDespesa AS 'ID:', valorDespesa AS 'Valor:', dataTransacao AS 'Data:', categoriaDespesa AS 'Categoria:' FROM despesa WHERE despesa.dataTransacao > datetime('now', 'start of month') ORDER BY dataTransacao DESC; ");
-                this.renderCharts(this.chart_expenseCategory, "SELECT categoriaDespesa, SUM(valorDespesa) FROM despesa WHERE despesa.dataTransacao > datetime('now', 'start of month') GROUP BY categoriaDespesa;");
-                this.renderCharts(this.chart_incomeCategory, "SELECT categoriaReceita, SUM(valorReceita) FROM receita WHERE receita.dataTransacao > datetime('now', 'start of month') GROUP BY categoriaReceita;");
-                this.renderCharts(this.chart_expenseAcount, "SELECT nomeConta, SUM(valorReceita) FROM conta, receita WHERE receita.dataTransacao > datetime('now', 'start of month') GROUP BY nomeConta;");
-                this.renderCharts(this.chart_incomeAcount, "SELECT nomeConta, SUM(valorDespesa) FROM conta, despesa WHERE despesa.dataTransacao > datetime('now', 'start of month') GROUP BY nomeConta;");
-                this.renderDailyExpensesChart("SELECT dataTransacao, SUM(valorDespesa) FROM despesa WHERE despesa.dataTransacao > datetime('now', 'start of month') GROUP BY dataTransacao;");
-                this.renderLabels(this.lbl_dailyExpenses, "SELECT SUM(valorDespesa) FROM despesa WHERE despesa.dataTransacao = DATE();");
-                this.renderLabels(this.lbl_monthIncomes, "SELECT SUM(valorReceita) FROM receita WHERE receita.dataTransacao > datetime('now', 'start of month');");
-                this.renderLabels(this.lbl_monthExpenses, "SELECT SUM(valorDespesa) FROM despesa WHERE despesa.dataTransacao > datetime('now', 'start of month');");
+                this.dgv_transactions.DataSource = Database.query("SELECT idReceita AS 'ID:', valorReceita AS 'Valor:', dataTransacao AS 'Data:', categoriaReceita AS 'Categoria:' FROM receita WHERE recebimentoConfirmado = true AND receita.dataTransacao > datetime('now', 'start of month') UNION ALL SELECT idDespesa AS 'ID:', valorDespesa AS 'Valor:', dataTransacao AS 'Data:', categoriaDespesa AS 'Categoria:' FROM despesa WHERE pagamentoConfirmado = true AND despesa.dataTransacao > datetime('now', 'start of month') ORDER BY dataTransacao DESC; ");
+                this.renderCharts(this.chart_expenseCategory, "SELECT categoriaDespesa, SUM(valorDespesa) FROM despesa WHERE pagamentoConfirmado = true AND despesa.dataTransacao > datetime('now', 'start of month') GROUP BY categoriaDespesa;");
+                this.renderCharts(this.chart_incomeCategory, "SELECT categoriaReceita, SUM(valorReceita) FROM receita WHERE recebimentoConfirmado = true AND receita.dataTransacao > datetime('now', 'start of month') GROUP BY categoriaReceita;");
+                this.renderCharts(this.chart_expenseAcount, "SELECT nomeConta, SUM(valorReceita) FROM conta, receita WHERE recebimentoConfirmado = true AND receita.dataTransacao > datetime('now', 'start of month') GROUP BY nomeConta;");
+                this.renderCharts(this.chart_incomeAcount, "SELECT nomeConta, SUM(valorDespesa) FROM conta, despesa WHERE pagamentoConfirmado = true AND despesa.dataTransacao > datetime('now', 'start of month') GROUP BY nomeConta;");
+                this.renderDailyExpensesChart("SELECT dataTransacao, SUM(valorDespesa) FROM despesa WHERE pagamentoConfirmado = true AND despesa.dataTransacao > datetime('now', 'start of month') GROUP BY dataTransacao;");
+                this.renderLabels(this.lbl_dailyExpenses, "SELECT SUM(valorDespesa) FROM despesa WHERE pagamentoConfirmado = true AND despesa.dataTransacao = DATE();");
+                this.renderLabels(this.lbl_monthIncomes, "SELECT SUM(valorReceita) FROM receita WHERE recebimentoConfirmado = true AND receita.dataTransacao > datetime('now', 'start of month');");
+                this.renderLabels(this.lbl_monthExpenses, "SELECT SUM(valorDespesa) FROM despesa WHERE pagamentoConfirmado = true AND despesa.dataTransacao > datetime('now', 'start of month');");
             }
             else if (month == 1)
             {
                 clearChartData();
-                this.dgv_transactions.DataSource = Database.query("SELECT idReceita AS 'ID:', valorReceita AS 'Valor:', dataTransacao AS 'Data:', categoriaReceita AS 'Categoria:' FROM receita WHERE receita.dataTransacao < datetime('now', 'start of month', '+2 month') AND receita.dataTransacao > datetime('now', 'start of month', '+1 month') UNION ALL SELECT idDespesa AS 'ID:', valorDespesa AS 'Valor:', dataTransacao AS 'Data:', categoriaDespesa AS 'Categoria:' FROM despesa WHERE despesa.dataTransacao < datetime('now', 'start of month', '+2 month') AND despesa.dataTransacao > datetime('now', 'start of month', '+1 month') ORDER BY dataTransacao DESC; ");
-                this.renderCharts(this.chart_expenseCategory, "SELECT categoriaDespesa, SUM(valorDespesa) FROM despesa WHERE despesa.dataTransacao < datetime('now', 'start of month', '+2 month') AND despesa.dataTransacao > datetime('now', 'start of month', '+1 month') GROUP BY categoriaDespesa;");
-                this.renderCharts(this.chart_incomeCategory, "SELECT categoriaReceita, SUM(valorReceita) FROM receita WHERE receita.dataTransacao < datetime('now', 'start of month', '+2 month') AND receita.dataTransacao > datetime('now', 'start of month', '+1 month') GROUP BY categoriaReceita;");
-                this.renderCharts(this.chart_expenseAcount, "SELECT nomeConta, SUM(valorReceita) FROM conta, receita WHERE receita.dataTransacao < datetime('now', 'start of month', '+2 month') AND receita.dataTransacao > datetime('now', 'start of month', '+1 month') GROUP BY nomeConta;");
-                this.renderCharts(this.chart_incomeAcount, "SELECT nomeConta, SUM(valorDespesa) FROM conta, despesa WHERE despesa.dataTransacao < datetime('now', 'start of month', '+2 month') AND despesa.dataTransacao > datetime('now', 'start of month', '+1 month') GROUP BY nomeConta;");
-                this.renderDailyExpensesChart("SELECT dataTransacao, SUM(valorDespesa) FROM despesa WHERE despesa.dataTransacao < datetime('now', 'start of month', '+2 month') AND despesa.dataTransacao > datetime('now', 'start of month', '+1 month') GROUP BY dataTransacao;");
-                this.renderLabels(this.lbl_dailyExpenses, "SELECT SUM(valorDespesa) FROM despesa WHERE despesa.dataTransacao = datetime('now', 'start of day', '+1 month');");
-                this.renderLabels(this.lbl_monthIncomes, "SELECT SUM(valorReceita) FROM receita WHERE receita.dataTransacao < datetime('now', 'start of month', '+2 month') AND receita.dataTransacao > datetime('now', 'start of month', '+1 month');");
-                this.renderLabels(this.lbl_monthExpenses, "SELECT SUM(valorDespesa) FROM despesa WHERE despesa.dataTransacao < datetime('now', 'start of month', '+2 month') AND despesa.dataTransacao > datetime('now', 'start of month', '+1 month');");
+                this.dgv_transactions.DataSource = Database.query("SELECT idReceita AS 'ID:', valorReceita AS 'Valor:', dataTransacao AS 'Data:', categoriaReceita AS 'Categoria:' FROM receita WHERE recebimentoConfirmado = true AND receita.dataTransacao < datetime('now', 'start of month', '+2 month') AND receita.dataTransacao > datetime('now', 'start of month', '+1 month') UNION ALL SELECT idDespesa AS 'ID:', valorDespesa AS 'Valor:', dataTransacao AS 'Data:', categoriaDespesa AS 'Categoria:' FROM despesa WHERE pagamentoConfirmado = true AND despesa.dataTransacao < datetime('now', 'start of month', '+2 month') AND despesa.dataTransacao > datetime('now', 'start of month', '+1 month') ORDER BY dataTransacao DESC; ");
+                this.renderCharts(this.chart_expenseCategory, "SELECT categoriaDespesa, SUM(valorDespesa) FROM despesa WHERE pagamentoConfirmado = true AND despesa.dataTransacao < datetime('now', 'start of month', '+2 month') AND despesa.dataTransacao > datetime('now', 'start of month', '+1 month') GROUP BY categoriaDespesa;");
+                this.renderCharts(this.chart_incomeCategory, "SELECT categoriaReceita, SUM(valorReceita) FROM receita WHERE recebimentoConfirmado = true AND receita.dataTransacao < datetime('now', 'start of month', '+2 month') AND receita.dataTransacao > datetime('now', 'start of month', '+1 month') GROUP BY categoriaReceita;");
+                this.renderCharts(this.chart_expenseAcount, "SELECT nomeConta, SUM(valorReceita) FROM conta, receita WHERE recebimentoConfirmado = true AND receita.dataTransacao < datetime('now', 'start of month', '+2 month') AND receita.dataTransacao > datetime('now', 'start of month', '+1 month') GROUP BY nomeConta;");
+                this.renderCharts(this.chart_incomeAcount, "SELECT nomeConta, SUM(valorDespesa) FROM conta, despesa WHERE pagamentoConfirmado = true AND despesa.dataTransacao < datetime('now', 'start of month', '+2 month') AND despesa.dataTransacao > datetime('now', 'start of month', '+1 month') GROUP BY nomeConta;");
+                this.renderDailyExpensesChart("SELECT dataTransacao, SUM(valorDespesa) FROM despesa WHERE pagamentoConfirmado = true AND despesa.dataTransacao < datetime('now', 'start of month', '+2 month') AND despesa.dataTransacao > datetime('now', 'start of month', '+1 month') GROUP BY dataTransacao;");
+                this.renderLabels(this.lbl_dailyExpenses, "SELECT SUM(valorDespesa) FROM despesa WHERE pagamentoConfirmado = true AND despesa.dataTransacao = datetime('now', 'start of day', '+1 month');");
+                this.renderLabels(this.lbl_monthIncomes, "SELECT SUM(valorReceita) FROM receita WHERE recebimentoConfirmado = true AND receita.dataTransacao < datetime('now', 'start of month', '+2 month') AND receita.dataTransacao > datetime('now', 'start of month', '+1 month');");
+                this.renderLabels(this.lbl_monthExpenses, "SELECT SUM(valorDespesa) FROM despesa WHERE pagamentoConfirmado = true AND despesa.dataTransacao < datetime('now', 'start of month', '+2 month') AND despesa.dataTransacao > datetime('now', 'start of month', '+1 month');");
             }
             else if (month > 1)
             {
                 clearChartData();
                 int monthMore = month + 1;
-                this.dgv_transactions.DataSource = Database.query("SELECT idReceita AS 'ID:', valorReceita AS 'Valor:', dataTransacao AS 'Data:', categoriaReceita AS 'Categoria:' FROM receita WHERE receita.dataTransacao < datetime('now', 'start of month', '+" + monthMore + " month') AND receita.dataTransacao > datetime('now', 'start of month', '+" + month + " month') UNION ALL SELECT idDespesa AS 'ID:', valorDespesa AS 'Valor:', dataTransacao AS 'Data:', categoriaDespesa AS 'Categoria:' FROM despesa WHERE despesa.dataTransacao < datetime('now', 'start of month', '+" + monthMore + " month') AND despesa.dataTransacao > datetime('now', 'start of month', '+" + month + " month') ORDER BY dataTransacao DESC; ");
-                this.renderCharts(this.chart_expenseCategory, "SELECT categoriaDespesa, SUM(valorDespesa) FROM despesa WHERE despesa.dataTransacao < datetime('now', 'start of month', '+" + monthMore + " month') AND despesa.dataTransacao > datetime('now', 'start of month', '+" + month + " month') GROUP BY categoriaDespesa;");
-                this.renderCharts(this.chart_incomeCategory, "SELECT categoriaReceita, SUM(valorReceita) FROM receita WHERE receita.dataTransacao < datetime('now', 'start of month', '+" + monthMore + " month') AND receita.dataTransacao > datetime('now', 'start of month', '+" + month + " month') GROUP BY categoriaReceita;");
-                this.renderCharts(this.chart_expenseAcount, "SELECT nomeConta, SUM(valorReceita) FROM conta, receita WHERE receita.dataTransacao < datetime('now', 'start of month', '+" + monthMore + " month') AND receita.dataTransacao > datetime('now', 'start of month', '+" + month + " month') GROUP BY nomeConta;");
-                this.renderCharts(this.chart_incomeAcount, "SELECT nomeConta, SUM(valorDespesa) FROM conta, despesa WHERE despesa.dataTransacao < datetime('now', 'start of month', '+" + monthMore + " month') AND despesa.dataTransacao > datetime('now', 'start of month', '+" + month + " month') GROUP BY nomeConta;");
-                this.renderDailyExpensesChart("SELECT dataTransacao, SUM(valorDespesa) FROM despesa WHERE despesa.dataTransacao < datetime('now', 'start of month', '+" + monthMore + " month') AND despesa.dataTransacao > datetime('now', 'start of month', '+" + month + " month') GROUP BY dataTransacao;");
-                this.renderLabels(this.lbl_dailyExpenses, "SELECT SUM(valorDespesa) FROM despesa WHERE despesa.dataTransacao = datetime('now', 'start of day', '+" + month + " month');");
-                this.renderLabels(this.lbl_monthIncomes, "SELECT SUM(valorReceita) FROM receita WHERE receita.dataTransacao < datetime('now', 'start of month', '+" + monthMore + " month') AND receita.dataTransacao > datetime('now', 'start of month', '+" + month + " month');");
-                this.renderLabels(this.lbl_monthExpenses, "SELECT SUM(valorDespesa) FROM despesa WHERE despesa.dataTransacao < datetime('now', 'start of month', '+" + monthMore + " month') AND despesa.dataTransacao > datetime('now', 'start of month', '+" + month + " month');");
+                this.dgv_transactions.DataSource = Database.query("SELECT idReceita AS 'ID:', valorReceita AS 'Valor:', dataTransacao AS 'Data:', categoriaReceita AS 'Categoria:' FROM receita WHERE recebimentoConfirmado = true AND receita.dataTransacao < datetime('now', 'start of month', '+" + monthMore + " month') AND receita.dataTransacao > datetime('now', 'start of month', '+" + month + " month') UNION ALL SELECT idDespesa AS 'ID:', valorDespesa AS 'Valor:', dataTransacao AS 'Data:', categoriaDespesa AS 'Categoria:' FROM despesa WHERE pagamentoConfirmado = true AND despesa.dataTransacao < datetime('now', 'start of month', '+" + monthMore + " month') AND despesa.dataTransacao > datetime('now', 'start of month', '+" + month + " month') ORDER BY dataTransacao DESC; ");
+                this.renderCharts(this.chart_expenseCategory, "SELECT categoriaDespesa, SUM(valorDespesa) FROM despesa WHERE pagamentoConfirmado = true AND despesa.dataTransacao < datetime('now', 'start of month', '+" + monthMore + " month') AND despesa.dataTransacao > datetime('now', 'start of month', '+" + month + " month') GROUP BY categoriaDespesa;");
+                this.renderCharts(this.chart_incomeCategory, "SELECT categoriaReceita, SUM(valorReceita) FROM receita WHERE recebimentoConfirmado = true AND receita.dataTransacao < datetime('now', 'start of month', '+" + monthMore + " month') AND receita.dataTransacao > datetime('now', 'start of month', '+" + month + " month') GROUP BY categoriaReceita;");
+                this.renderCharts(this.chart_expenseAcount, "SELECT nomeConta, SUM(valorReceita) FROM conta, receita WHERE recebimentoConfirmado = true AND receita.dataTransacao < datetime('now', 'start of month', '+" + monthMore + " month') AND receita.dataTransacao > datetime('now', 'start of month', '+" + month + " month') GROUP BY nomeConta;");
+                this.renderCharts(this.chart_incomeAcount, "SELECT nomeConta, SUM(valorDespesa) FROM conta, despesa WHERE pagamentoConfirmado = true AND despesa.dataTransacao < datetime('now', 'start of month', '+" + monthMore + " month') AND despesa.dataTransacao > datetime('now', 'start of month', '+" + month + " month') GROUP BY nomeConta;");
+                this.renderDailyExpensesChart("SELECT dataTransacao, SUM(valorDespesa) FROM despesa WHERE pagamentoConfirmado = true AND despesa.dataTransacao < datetime('now', 'start of month', '+" + monthMore + " month') AND despesa.dataTransacao > datetime('now', 'start of month', '+" + month + " month') GROUP BY dataTransacao;");
+                this.renderLabels(this.lbl_dailyExpenses, "SELECT SUM(valorDespesa) FROM despesa WHERE pagamentoConfirmado = true AND despesa.dataTransacao = datetime('now', 'start of day', '+" + month + " month');");
+                this.renderLabels(this.lbl_monthIncomes, "SELECT SUM(valorReceita) FROM receita WHERE recebimentoConfirmado = true AND receita.dataTransacao < datetime('now', 'start of month', '+" + monthMore + " month') AND receita.dataTransacao > datetime('now', 'start of month', '+" + month + " month');");
+                this.renderLabels(this.lbl_monthExpenses, "SELECT SUM(valorDespesa) FROM despesa WHERE pagamentoConfirmado = true AND despesa.dataTransacao < datetime('now', 'start of month', '+" + monthMore + " month') AND despesa.dataTransacao > datetime('now', 'start of month', '+" + month + " month');");
             }
         }
 
@@ -403,83 +368,83 @@ namespace Sisteg_Dashboard
                 if (month == -2)
                 {
                     clearChartData();
-                    this.dgv_transactions.DataSource = Database.query("SELECT idReceita AS 'ID:', valorReceita AS 'Valor:', dataTransacao AS 'Data:', categoriaReceita AS 'Categoria:' FROM receita WHERE receita.dataTransacao > datetime('now', 'start of month', '-2 month') AND receita.dataTransacao < datetime('now', 'start of month', '-1 month') UNION ALL SELECT idDespesa AS 'ID:', valorDespesa AS 'Valor:', dataTransacao AS 'Data:', categoriaDespesa AS 'Categoria:' FROM despesa WHERE despesa.dataTransacao > datetime('now', 'start of month', '-2 month') AND despesa.dataTransacao < datetime('now', 'start of month', '-1 month') ORDER BY dataTransacao DESC; ");
-                    this.renderCharts(this.chart_expenseCategory, "SELECT categoriaDespesa, SUM(valorDespesa) FROM despesa WHERE despesa.dataTransacao > datetime('now', 'start of month', '-2 month') AND despesa.dataTransacao < datetime('now', 'start of month', '-1 month') GROUP BY categoriaDespesa;");
-                    this.renderCharts(this.chart_incomeCategory, "SELECT categoriaReceita, SUM(valorReceita) FROM receita WHERE receita.dataTransacao > datetime('now', 'start of month', '-2 month') AND receita.dataTransacao < datetime('now', 'start of month', '-1 month') GROUP BY categoriaReceita;");
-                    this.renderCharts(this.chart_expenseAcount, "SELECT nomeConta, SUM(valorReceita) FROM conta, receita WHERE receita.dataTransacao > datetime('now', 'start of month', '-2 month') AND receita.dataTransacao < datetime('now', 'start of month', '-1 month') GROUP BY nomeConta;");
-                    this.renderCharts(this.chart_incomeAcount, "SELECT nomeConta, SUM(valorDespesa) FROM conta, despesa WHERE despesa.dataTransacao > datetime('now', 'start of month', '-2 month') AND despesa.dataTransacao < datetime('now', 'start of month', '-1 month') GROUP BY nomeConta;");
-                    this.renderDailyExpensesChart("SELECT dataTransacao, SUM(valorDespesa) FROM despesa WHERE despesa.dataTransacao > datetime('now', 'start of month', '-2 month') AND despesa.dataTransacao < datetime('now', 'start of month', '-1 month') GROUP BY dataTransacao;");
-                    this.renderLabels(this.lbl_dailyExpenses, "SELECT SUM(valorDespesa) FROM despesa WHERE despesa.dataTransacao = datetime('now', 'start of day', '-2 month');");
-                    this.renderLabels(this.lbl_monthIncomes, "SELECT SUM(valorReceita) FROM receita WHERE receita.dataTransacao > datetime('now', 'start of month', '-2 month') AND receita.dataTransacao < datetime('now', 'start of month', '-1 month');");
-                    this.renderLabels(this.lbl_monthExpenses, "SELECT SUM(valorDespesa) FROM despesa WHERE despesa.dataTransacao > datetime('now', 'start of month', '-2 month') AND despesa.dataTransacao < datetime('now', 'start of month', '-1 month');");
+                    this.dgv_transactions.DataSource = Database.query("SELECT idReceita AS 'ID:', valorReceita AS 'Valor:', dataTransacao AS 'Data:', categoriaReceita AS 'Categoria:' FROM receita WHERE recebimentoConfirmado = true AND receita.dataTransacao > datetime('now', 'start of month', '-2 month') AND receita.dataTransacao < datetime('now', 'start of month', '-1 month') UNION ALL SELECT idDespesa AS 'ID:', valorDespesa AS 'Valor:', dataTransacao AS 'Data:', categoriaDespesa AS 'Categoria:' FROM despesa WHERE pagamentoConfirmado = true AND despesa.dataTransacao > datetime('now', 'start of month', '-2 month') AND despesa.dataTransacao < datetime('now', 'start of month', '-1 month') ORDER BY dataTransacao DESC; ");
+                    this.renderCharts(this.chart_expenseCategory, "SELECT categoriaDespesa, SUM(valorDespesa) FROM despesa WHERE pagamentoConfirmado = true AND despesa.dataTransacao > datetime('now', 'start of month', '-2 month') AND despesa.dataTransacao < datetime('now', 'start of month', '-1 month') GROUP BY categoriaDespesa;");
+                    this.renderCharts(this.chart_incomeCategory, "SELECT categoriaReceita, SUM(valorReceita) FROM receita WHERE recebimentoConfirmado = true AND receita.dataTransacao > datetime('now', 'start of month', '-2 month') AND receita.dataTransacao < datetime('now', 'start of month', '-1 month') GROUP BY categoriaReceita;");
+                    this.renderCharts(this.chart_expenseAcount, "SELECT nomeConta, SUM(valorReceita) FROM conta, receita WHERE recebimentoConfirmado = true AND receita.dataTransacao > datetime('now', 'start of month', '-2 month') AND receita.dataTransacao < datetime('now', 'start of month', '-1 month') GROUP BY nomeConta;");
+                    this.renderCharts(this.chart_incomeAcount, "SELECT nomeConta, SUM(valorDespesa) FROM conta, despesa WHERE pagamentoConfirmado = true AND despesa.dataTransacao > datetime('now', 'start of month', '-2 month') AND despesa.dataTransacao < datetime('now', 'start of month', '-1 month') GROUP BY nomeConta;");
+                    this.renderDailyExpensesChart("SELECT dataTransacao, SUM(valorDespesa) FROM despesa WHERE pagamentoConfirmado = true AND despesa.dataTransacao > datetime('now', 'start of month', '-2 month') AND despesa.dataTransacao < datetime('now', 'start of month', '-1 month') GROUP BY dataTransacao;");
+                    this.renderLabels(this.lbl_dailyExpenses, "SELECT SUM(valorDespesa) FROM despesa WHERE pagamentoConfirmado = true AND despesa.dataTransacao = datetime('now', 'start of day', '-2 month');");
+                    this.renderLabels(this.lbl_monthIncomes, "SELECT SUM(valorReceita) FROM receita WHERE recebimentoConfirmado = true AND receita.dataTransacao > datetime('now', 'start of month', '-2 month') AND receita.dataTransacao < datetime('now', 'start of month', '-1 month');");
+                    this.renderLabels(this.lbl_monthExpenses, "SELECT SUM(valorDespesa) FROM despesa WHERE pagamentoConfirmado = true AND despesa.dataTransacao > datetime('now', 'start of month', '-2 month') AND despesa.dataTransacao < datetime('now', 'start of month', '-1 month');");
                 }
                 else
                 {
                     clearChartData();
                     int monthLess = month + 1;
-                    this.dgv_transactions.DataSource = Database.query("SELECT idReceita AS 'ID:', valorReceita AS 'Valor:', dataTransacao AS 'Data:', categoriaReceita AS 'Categoria:' FROM receita WHERE receita.dataTransacao > datetime('now', 'start of month', '" + month + " month') AND receita.dataTransacao < datetime('now', 'start of month', '" + monthLess + " month') UNION ALL SELECT idDespesa AS 'ID:', valorDespesa AS 'Valor:', dataTransacao AS 'Data:', categoriaDespesa AS 'Categoria:' FROM despesa WHERE despesa.dataTransacao > datetime('now', 'start of month', '" + month + " month') AND despesa.dataTransacao < datetime('now', 'start of month', '" + monthLess + " month') ORDER BY dataTransacao DESC; ");
-                    this.renderCharts(this.chart_expenseCategory, "SELECT categoriaDespesa, SUM(valorDespesa) FROM despesa WHERE despesa.dataTransacao > datetime('now', 'start of month', '" + month + " month') AND despesa.dataTransacao < datetime('now', 'start of month', '" + monthLess + " month') GROUP BY categoriaDespesa;");
-                    this.renderCharts(this.chart_incomeCategory, "SELECT categoriaReceita, SUM(valorReceita) FROM receita WHERE receita.dataTransacao > datetime('now', 'start of month', '" + month + " month') AND receita.dataTransacao < datetime('now', 'start of month', '" + monthLess + " month') GROUP BY categoriaReceita;");
-                    this.renderCharts(this.chart_expenseAcount, "SELECT nomeConta, SUM(valorReceita) FROM conta, receita WHERE receita.dataTransacao > datetime('now', 'start of month', '" + month + " month') AND receita.dataTransacao < datetime('now', 'start of month', '" + monthLess + " month') GROUP BY nomeConta;");
-                    this.renderCharts(this.chart_incomeAcount, "SELECT nomeConta, SUM(valorDespesa) FROM conta, despesa WHERE despesa.dataTransacao > datetime('now', 'start of month', '" + month + " month') AND despesa.dataTransacao < datetime('now', 'start of month', '" + monthLess + " month') GROUP BY nomeConta;");
-                    this.renderDailyExpensesChart("SELECT dataTransacao, SUM(valorDespesa) FROM despesa WHERE despesa.dataTransacao > datetime('now', 'start of month', '" + month + " month') AND despesa.dataTransacao < datetime('now', 'start of month', '" + monthLess + " month') GROUP BY dataTransacao;");
-                    this.renderLabels(this.lbl_dailyExpenses, "SELECT SUM(valorDespesa) FROM despesa WHERE despesa.dataTransacao = datetime('now', 'start of day', '" + month + " month');");
-                    this.renderLabels(this.lbl_monthIncomes, "SELECT SUM(valorReceita) FROM receita WHERE receita.dataTransacao > datetime('now', 'start of month', '" + month + " month') AND receita.dataTransacao < datetime('now', 'start of month', '" + monthLess + " month');");
-                    this.renderLabels(this.lbl_monthExpenses, "SELECT SUM(valorDespesa) FROM despesa WHERE despesa.dataTransacao > datetime('now', 'start of month', '" + month + " month') AND despesa.dataTransacao < datetime('now', 'start of month', '" + monthLess + " month');");
+                    this.dgv_transactions.DataSource = Database.query("SELECT idReceita AS 'ID:', valorReceita AS 'Valor:', dataTransacao AS 'Data:', categoriaReceita AS 'Categoria:' FROM receita WHERE recebimentoConfirmado = true AND receita.dataTransacao > datetime('now', 'start of month', '" + month + " month') AND receita.dataTransacao < datetime('now', 'start of month', '" + monthLess + " month') UNION ALL SELECT idDespesa AS 'ID:', valorDespesa AS 'Valor:', dataTransacao AS 'Data:', categoriaDespesa AS 'Categoria:' FROM despesa WHERE pagamentoConfirmado = true AND despesa.dataTransacao > datetime('now', 'start of month', '" + month + " month') AND despesa.dataTransacao < datetime('now', 'start of month', '" + monthLess + " month') ORDER BY dataTransacao DESC; ");
+                    this.renderCharts(this.chart_expenseCategory, "SELECT categoriaDespesa, SUM(valorDespesa) FROM despesa WHERE pagamentoConfirmado = true AND despesa.dataTransacao > datetime('now', 'start of month', '" + month + " month') AND despesa.dataTransacao < datetime('now', 'start of month', '" + monthLess + " month') GROUP BY categoriaDespesa;");
+                    this.renderCharts(this.chart_incomeCategory, "SELECT categoriaReceita, SUM(valorReceita) FROM receita WHERE recebimentoConfirmado = true AND receita.dataTransacao > datetime('now', 'start of month', '" + month + " month') AND receita.dataTransacao < datetime('now', 'start of month', '" + monthLess + " month') GROUP BY categoriaReceita;");
+                    this.renderCharts(this.chart_expenseAcount, "SELECT nomeConta, SUM(valorReceita) FROM conta, receita WHERE recebimentoConfirmado = true AND receita.dataTransacao > datetime('now', 'start of month', '" + month + " month') AND receita.dataTransacao < datetime('now', 'start of month', '" + monthLess + " month') GROUP BY nomeConta;");
+                    this.renderCharts(this.chart_incomeAcount, "SELECT nomeConta, SUM(valorDespesa) FROM conta, despesa WHERE pagamentoConfirmado = true AND despesa.dataTransacao > datetime('now', 'start of month', '" + month + " month') AND despesa.dataTransacao < datetime('now', 'start of month', '" + monthLess + " month') GROUP BY nomeConta;");
+                    this.renderDailyExpensesChart("SELECT dataTransacao, SUM(valorDespesa) FROM despesa WHERE pagamentoConfirmado = true AND despesa.dataTransacao > datetime('now', 'start of month', '" + month + " month') AND despesa.dataTransacao < datetime('now', 'start of month', '" + monthLess + " month') GROUP BY dataTransacao;");
+                    this.renderLabels(this.lbl_dailyExpenses, "SELECT SUM(valorDespesa) FROM despesa WHERE pagamentoConfirmado = true AND despesa.dataTransacao = datetime('now', 'start of day', '" + month + " month');");
+                    this.renderLabels(this.lbl_monthIncomes, "SELECT SUM(valorReceita) FROM receita WHERE recebimentoConfirmado = true AND receita.dataTransacao > datetime('now', 'start of month', '" + month + " month') AND receita.dataTransacao < datetime('now', 'start of month', '" + monthLess + " month');");
+                    this.renderLabels(this.lbl_monthExpenses, "SELECT SUM(valorDespesa) FROM despesa WHERE pagamentoConfirmado = true AND despesa.dataTransacao > datetime('now', 'start of month', '" + month + " month') AND despesa.dataTransacao < datetime('now', 'start of month', '" + monthLess + " month');");
                 }
             }
             else if (month == -1)
             {
                 clearChartData();
-                this.dgv_transactions.DataSource = Database.query("SELECT idReceita AS 'ID:', valorReceita AS 'Valor:', dataTransacao AS 'Data:', categoriaReceita AS 'Categoria:' FROM receita WHERE receita.dataTransacao > datetime('now', 'start of month', '-1 month') AND receita.dataTransacao < datetime('now', 'start of month') UNION ALL SELECT idDespesa AS 'ID:', valorDespesa AS 'Valor:', dataTransacao AS 'Data:', categoriaDespesa AS 'Categoria:' FROM despesa WHERE despesa.dataTransacao > datetime('now', 'start of month', '-1 month') AND despesa.dataTransacao < datetime('now', 'start of month') ORDER BY dataTransacao DESC; ");
-                this.renderCharts(this.chart_expenseCategory, "SELECT categoriaDespesa, SUM(valorDespesa) FROM despesa WHERE despesa.dataTransacao > datetime('now', 'start of month', '-1 month') AND despesa.dataTransacao < datetime('now', 'start of month') GROUP BY categoriaDespesa;");
-                this.renderCharts(this.chart_incomeCategory, "SELECT categoriaReceita, SUM(valorReceita) FROM receita WHERE receita.dataTransacao > datetime('now', 'start of month', '-1 month') AND receita.dataTransacao < datetime('now', 'start of month') GROUP BY categoriaReceita;");
-                this.renderCharts(this.chart_expenseAcount, "SELECT nomeConta, SUM(valorReceita) FROM conta, receita WHERE receita.dataTransacao > datetime('now', 'start of month', '-1 month') AND receita.dataTransacao < datetime('now', 'start of month') GROUP BY nomeConta;");
-                this.renderCharts(this.chart_incomeAcount, "SELECT nomeConta, SUM(valorDespesa) FROM conta, despesa WHERE despesa.dataTransacao > datetime('now', 'start of month', '-1 month') AND despesa.dataTransacao < datetime('now', 'start of month') GROUP BY nomeConta;");
-                this.renderDailyExpensesChart("SELECT dataTransacao, SUM(valorDespesa) FROM despesa WHERE despesa.dataTransacao > datetime('now', 'start of month', '-1 month') AND despesa.dataTransacao < datetime('now', 'start of month') GROUP BY dataTransacao;");
-                this.renderLabels(this.lbl_dailyExpenses, "SELECT SUM(valorDespesa) FROM despesa WHERE despesa.dataTransacao = datetime('now', 'start of day', '-1 month');");
-                this.renderLabels(this.lbl_monthIncomes, "SELECT SUM(valorReceita) FROM receita WHERE receita.dataTransacao > datetime('now', 'start of month', '-1 month') AND receita.dataTransacao < datetime('now', 'start of month');");
-                this.renderLabels(this.lbl_monthExpenses, "SELECT SUM(valorDespesa) FROM despesa WHERE despesa.dataTransacao > datetime('now', 'start of month', '-1 month') AND despesa.dataTransacao < datetime('now', 'start of month');");
+                this.dgv_transactions.DataSource = Database.query("SELECT idReceita AS 'ID:', valorReceita AS 'Valor:', dataTransacao AS 'Data:', categoriaReceita AS 'Categoria:' FROM receita WHERE recebimentoConfirmado = true AND receita.dataTransacao > datetime('now', 'start of month', '-1 month') AND receita.dataTransacao < datetime('now', 'start of month') UNION ALL SELECT idDespesa AS 'ID:', valorDespesa AS 'Valor:', dataTransacao AS 'Data:', categoriaDespesa AS 'Categoria:' FROM despesa WHERE pagamentoConfirmado = true AND despesa.dataTransacao > datetime('now', 'start of month', '-1 month') AND despesa.dataTransacao < datetime('now', 'start of month') ORDER BY dataTransacao DESC; ");
+                this.renderCharts(this.chart_expenseCategory, "SELECT categoriaDespesa, SUM(valorDespesa) FROM despesa WHERE pagamentoConfirmado = true AND despesa.dataTransacao > datetime('now', 'start of month', '-1 month') AND despesa.dataTransacao < datetime('now', 'start of month') GROUP BY categoriaDespesa;");
+                this.renderCharts(this.chart_incomeCategory, "SELECT categoriaReceita, SUM(valorReceita) FROM receita WHERE recebimentoConfirmado = true AND receita.dataTransacao > datetime('now', 'start of month', '-1 month') AND receita.dataTransacao < datetime('now', 'start of month') GROUP BY categoriaReceita;");
+                this.renderCharts(this.chart_expenseAcount, "SELECT nomeConta, SUM(valorReceita) FROM conta, receita WHERE recebimentoConfirmado = true AND receita.dataTransacao > datetime('now', 'start of month', '-1 month') AND receita.dataTransacao < datetime('now', 'start of month') GROUP BY nomeConta;");
+                this.renderCharts(this.chart_incomeAcount, "SELECT nomeConta, SUM(valorDespesa) FROM conta, despesa WHERE pagamentoConfirmado = true AND despesa.dataTransacao > datetime('now', 'start of month', '-1 month') AND despesa.dataTransacao < datetime('now', 'start of month') GROUP BY nomeConta;");
+                this.renderDailyExpensesChart("SELECT dataTransacao, SUM(valorDespesa) FROM despesa WHERE pagamentoConfirmado = true AND despesa.dataTransacao > datetime('now', 'start of month', '-1 month') AND despesa.dataTransacao < datetime('now', 'start of month') GROUP BY dataTransacao;");
+                this.renderLabels(this.lbl_dailyExpenses, "SELECT SUM(valorDespesa) FROM despesa WHERE pagamentoConfirmado = true AND despesa.dataTransacao = datetime('now', 'start of day', '-1 month');");
+                this.renderLabels(this.lbl_monthIncomes, "SELECT SUM(valorReceita) FROM receita WHERE recebimentoConfirmado = true AND receita.dataTransacao > datetime('now', 'start of month', '-1 month') AND receita.dataTransacao < datetime('now', 'start of month');");
+                this.renderLabels(this.lbl_monthExpenses, "SELECT SUM(valorDespesa) FROM despesa WHERE pagamentoConfirmado = true AND despesa.dataTransacao > datetime('now', 'start of month', '-1 month') AND despesa.dataTransacao < datetime('now', 'start of month');");
             }
             else if (month == 0)
             {
                 clearChartData();
-                this.dgv_transactions.DataSource = Database.query("SELECT idReceita AS 'ID:', valorReceita AS 'Valor:', dataTransacao AS 'Data:', categoriaReceita AS 'Categoria:' FROM receita WHERE receita.dataTransacao > datetime('now', 'start of month') UNION ALL SELECT idDespesa AS 'ID:', valorDespesa AS 'Valor:', dataTransacao AS 'Data:', categoriaDespesa AS 'Categoria:' FROM despesa WHERE despesa.dataTransacao > datetime('now', 'start of month') ORDER BY dataTransacao DESC; ");
-                this.renderCharts(this.chart_expenseCategory, "SELECT categoriaDespesa, SUM(valorDespesa) FROM despesa WHERE despesa.dataTransacao > datetime('now', 'start of month') GROUP BY categoriaDespesa;");
-                this.renderCharts(this.chart_incomeCategory, "SELECT categoriaReceita, SUM(valorReceita) FROM receita WHERE receita.dataTransacao > datetime('now', 'start of month') GROUP BY categoriaReceita;");
-                this.renderCharts(this.chart_expenseAcount, "SELECT nomeConta, SUM(valorReceita) FROM conta, receita WHERE receita.dataTransacao > datetime('now', 'start of month') GROUP BY nomeConta;");
-                this.renderCharts(this.chart_incomeAcount, "SELECT nomeConta, SUM(valorDespesa) FROM conta, despesa WHERE despesa.dataTransacao > datetime('now', 'start of month') GROUP BY nomeConta;");
-                this.renderDailyExpensesChart("SELECT dataTransacao, SUM(valorDespesa) FROM despesa WHERE despesa.dataTransacao > datetime('now', 'start of month') GROUP BY dataTransacao;");
-                this.renderLabels(this.lbl_dailyExpenses, "SELECT SUM(valorDespesa) FROM despesa WHERE despesa.dataTransacao = DATE();");
-                this.renderLabels(this.lbl_monthIncomes, "SELECT SUM(valorReceita) FROM receita WHERE receita.dataTransacao > datetime('now', 'start of month');");
-                this.renderLabels(this.lbl_monthExpenses, "SELECT SUM(valorDespesa) FROM despesa WHERE despesa.dataTransacao > datetime('now', 'start of month');");
+                this.dgv_transactions.DataSource = Database.query("SELECT idReceita AS 'ID:', valorReceita AS 'Valor:', dataTransacao AS 'Data:', categoriaReceita AS 'Categoria:' FROM receita WHERE recebimentoConfirmado = true AND receita.dataTransacao > datetime('now', 'start of month') UNION ALL SELECT idDespesa AS 'ID:', valorDespesa AS 'Valor:', dataTransacao AS 'Data:', categoriaDespesa AS 'Categoria:' FROM despesa WHERE pagamentoConfirmado = true AND despesa.dataTransacao > datetime('now', 'start of month') ORDER BY dataTransacao DESC; ");
+                this.renderCharts(this.chart_expenseCategory, "SELECT categoriaDespesa, SUM(valorDespesa) FROM despesa WHERE pagamentoConfirmado = true AND despesa.dataTransacao > datetime('now', 'start of month') GROUP BY categoriaDespesa;");
+                this.renderCharts(this.chart_incomeCategory, "SELECT categoriaReceita, SUM(valorReceita) FROM receita WHERE recebimentoConfirmado = true AND receita.dataTransacao > datetime('now', 'start of month') GROUP BY categoriaReceita;");
+                this.renderCharts(this.chart_expenseAcount, "SELECT nomeConta, SUM(valorReceita) FROM conta, receita WHERE recebimentoConfirmado = true AND receita.dataTransacao > datetime('now', 'start of month') GROUP BY nomeConta;");
+                this.renderCharts(this.chart_incomeAcount, "SELECT nomeConta, SUM(valorDespesa) FROM conta, despesa WHERE pagamentoConfirmado = true AND despesa.dataTransacao > datetime('now', 'start of month') GROUP BY nomeConta;");
+                this.renderDailyExpensesChart("SELECT dataTransacao, SUM(valorDespesa) FROM despesa WHERE pagamentoConfirmado = true AND despesa.dataTransacao > datetime('now', 'start of month') GROUP BY dataTransacao;");
+                this.renderLabels(this.lbl_dailyExpenses, "SELECT SUM(valorDespesa) FROM despesa WHERE pagamentoConfirmado = true AND despesa.dataTransacao = DATE();");
+                this.renderLabels(this.lbl_monthIncomes, "SELECT SUM(valorReceita) FROM receita WHERE recebimentoConfirmado = true AND receita.dataTransacao > datetime('now', 'start of month');");
+                this.renderLabels(this.lbl_monthExpenses, "SELECT SUM(valorDespesa) FROM despesa WHERE pagamentoConfirmado = true AND despesa.dataTransacao > datetime('now', 'start of month');");
             }
             else if (month == 1)
             {
                 clearChartData();
-                this.dgv_transactions.DataSource = Database.query("SELECT idReceita AS 'ID:', valorReceita AS 'Valor:', dataTransacao AS 'Data:', categoriaReceita AS 'Categoria:' FROM receita WHERE receita.dataTransacao < datetime('now', 'start of month', '+2 month') AND receita.dataTransacao > datetime('now', 'start of month', '+1 month') UNION ALL SELECT idDespesa AS 'ID:', valorDespesa AS 'Valor:', dataTransacao AS 'Data:', categoriaDespesa AS 'Categoria:' FROM despesa WHERE despesa.dataTransacao < datetime('now', 'start of month', '+2 month') AND despesa.dataTransacao > datetime('now', 'start of month', '+1 month') ORDER BY dataTransacao DESC; ");
-                this.renderCharts(this.chart_expenseCategory, "SELECT categoriaDespesa, SUM(valorDespesa) FROM despesa WHERE despesa.dataTransacao < datetime('now', 'start of month', '+2 month') AND despesa.dataTransacao > datetime('now', 'start of month', '+1 month') GROUP BY categoriaDespesa;");
-                this.renderCharts(this.chart_incomeCategory, "SELECT categoriaReceita, SUM(valorReceita) FROM receita WHERE receita.dataTransacao < datetime('now', 'start of month', '+2 month') AND receita.dataTransacao > datetime('now', 'start of month', '+1 month') GROUP BY categoriaReceita;");
-                this.renderCharts(this.chart_expenseAcount, "SELECT nomeConta, SUM(valorReceita) FROM conta, receita WHERE receita.dataTransacao < datetime('now', 'start of month', '+2 month') AND receita.dataTransacao > datetime('now', 'start of month', '+1 month') GROUP BY nomeConta;");
-                this.renderCharts(this.chart_incomeAcount, "SELECT nomeConta, SUM(valorDespesa) FROM conta, despesa WHERE despesa.dataTransacao < datetime('now', 'start of month', '+2 month') AND despesa.dataTransacao > datetime('now', 'start of month', '+1 month') GROUP BY nomeConta;");
-                this.renderDailyExpensesChart("SELECT dataTransacao, SUM(valorDespesa) FROM despesa WHERE despesa.dataTransacao < datetime('now', 'start of month', '+2 month') AND despesa.dataTransacao > datetime('now', 'start of month', '+1 month') GROUP BY dataTransacao;");
-                this.renderLabels(this.lbl_dailyExpenses, "SELECT SUM(valorDespesa) FROM despesa WHERE despesa.dataTransacao = datetime('now', 'start of day', '+1 month');");
-                this.renderLabels(this.lbl_monthIncomes, "SELECT SUM(valorReceita) FROM receita WHERE receita.dataTransacao < datetime('now', 'start of month', '+2 month') AND receita.dataTransacao > datetime('now', 'start of month', '+1 month');");
-                this.renderLabels(this.lbl_monthExpenses, "SELECT SUM(valorDespesa) FROM despesa WHERE despesa.dataTransacao < datetime('now', 'start of month', '+2 month') AND despesa.dataTransacao > datetime('now', 'start of month', '+1 month');");
+                this.dgv_transactions.DataSource = Database.query("SELECT idReceita AS 'ID:', valorReceita AS 'Valor:', dataTransacao AS 'Data:', categoriaReceita AS 'Categoria:' FROM receita WHERE recebimentoConfirmado = true AND receita.dataTransacao < datetime('now', 'start of month', '+2 month') AND receita.dataTransacao > datetime('now', 'start of month', '+1 month') UNION ALL SELECT idDespesa AS 'ID:', valorDespesa AS 'Valor:', dataTransacao AS 'Data:', categoriaDespesa AS 'Categoria:' FROM despesa WHERE pagamentoConfirmado = true AND despesa.dataTransacao < datetime('now', 'start of month', '+2 month') AND despesa.dataTransacao > datetime('now', 'start of month', '+1 month') ORDER BY dataTransacao DESC; ");
+                this.renderCharts(this.chart_expenseCategory, "SELECT categoriaDespesa, SUM(valorDespesa) FROM despesa WHERE pagamentoConfirmado = true AND despesa.dataTransacao < datetime('now', 'start of month', '+2 month') AND despesa.dataTransacao > datetime('now', 'start of month', '+1 month') GROUP BY categoriaDespesa;");
+                this.renderCharts(this.chart_incomeCategory, "SELECT categoriaReceita, SUM(valorReceita) FROM receita WHERE recebimentoConfirmado = true AND receita.dataTransacao < datetime('now', 'start of month', '+2 month') AND receita.dataTransacao > datetime('now', 'start of month', '+1 month') GROUP BY categoriaReceita;");
+                this.renderCharts(this.chart_expenseAcount, "SELECT nomeConta, SUM(valorReceita) FROM conta, receita WHERE recebimentoConfirmado = true AND receita.dataTransacao < datetime('now', 'start of month', '+2 month') AND receita.dataTransacao > datetime('now', 'start of month', '+1 month') GROUP BY nomeConta;");
+                this.renderCharts(this.chart_incomeAcount, "SELECT nomeConta, SUM(valorDespesa) FROM conta, despesa WHERE pagamentoConfirmado = true AND despesa.dataTransacao < datetime('now', 'start of month', '+2 month') AND despesa.dataTransacao > datetime('now', 'start of month', '+1 month') GROUP BY nomeConta;");
+                this.renderDailyExpensesChart("SELECT dataTransacao, SUM(valorDespesa) FROM despesa WHERE pagamentoConfirmado = true AND despesa.dataTransacao < datetime('now', 'start of month', '+2 month') AND despesa.dataTransacao > datetime('now', 'start of month', '+1 month') GROUP BY dataTransacao;");
+                this.renderLabels(this.lbl_dailyExpenses, "SELECT SUM(valorDespesa) FROM despesa WHERE pagamentoConfirmado = true AND despesa.dataTransacao = datetime('now', 'start of day', '+1 month');");
+                this.renderLabels(this.lbl_monthIncomes, "SELECT SUM(valorReceita) FROM receita WHERE recebimentoConfirmado = true AND receita.dataTransacao < datetime('now', 'start of month', '+2 month') AND receita.dataTransacao > datetime('now', 'start of month', '+1 month');");
+                this.renderLabels(this.lbl_monthExpenses, "SELECT SUM(valorDespesa) FROM despesa WHERE pagamentoConfirmado = true AND despesa.dataTransacao < datetime('now', 'start of month', '+2 month') AND despesa.dataTransacao > datetime('now', 'start of month', '+1 month');");
             }
             else if (month > 1)
             {
                 clearChartData();
                 int monthMore = month + 1;
-                this.dgv_transactions.DataSource = Database.query("SELECT idReceita AS 'ID:', valorReceita AS 'Valor:', dataTransacao AS 'Data:', categoriaReceita AS 'Categoria:' FROM receita WHERE receita.dataTransacao < datetime('now', 'start of month', '+" + monthMore + " month') AND receita.dataTransacao > datetime('now', 'start of month', '+" + month + " month') UNION ALL SELECT idDespesa AS 'ID:', valorDespesa AS 'Valor:', dataTransacao AS 'Data:', categoriaDespesa AS 'Categoria:' FROM despesa WHERE despesa.dataTransacao < datetime('now', 'start of month', '+" + monthMore + " month') AND despesa.dataTransacao > datetime('now', 'start of month', '+" + month + " month') ORDER BY dataTransacao DESC; ");
-                this.renderCharts(this.chart_expenseCategory, "SELECT categoriaDespesa, SUM(valorDespesa) FROM despesa WHERE despesa.dataTransacao < datetime('now', 'start of month', '+" + monthMore + " month') AND despesa.dataTransacao > datetime('now', 'start of month', '+" + month + " month') GROUP BY categoriaDespesa;");
-                this.renderCharts(this.chart_incomeCategory, "SELECT categoriaReceita, SUM(valorReceita) FROM receita WHERE receita.dataTransacao < datetime('now', 'start of month', '+" + monthMore + " month') AND receita.dataTransacao > datetime('now', 'start of month', '+" + month + " month') GROUP BY categoriaReceita;");
-                this.renderCharts(this.chart_expenseAcount, "SELECT nomeConta, SUM(valorReceita) FROM conta, receita WHERE receita.dataTransacao < datetime('now', 'start of month', '+" + monthMore + " month') AND receita.dataTransacao > datetime('now', 'start of month', '+" + month + " month') GROUP BY nomeConta;");
-                this.renderCharts(this.chart_incomeAcount, "SELECT nomeConta, SUM(valorDespesa) FROM conta, despesa WHERE despesa.dataTransacao < datetime('now', 'start of month', '+" + monthMore + " month') AND despesa.dataTransacao > datetime('now', 'start of month', '+" + month + " month') GROUP BY nomeConta;");
-                this.renderDailyExpensesChart("SELECT dataTransacao, SUM(valorDespesa) FROM despesa WHERE despesa.dataTransacao < datetime('now', 'start of month', '+" + monthMore + " month') AND despesa.dataTransacao > datetime('now', 'start of month', '+" + month + " month') GROUP BY dataTransacao;");
-                this.renderLabels(this.lbl_dailyExpenses, "SELECT SUM(valorDespesa) FROM despesa WHERE despesa.dataTransacao = datetime('now', 'start of day', '+" + month + " month');");
-                this.renderLabels(this.lbl_monthIncomes, "SELECT SUM(valorReceita) FROM receita WHERE receita.dataTransacao < datetime('now', 'start of month', '+" + monthMore + " month') AND receita.dataTransacao > datetime('now', 'start of month', '+" + month + " month');");
-                this.renderLabels(this.lbl_monthExpenses, "SELECT SUM(valorDespesa) FROM despesa WHERE despesa.dataTransacao < datetime('now', 'start of month', '+" + monthMore + " month') AND despesa.dataTransacao > datetime('now', 'start of month', '+" + month + " month');");
+                this.dgv_transactions.DataSource = Database.query("SELECT idReceita AS 'ID:', valorReceita AS 'Valor:', dataTransacao AS 'Data:', categoriaReceita AS 'Categoria:' FROM receita WHERE recebimentoConfirmado = true AND receita.dataTransacao < datetime('now', 'start of month', '+" + monthMore + " month') AND receita.dataTransacao > datetime('now', 'start of month', '+" + month + " month') UNION ALL SELECT idDespesa AS 'ID:', valorDespesa AS 'Valor:', dataTransacao AS 'Data:', categoriaDespesa AS 'Categoria:' FROM despesa WHERE pagamentoConfirmado = true AND despesa.dataTransacao < datetime('now', 'start of month', '+" + monthMore + " month') AND despesa.dataTransacao > datetime('now', 'start of month', '+" + month + " month') ORDER BY dataTransacao DESC; ");
+                this.renderCharts(this.chart_expenseCategory, "SELECT categoriaDespesa, SUM(valorDespesa) FROM despesa WHERE pagamentoConfirmado = true AND despesa.dataTransacao < datetime('now', 'start of month', '+" + monthMore + " month') AND despesa.dataTransacao > datetime('now', 'start of month', '+" + month + " month') GROUP BY categoriaDespesa;");
+                this.renderCharts(this.chart_incomeCategory, "SELECT categoriaReceita, SUM(valorReceita) FROM receita WHERE recebimentoConfirmado = true AND receita.dataTransacao < datetime('now', 'start of month', '+" + monthMore + " month') AND receita.dataTransacao > datetime('now', 'start of month', '+" + month + " month') GROUP BY categoriaReceita;");
+                this.renderCharts(this.chart_expenseAcount, "SELECT nomeConta, SUM(valorReceita) FROM conta, receita WHERE recebimentoConfirmado = true AND receita.dataTransacao < datetime('now', 'start of month', '+" + monthMore + " month') AND receita.dataTransacao > datetime('now', 'start of month', '+" + month + " month') GROUP BY nomeConta;");
+                this.renderCharts(this.chart_incomeAcount, "SELECT nomeConta, SUM(valorDespesa) FROM conta, despesa WHERE pagamentoConfirmado = true AND despesa.dataTransacao < datetime('now', 'start of month', '+" + monthMore + " month') AND despesa.dataTransacao > datetime('now', 'start of month', '+" + month + " month') GROUP BY nomeConta;");
+                this.renderDailyExpensesChart("SELECT dataTransacao, SUM(valorDespesa) FROM despesa WHERE pagamentoConfirmado = true AND despesa.dataTransacao < datetime('now', 'start of month', '+" + monthMore + " month') AND despesa.dataTransacao > datetime('now', 'start of month', '+" + month + " month') GROUP BY dataTransacao;");
+                this.renderLabels(this.lbl_dailyExpenses, "SELECT SUM(valorDespesa) FROM despesa WHERE pagamentoConfirmado = true AND despesa.dataTransacao = datetime('now', 'start of day', '+" + month + " month');");
+                this.renderLabels(this.lbl_monthIncomes, "SELECT SUM(valorReceita) FROM receita WHERE recebimentoConfirmado = true AND receita.dataTransacao < datetime('now', 'start of month', '+" + monthMore + " month') AND receita.dataTransacao > datetime('now', 'start of month', '+" + month + " month');");
+                this.renderLabels(this.lbl_monthExpenses, "SELECT SUM(valorDespesa) FROM despesa WHERE pagamentoConfirmado = true AND despesa.dataTransacao < datetime('now', 'start of month', '+" + monthMore + " month') AND despesa.dataTransacao > datetime('now', 'start of month', '+" + month + " month');");
             }
         }
 
@@ -487,26 +452,11 @@ namespace Sisteg_Dashboard
         private void clearChartData()
         {
             this.dgv_transactions.DataSource = null;
-            foreach (var series in this.chart_expenseCategory.Series)
-            {
-                series.Points.Clear();
-            }
-            foreach (var series in this.chart_incomeCategory.Series)
-            {
-                series.Points.Clear();
-            }
-            foreach (var series in this.chart_expenseAcount.Series)
-            {
-                series.Points.Clear();
-            }
-            foreach (var series in this.chart_incomeAcount.Series)
-            {
-                series.Points.Clear();
-            }
-            foreach (var series in this.chart_dailyExpenses.Series)
-            {
-                series.Points.Clear();
-            }
+            foreach (var series in this.chart_expenseCategory.Series) series.Points.Clear();
+            foreach (var series in this.chart_incomeCategory.Series) series.Points.Clear();
+            foreach (var series in this.chart_expenseAcount.Series) series.Points.Clear();
+            foreach (var series in this.chart_incomeAcount.Series) series.Points.Clear();
+            foreach (var series in this.chart_dailyExpenses.Series) series.Points.Clear();
         }
     }
 }

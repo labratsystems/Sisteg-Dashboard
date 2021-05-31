@@ -38,8 +38,9 @@
             Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties7 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
             Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties8 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
             this.panel_client = new System.Windows.Forms.Panel();
-            this.cbb_supplierName = new Bunifu.UI.WinForms.BunifuDropdown();
             this.txt_productValue = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
+            this.cbb_productCategory = new Bunifu.UI.WinForms.BunifuDropdown();
+            this.cbb_supplierName = new Bunifu.UI.WinForms.BunifuDropdown();
             this.txt_productName = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
             this.pcb_btnProductRegister = new System.Windows.Forms.PictureBox();
             this.pcb_btnUpdate = new System.Windows.Forms.PictureBox();
@@ -56,47 +57,17 @@
             // 
             // panel_client
             // 
+            this.panel_client.AutoScroll = true;
             this.panel_client.AutoScrollMargin = new System.Drawing.Size(0, 15);
             this.panel_client.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(157)))));
-            this.panel_client.Controls.Add(this.cbb_supplierName);
             this.panel_client.Controls.Add(this.txt_productValue);
+            this.panel_client.Controls.Add(this.cbb_productCategory);
+            this.panel_client.Controls.Add(this.cbb_supplierName);
             this.panel_client.Controls.Add(this.txt_productName);
             this.panel_client.Location = new System.Drawing.Point(111, 103);
             this.panel_client.Name = "panel_client";
             this.panel_client.Size = new System.Drawing.Size(443, 318);
             this.panel_client.TabIndex = 62;
-            // 
-            // cbb_supplierName
-            // 
-            this.cbb_supplierName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(157)))));
-            this.cbb_supplierName.BorderRadius = 1;
-            this.cbb_supplierName.Color = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(157)))));
-            this.cbb_supplierName.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cbb_supplierName.Direction = Bunifu.UI.WinForms.BunifuDropdown.Directions.Down;
-            this.cbb_supplierName.DisabledColor = System.Drawing.Color.Gray;
-            this.cbb_supplierName.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.cbb_supplierName.DropdownBorderThickness = Bunifu.UI.WinForms.BunifuDropdown.BorderThickness.Thick;
-            this.cbb_supplierName.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbb_supplierName.DropDownTextAlign = Bunifu.UI.WinForms.BunifuDropdown.TextAlign.Left;
-            this.cbb_supplierName.FillDropDown = false;
-            this.cbb_supplierName.FillIndicator = false;
-            this.cbb_supplierName.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cbb_supplierName.Font = new System.Drawing.Font("Courier Prime Code", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbb_supplierName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.cbb_supplierName.FormattingEnabled = true;
-            this.cbb_supplierName.Icon = null;
-            this.cbb_supplierName.IndicatorColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.cbb_supplierName.IndicatorLocation = Bunifu.UI.WinForms.BunifuDropdown.Indicator.Right;
-            this.cbb_supplierName.ItemBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(157)))));
-            this.cbb_supplierName.ItemBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(157)))));
-            this.cbb_supplierName.ItemForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.cbb_supplierName.ItemHeight = 29;
-            this.cbb_supplierName.ItemHighLightColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(104)))), ((int)(((byte)(232)))));
-            this.cbb_supplierName.Location = new System.Drawing.Point(16, 62);
-            this.cbb_supplierName.Name = "cbb_supplierName";
-            this.cbb_supplierName.Size = new System.Drawing.Size(315, 35);
-            this.cbb_supplierName.TabIndex = 94;
-            this.cbb_supplierName.Text = "Fornecedor";
             // 
             // txt_productValue
             // 
@@ -105,17 +76,17 @@
             this.txt_productValue.AnimationSpeed = 200;
             this.txt_productValue.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
             this.txt_productValue.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
-            this.txt_productValue.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(157)))));
+            this.txt_productValue.BackColor = System.Drawing.Color.Transparent;
             this.txt_productValue.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("txt_productValue.BackgroundImage")));
             this.txt_productValue.BorderColorActive = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.txt_productValue.BorderColorDisabled = System.Drawing.Color.FromArgb(((int)(((byte)(161)))), ((int)(((byte)(161)))), ((int)(((byte)(161)))));
             this.txt_productValue.BorderColorHover = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.txt_productValue.BorderColorIdle = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.txt_productValue.BorderRadius = 30;
+            this.txt_productValue.BorderRadius = 1;
             this.txt_productValue.BorderThickness = 1;
             this.txt_productValue.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
             this.txt_productValue.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txt_productValue.DefaultFont = new System.Drawing.Font("Courier Prime Code", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_productValue.DefaultFont = new System.Drawing.Font("Courier Prime Code", 12F);
             this.txt_productValue.DefaultText = "";
             this.txt_productValue.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(157)))));
             this.txt_productValue.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
@@ -126,7 +97,7 @@
             this.txt_productValue.IconRight = null;
             this.txt_productValue.IconRightCursor = System.Windows.Forms.Cursors.IBeam;
             this.txt_productValue.Lines = new string[0];
-            this.txt_productValue.Location = new System.Drawing.Point(16, 110);
+            this.txt_productValue.Location = new System.Drawing.Point(15, 149);
             this.txt_productValue.MaxLength = 32767;
             this.txt_productValue.MinimumSize = new System.Drawing.Size(100, 35);
             this.txt_productValue.Modified = false;
@@ -162,9 +133,8 @@
             this.txt_productValue.SelectionStart = 0;
             this.txt_productValue.ShortcutsEnabled = true;
             this.txt_productValue.Size = new System.Drawing.Size(300, 35);
-            this.txt_productValue.Style = Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox._Style.Material;
-            this.txt_productValue.TabIndex = 68;
-            this.txt_productValue.TabStop = false;
+            this.txt_productValue.Style = Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox._Style.Bunifu;
+            this.txt_productValue.TabIndex = 108;
             this.txt_productValue.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.txt_productValue.TextMarginBottom = 0;
             this.txt_productValue.TextMarginLeft = 5;
@@ -172,6 +142,74 @@
             this.txt_productValue.TextPlaceholder = "Valor unitário";
             this.txt_productValue.UseSystemPasswordChar = false;
             this.txt_productValue.WordWrap = true;
+            this.txt_productValue.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_productValue_KeyPress);
+            // 
+            // cbb_productCategory
+            // 
+            this.cbb_productCategory.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(157)))));
+            this.cbb_productCategory.BorderRadius = 1;
+            this.cbb_productCategory.Color = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.cbb_productCategory.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cbb_productCategory.Direction = Bunifu.UI.WinForms.BunifuDropdown.Directions.Down;
+            this.cbb_productCategory.DisabledColor = System.Drawing.Color.Gray;
+            this.cbb_productCategory.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cbb_productCategory.DropdownBorderThickness = Bunifu.UI.WinForms.BunifuDropdown.BorderThickness.Thin;
+            this.cbb_productCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbb_productCategory.DropDownTextAlign = Bunifu.UI.WinForms.BunifuDropdown.TextAlign.Left;
+            this.cbb_productCategory.FillDropDown = false;
+            this.cbb_productCategory.FillIndicator = false;
+            this.cbb_productCategory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cbb_productCategory.Font = new System.Drawing.Font("Courier Prime Code", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbb_productCategory.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.cbb_productCategory.FormattingEnabled = true;
+            this.cbb_productCategory.Icon = null;
+            this.cbb_productCategory.IndicatorColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.cbb_productCategory.IndicatorLocation = Bunifu.UI.WinForms.BunifuDropdown.Indicator.Right;
+            this.cbb_productCategory.ItemBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(157)))));
+            this.cbb_productCategory.ItemBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(157)))));
+            this.cbb_productCategory.ItemForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.cbb_productCategory.ItemHeight = 29;
+            this.cbb_productCategory.ItemHighLightColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(104)))), ((int)(((byte)(232)))));
+            this.cbb_productCategory.Items.AddRange(new object[] {
+            " Materiais elétricos",
+            " Produtos eletrônicos"});
+            this.cbb_productCategory.Location = new System.Drawing.Point(15, 104);
+            this.cbb_productCategory.Name = "cbb_productCategory";
+            this.cbb_productCategory.Size = new System.Drawing.Size(298, 35);
+            this.cbb_productCategory.TabIndex = 107;
+            this.cbb_productCategory.Text = " Categoria";
+            // 
+            // cbb_supplierName
+            // 
+            this.cbb_supplierName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(157)))));
+            this.cbb_supplierName.BorderRadius = 1;
+            this.cbb_supplierName.Color = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.cbb_supplierName.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cbb_supplierName.Direction = Bunifu.UI.WinForms.BunifuDropdown.Directions.Down;
+            this.cbb_supplierName.DisabledColor = System.Drawing.Color.Gray;
+            this.cbb_supplierName.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cbb_supplierName.DropdownBorderThickness = Bunifu.UI.WinForms.BunifuDropdown.BorderThickness.Thin;
+            this.cbb_supplierName.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbb_supplierName.DropDownTextAlign = Bunifu.UI.WinForms.BunifuDropdown.TextAlign.Left;
+            this.cbb_supplierName.FillDropDown = false;
+            this.cbb_supplierName.FillIndicator = false;
+            this.cbb_supplierName.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cbb_supplierName.Font = new System.Drawing.Font("Courier Prime Code", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbb_supplierName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.cbb_supplierName.FormattingEnabled = true;
+            this.cbb_supplierName.Icon = null;
+            this.cbb_supplierName.IndicatorColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.cbb_supplierName.IndicatorLocation = Bunifu.UI.WinForms.BunifuDropdown.Indicator.Right;
+            this.cbb_supplierName.ItemBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(157)))));
+            this.cbb_supplierName.ItemBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(157)))));
+            this.cbb_supplierName.ItemForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.cbb_supplierName.ItemHeight = 29;
+            this.cbb_supplierName.ItemHighLightColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(104)))), ((int)(((byte)(232)))));
+            this.cbb_supplierName.Location = new System.Drawing.Point(15, 58);
+            this.cbb_supplierName.Name = "cbb_supplierName";
+            this.cbb_supplierName.Size = new System.Drawing.Size(298, 35);
+            this.cbb_supplierName.TabIndex = 106;
+            this.cbb_supplierName.Text = " Fornecedor";
             // 
             // txt_productName
             // 
@@ -180,17 +218,17 @@
             this.txt_productName.AnimationSpeed = 200;
             this.txt_productName.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
             this.txt_productName.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
-            this.txt_productName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(157)))));
+            this.txt_productName.BackColor = System.Drawing.Color.Transparent;
             this.txt_productName.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("txt_productName.BackgroundImage")));
             this.txt_productName.BorderColorActive = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.txt_productName.BorderColorDisabled = System.Drawing.Color.FromArgb(((int)(((byte)(161)))), ((int)(((byte)(161)))), ((int)(((byte)(161)))));
             this.txt_productName.BorderColorHover = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.txt_productName.BorderColorIdle = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.txt_productName.BorderRadius = 30;
+            this.txt_productName.BorderRadius = 1;
             this.txt_productName.BorderThickness = 1;
             this.txt_productName.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
             this.txt_productName.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txt_productName.DefaultFont = new System.Drawing.Font("Courier Prime Code", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_productName.DefaultFont = new System.Drawing.Font("Courier Prime Code", 12F);
             this.txt_productName.DefaultText = "";
             this.txt_productName.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(157)))));
             this.txt_productName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
@@ -201,7 +239,7 @@
             this.txt_productName.IconRight = null;
             this.txt_productName.IconRightCursor = System.Windows.Forms.Cursors.IBeam;
             this.txt_productName.Lines = new string[0];
-            this.txt_productName.Location = new System.Drawing.Point(16, 16);
+            this.txt_productName.Location = new System.Drawing.Point(14, 13);
             this.txt_productName.MaxLength = 32767;
             this.txt_productName.MinimumSize = new System.Drawing.Size(100, 35);
             this.txt_productName.Modified = false;
@@ -229,7 +267,7 @@
             this.txt_productName.OnIdleState = stateProperties8;
             this.txt_productName.PasswordChar = '\0';
             this.txt_productName.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.txt_productName.PlaceholderText = "Nome do produto";
+            this.txt_productName.PlaceholderText = "Nome";
             this.txt_productName.ReadOnly = false;
             this.txt_productName.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.txt_productName.SelectedText = "";
@@ -237,15 +275,16 @@
             this.txt_productName.SelectionStart = 0;
             this.txt_productName.ShortcutsEnabled = true;
             this.txt_productName.Size = new System.Drawing.Size(300, 35);
-            this.txt_productName.Style = Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox._Style.Material;
-            this.txt_productName.TabIndex = 69;
+            this.txt_productName.Style = Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox._Style.Bunifu;
+            this.txt_productName.TabIndex = 102;
             this.txt_productName.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.txt_productName.TextMarginBottom = 0;
             this.txt_productName.TextMarginLeft = 5;
             this.txt_productName.TextMarginTop = 1;
-            this.txt_productName.TextPlaceholder = "Nome do produto";
+            this.txt_productName.TextPlaceholder = "Nome";
             this.txt_productName.UseSystemPasswordChar = false;
             this.txt_productName.WordWrap = true;
+            this.txt_productName.Leave += new System.EventHandler(this.txt_productName_Leave);
             // 
             // pcb_btnProductRegister
             // 
@@ -349,8 +388,9 @@
         public System.Windows.Forms.PictureBox pcb_btnDelete;
         private System.Windows.Forms.PictureBox pcb_btnCancel;
         private System.Windows.Forms.PictureBox pcb_appClose;
-        private Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox txt_productValue;
         private Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox txt_productName;
         private Bunifu.UI.WinForms.BunifuDropdown cbb_supplierName;
+        private Bunifu.UI.WinForms.BunifuDropdown cbb_productCategory;
+        private Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox txt_productValue;
     }
 }

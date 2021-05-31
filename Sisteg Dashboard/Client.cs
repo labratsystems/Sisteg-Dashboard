@@ -12,13 +12,9 @@ namespace Sisteg_Dashboard
         public string nomeCliente;
         public string enderecoCliente;
         public string numeroResidencia;
+        public string bairroCliente;
         public string cidadeCliente;
         public string estadoCliente;
-        public string primeiroTelefoneCliente;
-        public string tipoPrimeiroTelefoneCliente;
-        public string segundoTelefoneCliente;
-        public string tipoSegundoTelefoneCliente;
-        public string terceiroTelefoneCliente;
-        public string tipoTerceiroTelefoneCliente;
+        public string emailCliente;
     }
 }

@@ -11,6 +11,7 @@ namespace Sisteg_Dashboard
         public Int32 idProduto;
         public Int32 idFornecedor;
         public string nomeProduto;
+        public string categoriaProduto;
         public Decimal valorUnitario;
     }
 }

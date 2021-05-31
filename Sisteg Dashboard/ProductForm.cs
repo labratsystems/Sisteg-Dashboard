@@ -13,15 +13,15 @@ namespace Sisteg_Dashboard
     public partial class ProductForm : Form
     {
         //DECLARAÇÃO DE VARIÁVEIS
-        DataTable dataTableProduct;
-        DataTable dataTableSupplier;
+        private DataTable productDataTable, supplierDataTable;
+        private bool firstTime = true;
 
         //INICIA INSTÂNCIA DO PAINEL, POPULANDO A TABELA DE LISTAGEM DE PRODUTOS OU FORNECEDORES
         public ProductForm()
         {
             InitializeComponent();
             rbtn_products.Checked = true;
-            dataTableRemoveEmptyColumns("SELECT produto.idProduto, produto.nomeProduto AS 'Nome do produto:', fornecedor.nomeFornecedor AS 'Nome do fornecedor:', produto.valorUnitario AS 'Valor unitário:' FROM produto join fornecedor ON fornecedor.idFornecedor = produto.idFornecedor ORDER BY produto.nomeProduto;", dataTableProduct);
+            dataTableRemoveEmptyColumns("SELECT produto.idProduto, produto.nomeProduto AS 'Nome do produto:', fornecedor.nomeFornecedor AS 'Nome do fornecedor:', produto.categoriaProduto AS 'Categoria do produto:', produto.valorUnitario AS 'Valor unitário:' FROM produto join fornecedor ON fornecedor.idFornecedor = produto.idFornecedor ORDER BY produto.nomeProduto;", productDataTable, false);
         }
 
         //EVITA TREMULAÇÃO DE COMPONENTES
@@ -36,7 +36,7 @@ namespace Sisteg_Dashboard
         }
 
         //FUNÇÃO QUE REMOVE AS COLUNAS VAZIAS DA TABELA
-        private void dataTableRemoveEmptyColumns(string query, DataTable dataTable)
+        private void dataTableRemoveEmptyColumns(string query, DataTable dataTable, bool isSupplier)
         {
             dataTable = Database.query(query);
             for (int col = dataTable.Columns.Count - 1; col >= 0; col--)
@@ -50,12 +50,64 @@ namespace Sisteg_Dashboard
                         break;
                     }
                 }
-                if (removeColumn)
+                if (removeColumn) dataTable.Columns.RemoveAt(col);
+            }
+            if (isSupplier)
+            {
+                if (dataTable.Rows.Count > 0)
                 {
-                    dataTable.Columns.RemoveAt(col);
+                    dataTable.Columns.Add("Endereço:", typeof(string));
+                    dataTable.Columns.Add("E-mail:", typeof(string));
+                    for (int i = 0; i < dataTable.Rows.Count; i++)
+                    {
+                        dataTable.Rows[i]["Endereço:"] = dataTable.Rows[i].ItemArray[2] + ", " + dataTable.Rows[i].ItemArray[3] + " - " + dataTable.Rows[i].ItemArray[4] + " - " + dataTable.Rows[i].ItemArray[5] + ", " + dataTable.Rows[i].ItemArray[6];
+                        dataTable.Rows[i]["E-mail:"] = dataTable.Rows[i].ItemArray[7];
+                        DataTable telephoneDataTable = Database.query("SELECT * FROM telefone WHERE idFornecedor = " + dataTable.Rows[i].ItemArray[0] + " ORDER BY tipoTelefone ASC;");
+                        if (firstTime)
+                        {
+                            this.listTelephones(firstTime, telephoneDataTable, dataTable, i);
+                        }
+                        else this.listTelephones(firstTime, telephoneDataTable, dataTable, i);
+                    }
+                    this.dgv_productsOrSuppliers.DataSource = dataTable;
                 }
             }
-            this.dgv_productsOrSuppliers.DataSource = dataTable;
+            else this.dgv_productsOrSuppliers.DataSource = dataTable;
+        }
+
+        //FUNÇÃO QUE LISTA OS TELEFONES DO CLIENTE NA TABELA DE CLIENTES
+        private void listTelephones(bool firstTime, DataTable telephoneDataTable, DataTable dataTable, int i)
+        {
+            foreach (DataRow dataRow in telephoneDataTable.Rows)
+            {
+                if (firstTime)
+                {
+                    dataTable.Columns.Add("Telefone " + dataRow.ItemArray[3].ToString().ToLower() + ":", typeof(string));
+                    firstTime = false;
+                }
+                DataTable telephoneTypeDataTable = Database.query("SELECT numeroTelefone FROM telefone WHERE idFornecedor = " + dataTable.Rows[i].ItemArray[0] + " AND tipoTelefone = '" + dataRow.ItemArray[3] + "';");
+                if (telephoneTypeDataTable.Rows.Count == 1)
+                {
+                    if (dataTable.Columns.Contains("Telefone " + dataRow.ItemArray[3].ToString().ToLower() + ":")) dataTable.Rows[i]["Telefone " + dataRow.ItemArray[3].ToString().ToLower() + ":"] = dataRow.ItemArray[4];
+                    else
+                    {
+                        dataTable.Columns.Add("Telefone " + dataRow.ItemArray[3].ToString().ToLower() + ":", typeof(string));
+                        dataTable.Rows[i]["Telefone " + dataRow.ItemArray[3].ToString().ToLower() + ":"] = dataRow.ItemArray[4];
+                    }
+                }
+                else if (telephoneTypeDataTable.Rows.Count > 1)
+                {
+                    string numbers = null;
+                    int j = 0;
+                    foreach (DataRow dataRowType in telephoneTypeDataTable.Rows)
+                    {
+                        numbers += dataRowType.ItemArray[0].ToString();
+                        if (j != Convert.ToInt32(telephoneTypeDataTable.Rows.Count - 1)) numbers += "; ";
+                        j++;
+                    }
+                    dataTable.Rows[i]["Telefone " + dataRow.ItemArray[3].ToString().ToLower() + ":"] = numbers;
+                }
+            }
         }
 
         //MENU DE NAVEGAÇÃO DA APLICAÇÃO
@@ -111,9 +163,9 @@ namespace Sisteg_Dashboard
 
         private void pcb_btnBudget_Click(object sender, EventArgs e)
         {
-            if (Application.OpenForms.OfType<Budget>().Count() == 0)
+            if (Application.OpenForms.OfType<BudgetForm>().Count() == 0)
             {
-                Budget budget = new Budget();
+                BudgetForm budget = new BudgetForm();
                 budget.Show();
                 this.Close();
             }
@@ -142,26 +194,16 @@ namespace Sisteg_Dashboard
         //FORMATAÇÃO A TABELA APÓS A DISPOSIÇÃO DOS DADOS
         private void dgv_productsOrSuppliers_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
         {
-            if (rbtn_products.Checked)
+            if (this.dgv_productsOrSuppliers.Rows.Count > 0)
             {
-                dgv_productsOrSuppliers.Columns[3].DefaultCellStyle.Format = "C";
-            }
-            foreach (DataGridViewColumn dataGridViewColumn in dgv_productsOrSuppliers.Columns)
-            {
-                dataGridViewColumn.SortMode = DataGridViewColumnSortMode.NotSortable;
-            }
-            int col = dgv_productsOrSuppliers.ColumnCount;
-            if (col > 0)
-            {
-                this.dgv_productsOrSuppliers.Columns[0].Visible = false;
-                for (int i = 1; i < (col - 2); i++)
+                foreach (DataGridViewColumn dataGridViewColumn in dgv_productsOrSuppliers.Columns) dataGridViewColumn.SortMode = DataGridViewColumnSortMode.NotSortable;
+                int col = dgv_productsOrSuppliers.ColumnCount;
+                if (col > 0)
                 {
-                    dgv_productsOrSuppliers.Columns[i].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
-                }
-                if (rbtn_products.Checked)
-                {
-                    dgv_productsOrSuppliers.Columns[3].DefaultCellStyle.Format = "C";
-                    dgv_productsOrSuppliers.Columns[col - 1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                    this.dgv_productsOrSuppliers.Columns[0].Visible = false;
+                    for (int i = 1; i < (col - 2); i++) dgv_productsOrSuppliers.Columns[i].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+                    if (rbtn_products.Checked) dgv_productsOrSuppliers.Columns[4].DefaultCellStyle.Format = "C";
+                    else for (int i = 2; i < 7; i++) this.dgv_productsOrSuppliers.Columns[i].Visible = false;
                 }
             }
         }
@@ -172,11 +214,11 @@ namespace Sisteg_Dashboard
             if (rbtn_products.Checked)
             {
                 string searchProduct = this.txt_searchProductOrSupplier.Text;
-                dataTableRemoveEmptyColumns("SELECT produto.idProduto, produto.nomeProduto AS 'Nome do produto:', fornecedor.nomeFornecedor AS 'Nome do fornecedor:', produto.valorUnitario AS 'Valor unitário:' FROM produto join fornecedor ON fornecedor.idFornecedor = produto.idFornecedor WHERE produto.nomeProduto LIKE '%" + searchProduct + "%' OR fornecedor.nomeFornecedor LIKE '%" + searchProduct + "%' ORDER BY produto.nomeProduto;", dataTableProduct);
+                if (searchProduct.Trim() != null) { dataTableRemoveEmptyColumns("SELECT produto.idProduto, produto.nomeProduto AS 'Nome do produto:', fornecedor.nomeFornecedor AS 'Nome do fornecedor:', produto.categoriaProduto AS 'Categoria do produto:', produto.valorUnitario AS 'Valor unitário:' FROM produto join fornecedor ON fornecedor.idFornecedor = produto.idFornecedor WHERE produto.nomeProduto LIKE '%" + searchProduct + "%' OR fornecedor.nomeFornecedor LIKE '%" + searchProduct + "%' ORDER BY produto.nomeProduto;", productDataTable, false); }
             } else if (rbtn_supplier.Checked)
             {
                 string searchSupplier = this.txt_searchProductOrSupplier.Text;
-                dataTableRemoveEmptyColumns("SELECT fornecedor.idFornecedor, fornecedor.nomeFornecedor AS 'Nome do fornecedor:', fornecedor.enderecoFornecedor AS 'Endereço:', fornecedor.numeroResidencia AS 'Número residencial:', fornecedor.cidadeFornecedor AS 'Cidade:', fornecedor.estadoFornecedor AS 'Estado:', fornecedor.emailFornecedor AS 'E-mail:', fornecedor.primeiroTelefoneFornecedor AS 'Primeiro telefone:', fornecedor.tipoPrimeiroTelefoneFornecedor AS 'Tipo do primeiro telefone:', fornecedor.segundoTelefoneFornecedor AS 'Segundo telefone:', fornecedor.tipoSegundoTelefoneFornecedor AS 'Tipo do segundo telefone:', fornecedor.terceiroTelefoneFornecedor AS 'Terceiro telefone:', fornecedor.tipoTerceiroTelefoneFornecedor AS 'Tipo do terceiro telefone:' FROM fornecedor WHERE fornecedor.nomeFornecedor LIKE '%" + searchSupplier + "%' ORDER BY fornecedor.nomeFornecedor;", dataTableSupplier);
+                if (searchSupplier.Trim() != null) { dataTableRemoveEmptyColumns("SELECT fornecedor.idFornecedor, fornecedor.nomeFornecedor AS 'Nome do fornecedor:', fornecedor.enderecoFornecedor, fornecedor.numeroResidencia, fornecedor.bairroFornecedor, fornecedor.cidadeFornecedor, fornecedor.estadoFornecedor, fornecedor.emailFornecedor FROM fornecedor WHERE fornecedor.nomeFornecedor LIKE '%" + searchSupplier + "%' ORDER BY fornecedor.nomeFornecedor;", supplierDataTable, true); }
             }
         }
 
@@ -234,29 +276,40 @@ namespace Sisteg_Dashboard
         {
             if (rbtn_products.Checked)
             {
-                foreach (DataGridViewRow dataGridViewRow in this.dgv_productsOrSuppliers.SelectedRows)
+                if (Convert.ToInt32(this.dgv_productsOrSuppliers.Rows.Count) == 0) MessageBox.Show("Não há produto selecionado para editar!", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                else if (Convert.ToInt32(this.dgv_productsOrSuppliers.SelectedRows.Count) > 1) MessageBox.Show("Selecione apenas uma linha da tabela para editar!", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                else
                 {
-                    string id = dataGridViewRow.Cells[0].Value.ToString();
-                    if (Application.OpenForms.OfType<AddProduct>().Count() == 0)
+                    foreach (DataGridViewRow dataGridViewRow in this.dgv_productsOrSuppliers.SelectedRows)
                     {
-                        DataTable dataTableProduct = Database.query("SELECT * FROM produto WHERE idProduto = " + id + ";");
-                        AddProduct addProduct = new AddProduct(dataTableProduct);
-                        addProduct.Show();
-                        this.Close();
+                        string id = dataGridViewRow.Cells[0].Value.ToString();
+                        if (Application.OpenForms.OfType<AddProduct>().Count() == 0)
+                        {
+                            DataTable dataTableProduct = Database.query("SELECT * FROM produto WHERE idProduto = " + id + ";");
+                            AddProduct addProduct = new AddProduct(dataTableProduct);
+                            addProduct.Show();
+                            this.Close();
+                        }
                     }
                 }
             }
             else if (rbtn_supplier.Checked)
             {
-                foreach (DataGridViewRow dataGridViewRow in this.dgv_productsOrSuppliers.SelectedRows)
+                if (Convert.ToInt32(this.dgv_productsOrSuppliers.Rows.Count) == 0) MessageBox.Show("Não há fornecedor selecionado para editar!", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                else if (Convert.ToInt32(this.dgv_productsOrSuppliers.SelectedRows.Count) > 1) MessageBox.Show("Selecione apenas uma linha da tabela para editar!", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                else
                 {
-                    string id = dataGridViewRow.Cells[0].Value.ToString();
-                    if (Application.OpenForms.OfType<AddSupplier>().Count() == 0)
+                    foreach (DataGridViewRow dataGridViewRow in this.dgv_productsOrSuppliers.SelectedRows)
                     {
-                        DataTable dataTableSupplier = Database.query("SELECT * FROM fornecedor WHERE idFornecedor = " + id + ";");
-                        AddSupplier addSupplier = new AddSupplier(dataTableSupplier);
-                        addSupplier.Show();
-                        this.Close();
+                        string id = dataGridViewRow.Cells[0].Value.ToString();
+                        if (Application.OpenForms.OfType<AddSupplier>().Count() == 0)
+                        {
+                            DataTable dataTableSupplier = Database.query("SELECT * FROM fornecedor WHERE idFornecedor = " + id + ";");
+                            AddSupplier addSupplier = new AddSupplier(dataTableSupplier);
+                            addSupplier.editClick = true;
+                            addSupplier.Show();
+                            this.Close();
+                        }
                     }
                 }
             }
@@ -274,7 +327,7 @@ namespace Sisteg_Dashboard
             if (rbtn_supplier.Checked)
             {
                 this.txt_searchProductOrSupplier.PlaceholderText = "Nome do fornecedor";
-                dataTableRemoveEmptyColumns("SELECT fornecedor.idFornecedor, fornecedor.nomeFornecedor AS 'Nome do fornecedor:', fornecedor.enderecoFornecedor AS 'Endereço:', fornecedor.numeroResidencia AS 'Número residencial:', fornecedor.cidadeFornecedor AS 'Cidade:', fornecedor.estadoFornecedor AS 'Estado:', fornecedor.emailFornecedor AS 'E-mail:', fornecedor.primeiroTelefoneFornecedor AS 'Primeiro telefone:', fornecedor.tipoPrimeiroTelefoneFornecedor AS 'Tipo do primeiro telefone:', fornecedor.segundoTelefoneFornecedor AS 'Segundo telefone:', fornecedor.tipoSegundoTelefoneFornecedor AS 'Tipo do segundo telefone:', fornecedor.terceiroTelefoneFornecedor AS 'Terceiro telefone:', fornecedor.tipoTerceiroTelefoneFornecedor AS 'Tipo do terceiro telefone:' FROM fornecedor ORDER BY fornecedor.nomeFornecedor;", dataTableSupplier);
+                dataTableRemoveEmptyColumns("SELECT fornecedor.idFornecedor, fornecedor.nomeFornecedor AS 'Nome do fornecedor:', fornecedor.enderecoFornecedor, fornecedor.numeroResidencia, fornecedor.bairroFornecedor, fornecedor.cidadeFornecedor, fornecedor.estadoFornecedor, fornecedor.emailFornecedor FROM fornecedor ORDER BY fornecedor.nomeFornecedor;", supplierDataTable, true);
             }
         }
 
@@ -283,7 +336,7 @@ namespace Sisteg_Dashboard
             if (rbtn_products.Checked)
             {
                 this.txt_searchProductOrSupplier.PlaceholderText = "Nome do produto";
-                dataTableRemoveEmptyColumns("SELECT produto.idProduto, produto.nomeProduto AS 'Nome do produto:', fornecedor.nomeFornecedor AS 'Nome do fornecedor:', produto.valorUnitario AS 'Valor unitário:' FROM produto join fornecedor ON fornecedor.idFornecedor = produto.idFornecedor ORDER BY produto.nomeProduto;", dataTableProduct);
+                dataTableRemoveEmptyColumns("SELECT produto.idProduto, produto.nomeProduto AS 'Nome do produto:', fornecedor.nomeFornecedor AS 'Nome do fornecedor:', produto.categoriaProduto AS 'Categoria do produto:', produto.valorUnitario AS 'Valor unitário:' FROM produto join fornecedor ON fornecedor.idFornecedor = produto.idFornecedor ORDER BY produto.nomeProduto;", productDataTable, false);
             }
         }
     }
