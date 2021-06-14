@@ -83,8 +83,8 @@
             // pcb_expenseRegister
             // 
             this.pcb_expenseRegister.BackColor = System.Drawing.Color.Transparent;
-            this.pcb_expenseRegister.BackgroundImage = global::Sisteg_Dashboard.Properties.Resources.btn_expenseRegister;
             this.pcb_expenseRegister.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pcb_expenseRegister.Image = ((System.Drawing.Image)(resources.GetObject("pcb_expenseRegister.Image")));
             this.pcb_expenseRegister.Location = new System.Drawing.Point(628, 160);
             this.pcb_expenseRegister.Name = "pcb_expenseRegister";
             this.pcb_expenseRegister.Size = new System.Drawing.Size(327, 70);
@@ -97,8 +97,8 @@
             // pcb_btnUpdate
             // 
             this.pcb_btnUpdate.BackColor = System.Drawing.Color.Transparent;
-            this.pcb_btnUpdate.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pcb_btnUpdate.BackgroundImage")));
             this.pcb_btnUpdate.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pcb_btnUpdate.Image = ((System.Drawing.Image)(resources.GetObject("pcb_btnUpdate.Image")));
             this.pcb_btnUpdate.Location = new System.Drawing.Point(628, 236);
             this.pcb_btnUpdate.Name = "pcb_btnUpdate";
             this.pcb_btnUpdate.Size = new System.Drawing.Size(327, 70);
@@ -111,8 +111,8 @@
             // pcb_btnDelete
             // 
             this.pcb_btnDelete.BackColor = System.Drawing.Color.Transparent;
-            this.pcb_btnDelete.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pcb_btnDelete.BackgroundImage")));
             this.pcb_btnDelete.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pcb_btnDelete.Image = ((System.Drawing.Image)(resources.GetObject("pcb_btnDelete.Image")));
             this.pcb_btnDelete.Location = new System.Drawing.Point(628, 312);
             this.pcb_btnDelete.Name = "pcb_btnDelete";
             this.pcb_btnDelete.Size = new System.Drawing.Size(327, 70);
@@ -125,8 +125,8 @@
             // pcb_btnCancel
             // 
             this.pcb_btnCancel.BackColor = System.Drawing.Color.Transparent;
-            this.pcb_btnCancel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pcb_btnCancel.BackgroundImage")));
             this.pcb_btnCancel.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pcb_btnCancel.Image = ((System.Drawing.Image)(resources.GetObject("pcb_btnCancel.Image")));
             this.pcb_btnCancel.Location = new System.Drawing.Point(628, 388);
             this.pcb_btnCancel.Name = "pcb_btnCancel";
             this.pcb_btnCancel.Size = new System.Drawing.Size(327, 70);
@@ -789,7 +789,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::Sisteg_Dashboard.Properties.Resources.addIncomeOrExpense_bg;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1030, 530);
             this.Controls.Add(this.panel_expense);
             this.Controls.Add(this.pcb_expenseRegister);

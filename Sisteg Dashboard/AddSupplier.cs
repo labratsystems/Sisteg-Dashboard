@@ -164,12 +164,12 @@ namespace Sisteg_Dashboard
         //CADASTRAR FORNECEDOR
         private void pcb_supplierRegister_MouseEnter(object sender, EventArgs e)
         {
-            this.pcb_btnSupplierRegister.Image = Properties.Resources.btn_supplierRegister_active;
+            this.pcb_btnSupplierRegister.Image = Properties.Resources.btn_add_supplier_active;
         }
 
         private void pcb_supplierRegister_MouseLeave(object sender, EventArgs e)
         {
-            this.pcb_btnSupplierRegister.Image = Properties.Resources.btn_supplierRegister;
+            this.pcb_btnSupplierRegister.Image = Properties.Resources.btn_add_supplier;
         }
 
         private void pcb_supplierRegister_Click(object sender, EventArgs e)

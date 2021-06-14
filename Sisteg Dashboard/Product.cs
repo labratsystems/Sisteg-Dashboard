@@ -10,8 +10,8 @@ namespace Sisteg_Dashboard
     {
         public Int32 idProduto;
         public Int32 idFornecedor;
+        public Int32 idCategoria;
         public string nomeProduto;
-        public string categoriaProduto;
         public Decimal valorUnitario;
     }
 }

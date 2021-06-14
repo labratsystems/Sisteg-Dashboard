@@ -28,222 +28,51 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
-            this.dgv_transactions = new System.Windows.Forms.DataGridView();
-            this.chart_expenseCategory = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.chart_incomeCategory = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.chart_expenseAcount = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.chart_incomeAcount = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pcb_btnConfig = new System.Windows.Forms.PictureBox();
             this.pcb_btnBudget = new System.Windows.Forms.PictureBox();
             this.pcb_btnProduct = new System.Windows.Forms.PictureBox();
             this.pcb_btnMain = new System.Windows.Forms.PictureBox();
             this.pcb_btnClient = new System.Windows.Forms.PictureBox();
-            this.chart_dailyExpenses = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.lbl_balance = new System.Windows.Forms.Label();
-            this.lbl_dailyExpenses = new System.Windows.Forms.Label();
             this.lbl_monthExpenses = new System.Windows.Forms.Label();
             this.lbl_monthIncomes = new System.Windows.Forms.Label();
             this.pcb_addIncome = new System.Windows.Forms.PictureBox();
             this.pcb_addExpense = new System.Windows.Forms.PictureBox();
-            this.pcb_appClose = new System.Windows.Forms.PictureBox();
-            this.pcb_updateIncomeOrExpense = new System.Windows.Forms.PictureBox();
-            this.pcb_previousMonth = new System.Windows.Forms.PictureBox();
+            this.panel_steps = new System.Windows.Forms.Panel();
+            this.pcb_closeProgram = new System.Windows.Forms.PictureBox();
             this.pcb_nextMonth = new System.Windows.Forms.PictureBox();
-            this.lbl_noExpenses = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_transactions)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chart_expenseCategory)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chart_incomeCategory)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chart_expenseAcount)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chart_incomeAcount)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.pcb_previousMonth = new System.Windows.Forms.PictureBox();
+            this.pcb_btnGoForward = new System.Windows.Forms.PictureBox();
+            this.pcb_btnGoBack = new System.Windows.Forms.PictureBox();
+            this.lbl_balance = new System.Windows.Forms.Label();
+            this.lbl_dailyExpenses = new System.Windows.Forms.Label();
+            this.cbb_activeAccount = new Bunifu.UI.WinForms.BunifuDropdown();
+            this.panel_activeAccount = new System.Windows.Forms.Panel();
+            this.pcb_minimizeProgram = new System.Windows.Forms.PictureBox();
+            this.lbl_balanceTag = new System.Windows.Forms.Label();
+            this.lbl_monthIncomesTag = new System.Windows.Forms.Label();
+            this.lbl_monthExpensesTag = new System.Windows.Forms.Label();
+            this.lbl_dailyExpensesTag = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pcb_btnConfig)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcb_btnBudget)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcb_btnProduct)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcb_btnMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcb_btnClient)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chart_dailyExpenses)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcb_addIncome)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcb_addExpense)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pcb_appClose)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pcb_updateIncomeOrExpense)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pcb_previousMonth)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcb_closeProgram)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcb_nextMonth)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcb_previousMonth)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcb_btnGoForward)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcb_btnGoBack)).BeginInit();
+            this.panel_activeAccount.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pcb_minimizeProgram)).BeginInit();
             this.SuspendLayout();
-            // 
-            // dgv_transactions
-            // 
-            this.dgv_transactions.AllowUserToAddRows = false;
-            this.dgv_transactions.AllowUserToDeleteRows = false;
-            this.dgv_transactions.AllowUserToResizeColumns = false;
-            this.dgv_transactions.AllowUserToResizeRows = false;
-            this.dgv_transactions.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.dgv_transactions.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(157)))));
-            this.dgv_transactions.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dgv_transactions.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            this.dgv_transactions.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(157)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Courier Prime Code", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(6, 0, 0, 0);
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(157)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_transactions.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgv_transactions.ColumnHeadersHeight = 30;
-            this.dgv_transactions.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.dgv_transactions.EnableHeadersVisualStyles = false;
-            this.dgv_transactions.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(157)))));
-            this.dgv_transactions.Location = new System.Drawing.Point(49, 440);
-            this.dgv_transactions.Name = "dgv_transactions";
-            this.dgv_transactions.ReadOnly = true;
-            this.dgv_transactions.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.dgv_transactions.RowHeadersVisible = false;
-            this.dgv_transactions.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(157)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Courier Prime Code", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(6, 0, 0, 0);
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(104)))), ((int)(((byte)(232)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_transactions.RowsDefaultCellStyle = dataGridViewCellStyle2;
-            this.dgv_transactions.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.dgv_transactions.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv_transactions.Size = new System.Drawing.Size(278, 198);
-            this.dgv_transactions.TabIndex = 16;
-            this.dgv_transactions.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgv_transactions_DataBindingComplete);
-            // 
-            // chart_expenseCategory
-            // 
-            this.chart_expenseCategory.BackColor = System.Drawing.Color.Transparent;
-            chartArea1.BackColor = System.Drawing.Color.Transparent;
-            chartArea1.Name = "ChartArea1";
-            this.chart_expenseCategory.ChartAreas.Add(chartArea1);
-            legend1.Enabled = false;
-            legend1.Name = "Legend2";
-            this.chart_expenseCategory.Legends.Add(legend1);
-            this.chart_expenseCategory.Location = new System.Drawing.Point(997, 65);
-            this.chart_expenseCategory.Name = "chart_expenseCategory";
-            series1.BorderColor = System.Drawing.Color.Transparent;
-            series1.BorderWidth = 2;
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
-            series1.Color = System.Drawing.Color.Transparent;
-            series1.Font = new System.Drawing.Font("Courier Prime Code", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            series1.LabelForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(104)))), ((int)(((byte)(82)))));
-            series1.Legend = "Legend2";
-            series1.Name = "Series1";
-            this.chart_expenseCategory.Series.Add(series1);
-            this.chart_expenseCategory.Size = new System.Drawing.Size(125, 126);
-            this.chart_expenseCategory.TabIndex = 17;
-            this.chart_expenseCategory.Text = "chart1";
-            // 
-            // chart_incomeCategory
-            // 
-            this.chart_incomeCategory.BackColor = System.Drawing.Color.Transparent;
-            chartArea2.BackColor = System.Drawing.Color.Transparent;
-            chartArea2.Name = "ChartArea1";
-            this.chart_incomeCategory.ChartAreas.Add(chartArea2);
-            legend2.Enabled = false;
-            legend2.Name = "Legend2";
-            this.chart_incomeCategory.Legends.Add(legend2);
-            this.chart_incomeCategory.Location = new System.Drawing.Point(443, 65);
-            this.chart_incomeCategory.Name = "chart_incomeCategory";
-            series2.BorderColor = System.Drawing.Color.Transparent;
-            series2.BorderWidth = 2;
-            series2.ChartArea = "ChartArea1";
-            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
-            series2.Color = System.Drawing.Color.Transparent;
-            series2.Font = new System.Drawing.Font("Courier Prime Code", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            series2.LabelForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            series2.Legend = "Legend2";
-            series2.Name = "Series1";
-            this.chart_incomeCategory.Series.Add(series2);
-            this.chart_incomeCategory.Size = new System.Drawing.Size(125, 126);
-            this.chart_incomeCategory.TabIndex = 18;
-            this.chart_incomeCategory.Text = "chart1";
-            // 
-            // chart_expenseAcount
-            // 
-            this.chart_expenseAcount.BackColor = System.Drawing.Color.Transparent;
-            chartArea3.BackColor = System.Drawing.Color.Transparent;
-            chartArea3.Name = "ChartArea1";
-            this.chart_expenseAcount.ChartAreas.Add(chartArea3);
-            legend3.Enabled = false;
-            legend3.Name = "Legend2";
-            this.chart_expenseAcount.Legends.Add(legend3);
-            this.chart_expenseAcount.Location = new System.Drawing.Point(442, 234);
-            this.chart_expenseAcount.Name = "chart_expenseAcount";
-            series3.BorderColor = System.Drawing.Color.Transparent;
-            series3.BorderWidth = 2;
-            series3.ChartArea = "ChartArea1";
-            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
-            series3.Color = System.Drawing.Color.Transparent;
-            series3.Font = new System.Drawing.Font("Courier Prime Code", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            series3.LabelForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            series3.Legend = "Legend2";
-            series3.Name = "Series1";
-            this.chart_expenseAcount.Series.Add(series3);
-            this.chart_expenseAcount.Size = new System.Drawing.Size(126, 125);
-            this.chart_expenseAcount.TabIndex = 19;
-            this.chart_expenseAcount.Text = "chart1";
-            // 
-            // chart_incomeAcount
-            // 
-            this.chart_incomeAcount.BackColor = System.Drawing.Color.Transparent;
-            chartArea4.BackColor = System.Drawing.Color.Transparent;
-            chartArea4.Name = "ChartArea1";
-            this.chart_incomeAcount.ChartAreas.Add(chartArea4);
-            legend4.Enabled = false;
-            legend4.Name = "Legend2";
-            this.chart_incomeAcount.Legends.Add(legend4);
-            this.chart_incomeAcount.Location = new System.Drawing.Point(997, 234);
-            this.chart_incomeAcount.Name = "chart_incomeAcount";
-            series4.BorderColor = System.Drawing.Color.Transparent;
-            series4.BorderWidth = 2;
-            series4.ChartArea = "ChartArea1";
-            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
-            series4.Color = System.Drawing.Color.Transparent;
-            series4.Font = new System.Drawing.Font("Courier Prime Code", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            series4.LabelForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(104)))), ((int)(((byte)(82)))));
-            series4.Legend = "Legend2";
-            series4.Name = "Series1";
-            this.chart_incomeAcount.Series.Add(series4);
-            this.chart_incomeAcount.Size = new System.Drawing.Size(125, 126);
-            this.chart_incomeAcount.TabIndex = 20;
-            this.chart_incomeAcount.Text = "chart1";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
-            this.pictureBox1.Location = new System.Drawing.Point(24, 415);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(327, 248);
-            this.pictureBox1.TabIndex = 15;
-            this.pictureBox1.TabStop = false;
             // 
             // pcb_btnConfig
             // 
@@ -312,85 +141,6 @@
             this.pcb_btnClient.MouseEnter += new System.EventHandler(this.pcb_btnClient_MouseEnter);
             this.pcb_btnClient.MouseLeave += new System.EventHandler(this.pcb_btnClient_MouseLeave);
             // 
-            // chart_dailyExpenses
-            // 
-            this.chart_dailyExpenses.BackColor = System.Drawing.Color.Transparent;
-            this.chart_dailyExpenses.BorderlineColor = System.Drawing.Color.Transparent;
-            chartArea5.AxisX.InterlacedColor = System.Drawing.Color.Transparent;
-            chartArea5.AxisX.IsLabelAutoFit = false;
-            chartArea5.AxisX.LabelStyle.Font = new System.Drawing.Font("Courier Prime Code", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            chartArea5.AxisX.LabelStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            chartArea5.AxisX.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            chartArea5.AxisX.MajorGrid.Enabled = false;
-            chartArea5.AxisX.MajorGrid.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            chartArea5.AxisX.MajorTickMark.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            chartArea5.AxisX.ScaleBreakStyle.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            chartArea5.AxisX.ScaleBreakStyle.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.NotSet;
-            chartArea5.AxisX.ScrollBar.Enabled = false;
-            chartArea5.AxisX.Title = "Dia";
-            chartArea5.AxisX.TitleFont = new System.Drawing.Font("Courier Prime Code", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            chartArea5.AxisX.TitleForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            chartArea5.AxisY.InterlacedColor = System.Drawing.Color.Transparent;
-            chartArea5.AxisY.IsLabelAutoFit = false;
-            chartArea5.AxisY.LabelStyle.Font = new System.Drawing.Font("Courier Prime Code", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            chartArea5.AxisY.LabelStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            chartArea5.AxisY.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            chartArea5.AxisY.MajorGrid.Enabled = false;
-            chartArea5.AxisY.MajorTickMark.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            chartArea5.AxisY.Title = "(R$)";
-            chartArea5.AxisY.TitleFont = new System.Drawing.Font("Courier Prime Code", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            chartArea5.AxisY.TitleForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            chartArea5.BackColor = System.Drawing.Color.Transparent;
-            chartArea5.BorderColor = System.Drawing.Color.Transparent;
-            chartArea5.Name = "ChartArea1";
-            this.chart_dailyExpenses.ChartAreas.Add(chartArea5);
-            legend5.Enabled = false;
-            legend5.Name = "Legend1";
-            this.chart_dailyExpenses.Legends.Add(legend5);
-            this.chart_dailyExpenses.Location = new System.Drawing.Point(611, 52);
-            this.chart_dailyExpenses.Name = "chart_dailyExpenses";
-            series5.ChartArea = "ChartArea1";
-            series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series5.Color = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            series5.Legend = "Legend1";
-            series5.MarkerBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(104)))), ((int)(((byte)(232)))));
-            series5.MarkerColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(104)))), ((int)(((byte)(232)))));
-            series5.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Circle;
-            series5.Name = "Series1";
-            this.chart_dailyExpenses.Series.Add(series5);
-            this.chart_dailyExpenses.Size = new System.Drawing.Size(313, 316);
-            this.chart_dailyExpenses.TabIndex = 21;
-            this.chart_dailyExpenses.Text = "chart1";
-            title1.Font = new System.Drawing.Font("Courier Prime Code", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            title1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            title1.Name = "Title1";
-            title1.Text = "Gastos";
-            this.chart_dailyExpenses.Titles.Add(title1);
-            // 
-            // lbl_balance
-            // 
-            this.lbl_balance.AutoSize = true;
-            this.lbl_balance.BackColor = System.Drawing.Color.Transparent;
-            this.lbl_balance.Font = new System.Drawing.Font("Courier Prime Code", 24F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lbl_balance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.lbl_balance.Location = new System.Drawing.Point(521, 462);
-            this.lbl_balance.Name = "lbl_balance";
-            this.lbl_balance.Size = new System.Drawing.Size(113, 41);
-            this.lbl_balance.TabIndex = 22;
-            this.lbl_balance.Text = "SALDO";
-            // 
-            // lbl_dailyExpenses
-            // 
-            this.lbl_dailyExpenses.AutoSize = true;
-            this.lbl_dailyExpenses.BackColor = System.Drawing.Color.Transparent;
-            this.lbl_dailyExpenses.Font = new System.Drawing.Font("Courier Prime Code", 24F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lbl_dailyExpenses.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(104)))), ((int)(((byte)(82)))));
-            this.lbl_dailyExpenses.Location = new System.Drawing.Point(931, 462);
-            this.lbl_dailyExpenses.Name = "lbl_dailyExpenses";
-            this.lbl_dailyExpenses.Size = new System.Drawing.Size(132, 41);
-            this.lbl_dailyExpenses.TabIndex = 23;
-            this.lbl_dailyExpenses.Text = "GASTOS";
-            // 
             // lbl_monthExpenses
             // 
             this.lbl_monthExpenses.AutoSize = true;
@@ -400,7 +150,7 @@
             this.lbl_monthExpenses.Location = new System.Drawing.Point(931, 593);
             this.lbl_monthExpenses.Name = "lbl_monthExpenses";
             this.lbl_monthExpenses.Size = new System.Drawing.Size(170, 41);
-            this.lbl_monthExpenses.TabIndex = 25;
+            this.lbl_monthExpenses.TabIndex = 2;
             this.lbl_monthExpenses.Text = "DESPESAS";
             // 
             // lbl_monthIncomes
@@ -412,7 +162,7 @@
             this.lbl_monthIncomes.Location = new System.Drawing.Point(521, 593);
             this.lbl_monthIncomes.Name = "lbl_monthIncomes";
             this.lbl_monthIncomes.Size = new System.Drawing.Size(170, 41);
-            this.lbl_monthIncomes.TabIndex = 24;
+            this.lbl_monthIncomes.TabIndex = 2;
             this.lbl_monthIncomes.Text = "RECEITAS";
             // 
             // pcb_addIncome
@@ -441,74 +191,273 @@
             this.pcb_addExpense.TabStop = false;
             this.pcb_addExpense.Click += new System.EventHandler(this.pcb_addExpense_Click);
             // 
-            // pcb_appClose
+            // panel_steps
             // 
-            this.pcb_appClose.BackColor = System.Drawing.Color.Transparent;
-            this.pcb_appClose.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pcb_appClose.BackgroundImage")));
-            this.pcb_appClose.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pcb_appClose.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pcb_appClose.Location = new System.Drawing.Point(968, 6);
-            this.pcb_appClose.Name = "pcb_appClose";
-            this.pcb_appClose.Size = new System.Drawing.Size(32, 32);
-            this.pcb_appClose.TabIndex = 28;
-            this.pcb_appClose.TabStop = false;
-            this.pcb_appClose.Click += new System.EventHandler(this.pcb_appClose_Click);
+            this.panel_steps.BackColor = System.Drawing.Color.Transparent;
+            this.panel_steps.Location = new System.Drawing.Point(400, 30);
+            this.panel_steps.Name = "panel_steps";
+            this.panel_steps.Size = new System.Drawing.Size(773, 381);
+            this.panel_steps.TabIndex = 33;
             // 
-            // pcb_updateIncomeOrExpense
+            // pcb_closeProgram
             // 
-            this.pcb_updateIncomeOrExpense.BackColor = System.Drawing.Color.Transparent;
-            this.pcb_updateIncomeOrExpense.BackgroundImage = global::Sisteg_Dashboard.Properties.Resources.edit__2_;
-            this.pcb_updateIncomeOrExpense.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pcb_updateIncomeOrExpense.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pcb_updateIncomeOrExpense.Location = new System.Drawing.Point(357, 631);
-            this.pcb_updateIncomeOrExpense.Name = "pcb_updateIncomeOrExpense";
-            this.pcb_updateIncomeOrExpense.Size = new System.Drawing.Size(32, 32);
-            this.pcb_updateIncomeOrExpense.TabIndex = 29;
-            this.pcb_updateIncomeOrExpense.TabStop = false;
-            this.pcb_updateIncomeOrExpense.Click += new System.EventHandler(this.pcb_updateIncome_Click);
-            // 
-            // pcb_previousMonth
-            // 
-            this.pcb_previousMonth.BackColor = System.Drawing.Color.Transparent;
-            this.pcb_previousMonth.BackgroundImage = global::Sisteg_Dashboard.Properties.Resources.back;
-            this.pcb_previousMonth.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pcb_previousMonth.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pcb_previousMonth.Location = new System.Drawing.Point(1006, 6);
-            this.pcb_previousMonth.Name = "pcb_previousMonth";
-            this.pcb_previousMonth.Size = new System.Drawing.Size(32, 32);
-            this.pcb_previousMonth.TabIndex = 30;
-            this.pcb_previousMonth.TabStop = false;
-            this.pcb_previousMonth.Click += new System.EventHandler(this.pcb_previousMonth_Click);
+            this.pcb_closeProgram.BackColor = System.Drawing.Color.Transparent;
+            this.pcb_closeProgram.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pcb_closeProgram.BackgroundImage")));
+            this.pcb_closeProgram.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pcb_closeProgram.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pcb_closeProgram.Location = new System.Drawing.Point(968, 6);
+            this.pcb_closeProgram.Name = "pcb_closeProgram";
+            this.pcb_closeProgram.Size = new System.Drawing.Size(32, 32);
+            this.pcb_closeProgram.TabIndex = 34;
+            this.pcb_closeProgram.TabStop = false;
             // 
             // pcb_nextMonth
             // 
             this.pcb_nextMonth.BackColor = System.Drawing.Color.Transparent;
-            this.pcb_nextMonth.BackgroundImage = global::Sisteg_Dashboard.Properties.Resources.next;
+            this.pcb_nextMonth.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pcb_nextMonth.BackgroundImage")));
             this.pcb_nextMonth.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pcb_nextMonth.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pcb_nextMonth.Location = new System.Drawing.Point(1044, 6);
             this.pcb_nextMonth.Name = "pcb_nextMonth";
             this.pcb_nextMonth.Size = new System.Drawing.Size(32, 32);
-            this.pcb_nextMonth.TabIndex = 31;
+            this.pcb_nextMonth.TabIndex = 36;
             this.pcb_nextMonth.TabStop = false;
             this.pcb_nextMonth.Click += new System.EventHandler(this.pcb_nextMonth_Click);
             // 
-            // lbl_noExpenses
+            // pcb_previousMonth
             // 
-            this.lbl_noExpenses.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lbl_noExpenses.BackColor = System.Drawing.Color.Transparent;
-            this.lbl_noExpenses.Font = new System.Drawing.Font("Courier Prime Code", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lbl_noExpenses.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.lbl_noExpenses.Location = new System.Drawing.Point(689, 68);
-            this.lbl_noExpenses.MaximumSize = new System.Drawing.Size(184, 300);
-            this.lbl_noExpenses.MinimumSize = new System.Drawing.Size(184, 300);
-            this.lbl_noExpenses.Name = "lbl_noExpenses";
-            this.lbl_noExpenses.Size = new System.Drawing.Size(184, 300);
-            this.lbl_noExpenses.TabIndex = 32;
-            this.lbl_noExpenses.Text = "Não há gastos no mês de";
-            this.lbl_noExpenses.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.pcb_previousMonth.BackColor = System.Drawing.Color.Transparent;
+            this.pcb_previousMonth.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pcb_previousMonth.BackgroundImage")));
+            this.pcb_previousMonth.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pcb_previousMonth.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pcb_previousMonth.Location = new System.Drawing.Point(1006, 6);
+            this.pcb_previousMonth.Name = "pcb_previousMonth";
+            this.pcb_previousMonth.Size = new System.Drawing.Size(32, 32);
+            this.pcb_previousMonth.TabIndex = 35;
+            this.pcb_previousMonth.TabStop = false;
+            this.pcb_previousMonth.Click += new System.EventHandler(this.pcb_previousMonth_Click);
+            // 
+            // pcb_btnGoForward
+            // 
+            this.pcb_btnGoForward.BackColor = System.Drawing.Color.Transparent;
+            this.pcb_btnGoForward.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pcb_btnGoForward.Image = ((System.Drawing.Image)(resources.GetObject("pcb_btnGoForward.Image")));
+            this.pcb_btnGoForward.Location = new System.Drawing.Point(845, 417);
+            this.pcb_btnGoForward.Name = "pcb_btnGoForward";
+            this.pcb_btnGoForward.Size = new System.Drawing.Size(328, 70);
+            this.pcb_btnGoForward.TabIndex = 38;
+            this.pcb_btnGoForward.TabStop = false;
+            this.pcb_btnGoForward.Click += new System.EventHandler(this.pcb_btnGoForward_Click);
+            this.pcb_btnGoForward.MouseEnter += new System.EventHandler(this.pcb_btnGoForward_MouseEnter);
+            this.pcb_btnGoForward.MouseLeave += new System.EventHandler(this.pcb_btnGoForward_MouseLeave);
+            // 
+            // pcb_btnGoBack
+            // 
+            this.pcb_btnGoBack.BackColor = System.Drawing.Color.Transparent;
+            this.pcb_btnGoBack.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pcb_btnGoBack.Image = ((System.Drawing.Image)(resources.GetObject("pcb_btnGoBack.Image")));
+            this.pcb_btnGoBack.Location = new System.Drawing.Point(400, 417);
+            this.pcb_btnGoBack.Name = "pcb_btnGoBack";
+            this.pcb_btnGoBack.Size = new System.Drawing.Size(328, 70);
+            this.pcb_btnGoBack.TabIndex = 37;
+            this.pcb_btnGoBack.TabStop = false;
+            this.pcb_btnGoBack.Click += new System.EventHandler(this.pcb_btnGoBack_Click);
+            this.pcb_btnGoBack.MouseEnter += new System.EventHandler(this.pcb_btnGoBack_MouseEnter);
+            this.pcb_btnGoBack.MouseLeave += new System.EventHandler(this.pcb_btnGoBack_MouseLeave);
+            // 
+            // lbl_balance
+            // 
+            this.lbl_balance.AutoSize = true;
+            this.lbl_balance.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_balance.Font = new System.Drawing.Font("Courier Prime Code", 24F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lbl_balance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.lbl_balance.Location = new System.Drawing.Point(521, 462);
+            this.lbl_balance.Name = "lbl_balance";
+            this.lbl_balance.Size = new System.Drawing.Size(113, 41);
+            this.lbl_balance.TabIndex = 1;
+            this.lbl_balance.Text = "SALDO";
+            // 
+            // lbl_dailyExpenses
+            // 
+            this.lbl_dailyExpenses.AutoSize = true;
+            this.lbl_dailyExpenses.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_dailyExpenses.Font = new System.Drawing.Font("Courier Prime Code", 24F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lbl_dailyExpenses.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(104)))), ((int)(((byte)(82)))));
+            this.lbl_dailyExpenses.Location = new System.Drawing.Point(931, 462);
+            this.lbl_dailyExpenses.Name = "lbl_dailyExpenses";
+            this.lbl_dailyExpenses.Size = new System.Drawing.Size(132, 41);
+            this.lbl_dailyExpenses.TabIndex = 1;
+            this.lbl_dailyExpenses.Text = "GASTOS";
+            // 
+            // cbb_activeAccount
+            // 
+            this.cbb_activeAccount.BackColor = System.Drawing.Color.Transparent;
+            this.cbb_activeAccount.BorderRadius = 1;
+            this.cbb_activeAccount.Color = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.cbb_activeAccount.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cbb_activeAccount.Direction = Bunifu.UI.WinForms.BunifuDropdown.Directions.Down;
+            this.cbb_activeAccount.DisabledColor = System.Drawing.Color.Gray;
+            this.cbb_activeAccount.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cbb_activeAccount.DropdownBorderThickness = Bunifu.UI.WinForms.BunifuDropdown.BorderThickness.Thin;
+            this.cbb_activeAccount.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbb_activeAccount.DropDownTextAlign = Bunifu.UI.WinForms.BunifuDropdown.TextAlign.Left;
+            this.cbb_activeAccount.FillDropDown = false;
+            this.cbb_activeAccount.FillIndicator = false;
+            this.cbb_activeAccount.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cbb_activeAccount.Font = new System.Drawing.Font("Courier Prime Code", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbb_activeAccount.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.cbb_activeAccount.FormattingEnabled = true;
+            this.cbb_activeAccount.Icon = null;
+            this.cbb_activeAccount.IndicatorColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.cbb_activeAccount.IndicatorLocation = Bunifu.UI.WinForms.BunifuDropdown.Indicator.Right;
+            this.cbb_activeAccount.ItemBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(157)))));
+            this.cbb_activeAccount.ItemBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(157)))));
+            this.cbb_activeAccount.ItemForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.cbb_activeAccount.ItemHeight = 29;
+            this.cbb_activeAccount.ItemHighLightColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(104)))), ((int)(((byte)(232)))));
+            this.cbb_activeAccount.Location = new System.Drawing.Point(12, 0);
+            this.cbb_activeAccount.Name = "cbb_activeAccount";
+            this.cbb_activeAccount.Size = new System.Drawing.Size(300, 35);
+            this.cbb_activeAccount.TabIndex = 3;
+            this.cbb_activeAccount.Text = " Conta ativa";
+            this.cbb_activeAccount.SelectedIndexChanged += new System.EventHandler(this.cbb_activeAccount_SelectedIndexChanged);
+            // 
+            // panel_activeAccount
+            // 
+            this.panel_activeAccount.AutoScroll = true;
+            this.panel_activeAccount.AutoScrollMargin = new System.Drawing.Size(0, 12);
+            this.panel_activeAccount.BackColor = System.Drawing.Color.Transparent;
+            this.panel_activeAccount.Controls.Add(this.cbb_activeAccount);
+            this.panel_activeAccount.Location = new System.Drawing.Point(845, 495);
+            this.panel_activeAccount.Name = "panel_activeAccount";
+            this.panel_activeAccount.Size = new System.Drawing.Size(328, 47);
+            this.panel_activeAccount.TabIndex = 3;
+            // 
+            // pcb_minimizeProgram
+            // 
+            this.pcb_minimizeProgram.BackColor = System.Drawing.Color.Transparent;
+            this.pcb_minimizeProgram.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pcb_minimizeProgram.BackgroundImage")));
+            this.pcb_minimizeProgram.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pcb_minimizeProgram.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pcb_minimizeProgram.Location = new System.Drawing.Point(1082, 6);
+            this.pcb_minimizeProgram.Name = "pcb_minimizeProgram";
+            this.pcb_minimizeProgram.Size = new System.Drawing.Size(32, 32);
+            this.pcb_minimizeProgram.TabIndex = 39;
+            this.pcb_minimizeProgram.TabStop = false;
+            this.pcb_minimizeProgram.Click += new System.EventHandler(this.pcb_minimizeProgram_Click);
+            // 
+            // lbl_balanceTag
+            // 
+            this.lbl_balanceTag.AutoSize = true;
+            this.lbl_balanceTag.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_balanceTag.Font = new System.Drawing.Font("Courier Prime Code", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lbl_balanceTag.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.lbl_balanceTag.Location = new System.Drawing.Point(523, 441);
+            this.lbl_balanceTag.Name = "lbl_balanceTag";
+            this.lbl_balanceTag.Size = new System.Drawing.Size(90, 21);
+            this.lbl_balanceTag.TabIndex = 40;
+            this.lbl_balanceTag.Text = "SALDO///";
+            // 
+            // lbl_monthIncomesTag
+            // 
+            this.lbl_monthIncomesTag.AutoSize = true;
+            this.lbl_monthIncomesTag.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_monthIncomesTag.Font = new System.Drawing.Font("Courier Prime Code", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lbl_monthIncomesTag.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.lbl_monthIncomesTag.Location = new System.Drawing.Point(523, 571);
+            this.lbl_monthIncomesTag.Name = "lbl_monthIncomesTag";
+            this.lbl_monthIncomesTag.Size = new System.Drawing.Size(120, 21);
+            this.lbl_monthIncomesTag.TabIndex = 41;
+            this.lbl_monthIncomesTag.Text = "RECEITAS///";
+            // 
+            // lbl_monthExpensesTag
+            // 
+            this.lbl_monthExpensesTag.AutoSize = true;
+            this.lbl_monthExpensesTag.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_monthExpensesTag.Font = new System.Drawing.Font("Courier Prime Code", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lbl_monthExpensesTag.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(104)))), ((int)(((byte)(82)))));
+            this.lbl_monthExpensesTag.Location = new System.Drawing.Point(932, 571);
+            this.lbl_monthExpensesTag.Name = "lbl_monthExpensesTag";
+            this.lbl_monthExpensesTag.Size = new System.Drawing.Size(120, 21);
+            this.lbl_monthExpensesTag.TabIndex = 43;
+            this.lbl_monthExpensesTag.Text = "DESPESAS///";
+            // 
+            // lbl_dailyExpensesTag
+            // 
+            this.lbl_dailyExpensesTag.AutoSize = true;
+            this.lbl_dailyExpensesTag.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_dailyExpensesTag.Font = new System.Drawing.Font("Courier Prime Code", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lbl_dailyExpensesTag.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(104)))), ((int)(((byte)(82)))));
+            this.lbl_dailyExpensesTag.Location = new System.Drawing.Point(933, 441);
+            this.lbl_dailyExpensesTag.Name = "lbl_dailyExpensesTag";
+            this.lbl_dailyExpensesTag.Size = new System.Drawing.Size(160, 21);
+            this.lbl_dailyExpensesTag.TabIndex = 42;
+            this.lbl_dailyExpensesTag.Text = "GASTOS DIÁRIOS/";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.label1.Font = new System.Drawing.Font("Courier Prime Code", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.label1.Location = new System.Drawing.Point(105, 63);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(200, 21);
+            this.label1.TabIndex = 44;
+            this.label1.Text = "PAINEL PRINCIPAL///";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.label2.Font = new System.Drawing.Font("Courier Prime Code", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.label2.Location = new System.Drawing.Point(105, 139);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(120, 21);
+            this.label2.TabIndex = 45;
+            this.label2.Text = "CLIENTES///";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.label3.Font = new System.Drawing.Font("Courier Prime Code", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.label3.Location = new System.Drawing.Point(105, 215);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(120, 21);
+            this.label3.TabIndex = 46;
+            this.label3.Text = "PRODUTOS///";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.Transparent;
+            this.label4.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.label4.Font = new System.Drawing.Font("Courier Prime Code", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.label4.Location = new System.Drawing.Point(105, 291);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(140, 21);
+            this.label4.TabIndex = 47;
+            this.label4.Text = "ORÇAMENTOS///";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.Transparent;
+            this.label5.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.label5.Font = new System.Drawing.Font("Courier Prime Code", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.label5.Location = new System.Drawing.Point(105, 367);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(170, 21);
+            this.label5.TabIndex = 48;
+            this.label5.Text = "CONFIGURAÇÕES///";
             // 
             // Main
             // 
@@ -517,29 +466,35 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(1220, 686);
-            this.Controls.Add(this.lbl_noExpenses);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lbl_monthExpensesTag);
+            this.Controls.Add(this.lbl_dailyExpensesTag);
+            this.Controls.Add(this.lbl_monthIncomesTag);
+            this.Controls.Add(this.lbl_balanceTag);
+            this.Controls.Add(this.pcb_minimizeProgram);
+            this.Controls.Add(this.panel_activeAccount);
+            this.Controls.Add(this.lbl_dailyExpenses);
+            this.Controls.Add(this.lbl_balance);
+            this.Controls.Add(this.pcb_btnGoForward);
+            this.Controls.Add(this.pcb_btnGoBack);
             this.Controls.Add(this.pcb_nextMonth);
             this.Controls.Add(this.pcb_previousMonth);
-            this.Controls.Add(this.pcb_updateIncomeOrExpense);
-            this.Controls.Add(this.pcb_appClose);
+            this.Controls.Add(this.pcb_closeProgram);
+            this.Controls.Add(this.panel_steps);
             this.Controls.Add(this.pcb_addExpense);
             this.Controls.Add(this.pcb_addIncome);
             this.Controls.Add(this.lbl_monthExpenses);
             this.Controls.Add(this.lbl_monthIncomes);
-            this.Controls.Add(this.lbl_dailyExpenses);
-            this.Controls.Add(this.lbl_balance);
-            this.Controls.Add(this.chart_dailyExpenses);
-            this.Controls.Add(this.chart_incomeAcount);
-            this.Controls.Add(this.chart_expenseAcount);
-            this.Controls.Add(this.chart_incomeCategory);
-            this.Controls.Add(this.chart_expenseCategory);
-            this.Controls.Add(this.dgv_transactions);
-            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.pcb_btnConfig);
             this.Controls.Add(this.pcb_btnBudget);
             this.Controls.Add(this.pcb_btnProduct);
             this.Controls.Add(this.pcb_btnMain);
             this.Controls.Add(this.pcb_btnClient);
+            this.DoubleBuffered = true;
             this.ForeColor = System.Drawing.Color.OrangeRed;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;
@@ -547,24 +502,20 @@
             this.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Painel principal";
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_transactions)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chart_expenseCategory)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chart_incomeCategory)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chart_expenseAcount)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chart_incomeAcount)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcb_btnConfig)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcb_btnBudget)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcb_btnProduct)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcb_btnMain)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcb_btnClient)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chart_dailyExpenses)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcb_addIncome)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcb_addExpense)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pcb_appClose)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pcb_updateIncomeOrExpense)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pcb_previousMonth)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcb_closeProgram)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcb_nextMonth)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcb_previousMonth)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcb_btnGoForward)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcb_btnGoBack)).EndInit();
+            this.panel_activeAccount.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pcb_minimizeProgram)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -576,23 +527,29 @@
         private System.Windows.Forms.PictureBox pcb_btnProduct;
         private System.Windows.Forms.PictureBox pcb_btnBudget;
         private System.Windows.Forms.PictureBox pcb_btnConfig;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.DataGridView dgv_transactions;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chart_expenseCategory;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chart_incomeCategory;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chart_expenseAcount;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chart_incomeAcount;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chart_dailyExpenses;
-        private System.Windows.Forms.Label lbl_balance;
-        private System.Windows.Forms.Label lbl_dailyExpenses;
-        private System.Windows.Forms.Label lbl_monthExpenses;
-        private System.Windows.Forms.Label lbl_monthIncomes;
-        private System.Windows.Forms.PictureBox pcb_addIncome;
-        private System.Windows.Forms.PictureBox pcb_addExpense;
-        private System.Windows.Forms.PictureBox pcb_appClose;
-        private System.Windows.Forms.PictureBox pcb_updateIncomeOrExpense;
-        private System.Windows.Forms.PictureBox pcb_previousMonth;
+        public System.Windows.Forms.Panel panel_steps;
+        private System.Windows.Forms.PictureBox pcb_closeProgram;
         private System.Windows.Forms.PictureBox pcb_nextMonth;
-        private System.Windows.Forms.Label lbl_noExpenses;
+        private System.Windows.Forms.PictureBox pcb_previousMonth;
+        protected internal System.Windows.Forms.PictureBox pcb_btnGoForward;
+        protected internal System.Windows.Forms.PictureBox pcb_btnGoBack;
+        protected internal System.Windows.Forms.Label lbl_monthIncomes;
+        protected internal System.Windows.Forms.PictureBox pcb_addIncome;
+        protected internal System.Windows.Forms.Label lbl_balance;
+        protected internal System.Windows.Forms.Label lbl_monthExpenses;
+        protected internal System.Windows.Forms.PictureBox pcb_addExpense;
+        protected internal System.Windows.Forms.Label lbl_dailyExpenses;
+        private System.Windows.Forms.Panel panel_activeAccount;
+        protected internal Bunifu.UI.WinForms.BunifuDropdown cbb_activeAccount;
+        private System.Windows.Forms.PictureBox pcb_minimizeProgram;
+        protected internal System.Windows.Forms.Label lbl_balanceTag;
+        protected internal System.Windows.Forms.Label lbl_monthIncomesTag;
+        protected internal System.Windows.Forms.Label lbl_monthExpensesTag;
+        protected internal System.Windows.Forms.Label lbl_dailyExpensesTag;
+        protected internal System.Windows.Forms.Label label1;
+        protected internal System.Windows.Forms.Label label2;
+        protected internal System.Windows.Forms.Label label3;
+        protected internal System.Windows.Forms.Label label4;
+        protected internal System.Windows.Forms.Label label5;
     }
 }

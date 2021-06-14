@@ -163,12 +163,12 @@ namespace Sisteg_Dashboard
         //CADASTRO DE CLIENTE
         private void pcb_clientRegister_MouseEnter(object sender, EventArgs e)
         {
-            this.pcb_clientRegister.Image = Properties.Resources.btn_clientRegister_active;
+            this.pcb_clientRegister.Image = Properties.Resources.btn_client_form_active;
         }
 
         private void pcb_clientRegister_MouseLeave(object sender, EventArgs e)
         {
-            this.pcb_clientRegister.Image = Properties.Resources.btn_clientRegister;
+            this.pcb_clientRegister.Image = Properties.Resources.btn_client_form;
         }
 
         private void pcb_clientRegister_Click(object sender, EventArgs e)

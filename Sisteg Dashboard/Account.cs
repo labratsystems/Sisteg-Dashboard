@@ -13,5 +13,6 @@ namespace Sisteg_Dashboard
         public string nomeConta;
         public string tipoConta;
         public Boolean somarTotal;
+        public Boolean contaAtiva;
     }
 }

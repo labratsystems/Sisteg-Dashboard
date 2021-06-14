@@ -168,12 +168,12 @@ namespace Sisteg_Dashboard
         //CONFIRMAR ORÇAMENTO
         private void pcb_btnConfirmBudget_MouseEnter(object sender, EventArgs e)
         {
-            this.pcb_btnConfirmBudget.Image = Properties.Resources.btn_confirmBudget_active;
+            this.pcb_btnConfirmBudget.Image = Properties.Resources.btn_confirm_budget_active;
         }
 
         private void pcb_btnConfirmBudget_MouseLeave(object sender, EventArgs e)
         {
-            this.pcb_btnConfirmBudget.Image = Properties.Resources.btn_confirmBudget;
+            this.pcb_btnConfirmBudget.Image = Properties.Resources.btn_confirm_budget;
         }
 
         private void pcb_btnConfirmBudget_Click(object sender, EventArgs e)
@@ -371,12 +371,12 @@ namespace Sisteg_Dashboard
         //ENVIAR ORÇAMENTO VIA WHATSAPP
         private void pcb_btnSendBudget_MouseEnter(object sender, EventArgs e)
         {
-            this.pcb_btnSendBudget.Image = Properties.Resources.btn_sendBudget_active;
+            this.pcb_btnSendBudget.Image = Properties.Resources.btn_send_email_active;
         }
 
         private void pcb_btnSendBudget_MouseLeave(object sender, EventArgs e)
         {
-            this.pcb_btnSendBudget.Image = Properties.Resources.btn_sendBudget;
+            this.pcb_btnSendBudget.Image = Properties.Resources.btn_send_email;
         }
 
         private void pcb_btnSendBudget_Click(object sender, EventArgs e)

@@ -66,7 +66,7 @@
             // 
             this.pcb_btnConfig.BackColor = System.Drawing.Color.Transparent;
             this.pcb_btnConfig.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pcb_btnConfig.Image = global::Sisteg_Dashboard.Properties.Resources.btn_config;
+            this.pcb_btnConfig.Image = ((System.Drawing.Image)(resources.GetObject("pcb_btnConfig.Image")));
             this.pcb_btnConfig.Location = new System.Drawing.Point(22, 340);
             this.pcb_btnConfig.Name = "pcb_btnConfig";
             this.pcb_btnConfig.Size = new System.Drawing.Size(328, 70);
@@ -80,7 +80,7 @@
             // 
             this.pcb_btnBudget.BackColor = System.Drawing.Color.Transparent;
             this.pcb_btnBudget.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pcb_btnBudget.Image = global::Sisteg_Dashboard.Properties.Resources.btn_budget;
+            this.pcb_btnBudget.Image = ((System.Drawing.Image)(resources.GetObject("pcb_btnBudget.Image")));
             this.pcb_btnBudget.Location = new System.Drawing.Point(22, 264);
             this.pcb_btnBudget.Name = "pcb_btnBudget";
             this.pcb_btnBudget.Size = new System.Drawing.Size(328, 70);
@@ -94,7 +94,7 @@
             // 
             this.pcb_btnProduct.BackColor = System.Drawing.Color.Transparent;
             this.pcb_btnProduct.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pcb_btnProduct.Image = global::Sisteg_Dashboard.Properties.Resources.btn_product_active;
+            this.pcb_btnProduct.Image = ((System.Drawing.Image)(resources.GetObject("pcb_btnProduct.Image")));
             this.pcb_btnProduct.Location = new System.Drawing.Point(22, 188);
             this.pcb_btnProduct.Name = "pcb_btnProduct";
             this.pcb_btnProduct.Size = new System.Drawing.Size(328, 70);
@@ -105,7 +105,7 @@
             // 
             this.pcb_btnMain.BackColor = System.Drawing.Color.Transparent;
             this.pcb_btnMain.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pcb_btnMain.Image = global::Sisteg_Dashboard.Properties.Resources.btn_main;
+            this.pcb_btnMain.Image = ((System.Drawing.Image)(resources.GetObject("pcb_btnMain.Image")));
             this.pcb_btnMain.Location = new System.Drawing.Point(22, 35);
             this.pcb_btnMain.Name = "pcb_btnMain";
             this.pcb_btnMain.Size = new System.Drawing.Size(328, 71);
@@ -119,7 +119,7 @@
             // 
             this.pcb_btnClient.BackColor = System.Drawing.Color.Transparent;
             this.pcb_btnClient.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pcb_btnClient.Image = global::Sisteg_Dashboard.Properties.Resources.btn_client;
+            this.pcb_btnClient.Image = ((System.Drawing.Image)(resources.GetObject("pcb_btnClient.Image")));
             this.pcb_btnClient.Location = new System.Drawing.Point(22, 112);
             this.pcb_btnClient.Name = "pcb_btnClient";
             this.pcb_btnClient.Size = new System.Drawing.Size(328, 70);
@@ -146,7 +146,7 @@
             // 
             this.pcb_btnEdit.BackColor = System.Drawing.Color.Transparent;
             this.pcb_btnEdit.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pcb_btnEdit.Image = global::Sisteg_Dashboard.Properties.Resources.btn_modify;
+            this.pcb_btnEdit.Image = ((System.Drawing.Image)(resources.GetObject("pcb_btnEdit.Image")));
             this.pcb_btnEdit.Location = new System.Drawing.Point(765, 538);
             this.pcb_btnEdit.Name = "pcb_btnEdit";
             this.pcb_btnEdit.Size = new System.Drawing.Size(328, 70);
@@ -160,7 +160,7 @@
             // 
             this.pcb_btnAdd.BackColor = System.Drawing.Color.Transparent;
             this.pcb_btnAdd.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pcb_btnAdd.Image = global::Sisteg_Dashboard.Properties.Resources.btn_add;
+            this.pcb_btnAdd.Image = ((System.Drawing.Image)(resources.GetObject("pcb_btnAdd.Image")));
             this.pcb_btnAdd.Location = new System.Drawing.Point(765, 462);
             this.pcb_btnAdd.Name = "pcb_btnAdd";
             this.pcb_btnAdd.Size = new System.Drawing.Size(328, 70);
@@ -361,7 +361,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::Sisteg_Dashboard.Properties.Resources.product_sisteg_bg;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1200, 675);
             this.Controls.Add(this.bunifuShadowPanel1);
             this.Controls.Add(this.pcb_appClose);

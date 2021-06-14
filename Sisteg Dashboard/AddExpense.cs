@@ -28,6 +28,15 @@ namespace Sisteg_Dashboard
             this.panel_expense.VerticalScroll.Enabled = false;
             this.panel_expense.VerticalScroll.Visible = false;
             this.txt_expenseValue.Focus();
+
+            //Popula o combobox de conta da despesa
+            DataTable expenseAccountDataTable = Database.query("SELECT conta.nomeConta FROM conta ORDER BY conta.nomeConta;");
+            for (int i = 0; i < expenseAccountDataTable.Rows.Count; i++) this.cbb_expenseAccount.Items.Insert(i, " " + expenseAccountDataTable.Rows[i].ItemArray[0].ToString());
+
+            //Popula o combobox de categoria da despesa
+            DataTable expenseCategoryDataTable = Database.query("SELECT categoria.nomeCategoria FROM categoria WHERE categoria.categoriaDespesa = true ORDER BY conta.nomeCategoria;");
+            for (int i = 0; i < expenseCategoryDataTable.Rows.Count; i++) this.cbb_expenseCategory.Items.Insert(i, " " + expenseCategoryDataTable.Rows[i].ItemArray[0].ToString());
+
             if (dataTableExpense != null)
             {
                 foreach (DataRow dataRow in dataTableExpense.Rows)
@@ -315,10 +324,11 @@ namespace Sisteg_Dashboard
                         {
                             parcels.Add(new Parcel());
                             parcels[j].idDespesa = idDespesa;
+                            parcels[j].idConta = expense.idConta;
+                            parcels[j].idCategoria = expense.idCategoria;
                             parcels[j].valorParcela = expense.valorDespesa;
                             parcels[j].descricaoParcela = expense.descricaoDespesa;
                             this.periodSelection(j, expense, this.parcels);
-                            parcels[j].categoriaParcela = expense.categoriaDespesa;
                             parcels[j].observacoesParcela = expense.observacoesDespesa;
                             parcels[j].pagamentoConfirmado = false;
                             if (Database.newParcel(parcels[j])) continue;
@@ -352,10 +362,11 @@ namespace Sisteg_Dashboard
                         {
                             this.repeats.Add(new Repeat());
                             this.repeats[j].idDespesa = idDespesa;
+                            this.repeats[j].idConta = expense.idConta;
+                            this.repeats[j].idCategoria = expense.idCategoria;
                             this.repeats[j].valorRepeticao = expense.valorDespesa;
                             this.repeats[j].descricaoRepeticao = expense.descricaoDespesa;
                             this.periodSelection(j, expense, this.repeats);
-                            this.repeats[j].categoriaRepeticao = expense.categoriaDespesa;
                             this.repeats[j].observacoesRepeticao = expense.observacoesDespesa;
                             this.repeats[j].pagamentoConfirmado = false;
                             if (Database.newRepeat(this.repeats[j])) continue;
@@ -416,10 +427,11 @@ namespace Sisteg_Dashboard
                             {
                                 repeats.Add(new Repeat());
                                 repeats[i].idRepeticao = this.repeats[i].idRepeticao;
+                                repeats[i].idConta = expense.idConta;
+                                repeats[i].idCategoria = expense.idCategoria;
                                 repeats[i].valorRepeticao = expense.valorDespesa;
                                 repeats[i].descricaoRepeticao = expense.descricaoDespesa;
                                 this.periodSelection(i, expense, repeats);
-                                repeats[i].categoriaRepeticao = expense.categoriaDespesa;
                                 repeats[i].observacoesRepeticao = expense.observacoesDespesa;
                                 repeats[i].pagamentoConfirmado = false;
                                 if (Database.updateRepeat(repeats[i])) continue;
@@ -448,10 +460,11 @@ namespace Sisteg_Dashboard
                             {
                                 repeats.Add(new Repeat());
                                 repeats[i].idRepeticao = this.repeats[i].idRepeticao;
+                                repeats[i].idConta = expense.idConta;
+                                repeats[i].idCategoria = expense.idCategoria;
                                 repeats[i].valorRepeticao = expense.valorDespesa;
                                 repeats[i].descricaoRepeticao = expense.descricaoDespesa;
                                 this.periodSelection(i, expense, repeats);
-                                repeats[i].categoriaRepeticao = expense.categoriaDespesa;
                                 repeats[i].observacoesRepeticao = expense.observacoesDespesa;
                                 repeats[i].pagamentoConfirmado = false;
                                 if (Database.updateRepeat(repeats[i])) continue;
@@ -465,10 +478,11 @@ namespace Sisteg_Dashboard
                             {
                                 repeats.Add(new Repeat());
                                 repeats[i].idDespesa = idDespesa;
+                                repeats[i].idConta = expense.idConta;
+                                repeats[i].idCategoria = expense.idCategoria;
                                 repeats[i].valorRepeticao = expense.valorDespesa;
                                 repeats[i].descricaoRepeticao = expense.descricaoDespesa;
                                 this.periodSelection(i, expense, repeats);
-                                repeats[i].categoriaRepeticao = expense.categoriaDespesa;
                                 repeats[i].observacoesRepeticao = expense.observacoesDespesa;
                                 repeats[i].recebimentoConfirmado = false;
                                 if (Database.newRepeat(repeats[i])) continue;
@@ -486,10 +500,11 @@ namespace Sisteg_Dashboard
                         {
                             repeats.Add(new Repeat());
                             repeats[i].idRepeticao = this.repeats[i].idRepeticao;
+                            repeats[i].idConta = expense.idConta;
+                            repeats[i].idCategoria = expense.idCategoria;
                             repeats[i].valorRepeticao = expense.valorDespesa;
                             repeats[i].descricaoRepeticao = expense.descricaoDespesa;
                             this.periodSelection(i, expense, repeats);
-                            repeats[i].categoriaRepeticao = expense.categoriaDespesa;
                             repeats[i].observacoesRepeticao = expense.observacoesDespesa;
                             repeats[i].recebimentoConfirmado = false;
                             if (Database.updateRepeat(repeats[i])) continue;
@@ -544,10 +559,11 @@ namespace Sisteg_Dashboard
                             {
                                 parcels.Add(new Parcel());
                                 parcels[i].idParcela = this.parcels[i].idParcela;
+                                parcels[i].idConta = expense.idConta;
+                                parcels[i].idCategoria = expense.idCategoria;
                                 parcels[i].valorParcela = expense.valorDespesa;
                                 parcels[i].descricaoParcela = expense.descricaoDespesa;
                                 this.periodSelection(i, expense, parcels);
-                                parcels[i].categoriaParcela = expense.categoriaDespesa;
                                 parcels[i].observacoesParcela = expense.observacoesDespesa;
                                 parcels[i].pagamentoConfirmado = false;
                                 if (Database.updateParcel(parcels[i])) continue;
@@ -576,10 +592,11 @@ namespace Sisteg_Dashboard
                             {
                                 parcels.Add(new Parcel());
                                 parcels[i].idParcela = this.parcels[i].idParcela;
+                                parcels[i].idConta = expense.idConta;
+                                parcels[i].idCategoria = expense.idCategoria;
                                 parcels[i].valorParcela = expense.valorDespesa;
                                 parcels[i].descricaoParcela = expense.descricaoDespesa;
                                 this.periodSelection(i, expense, parcels);
-                                parcels[i].categoriaParcela = expense.categoriaDespesa;
                                 parcels[i].observacoesParcela = expense.observacoesDespesa;
                                 parcels[i].pagamentoConfirmado = false;
                                 if (Database.updateParcel(parcels[i])) continue;
@@ -593,10 +610,11 @@ namespace Sisteg_Dashboard
                             {
                                 parcels.Add(new Parcel());
                                 parcels[i].idReceita = idDespesa;
+                                parcels[i].idConta = expense.idConta;
+                                parcels[i].idCategoria = expense.idCategoria;
                                 parcels[i].valorParcela = expense.valorDespesa;
                                 parcels[i].descricaoParcela = expense.descricaoDespesa;
                                 this.periodSelection(i, expense, parcels);
-                                parcels[i].categoriaParcela = expense.categoriaDespesa;
                                 parcels[i].observacoesParcela = expense.observacoesDespesa;
                                 parcels[i].pagamentoConfirmado = false;
                                 if (Database.newParcel(parcels[i])) continue;
@@ -614,10 +632,11 @@ namespace Sisteg_Dashboard
                         {
                             parcels.Add(new Parcel());
                             parcels[i].idParcela = this.parcels[i].idParcela;
+                            parcels[i].idConta = expense.idConta;
+                            parcels[i].idCategoria = expense.idCategoria;
                             parcels[i].valorParcela = expense.valorDespesa;
                             parcels[i].descricaoParcela = expense.descricaoDespesa;
                             this.periodSelection(i, expense, parcels);
-                            parcels[i].categoriaParcela = expense.categoriaDespesa;
                             parcels[i].observacoesParcela = expense.observacoesDespesa;
                             parcels[i].recebimentoConfirmado = false;
                             if (Database.updateParcel(parcels[i])) continue;
@@ -653,12 +672,12 @@ namespace Sisteg_Dashboard
         //CADASTRAR DESPESA
         private void pcb_expenseRegister_MouseEnter(object sender, EventArgs e)
         {
-            this.pcb_expenseRegister.Image = Properties.Resources.btn_expenseRegister_active;
+            this.pcb_expenseRegister.Image = Properties.Resources.btn_add_expense_active;
         }
 
         private void pcb_expenseRegister_MouseLeave(object sender, EventArgs e)
         {
-            this.pcb_expenseRegister.Image = Properties.Resources.btn_expenseRegister;
+            this.pcb_expenseRegister.Image = Properties.Resources.btn_add_expense;
         }
 
         private void pcb_expenseRegister_Click(object sender, EventArgs e)
@@ -674,7 +693,8 @@ namespace Sisteg_Dashboard
                 else
                 {
                     Expense expense = new Expense();
-                    expense.idConta = 1;
+                    expense.idConta = Convert.ToInt32(Database.query("SELECT idConta FROM conta WHERE nomeConta = '" + this.cbb_expenseAccount.SelectedItem.ToString().Trim() + "';").Rows[0].ItemArray[0]);
+                    expense.idCategoria = expense.idConta = Convert.ToInt32(Database.query("SELECT idCategoria FROM categoria WHERE nomeCategoria = '" + this.cbb_expenseCategory.SelectedItem.ToString().Trim() + "';").Rows[0].ItemArray[0]);
                     Regex regexValor = new Regex(@"[R$ ]?[R$]?\d{1,3}(\.\d{3})*,\d{2}");
                     string valorDespesa = txt_expenseValue.Text;
                     if (regexValor.IsMatch(valorDespesa))
@@ -693,7 +713,6 @@ namespace Sisteg_Dashboard
                     }
                     expense.descricaoDespesa = txt_expenseDescription.Text;
                     expense.dataTransacao = Convert.ToDateTime(mtb_expenseDate.Text);
-                    expense.categoriaDespesa = cbb_expenseCategory.SelectedItem.ToString();
                     expense.observacoesDespesa = txt_expenseObservations.Text;
                     if (ckb_expensePaid.Checked) expense.pagamentoConfirmado = true; else expense.pagamentoConfirmado = false;
 
@@ -714,10 +733,11 @@ namespace Sisteg_Dashboard
                                 {
                                     repeats.Add(new Repeat());
                                     repeats[i].idReceita = Convert.ToInt32(Database.query("SELECT idDespesa FROM despesa ORDER BY idDespesa DESC LIMIT 1;").Rows[0].ItemArray[0]);
+                                    repeats[i].idConta = expense.idConta;
+                                    repeats[i].idCategoria = expense.idCategoria;
                                     repeats[i].valorRepeticao = expense.valorDespesa;
                                     repeats[i].descricaoRepeticao = expense.descricaoDespesa;
                                     this.periodSelection(i, expense, repeats);
-                                    repeats[i].categoriaRepeticao = expense.categoriaDespesa;
                                     repeats[i].observacoesRepeticao = expense.observacoesDespesa;
                                     repeats[i].pagamentoConfirmado = false;
                                     if (Database.newRepeat(repeats[i])) continue;
@@ -749,10 +769,11 @@ namespace Sisteg_Dashboard
                                 {
                                     parcels.Add(new Parcel());
                                     parcels[i].idReceita = Convert.ToInt32(Database.query("SELECT idDespesa FROM despesa ORDER BY idDespesa DESC LIMIT 1;").Rows[0].ItemArray[0]);
+                                    parcels[i].idConta = expense.idConta;
+                                    parcels[i].idCategoria = expense.idCategoria;
                                     parcels[i].valorParcela = expense.valorDespesa;
                                     parcels[i].descricaoParcela = expense.descricaoDespesa;
                                     this.periodSelection(i, expense, parcels);
-                                    parcels[i].categoriaParcela = expense.categoriaDespesa;
                                     parcels[i].observacoesParcela = expense.observacoesDespesa;
                                     parcels[i].pagamentoConfirmado = false;
                                     if (Database.newParcel(parcels[i])) continue;
@@ -809,7 +830,8 @@ namespace Sisteg_Dashboard
                 {
                     Expense expense = new Expense();
                     expense.idDespesa = idDespesa;
-                    expense.idConta = 1;
+                    expense.idConta = Convert.ToInt32(Database.query("SELECT idConta FROM conta WHERE nomeConta = '" + this.cbb_expenseAccount.SelectedItem.ToString().Trim() + "';").Rows[0].ItemArray[0]);
+                    expense.idCategoria = Convert.ToInt32(Database.query("SELECT idCategoria FROM categoria WHERE nomeCategoria = '" + this.cbb_expenseCategory.SelectedItem.ToString().Trim() + "';").Rows[0].ItemArray[0]);
                     Regex regexValor = new Regex(@"[R$ ]?[R$]?\d{1,3}(\.\d{3})*,\d{2}");
                     string valorDespesa = txt_expenseValue.Text;
                     if (regexValor.IsMatch(valorDespesa))
@@ -825,7 +847,6 @@ namespace Sisteg_Dashboard
                     }
                     expense.descricaoDespesa = txt_expenseDescription.Text;
                     expense.dataTransacao = Convert.ToDateTime(mtb_expenseDate.Text);
-                    expense.categoriaDespesa = cbb_expenseCategory.SelectedItem.ToString();
                     expense.observacoesDespesa = txt_expenseObservations.Text;
                     if (ckb_expensePaid.Checked) expense.pagamentoConfirmado = true; else expense.pagamentoConfirmado = false;
 

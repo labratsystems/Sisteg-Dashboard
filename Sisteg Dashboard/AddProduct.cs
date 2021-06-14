@@ -25,6 +25,11 @@ namespace Sisteg_Dashboard
             this.txt_productName.Focus();
             DataTable dataTableSuppliers = Database.query("SELECT fornecedor.nomeFornecedor FROM fornecedor;");
             for (int i = 0; i < dataTableSuppliers.Rows.Count; i++) this.cbb_supplierName.Items.Insert(i, " " + dataTableSuppliers.Rows[i].ItemArray[0].ToString());
+
+            //Popula o combobox de categoria do produto
+            DataTable productCategoryDataTable = Database.query("SELECT categoria.nomeCategoria FROM categoria WHERE categoria.categoriaProduto = true ORDER BY conta.nomeCategoria;");
+            for (int i = 0; i < productCategoryDataTable.Rows.Count; i++) this.cbb_productCategory.Items.Insert(i, " " + productCategoryDataTable.Rows[i].ItemArray[0].ToString());
+
             if (dataTableProduct != null)
             {
                 foreach (DataRow dataRowProduct in dataTableProduct.Rows)
@@ -53,12 +58,12 @@ namespace Sisteg_Dashboard
         //CADASTRO DE PRODUTO
         private void pcb_productRegister_MouseEnter(object sender, EventArgs e)
         {
-            this.pcb_btnProductRegister.Image = Properties.Resources.btn_productRegister_active;
+            this.pcb_btnProductRegister.Image = Properties.Resources.btn_product_form_active;
         }
 
         private void pcb_productRegister_MouseLeave(object sender, EventArgs e)
         {
-            this.pcb_btnProductRegister.Image = Properties.Resources.btn_productRegister;
+            this.pcb_btnProductRegister.Image = Properties.Resources.btn_product_form;
         }
 
         private void pcb_productRegister_Click(object sender, EventArgs e)
@@ -69,8 +74,8 @@ namespace Sisteg_Dashboard
                 Product product = new Product();
                 DataTable dataTable = Database.query("SELECT idFornecedor FROM fornecedor WHERE nomeFornecedor = '" + cbb_supplierName.SelectedItem.ToString().Trim() + "';");
                 product.idFornecedor = Convert.ToInt32(dataTable.Rows[0].ItemArray[0]);
+                product.idCategoria = Convert.ToInt32(Database.query("SELECT idCategoria FROM categoria WHERE nomeCategoria = '" + this.cbb_productCategory.SelectedItem.ToString().Trim() + "';").Rows[0].ItemArray[0]);
                 product.nomeProduto = txt_productName.Text;
-                product.categoriaProduto = cbb_productCategory.SelectedItem.ToString().Trim();
                 Regex regexValor = new Regex(@"[R$ ]?[R$]?\d{1,3}(\.\d{3})*,\d{2}");
                 string valorUnitario = txt_productValue.Text;
                 if (regexValor.IsMatch(valorUnitario))
@@ -116,8 +121,8 @@ namespace Sisteg_Dashboard
                 product.idProduto = idProduto;
                 DataTable SupplierIdDataTable = Database.query("SELECT idFornecedor FROM fornecedor WHERE nomeFornecedor = '" + cbb_supplierName.SelectedItem.ToString().Trim() + "';");
                 product.idFornecedor = Convert.ToInt32(SupplierIdDataTable.Rows[0].ItemArray[0]);
+                product.idCategoria = Convert.ToInt32(Database.query("SELECT idCategoria FROM categoria WHERE nomeCategoria = '" + this.cbb_productCategory.SelectedItem.ToString().Trim() + "';").Rows[0].ItemArray[0]);
                 product.nomeProduto = txt_productName.Text;
-                product.categoriaProduto = cbb_productCategory.SelectedItem.ToString().Trim();
                 Regex regexValor = new Regex(@"[R$ ]?[R$]?\d{1,3}(\.\d{3})*,\d{2}");
                 string valorUnitario = txt_productValue.Text;
                 if (regexValor.IsMatch(valorUnitario))

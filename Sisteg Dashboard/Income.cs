@@ -11,10 +11,10 @@ namespace Sisteg_Dashboard
         public Int32 idReceita;
         public Int32 idConta;
         public Int32 numeroOrcamento;
+        public Int32 idCategoria;
         public Decimal valorReceita;
         public string descricaoReceita;
         public DateTime dataTransacao;
-        public string categoriaReceita;
         public string observacoesReceita;
         public Boolean recebimentoConfirmado;
         public Boolean repetirParcelarReceita;

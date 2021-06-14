@@ -28,6 +28,15 @@ namespace Sisteg_Dashboard
             this.panel_income.VerticalScroll.Enabled = false;
             this.panel_income.VerticalScroll.Visible = false;
             this.txt_incomeValue.Focus();
+
+            //Popula o combobox de conta da receita
+            DataTable incomeAccountDataTable = Database.query("SELECT conta.nomeConta FROM conta ORDER BY conta.nomeConta;");
+            for (int i = 0; i < incomeAccountDataTable.Rows.Count; i++) this.cbb_incomeAccount.Items.Insert(i, " " + incomeAccountDataTable.Rows[i].ItemArray[0].ToString());
+
+            //Popula o combobox de categoria da despesa
+            DataTable incomeCategoryDataTable = Database.query("SELECT categoria.nomeCategoria FROM categoria WHERE categoria.categoriaReceita = true ORDER BY conta.nomeCategoria;");
+            for (int i = 0; i < incomeCategoryDataTable.Rows.Count; i++) this.cbb_incomeCategory.Items.Insert(i, " " + incomeCategoryDataTable.Rows[i].ItemArray[0].ToString());
+
             if (dataTableIncome != null)
             {
                 foreach (DataRow dataRow in dataTableIncome.Rows)
@@ -315,10 +324,11 @@ namespace Sisteg_Dashboard
                         {
                             parcels.Add(new Parcel());
                             parcels[j].idReceita = idReceita;
+                            parcels[j].idConta = income.idConta;
+                            parcels[j].idCategoria = income.idCategoria;
                             parcels[j].valorParcela = income.valorReceita;
                             parcels[j].descricaoParcela = income.descricaoReceita;
                             this.periodSelection(j, income, this.parcels);
-                            parcels[j].categoriaParcela = income.categoriaReceita;
                             parcels[j].observacoesParcela = income.observacoesReceita;
                             parcels[j].recebimentoConfirmado = false;
                             if (Database.newParcel(parcels[j])) continue;
@@ -352,10 +362,11 @@ namespace Sisteg_Dashboard
                         {
                             this.repeats.Add(new Repeat());
                             this.repeats[j].idReceita = idReceita;
+                            this.repeats[j].idConta = income.idConta;
+                            this.repeats[j].idCategoria = income.idCategoria;
                             this.repeats[j].valorRepeticao = income.valorReceita;
                             this.repeats[j].descricaoRepeticao = income.descricaoReceita;
                             this.periodSelection(j, income, this.repeats);
-                            this.repeats[j].categoriaRepeticao = income.categoriaReceita;
                             this.repeats[j].observacoesRepeticao = income.observacoesReceita;
                             this.repeats[j].recebimentoConfirmado = false;
                             if (Database.newRepeat(this.repeats[j])) continue;
@@ -416,10 +427,11 @@ namespace Sisteg_Dashboard
                             {
                                 repeats.Add(new Repeat());
                                 repeats[i].idRepeticao = this.repeats[i].idRepeticao;
+                                repeats[i].idConta = income.idConta;
+                                repeats[i].idCategoria = income.idCategoria;
                                 repeats[i].valorRepeticao = income.valorReceita;
                                 repeats[i].descricaoRepeticao = income.descricaoReceita;
                                 this.periodSelection(i, income, repeats);
-                                repeats[i].categoriaRepeticao = income.categoriaReceita;
                                 repeats[i].observacoesRepeticao = income.observacoesReceita;
                                 repeats[i].recebimentoConfirmado = false;
                                 if (Database.updateRepeat(repeats[i])) continue;
@@ -448,10 +460,11 @@ namespace Sisteg_Dashboard
                             {
                                 repeats.Add(new Repeat());
                                 repeats[i].idRepeticao = this.repeats[i].idRepeticao;
+                                repeats[i].idConta = income.idConta;
+                                repeats[i].idCategoria = income.idCategoria;
                                 repeats[i].valorRepeticao = income.valorReceita;
                                 repeats[i].descricaoRepeticao = income.descricaoReceita;
                                 this.periodSelection(i, income, repeats);
-                                repeats[i].categoriaRepeticao = income.categoriaReceita;
                                 repeats[i].observacoesRepeticao = income.observacoesReceita;
                                 repeats[i].recebimentoConfirmado = false;
                                 if (Database.updateRepeat(repeats[i])) continue;
@@ -465,10 +478,11 @@ namespace Sisteg_Dashboard
                             {
                                 repeats.Add(new Repeat());
                                 repeats[i].idReceita = idReceita;
+                                repeats[i].idConta = income.idConta;
+                                repeats[i].idCategoria = income.idCategoria;
                                 repeats[i].valorRepeticao = income.valorReceita;
                                 repeats[i].descricaoRepeticao = income.descricaoReceita;
                                 this.periodSelection(i, income, repeats);
-                                repeats[i].categoriaRepeticao = income.categoriaReceita;
                                 repeats[i].observacoesRepeticao = income.observacoesReceita;
                                 repeats[i].recebimentoConfirmado = false;
                                 if (Database.newRepeat(repeats[i])) continue;
@@ -486,10 +500,11 @@ namespace Sisteg_Dashboard
                         {
                             repeats.Add(new Repeat());
                             repeats[i].idRepeticao = this.repeats[i].idRepeticao;
+                            repeats[i].idConta = income.idConta;
+                            repeats[i].idCategoria = income.idCategoria;
                             repeats[i].valorRepeticao = income.valorReceita;
                             repeats[i].descricaoRepeticao = income.descricaoReceita;
                             this.periodSelection(i, income, repeats);
-                            repeats[i].categoriaRepeticao = income.categoriaReceita;
                             repeats[i].observacoesRepeticao = income.observacoesReceita;
                             repeats[i].recebimentoConfirmado = false;
                             if (Database.updateRepeat(repeats[i])) continue;
@@ -544,10 +559,11 @@ namespace Sisteg_Dashboard
                             {
                                 parcels.Add(new Parcel());
                                 parcels[i].idParcela = this.parcels[i].idParcela;
+                                parcels[i].idConta = income.idConta;
+                                parcels[i].idCategoria = income.idCategoria;
                                 parcels[i].valorParcela = income.valorReceita;
                                 parcels[i].descricaoParcela = income.descricaoReceita;
                                 this.periodSelection(i, income, parcels);
-                                parcels[i].categoriaParcela = income.categoriaReceita;
                                 parcels[i].observacoesParcela = income.observacoesReceita;
                                 parcels[i].recebimentoConfirmado = false;
                                 if (Database.updateParcel(parcels[i])) continue;
@@ -576,10 +592,11 @@ namespace Sisteg_Dashboard
                             {
                                 parcels.Add(new Parcel());
                                 parcels[i].idParcela = this.parcels[i].idParcela;
+                                parcels[i].idConta = income.idConta;
+                                parcels[i].idCategoria = income.idCategoria;
                                 parcels[i].valorParcela = income.valorReceita;
                                 parcels[i].descricaoParcela = income.descricaoReceita;
                                 this.periodSelection(i, income, parcels);
-                                parcels[i].categoriaParcela = income.categoriaReceita;
                                 parcels[i].observacoesParcela = income.observacoesReceita;
                                 parcels[i].recebimentoConfirmado = false;
                                 if (Database.updateParcel(parcels[i])) continue;
@@ -593,10 +610,11 @@ namespace Sisteg_Dashboard
                             {
                                 parcels.Add(new Parcel());
                                 parcels[i].idReceita = idReceita;
+                                parcels[i].idConta = income.idConta;
+                                parcels[i].idCategoria = income.idCategoria;
                                 parcels[i].valorParcela = income.valorReceita;
                                 parcels[i].descricaoParcela = income.descricaoReceita;
                                 this.periodSelection(i, income, parcels);
-                                parcels[i].categoriaParcela = income.categoriaReceita;
                                 parcels[i].observacoesParcela = income.observacoesReceita;
                                 parcels[i].recebimentoConfirmado = false;
                                 if (Database.newParcel(parcels[i])) continue;
@@ -614,10 +632,11 @@ namespace Sisteg_Dashboard
                         {
                             parcels.Add(new Parcel());
                             parcels[i].idParcela = this.parcels[i].idParcela;
+                            parcels[i].idConta = income.idConta;
+                            parcels[i].idCategoria = income.idCategoria;
                             parcels[i].valorParcela = income.valorReceita;
                             parcels[i].descricaoParcela = income.descricaoReceita;
                             this.periodSelection(i, income, parcels);
-                            parcels[i].categoriaParcela = income.categoriaReceita;
                             parcels[i].observacoesParcela = income.observacoesReceita;
                             parcels[i].recebimentoConfirmado = false;
                             if (Database.updateParcel(parcels[i])) continue;
@@ -653,17 +672,17 @@ namespace Sisteg_Dashboard
         //CADASTRAR RECEITA
         private void pcb_incomeRegister_MouseEnter(object sender, EventArgs e)
         {
-            this.pcb_incomeRegister.Image = Properties.Resources.btn_incomeRegister_active;
+            this.pcb_incomeRegister.Image = Properties.Resources.btn_add_income_active;
         }
 
         private void pcb_incomeRegister_MouseLeave(object sender, EventArgs e)
         {
-            this.pcb_incomeRegister.Image = Properties.Resources.btn_incomeRegister;
+            this.pcb_incomeRegister.Image = Properties.Resources.btn_add_income;
         }
 
         private void pcb_incomeRegister_Click(object sender, EventArgs e)
         {
-            if (String.IsNullOrEmpty(txt_incomeValue.Text.Trim()) || (this.cbb_incomeCategory.SelectedIndex == -1)) MessageBox.Show("Informe o valor e a categoria da receita!", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            if (String.IsNullOrEmpty(txt_incomeValue.Text.Trim()) || (this.cbb_incomeCategory.SelectedIndex == -1)) MessageBox.Show("Informe o valor e a categoria da receita afafsf!", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             else
             {
                 if ((this.ckb_repeatOrParcelValue.Checked) && ((String.IsNullOrEmpty(this.txt_repeatsOrParcels.Text.Trim())) || (this.cbb_period.SelectedIndex == -1)))
@@ -674,9 +693,10 @@ namespace Sisteg_Dashboard
                 else
                 {
                     Income income = new Income();
-                    income.idConta = 1;
+                    income.idConta = Convert.ToInt32(Database.query("SELECT idConta FROM conta WHERE nomeConta = '" + this.cbb_incomeAccount.SelectedItem.ToString().Trim() + "';").Rows[0].ItemArray[0]);
+                    income.idCategoria = Convert.ToInt32(Database.query("SELECT idCategoria FROM categoria WHERE nomeCategoria = '" + this.cbb_incomeCategory.SelectedItem.ToString().Trim() + "';").Rows[0].ItemArray[0]);
                     Regex regexValor = new Regex(@"[R$ ]?[R$]?\d{1,3}(\.\d{3})*,\d{2}");
-                    string valorReceita = txt_incomeValue.Text;
+                    string valorReceita = txt_incomeValue.Text.Trim();
                     if (regexValor.IsMatch(valorReceita))
                     {
                         if (valorReceita.Contains("R$ ")) income.valorReceita = Convert.ToDecimal(valorReceita.Substring(3));
@@ -691,10 +711,9 @@ namespace Sisteg_Dashboard
                         this.txt_incomeValue.Focus();
                         return;
                     }
-                    income.descricaoReceita = txt_incomeDescription.Text;
+                    income.descricaoReceita = txt_incomeDescription.Text.Trim();
                     income.dataTransacao = Convert.ToDateTime(mtb_incomeDate.Text.Trim());
-                    income.categoriaReceita = cbb_incomeCategory.SelectedItem.ToString();
-                    income.observacoesReceita = txt_incomeObservations.Text;
+                    income.observacoesReceita = txt_incomeObservations.Text.Trim();
                     if (ckb_incomeReceived.Checked) income.recebimentoConfirmado = true; else income.recebimentoConfirmado = false;
 
                     if (ckb_repeatOrParcelValue.Checked)
@@ -714,10 +733,11 @@ namespace Sisteg_Dashboard
                                 {
                                     repeats.Add(new Repeat());
                                     repeats[i].idReceita = Convert.ToInt32(Database.query("SELECT idReceita FROM receita ORDER BY idReceita DESC LIMIT 1;").Rows[0].ItemArray[0]);
+                                    repeats[i].idConta = income.idConta;
+                                    repeats[i].idCategoria = income.idCategoria;
                                     repeats[i].valorRepeticao = income.valorReceita;
                                     repeats[i].descricaoRepeticao = income.descricaoReceita;
                                     this.periodSelection(i, income, repeats);
-                                    repeats[i].categoriaRepeticao = income.categoriaReceita;
                                     repeats[i].observacoesRepeticao = income.observacoesReceita;
                                     repeats[i].recebimentoConfirmado = false;
                                     if (Database.newRepeat(repeats[i])) continue;
@@ -750,10 +770,11 @@ namespace Sisteg_Dashboard
                                 {
                                     parcels.Add(new Parcel());
                                     parcels[i].idReceita = Convert.ToInt32(Database.query("SELECT idReceita FROM receita ORDER BY idReceita DESC LIMIT 1;").Rows[0].ItemArray[0]);
+                                    parcels[i].idConta = income.idConta;
+                                    parcels[i].idCategoria = income.idCategoria;
                                     parcels[i].valorParcela = income.valorReceita;
                                     parcels[i].descricaoParcela = income.descricaoReceita;
                                     this.periodSelection(i, income, parcels);
-                                    parcels[i].categoriaParcela = income.categoriaReceita;
                                     parcels[i].observacoesParcela = income.observacoesReceita;
                                     parcels[i].recebimentoConfirmado = false;
                                     if (Database.newParcel(parcels[i])) continue;
@@ -811,7 +832,8 @@ namespace Sisteg_Dashboard
                 {
                     Income income = new Income();
                     income.idReceita = idReceita;
-                    income.idConta = 1;
+                    income.idConta = Convert.ToInt32(Database.query("SELECT idConta FROM conta WHERE nomeConta = '" + this.cbb_incomeAccount.SelectedItem.ToString().Trim() + "';").Rows[0].ItemArray[0]);
+                    income.idCategoria = Convert.ToInt32(Database.query("SELECT idCategoria FROM categoria WHERE nomeCategoria = '" + this.cbb_incomeCategory.SelectedItem.ToString().Trim() + "';").Rows[0].ItemArray[0]);
                     Regex regexValor = new Regex(@"[R$ ]?[R$]?\d{1,3}(\.\d{3})*,\d{2}");
                     string valorReceita = txt_incomeValue.Text;
                     if (regexValor.IsMatch(valorReceita))
@@ -827,7 +849,6 @@ namespace Sisteg_Dashboard
                     }
                     income.descricaoReceita = txt_incomeDescription.Text;
                     income.dataTransacao = Convert.ToDateTime(mtb_incomeDate.Text);
-                    income.categoriaReceita = cbb_incomeCategory.SelectedItem.ToString();
                     income.observacoesReceita = txt_incomeObservations.Text;
                     if (ckb_incomeReceived.Checked) income.recebimentoConfirmado = true; else income.recebimentoConfirmado = false;
 

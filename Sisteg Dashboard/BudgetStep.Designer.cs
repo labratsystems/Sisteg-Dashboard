@@ -76,8 +76,8 @@
             // pcb_btnUpdate
             // 
             this.pcb_btnUpdate.BackColor = System.Drawing.Color.Transparent;
-            this.pcb_btnUpdate.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pcb_btnUpdate.BackgroundImage")));
             this.pcb_btnUpdate.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pcb_btnUpdate.Image = ((System.Drawing.Image)(resources.GetObject("pcb_btnUpdate.Image")));
             this.pcb_btnUpdate.Location = new System.Drawing.Point(383, 201);
             this.pcb_btnUpdate.Name = "pcb_btnUpdate";
             this.pcb_btnUpdate.Size = new System.Drawing.Size(327, 70);
@@ -90,8 +90,8 @@
             // pcb_btnDelete
             // 
             this.pcb_btnDelete.BackColor = System.Drawing.Color.Transparent;
-            this.pcb_btnDelete.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pcb_btnDelete.BackgroundImage")));
             this.pcb_btnDelete.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pcb_btnDelete.Image = ((System.Drawing.Image)(resources.GetObject("pcb_btnDelete.Image")));
             this.pcb_btnDelete.Location = new System.Drawing.Point(383, 277);
             this.pcb_btnDelete.Name = "pcb_btnDelete";
             this.pcb_btnDelete.Size = new System.Drawing.Size(327, 70);

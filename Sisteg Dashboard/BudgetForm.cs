@@ -163,12 +163,12 @@ namespace Sisteg_Dashboard
         //MENU DE NAVEGAÇÃO DA APLICAÇÃO
         private void pcb_btnMain_MouseEnter(object sender, EventArgs e)
         {
-            this.pcb_btnMain.Image = Properties.Resources.btn_main_active;
+            this.pcb_btnMain.Image = Properties.Resources.btn_main_form_active;
         }
 
         private void pcb_btnMain_MouseLeave(object sender, EventArgs e)
         {
-            this.pcb_btnMain.Image = Properties.Resources.btn_main;
+            this.pcb_btnMain.Image = Properties.Resources.btn_main_form;
         }
 
         private void pcb_btnMain_Click(object sender, EventArgs e)
@@ -183,12 +183,12 @@ namespace Sisteg_Dashboard
 
         private void pcb_btnClient_MouseEnter(object sender, EventArgs e)
         {
-            this.pcb_btnClient.Image = Properties.Resources.btn_client_active;
+            this.pcb_btnClient.Image = Properties.Resources.btn_client_form_active;
         }
 
         private void pcb_btnClient_MouseLeave(object sender, EventArgs e)
         {
-            this.pcb_btnClient.Image = Properties.Resources.btn_client;
+            this.pcb_btnClient.Image = Properties.Resources.btn_client_form;
         }
 
         private void pcb_btnClient_Click(object sender, EventArgs e)
@@ -203,12 +203,12 @@ namespace Sisteg_Dashboard
 
         private void pcb_btnProduct_MouseEnter(object sender, EventArgs e)
         {
-            this.pcb_btnProduct.Image = Properties.Resources.btn_product_active;
+            this.pcb_btnProduct.Image = Properties.Resources.btn_product_form_active;
         }
 
         private void pcb_btnProduct_MouseLeave(object sender, EventArgs e)
         {
-            this.pcb_btnProduct.Image = Properties.Resources.btn_product;
+            this.pcb_btnProduct.Image = Properties.Resources.btn_product_form;
         }
 
         private void pcb_btnProduct_Click(object sender, EventArgs e)
@@ -223,19 +223,19 @@ namespace Sisteg_Dashboard
 
         private void pcb_btnConfig_MouseEnter(object sender, EventArgs e)
         {
-            this.pcb_btnConfig.Image = Properties.Resources.btn_config_active;
+            this.pcb_btnConfig.Image = Properties.Resources.btn_config_main_active;
         }
 
         private void pcb_btnConfig_MouseLeave(object sender, EventArgs e)
         {
-            this.pcb_btnConfig.Image = Properties.Resources.btn_config;
+            this.pcb_btnConfig.Image = Properties.Resources.btn_config_main;
         }
 
         private void pcb_btnConfig_Click(object sender, EventArgs e)
         {
-            if (Application.OpenForms.OfType<Config>().Count() == 0)
+            if (Application.OpenForms.OfType<ConfigForm>().Count() == 0)
             {
-                Config config = new Config();
+                ConfigForm config = new ConfigForm();
                 config.Show();
                 this.Close();
             }
@@ -243,12 +243,12 @@ namespace Sisteg_Dashboard
 
         private void pcb_btnGoBack_MouseEnter(object sender, EventArgs e)
         {
-            this.pcb_btnGoBack.Image = Properties.Resources.btn_goBack_active;
+            this.pcb_btnGoBack.Image = Properties.Resources.btn_go_back_active;
         }
 
         private void pcb_btnGoBack_MouseLeave(object sender, EventArgs e)
         {
-            this.pcb_btnGoBack.Image = Properties.Resources.btn_goBack;
+            this.pcb_btnGoBack.Image = Properties.Resources.btn_go_back;
         }
 
         //VOLTAR
@@ -294,19 +294,18 @@ namespace Sisteg_Dashboard
 
         private void pcb_btnGoForward_MouseEnter(object sender, EventArgs e)
         {
-            this.pcb_btnGoForward.Image = Properties.Resources.btn_goForward_active;
+            this.pcb_btnGoForward.Image = Properties.Resources.btn_go_forward_active;
         }
 
         private void pcb_btnGoForward_MouseLeave(object sender, EventArgs e)
         {
-            this.pcb_btnGoForward.Image = Properties.Resources.btn_goForward;
+            this.pcb_btnGoForward.Image = Properties.Resources.btn_go_forward;
         }
 
         //AVANÇAR
         private void pcb_btnGoForward_Click(object sender, EventArgs e)
         {
             step += 1;
-            MessageBox.Show(step.ToString());
             if(step == 1)
             {
                 if (clientStep.cbb_clientName.SelectedIndex == -1)
@@ -317,7 +316,6 @@ namespace Sisteg_Dashboard
                 else
                 {
                     //Cadastro de orçamento
-                    MessageBox.Show("Cadastro de orçamento");
                     this.budgetNumber = 0;
 
                     //Usuário avançou e retornou ao formulário de orçamentos
@@ -347,7 +345,6 @@ namespace Sisteg_Dashboard
                     {*/
                         //Usuário não passou pelo formulário de orçamentos
                         budgetStep = new BudgetStep(this, null) { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
-                        MessageBox.Show("Usuário não passou pelo formulário de orçamentos");
                     //}
 
                     //Todos os dados do cliente
@@ -426,8 +423,8 @@ namespace Sisteg_Dashboard
                             budget.condicaoPagamento = budgetStep.cbb_paymentCondition.SelectedItem.ToString().Trim();
                             if (budgetStep.ckb_confirmedBudget.Checked) budget.orcamentoConfirmado = true; else budget.orcamentoConfirmado = false;
                             income.descricaoReceita = budgetStep.txt_incomeDescription.Text;
-                            income.categoriaReceita = " Orçamentos";
-                            income.idConta = 1;
+                            income.idConta = Convert.ToInt32(Database.query("SELECT idConta FROM conta WHERE nomeConta = '" + budgetStep.cbb_incomeAccount.SelectedItem.ToString().Trim() + "';").Rows[0].ItemArray[0]); ;
+                            income.idCategoria = Convert.ToInt32(Database.query("SELECT idCategoria FROM categoria WHERE nomeConta = 'Orçamentos';").Rows[0].ItemArray[0]); ;
                             income.observacoesReceita = budgetStep.txt_incomeObservations.Text;
                             if (budgetStep.ckb_incomeReceived.Checked) income.recebimentoConfirmado = true; else income.recebimentoConfirmado = false;
 
@@ -453,10 +450,11 @@ namespace Sisteg_Dashboard
                                             {
                                                 parcels.Add(new Parcel());
                                                 parcels[i].idReceita = Convert.ToInt32(Database.query("SELECT idReceita FROM receita ORDER BY idReceita DESC LIMIT 1;").Rows[0].ItemArray[0]);
+                                                parcels[i].idConta = income.idConta;
+                                                parcels[i].idCategoria = income.idCategoria;
                                                 parcels[i].valorParcela = income.valorReceita;
                                                 parcels[i].descricaoParcela = income.descricaoReceita;
                                                 this.periodSelection(i, income, parcels);
-                                                parcels[i].categoriaParcela = income.categoriaReceita;
                                                 parcels[i].observacoesParcela = income.observacoesReceita;
                                                 parcels[i].recebimentoConfirmado = false;
                                                 if (Database.newParcel(parcels[i])) continue;
@@ -502,7 +500,15 @@ namespace Sisteg_Dashboard
         }
 
         //EDITAR
-        private void pcb_btnEdit_MouseEnter(object sender, EventArgs e) { this.pcb_btnEdit.Image = Properties.Resources.btn_modify_active; }
+        private void pcb_btnEdit_MouseEnter(object sender, EventArgs e) 
+        { 
+            this.pcb_btnEdit.Image = Properties.Resources.btn_edit_active; 
+        }
+
+        private void pcb_btnEdit_MouseLeave(object sender, EventArgs e)
+        {
+            this.pcb_btnEdit.Image = Properties.Resources.btn_edit;
+        }
 
         private void pcb_btnEndBudget_Click(object sender, EventArgs e)
         {
@@ -518,11 +524,15 @@ namespace Sisteg_Dashboard
             MessageBox.Show("Orçamento concluído com sucesso!");
         }
 
-        private void pcb_btnEndBudget_MouseEnter(object sender, EventArgs e) { this.pcb_btnEndBudget.Image = Properties.Resources.btn_budget_active; }
+        private void pcb_btnEndBudget_MouseEnter(object sender, EventArgs e) 
+        { 
+            this.pcb_btnEndBudget.Image = Properties.Resources.btn_budget_form_active; 
+        }
 
-        private void pcb_btnEndBudget_MouseLeave(object sender, EventArgs e) { this.pcb_btnEndBudget.Image = Properties.Resources.btn_budget; }
-
-        private void pcb_btnEdit_MouseLeave(object sender, EventArgs e) { this.pcb_btnEdit.Image = Properties.Resources.btn_modify; }
+        private void pcb_btnEndBudget_MouseLeave(object sender, EventArgs e) 
+        { 
+            this.pcb_btnEndBudget.Image = Properties.Resources.btn_budget_form; 
+        }
 
         private void pcb_btnEdit_Click(object sender, EventArgs e)
         {

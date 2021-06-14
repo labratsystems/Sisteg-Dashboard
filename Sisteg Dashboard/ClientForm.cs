@@ -284,7 +284,7 @@ namespace Sisteg_Dashboard
 
         private bool setPaymentValue(DataTable differentIncomeValueDataTable)
         {
-            if (income.valorReceita == Math.Round(Convert.ToDecimal(differentIncomeValueDataTable.Rows[0].ItemArray[3]), 2))
+            if (income.valorReceita == Math.Round(Convert.ToDecimal(differentIncomeValueDataTable.Rows[0].ItemArray[4]), 2))
             {
                 //O valor do pagamento não foi alterado
                 if (Database.payIncome(income))
@@ -302,7 +302,7 @@ namespace Sisteg_Dashboard
             }
             else
             {
-                if (income.valorReceita > Math.Round(Convert.ToDecimal(differentIncomeValueDataTable.Rows[0].ItemArray[3]), 2))
+                if (income.valorReceita > Math.Round(Convert.ToDecimal(differentIncomeValueDataTable.Rows[0].ItemArray[4]), 2))
                 {
                     //O valor do pagamento é maior do que o valor da parcela
                     MessageBox.Show("O valor a ser pago deve ser menor do que o valor da parcela!", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -313,13 +313,13 @@ namespace Sisteg_Dashboard
                     //O valor do pagamento é menor do que o valor da parcela
                     income.idConta = Convert.ToInt32(differentIncomeValueDataTable.Rows[0].ItemArray[1]);
                     income.numeroOrcamento = Convert.ToInt32(differentIncomeValueDataTable.Rows[0].ItemArray[2]);
+                    income.idCategoria = Convert.ToInt32(differentIncomeValueDataTable.Rows[0].ItemArray[3]);
                     this.numeroOrcamento = income.numeroOrcamento;
                     decimal valorReceita = income.valorReceita;
                     this.values[0] = valorReceita;
-                    income.valorReceita = Convert.ToDecimal(differentIncomeValueDataTable.Rows[0].ItemArray[3]) - income.valorReceita;
-                    income.descricaoReceita = differentIncomeValueDataTable.Rows[0].ItemArray[4].ToString();
-                    income.dataTransacao = Convert.ToDateTime(differentIncomeValueDataTable.Rows[0].ItemArray[5]);
-                    income.categoriaReceita = differentIncomeValueDataTable.Rows[0].ItemArray[6].ToString();
+                    income.valorReceita = Convert.ToDecimal(differentIncomeValueDataTable.Rows[0].ItemArray[4]) - income.valorReceita;
+                    income.descricaoReceita = differentIncomeValueDataTable.Rows[0].ItemArray[5].ToString();
+                    income.dataTransacao = Convert.ToDateTime(differentIncomeValueDataTable.Rows[0].ItemArray[6]);
                     income.observacoesReceita = differentIncomeValueDataTable.Rows[0].ItemArray[7].ToString();
                     income.recebimentoConfirmado = false;
                     income.repetirParcelarReceita = Convert.ToBoolean(differentIncomeValueDataTable.Rows[0].ItemArray[9]);
@@ -353,12 +353,12 @@ namespace Sisteg_Dashboard
         //MENU DE NAVEGAÇÃO DA APLICAÇÃO
         private void pcb_btnMain_MouseEnter(object sender, EventArgs e)
         {
-            this.pcb_btnMain.Image = Properties.Resources.btn_main_active;
+            this.pcb_btnMain.Image = Properties.Resources.btn_main_form_active;
         }
 
         private void pcb_btnMain_MouseLeave(object sender, EventArgs e)
         {
-            this.pcb_btnMain.Image = Properties.Resources.btn_main;
+            this.pcb_btnMain.Image = Properties.Resources.btn_main_form;
         }
 
         private void pcb_btnMain_Click(object sender, EventArgs e)
@@ -373,12 +373,12 @@ namespace Sisteg_Dashboard
 
         private void pcb_btnProduct_MouseEnter(object sender, EventArgs e)
         {
-            this.pcb_btnProduct.Image = Properties.Resources.btn_product_active;
+            this.pcb_btnProduct.Image = Properties.Resources.btn_product_form_active;
         }
 
         private void pcb_btnProduct_MouseLeave(object sender, EventArgs e)
         {
-            this.pcb_btnProduct.Image = Properties.Resources.btn_product;
+            this.pcb_btnProduct.Image = Properties.Resources.btn_product_form;
         }
 
         private void pcb_btnProduct_Click(object sender, EventArgs e)
@@ -393,12 +393,12 @@ namespace Sisteg_Dashboard
 
         private void pcb_btnBudget_MouseEnter(object sender, EventArgs e)
         {
-            this.pcb_btnBudget.Image = Properties.Resources.btn_budget_active;
+            this.pcb_btnBudget.Image = Properties.Resources.btn_budget_form_active;
         }
 
         private void pcb_btnBudget_MouseLeave(object sender, EventArgs e)
         {
-            this.pcb_btnBudget.Image = Properties.Resources.btn_budget;
+            this.pcb_btnBudget.Image = Properties.Resources.btn_budget_form;
         }
 
         private void pcb_btnBudget_Click(object sender, EventArgs e)
@@ -413,19 +413,19 @@ namespace Sisteg_Dashboard
 
         private void pcb_btnConfig_MouseEnter(object sender, EventArgs e)
         {
-            this.pcb_btnConfig.Image = Properties.Resources.btn_config_active;
+            this.pcb_btnConfig.Image = Properties.Resources.btn_config_main_active;
         }
 
         private void pcb_btnConfig_MouseLeave(object sender, EventArgs e)
         {
-            this.pcb_btnConfig.Image = Properties.Resources.btn_config;
+            this.pcb_btnConfig.Image = Properties.Resources.btn_config_main;
         }
 
         private void pcb_btnConfig_Click(object sender, EventArgs e)
         {
-            if (Application.OpenForms.OfType<Config>().Count() == 0)
+            if (Application.OpenForms.OfType<ConfigForm>().Count() == 0)
             {
-                Config config = new Config();
+                ConfigForm config = new ConfigForm();
                 config.Show();
                 this.Close();
             }
@@ -456,12 +456,12 @@ namespace Sisteg_Dashboard
         //PAGAR PARCELA
         private void pcb_btnPay_MouseEnter(object sender, EventArgs e)
         {
-            this.pcb_btnPay.Image = Properties.Resources.btn_payParcel_active;
+            //this.pcb_btnPay.Image = Properties.Resources.btn_payParcel_active;
         }
 
         private void pcb_btnPay_MouseLeave(object sender, EventArgs e)
         {
-            this.pcb_btnPay.Image = Properties.Resources.btn_payParcel;
+            //this.pcb_btnPay.Image = Properties.Resources.btn_payParcel;
         }
 
         private void pcb_btnPay_Click(object sender, EventArgs e)
@@ -527,7 +527,7 @@ namespace Sisteg_Dashboard
                                             return;
                                         }
 
-                                        if (parcel.valorParcela == Math.Round(Convert.ToDecimal(differentParcelValueDataTable.Rows[0].ItemArray[3]), 2))
+                                        if (parcel.valorParcela == Math.Round(Convert.ToDecimal(differentParcelValueDataTable.Rows[0].ItemArray[5]), 2))
                                         {
                                             //O valor do pagamento não foi alterado
                                             if (Database.payParcel(parcel))
@@ -545,7 +545,7 @@ namespace Sisteg_Dashboard
                                         }
                                         else
                                         {
-                                            if (parcel.valorParcela > Math.Round(Convert.ToDecimal(differentParcelValueDataTable.Rows[0].ItemArray[3]), 2))
+                                            if (parcel.valorParcela > Math.Round(Convert.ToDecimal(differentParcelValueDataTable.Rows[0].ItemArray[5]), 2))
                                             {
                                                 //O valor do pagamento é maior do que o valor da parcela
                                                 MessageBox.Show("O valor a ser pago deve ser menor do que o valor da parcela!", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -557,15 +557,16 @@ namespace Sisteg_Dashboard
                                                 this.values[0] = parcel.valorParcela;
                                                 parcel.idReceita = Convert.ToInt32(differentParcelValueDataTable.Rows[0].ItemArray[1]);
                                                 parcel.idDespesa = Convert.ToInt32(differentParcelValueDataTable.Rows[0].ItemArray[2]);
-                                                parcel.descricaoParcela = differentParcelValueDataTable.Rows[0].ItemArray[4].ToString();
-                                                parcel.dataTransacao = Convert.ToDateTime(differentParcelValueDataTable.Rows[0].ItemArray[5]);
-                                                parcel.categoriaParcela = differentParcelValueDataTable.Rows[0].ItemArray[6].ToString();
-                                                parcel.observacoesParcela = differentParcelValueDataTable.Rows[0].ItemArray[7].ToString();
+                                                parcel.idConta = Convert.ToInt32(differentParcelValueDataTable.Rows[0].ItemArray[3]);
+                                                parcel.idCategoria = Convert.ToInt32(differentParcelValueDataTable.Rows[0].ItemArray[4]);
+                                                parcel.descricaoParcela = differentParcelValueDataTable.Rows[0].ItemArray[6].ToString();
+                                                parcel.dataTransacao = Convert.ToDateTime(differentParcelValueDataTable.Rows[0].ItemArray[7]);
+                                                parcel.observacoesParcela = differentParcelValueDataTable.Rows[0].ItemArray[8].ToString();
                                                 parcel.recebimentoConfirmado = true;
-                                                parcel.pagamentoConfirmado = Convert.ToBoolean(differentParcelValueDataTable.Rows[0].ItemArray[9]);
+                                                parcel.pagamentoConfirmado = Convert.ToBoolean(differentParcelValueDataTable.Rows[0].ItemArray[10]);
                                                 if (Database.updateParcel(parcel))
                                                 {
-                                                    parcel.valorParcela = Convert.ToDecimal(differentParcelValueDataTable.Rows[0].ItemArray[3]) - parcel.valorParcela;
+                                                    parcel.valorParcela = Convert.ToDecimal(differentParcelValueDataTable.Rows[0].ItemArray[5]) - parcel.valorParcela;
                                                     parcel.recebimentoConfirmado = false;
                                                     if (Database.newParcel(parcel))
                                                     {
@@ -646,12 +647,12 @@ namespace Sisteg_Dashboard
         //EDITAR CLIENTE
         private void pcb_btnEdit_MouseEnter(object sender, EventArgs e)
         {
-            this.pcb_btnEdit.Image = Properties.Resources.btn_modify_active;
+            this.pcb_btnEdit.Image = Properties.Resources.btn_edit_active;
         }
 
         private void pcb_btnEdit_MouseLeave(object sender, EventArgs e)
         {
-            this.pcb_btnEdit.Image = Properties.Resources.btn_modify;
+            this.pcb_btnEdit.Image = Properties.Resources.btn_edit;
         }
 
         private void pcb_btnEdit_Click(object sender, EventArgs e)

@@ -113,12 +113,12 @@ namespace Sisteg_Dashboard
         //MENU DE NAVEGAÇÃO DA APLICAÇÃO
         private void pcb_btnMain_MouseEnter(object sender, EventArgs e)
         {
-            this.pcb_btnMain.Image = Properties.Resources.btn_main_active;
+            this.pcb_btnMain.Image = Properties.Resources.btn_main_form_active;
         }
 
         private void pcb_btnMain_MouseLeave(object sender, EventArgs e)
         {
-            this.pcb_btnMain.Image = Properties.Resources.btn_main;
+            this.pcb_btnMain.Image = Properties.Resources.btn_main_form;
         }
 
         private void pcb_btnMain_Click(object sender, EventArgs e)
@@ -133,12 +133,12 @@ namespace Sisteg_Dashboard
 
         private void pcb_btnClient_MouseEnter(object sender, EventArgs e)
         {
-            this.pcb_btnClient.Image = Properties.Resources.btn_client_active;
+            this.pcb_btnClient.Image = Properties.Resources.btn_client_form_active;
         }
 
         private void pcb_btnClient_MouseLeave(object sender, EventArgs e)
         {
-            this.pcb_btnClient.Image = Properties.Resources.btn_client;
+            this.pcb_btnClient.Image = Properties.Resources.btn_client_form;
         }
 
         private void pcb_btnClient_Click(object sender, EventArgs e)
@@ -153,12 +153,12 @@ namespace Sisteg_Dashboard
 
         private void pcb_btnBudget_MouseEnter(object sender, EventArgs e)
         {
-            this.pcb_btnBudget.Image = Properties.Resources.btn_budget_active;
+            this.pcb_btnBudget.Image = Properties.Resources.btn_budget_form_active;
         }
 
         private void pcb_btnBudget_MouseLeave(object sender, EventArgs e)
         {
-            this.pcb_btnBudget.Image = Properties.Resources.btn_budget;
+            this.pcb_btnBudget.Image = Properties.Resources.btn_budget_form;
         }
 
         private void pcb_btnBudget_Click(object sender, EventArgs e)
@@ -173,19 +173,19 @@ namespace Sisteg_Dashboard
 
         private void pcb_btnConfig_MouseEnter(object sender, EventArgs e)
         {
-            this.pcb_btnConfig.Image = Properties.Resources.btn_config_active;
+            this.pcb_btnConfig.Image = Properties.Resources.btn_config_main_active;
         }
 
         private void pcb_btnConfig_MouseLeave(object sender, EventArgs e)
         {
-            this.pcb_btnConfig.Image = Properties.Resources.btn_config;
+            this.pcb_btnConfig.Image = Properties.Resources.btn_config_main;
         }
 
         private void pcb_btnConfig_Click(object sender, EventArgs e)
         {
-            if (Application.OpenForms.OfType<Config>().Count() == 0)
+            if (Application.OpenForms.OfType<ConfigForm>().Count() == 0)
             {
-                Config config = new Config();
+                ConfigForm config = new ConfigForm();
                 config.Show();
                 this.Close();
             }
@@ -264,12 +264,12 @@ namespace Sisteg_Dashboard
         //EDITAR PRODUTO OU FORNECEDOR
         private void pcb_btnEdit_MouseEnter(object sender, EventArgs e)
         {
-            this.pcb_btnEdit.Image = Properties.Resources.btn_modify_active;
+            this.pcb_btnEdit.Image = Properties.Resources.btn_edit_active;
         }
 
         private void pcb_btnEdit_MouseLeave(object sender, EventArgs e)
         {
-            this.pcb_btnEdit.Image = Properties.Resources.btn_modify;
+            this.pcb_btnEdit.Image = Properties.Resources.btn_edit;
         }
 
         private void pcb_btnEdit_Click(object sender, EventArgs e)

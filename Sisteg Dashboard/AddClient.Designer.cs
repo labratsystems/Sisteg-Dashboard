@@ -29,6 +29,14 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddClient));
+            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties1 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties2 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties3 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties4 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties5 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties6 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties7 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties8 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties9 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
@@ -51,20 +59,14 @@
             Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties26 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
             Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties27 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
             Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties28 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
-            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties5 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
-            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties6 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
-            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties7 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
-            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties8 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
-            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties1 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
-            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties2 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
-            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties3 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
-            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties4 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
             this.pcb_clientRegister = new System.Windows.Forms.PictureBox();
             this.pcb_btnUpdate = new System.Windows.Forms.PictureBox();
             this.pcb_btnDelete = new System.Windows.Forms.PictureBox();
             this.pcb_btnCancel = new System.Windows.Forms.PictureBox();
             this.pcb_appClose = new System.Windows.Forms.PictureBox();
             this.panel_client = new System.Windows.Forms.Panel();
+            this.txt_clientCity = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
+            this.txt_clientEmail = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
             this.bunifuLabel1 = new Bunifu.UI.WinForms.BunifuLabel();
             this.bsp_telephones = new Bunifu.UI.WinForm.BunifuShadowPanel.BunifuShadowPanel();
             this.pcb_btnUpdateTelephone = new System.Windows.Forms.PictureBox();
@@ -80,8 +82,6 @@
             this.txt_clientHouseNumber = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
             this.txt_clientAddress = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
             this.txt_clientName = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
-            this.txt_clientEmail = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
-            this.txt_clientCity = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pcb_clientRegister)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcb_btnUpdate)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcb_btnDelete)).BeginInit();
@@ -99,8 +99,8 @@
             // pcb_clientRegister
             // 
             this.pcb_clientRegister.BackColor = System.Drawing.Color.Transparent;
-            this.pcb_clientRegister.BackgroundImage = global::Sisteg_Dashboard.Properties.Resources.btn_clientRegister;
             this.pcb_clientRegister.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pcb_clientRegister.Image = ((System.Drawing.Image)(resources.GetObject("pcb_clientRegister.Image")));
             this.pcb_clientRegister.Location = new System.Drawing.Point(628, 160);
             this.pcb_clientRegister.Name = "pcb_clientRegister";
             this.pcb_clientRegister.Size = new System.Drawing.Size(327, 70);
@@ -113,8 +113,8 @@
             // pcb_btnUpdate
             // 
             this.pcb_btnUpdate.BackColor = System.Drawing.Color.Transparent;
-            this.pcb_btnUpdate.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pcb_btnUpdate.BackgroundImage")));
             this.pcb_btnUpdate.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pcb_btnUpdate.Image = ((System.Drawing.Image)(resources.GetObject("pcb_btnUpdate.Image")));
             this.pcb_btnUpdate.Location = new System.Drawing.Point(628, 236);
             this.pcb_btnUpdate.Name = "pcb_btnUpdate";
             this.pcb_btnUpdate.Size = new System.Drawing.Size(327, 70);
@@ -127,8 +127,8 @@
             // pcb_btnDelete
             // 
             this.pcb_btnDelete.BackColor = System.Drawing.Color.Transparent;
-            this.pcb_btnDelete.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pcb_btnDelete.BackgroundImage")));
             this.pcb_btnDelete.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pcb_btnDelete.Image = ((System.Drawing.Image)(resources.GetObject("pcb_btnDelete.Image")));
             this.pcb_btnDelete.Location = new System.Drawing.Point(628, 312);
             this.pcb_btnDelete.Name = "pcb_btnDelete";
             this.pcb_btnDelete.Size = new System.Drawing.Size(327, 70);
@@ -141,8 +141,8 @@
             // pcb_btnCancel
             // 
             this.pcb_btnCancel.BackColor = System.Drawing.Color.Transparent;
-            this.pcb_btnCancel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pcb_btnCancel.BackgroundImage")));
             this.pcb_btnCancel.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pcb_btnCancel.Image = ((System.Drawing.Image)(resources.GetObject("pcb_btnCancel.Image")));
             this.pcb_btnCancel.Location = new System.Drawing.Point(628, 388);
             this.pcb_btnCancel.Name = "pcb_btnCancel";
             this.pcb_btnCancel.Size = new System.Drawing.Size(327, 70);
@@ -184,6 +184,156 @@
             this.panel_client.Size = new System.Drawing.Size(443, 318);
             this.panel_client.TabIndex = 56;
             // 
+            // txt_clientCity
+            // 
+            this.txt_clientCity.AcceptsReturn = false;
+            this.txt_clientCity.AcceptsTab = false;
+            this.txt_clientCity.AnimationSpeed = 200;
+            this.txt_clientCity.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
+            this.txt_clientCity.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
+            this.txt_clientCity.BackColor = System.Drawing.Color.Transparent;
+            this.txt_clientCity.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("txt_clientCity.BackgroundImage")));
+            this.txt_clientCity.BorderColorActive = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.txt_clientCity.BorderColorDisabled = System.Drawing.Color.FromArgb(((int)(((byte)(161)))), ((int)(((byte)(161)))), ((int)(((byte)(161)))));
+            this.txt_clientCity.BorderColorHover = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.txt_clientCity.BorderColorIdle = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.txt_clientCity.BorderRadius = 1;
+            this.txt_clientCity.BorderThickness = 1;
+            this.txt_clientCity.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.txt_clientCity.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txt_clientCity.DefaultFont = new System.Drawing.Font("Courier Prime Code", 12F);
+            this.txt_clientCity.DefaultText = "";
+            this.txt_clientCity.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(157)))));
+            this.txt_clientCity.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.txt_clientCity.HideSelection = true;
+            this.txt_clientCity.IconLeft = null;
+            this.txt_clientCity.IconLeftCursor = System.Windows.Forms.Cursors.IBeam;
+            this.txt_clientCity.IconPadding = 10;
+            this.txt_clientCity.IconRight = null;
+            this.txt_clientCity.IconRightCursor = System.Windows.Forms.Cursors.IBeam;
+            this.txt_clientCity.Lines = new string[0];
+            this.txt_clientCity.Location = new System.Drawing.Point(14, 194);
+            this.txt_clientCity.MaxLength = 32767;
+            this.txt_clientCity.MinimumSize = new System.Drawing.Size(100, 35);
+            this.txt_clientCity.Modified = false;
+            this.txt_clientCity.Multiline = false;
+            this.txt_clientCity.Name = "txt_clientCity";
+            stateProperties1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            stateProperties1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(104)))), ((int)(((byte)(232)))));
+            stateProperties1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            stateProperties1.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(104)))), ((int)(((byte)(232)))));
+            this.txt_clientCity.OnActiveState = stateProperties1;
+            stateProperties2.BorderColor = System.Drawing.Color.Empty;
+            stateProperties2.FillColor = System.Drawing.Color.White;
+            stateProperties2.ForeColor = System.Drawing.Color.Empty;
+            stateProperties2.PlaceholderForeColor = System.Drawing.Color.Silver;
+            this.txt_clientCity.OnDisabledState = stateProperties2;
+            stateProperties3.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            stateProperties3.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(104)))), ((int)(((byte)(232)))));
+            stateProperties3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            stateProperties3.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.txt_clientCity.OnHoverState = stateProperties3;
+            stateProperties4.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            stateProperties4.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(157)))));
+            stateProperties4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            stateProperties4.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.txt_clientCity.OnIdleState = stateProperties4;
+            this.txt_clientCity.PasswordChar = '\0';
+            this.txt_clientCity.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.txt_clientCity.PlaceholderText = "Cidade";
+            this.txt_clientCity.ReadOnly = false;
+            this.txt_clientCity.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.txt_clientCity.SelectedText = "";
+            this.txt_clientCity.SelectionLength = 0;
+            this.txt_clientCity.SelectionStart = 0;
+            this.txt_clientCity.ShortcutsEnabled = true;
+            this.txt_clientCity.Size = new System.Drawing.Size(300, 35);
+            this.txt_clientCity.Style = Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox._Style.Bunifu;
+            this.txt_clientCity.TabIndex = 113;
+            this.txt_clientCity.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.txt_clientCity.TextMarginBottom = 0;
+            this.txt_clientCity.TextMarginLeft = 5;
+            this.txt_clientCity.TextMarginTop = 1;
+            this.txt_clientCity.TextPlaceholder = "Cidade";
+            this.txt_clientCity.UseSystemPasswordChar = false;
+            this.txt_clientCity.WordWrap = true;
+            this.txt_clientCity.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_clientCity_KeyPress);
+            // 
+            // txt_clientEmail
+            // 
+            this.txt_clientEmail.AcceptsReturn = false;
+            this.txt_clientEmail.AcceptsTab = false;
+            this.txt_clientEmail.AnimationSpeed = 200;
+            this.txt_clientEmail.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
+            this.txt_clientEmail.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
+            this.txt_clientEmail.BackColor = System.Drawing.Color.Transparent;
+            this.txt_clientEmail.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("txt_clientEmail.BackgroundImage")));
+            this.txt_clientEmail.BorderColorActive = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.txt_clientEmail.BorderColorDisabled = System.Drawing.Color.FromArgb(((int)(((byte)(161)))), ((int)(((byte)(161)))), ((int)(((byte)(161)))));
+            this.txt_clientEmail.BorderColorHover = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.txt_clientEmail.BorderColorIdle = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.txt_clientEmail.BorderRadius = 1;
+            this.txt_clientEmail.BorderThickness = 1;
+            this.txt_clientEmail.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.txt_clientEmail.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txt_clientEmail.DefaultFont = new System.Drawing.Font("Courier Prime Code", 12F);
+            this.txt_clientEmail.DefaultText = "";
+            this.txt_clientEmail.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(157)))));
+            this.txt_clientEmail.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.txt_clientEmail.HideSelection = true;
+            this.txt_clientEmail.IconLeft = null;
+            this.txt_clientEmail.IconLeftCursor = System.Windows.Forms.Cursors.IBeam;
+            this.txt_clientEmail.IconPadding = 10;
+            this.txt_clientEmail.IconRight = null;
+            this.txt_clientEmail.IconRightCursor = System.Windows.Forms.Cursors.IBeam;
+            this.txt_clientEmail.Lines = new string[0];
+            this.txt_clientEmail.Location = new System.Drawing.Point(13, 285);
+            this.txt_clientEmail.MaxLength = 32767;
+            this.txt_clientEmail.MinimumSize = new System.Drawing.Size(100, 35);
+            this.txt_clientEmail.Modified = false;
+            this.txt_clientEmail.Multiline = false;
+            this.txt_clientEmail.Name = "txt_clientEmail";
+            stateProperties5.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            stateProperties5.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(104)))), ((int)(((byte)(232)))));
+            stateProperties5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            stateProperties5.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(104)))), ((int)(((byte)(232)))));
+            this.txt_clientEmail.OnActiveState = stateProperties5;
+            stateProperties6.BorderColor = System.Drawing.Color.Empty;
+            stateProperties6.FillColor = System.Drawing.Color.White;
+            stateProperties6.ForeColor = System.Drawing.Color.Empty;
+            stateProperties6.PlaceholderForeColor = System.Drawing.Color.Silver;
+            this.txt_clientEmail.OnDisabledState = stateProperties6;
+            stateProperties7.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            stateProperties7.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(104)))), ((int)(((byte)(232)))));
+            stateProperties7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            stateProperties7.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.txt_clientEmail.OnHoverState = stateProperties7;
+            stateProperties8.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            stateProperties8.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(157)))));
+            stateProperties8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            stateProperties8.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.txt_clientEmail.OnIdleState = stateProperties8;
+            this.txt_clientEmail.PasswordChar = '\0';
+            this.txt_clientEmail.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.txt_clientEmail.PlaceholderText = "E-mail (opcional)";
+            this.txt_clientEmail.ReadOnly = false;
+            this.txt_clientEmail.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.txt_clientEmail.SelectedText = "";
+            this.txt_clientEmail.SelectionLength = 0;
+            this.txt_clientEmail.SelectionStart = 0;
+            this.txt_clientEmail.ShortcutsEnabled = true;
+            this.txt_clientEmail.Size = new System.Drawing.Size(302, 35);
+            this.txt_clientEmail.Style = Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox._Style.Bunifu;
+            this.txt_clientEmail.TabIndex = 112;
+            this.txt_clientEmail.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.txt_clientEmail.TextMarginBottom = 0;
+            this.txt_clientEmail.TextMarginLeft = 5;
+            this.txt_clientEmail.TextMarginTop = 1;
+            this.txt_clientEmail.TextPlaceholder = "E-mail (opcional)";
+            this.txt_clientEmail.UseSystemPasswordChar = false;
+            this.txt_clientEmail.WordWrap = true;
+            this.txt_clientEmail.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_clientEmail_KeyPress);
+            // 
             // bunifuLabel1
             // 
             this.bunifuLabel1.AutoEllipsis = false;
@@ -222,8 +372,8 @@
             // pcb_btnUpdateTelephone
             // 
             this.pcb_btnUpdateTelephone.BackColor = System.Drawing.Color.Transparent;
-            this.pcb_btnUpdateTelephone.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pcb_btnUpdateTelephone.BackgroundImage")));
             this.pcb_btnUpdateTelephone.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pcb_btnUpdateTelephone.Image = ((System.Drawing.Image)(resources.GetObject("pcb_btnUpdateTelephone.Image")));
             this.pcb_btnUpdateTelephone.Location = new System.Drawing.Point(13, 349);
             this.pcb_btnUpdateTelephone.Name = "pcb_btnUpdateTelephone";
             this.pcb_btnUpdateTelephone.Size = new System.Drawing.Size(327, 70);
@@ -236,8 +386,8 @@
             // pcb_btnDeleteTelephone
             // 
             this.pcb_btnDeleteTelephone.BackColor = System.Drawing.Color.Transparent;
-            this.pcb_btnDeleteTelephone.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pcb_btnDeleteTelephone.BackgroundImage")));
             this.pcb_btnDeleteTelephone.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pcb_btnDeleteTelephone.Image = ((System.Drawing.Image)(resources.GetObject("pcb_btnDeleteTelephone.Image")));
             this.pcb_btnDeleteTelephone.Location = new System.Drawing.Point(13, 430);
             this.pcb_btnDeleteTelephone.Name = "pcb_btnDeleteTelephone";
             this.pcb_btnDeleteTelephone.Size = new System.Drawing.Size(327, 70);
@@ -310,8 +460,8 @@
             // pcb_btnAdd
             // 
             this.pcb_btnAdd.BackColor = System.Drawing.Color.Transparent;
+            this.pcb_btnAdd.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pcb_btnAdd.BackgroundImage")));
             this.pcb_btnAdd.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pcb_btnAdd.Image = global::Sisteg_Dashboard.Properties.Resources.btn_add;
             this.pcb_btnAdd.Location = new System.Drawing.Point(13, 115);
             this.pcb_btnAdd.Name = "pcb_btnAdd";
             this.pcb_btnAdd.Size = new System.Drawing.Size(328, 70);
@@ -811,161 +961,11 @@
             this.txt_clientName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_clientName_KeyPress);
             this.txt_clientName.Leave += new System.EventHandler(this.txt_clientName_Leave);
             // 
-            // txt_clientEmail
-            // 
-            this.txt_clientEmail.AcceptsReturn = false;
-            this.txt_clientEmail.AcceptsTab = false;
-            this.txt_clientEmail.AnimationSpeed = 200;
-            this.txt_clientEmail.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
-            this.txt_clientEmail.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
-            this.txt_clientEmail.BackColor = System.Drawing.Color.Transparent;
-            this.txt_clientEmail.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("txt_clientEmail.BackgroundImage")));
-            this.txt_clientEmail.BorderColorActive = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.txt_clientEmail.BorderColorDisabled = System.Drawing.Color.FromArgb(((int)(((byte)(161)))), ((int)(((byte)(161)))), ((int)(((byte)(161)))));
-            this.txt_clientEmail.BorderColorHover = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.txt_clientEmail.BorderColorIdle = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.txt_clientEmail.BorderRadius = 1;
-            this.txt_clientEmail.BorderThickness = 1;
-            this.txt_clientEmail.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
-            this.txt_clientEmail.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txt_clientEmail.DefaultFont = new System.Drawing.Font("Courier Prime Code", 12F);
-            this.txt_clientEmail.DefaultText = "";
-            this.txt_clientEmail.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(157)))));
-            this.txt_clientEmail.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.txt_clientEmail.HideSelection = true;
-            this.txt_clientEmail.IconLeft = null;
-            this.txt_clientEmail.IconLeftCursor = System.Windows.Forms.Cursors.IBeam;
-            this.txt_clientEmail.IconPadding = 10;
-            this.txt_clientEmail.IconRight = null;
-            this.txt_clientEmail.IconRightCursor = System.Windows.Forms.Cursors.IBeam;
-            this.txt_clientEmail.Lines = new string[0];
-            this.txt_clientEmail.Location = new System.Drawing.Point(13, 285);
-            this.txt_clientEmail.MaxLength = 32767;
-            this.txt_clientEmail.MinimumSize = new System.Drawing.Size(100, 35);
-            this.txt_clientEmail.Modified = false;
-            this.txt_clientEmail.Multiline = false;
-            this.txt_clientEmail.Name = "txt_clientEmail";
-            stateProperties5.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            stateProperties5.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(104)))), ((int)(((byte)(232)))));
-            stateProperties5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            stateProperties5.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(104)))), ((int)(((byte)(232)))));
-            this.txt_clientEmail.OnActiveState = stateProperties5;
-            stateProperties6.BorderColor = System.Drawing.Color.Empty;
-            stateProperties6.FillColor = System.Drawing.Color.White;
-            stateProperties6.ForeColor = System.Drawing.Color.Empty;
-            stateProperties6.PlaceholderForeColor = System.Drawing.Color.Silver;
-            this.txt_clientEmail.OnDisabledState = stateProperties6;
-            stateProperties7.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            stateProperties7.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(104)))), ((int)(((byte)(232)))));
-            stateProperties7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            stateProperties7.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.txt_clientEmail.OnHoverState = stateProperties7;
-            stateProperties8.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            stateProperties8.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(157)))));
-            stateProperties8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            stateProperties8.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.txt_clientEmail.OnIdleState = stateProperties8;
-            this.txt_clientEmail.PasswordChar = '\0';
-            this.txt_clientEmail.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.txt_clientEmail.PlaceholderText = "E-mail (opcional)";
-            this.txt_clientEmail.ReadOnly = false;
-            this.txt_clientEmail.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.txt_clientEmail.SelectedText = "";
-            this.txt_clientEmail.SelectionLength = 0;
-            this.txt_clientEmail.SelectionStart = 0;
-            this.txt_clientEmail.ShortcutsEnabled = true;
-            this.txt_clientEmail.Size = new System.Drawing.Size(302, 35);
-            this.txt_clientEmail.Style = Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox._Style.Bunifu;
-            this.txt_clientEmail.TabIndex = 112;
-            this.txt_clientEmail.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.txt_clientEmail.TextMarginBottom = 0;
-            this.txt_clientEmail.TextMarginLeft = 5;
-            this.txt_clientEmail.TextMarginTop = 1;
-            this.txt_clientEmail.TextPlaceholder = "E-mail (opcional)";
-            this.txt_clientEmail.UseSystemPasswordChar = false;
-            this.txt_clientEmail.WordWrap = true;
-            this.txt_clientEmail.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_clientEmail_KeyPress);
-            // 
-            // txt_clientCity
-            // 
-            this.txt_clientCity.AcceptsReturn = false;
-            this.txt_clientCity.AcceptsTab = false;
-            this.txt_clientCity.AnimationSpeed = 200;
-            this.txt_clientCity.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
-            this.txt_clientCity.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
-            this.txt_clientCity.BackColor = System.Drawing.Color.Transparent;
-            this.txt_clientCity.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("txt_clientCity.BackgroundImage")));
-            this.txt_clientCity.BorderColorActive = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.txt_clientCity.BorderColorDisabled = System.Drawing.Color.FromArgb(((int)(((byte)(161)))), ((int)(((byte)(161)))), ((int)(((byte)(161)))));
-            this.txt_clientCity.BorderColorHover = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.txt_clientCity.BorderColorIdle = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.txt_clientCity.BorderRadius = 1;
-            this.txt_clientCity.BorderThickness = 1;
-            this.txt_clientCity.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
-            this.txt_clientCity.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txt_clientCity.DefaultFont = new System.Drawing.Font("Courier Prime Code", 12F);
-            this.txt_clientCity.DefaultText = "";
-            this.txt_clientCity.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(157)))));
-            this.txt_clientCity.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.txt_clientCity.HideSelection = true;
-            this.txt_clientCity.IconLeft = null;
-            this.txt_clientCity.IconLeftCursor = System.Windows.Forms.Cursors.IBeam;
-            this.txt_clientCity.IconPadding = 10;
-            this.txt_clientCity.IconRight = null;
-            this.txt_clientCity.IconRightCursor = System.Windows.Forms.Cursors.IBeam;
-            this.txt_clientCity.Lines = new string[0];
-            this.txt_clientCity.Location = new System.Drawing.Point(14, 194);
-            this.txt_clientCity.MaxLength = 32767;
-            this.txt_clientCity.MinimumSize = new System.Drawing.Size(100, 35);
-            this.txt_clientCity.Modified = false;
-            this.txt_clientCity.Multiline = false;
-            this.txt_clientCity.Name = "txt_clientCity";
-            stateProperties1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            stateProperties1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(104)))), ((int)(((byte)(232)))));
-            stateProperties1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            stateProperties1.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(104)))), ((int)(((byte)(232)))));
-            this.txt_clientCity.OnActiveState = stateProperties1;
-            stateProperties2.BorderColor = System.Drawing.Color.Empty;
-            stateProperties2.FillColor = System.Drawing.Color.White;
-            stateProperties2.ForeColor = System.Drawing.Color.Empty;
-            stateProperties2.PlaceholderForeColor = System.Drawing.Color.Silver;
-            this.txt_clientCity.OnDisabledState = stateProperties2;
-            stateProperties3.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            stateProperties3.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(104)))), ((int)(((byte)(232)))));
-            stateProperties3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            stateProperties3.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.txt_clientCity.OnHoverState = stateProperties3;
-            stateProperties4.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            stateProperties4.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(157)))));
-            stateProperties4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            stateProperties4.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.txt_clientCity.OnIdleState = stateProperties4;
-            this.txt_clientCity.PasswordChar = '\0';
-            this.txt_clientCity.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.txt_clientCity.PlaceholderText = "Cidade";
-            this.txt_clientCity.ReadOnly = false;
-            this.txt_clientCity.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.txt_clientCity.SelectedText = "";
-            this.txt_clientCity.SelectionLength = 0;
-            this.txt_clientCity.SelectionStart = 0;
-            this.txt_clientCity.ShortcutsEnabled = true;
-            this.txt_clientCity.Size = new System.Drawing.Size(300, 35);
-            this.txt_clientCity.Style = Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox._Style.Bunifu;
-            this.txt_clientCity.TabIndex = 113;
-            this.txt_clientCity.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.txt_clientCity.TextMarginBottom = 0;
-            this.txt_clientCity.TextMarginLeft = 5;
-            this.txt_clientCity.TextMarginTop = 1;
-            this.txt_clientCity.TextPlaceholder = "Cidade";
-            this.txt_clientCity.UseSystemPasswordChar = false;
-            this.txt_clientCity.WordWrap = true;
-            this.txt_clientCity.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_clientCity_KeyPress);
-            // 
             // AddClient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::Sisteg_Dashboard.Properties.Resources.addIncomeOrExpense_bg;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1030, 530);
             this.Controls.Add(this.panel_client);
             this.Controls.Add(this.pcb_clientRegister);

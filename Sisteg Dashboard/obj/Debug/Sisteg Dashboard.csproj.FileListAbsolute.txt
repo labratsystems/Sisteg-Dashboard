@@ -2,28 +2,32 @@ C:\Users\Wesley Ribeiro\source\repos\Sisteg Dashboard\Sisteg Dashboard\obj\Debug
 C:\Users\Wesley Ribeiro\source\repos\Sisteg Dashboard\Sisteg Dashboard\obj\Debug\Interop.WMPLib.dll
 C:\Users\Wesley Ribeiro\source\repos\Sisteg Dashboard\Sisteg Dashboard\obj\Debug\AxInterop.WMPLib.dll
 C:\Users\Wesley Ribeiro\source\repos\Sisteg Dashboard\Sisteg Dashboard\obj\Debug\Sisteg Dashboard.csproj.ResolveComReference.cache
+C:\Users\Wesley Ribeiro\source\repos\Sisteg Dashboard\Sisteg Dashboard\obj\Debug\Sisteg_Dashboard.AccountSettings.resources
 C:\Users\Wesley Ribeiro\source\repos\Sisteg Dashboard\Sisteg Dashboard\obj\Debug\Sisteg_Dashboard.AddClient.resources
 C:\Users\Wesley Ribeiro\source\repos\Sisteg Dashboard\Sisteg Dashboard\obj\Debug\Sisteg_Dashboard.AddExpense.resources
 C:\Users\Wesley Ribeiro\source\repos\Sisteg Dashboard\Sisteg Dashboard\obj\Debug\Sisteg_Dashboard.AddIncome.resources
 C:\Users\Wesley Ribeiro\source\repos\Sisteg Dashboard\Sisteg Dashboard\obj\Debug\Sisteg_Dashboard.AddProduct.resources
 C:\Users\Wesley Ribeiro\source\repos\Sisteg Dashboard\Sisteg Dashboard\obj\Debug\Sisteg_Dashboard.AddSupplier.resources
 C:\Users\Wesley Ribeiro\source\repos\Sisteg Dashboard\Sisteg Dashboard\obj\Debug\Sisteg_Dashboard.BudgetForm.resources
+C:\Users\Wesley Ribeiro\source\repos\Sisteg Dashboard\Sisteg Dashboard\obj\Debug\Sisteg_Dashboard.CategorySettings.resources
 C:\Users\Wesley Ribeiro\source\repos\Sisteg Dashboard\Sisteg Dashboard\obj\Debug\Sisteg_Dashboard.ClientForm.resources
 C:\Users\Wesley Ribeiro\source\repos\Sisteg Dashboard\Sisteg Dashboard\obj\Debug\Sisteg_Dashboard.ClientStep.resources
-C:\Users\Wesley Ribeiro\source\repos\Sisteg Dashboard\Sisteg Dashboard\obj\Debug\Sisteg_Dashboard.Config.resources
+C:\Users\Wesley Ribeiro\source\repos\Sisteg Dashboard\Sisteg Dashboard\obj\Debug\Sisteg_Dashboard.ConfigForm.resources
+C:\Users\Wesley Ribeiro\source\repos\Sisteg Dashboard\Sisteg Dashboard\obj\Debug\Sisteg_Dashboard.ExpenseGraphs.resources
+C:\Users\Wesley Ribeiro\source\repos\Sisteg Dashboard\Sisteg Dashboard\obj\Debug\Sisteg_Dashboard.IncomeGraphs.resources
 C:\Users\Wesley Ribeiro\source\repos\Sisteg Dashboard\Sisteg Dashboard\obj\Debug\Sisteg_Dashboard.Main.resources
 C:\Users\Wesley Ribeiro\source\repos\Sisteg Dashboard\Sisteg Dashboard\obj\Debug\Sisteg_Dashboard.ProductForm.resources
 C:\Users\Wesley Ribeiro\source\repos\Sisteg Dashboard\Sisteg Dashboard\obj\Debug\Sisteg_Dashboard.BudgetStep.resources
 C:\Users\Wesley Ribeiro\source\repos\Sisteg Dashboard\Sisteg Dashboard\obj\Debug\Sisteg_Dashboard.ProductStep.resources
 C:\Users\Wesley Ribeiro\source\repos\Sisteg Dashboard\Sisteg Dashboard\obj\Debug\Sisteg_Dashboard.Form_splashScreen.resources
 C:\Users\Wesley Ribeiro\source\repos\Sisteg Dashboard\Sisteg Dashboard\obj\Debug\Sisteg_Dashboard.Properties.Resources.resources
+C:\Users\Wesley Ribeiro\source\repos\Sisteg Dashboard\Sisteg Dashboard\obj\Debug\Sisteg_Dashboard.Transactions.resources
 C:\Users\Wesley Ribeiro\source\repos\Sisteg Dashboard\Sisteg Dashboard\obj\Debug\Sisteg Dashboard.csproj.GenerateResource.cache
 C:\Users\Wesley Ribeiro\source\repos\Sisteg Dashboard\Sisteg Dashboard\obj\Debug\Sisteg Dashboard.csproj.CoreCompileInputs.cache
-C:\Users\Wesley Ribeiro\source\repos\Sisteg Dashboard\Sisteg Dashboard\obj\Debug\Sisteg Dashboard.exe
-C:\Users\Wesley Ribeiro\source\repos\Sisteg Dashboard\Sisteg Dashboard\obj\Debug\Sisteg Dashboard.pdb
 C:\Users\Wesley Ribeiro\source\repos\Sisteg Dashboard\Sisteg Dashboard\bin\Debug\Sisteg Dashboard.exe.config
 C:\Users\Wesley Ribeiro\source\repos\Sisteg Dashboard\Sisteg Dashboard\bin\Debug\Sisteg Dashboard.exe
 C:\Users\Wesley Ribeiro\source\repos\Sisteg Dashboard\Sisteg Dashboard\bin\Debug\Sisteg Dashboard.pdb
+C:\Users\Wesley Ribeiro\source\repos\Sisteg Dashboard\Sisteg Dashboard\bin\Debug\BouncyCastle.Crypto.dll
 C:\Users\Wesley Ribeiro\source\repos\Sisteg Dashboard\Sisteg Dashboard\bin\Debug\Bunifu.UI.WinForm.BunifuShadowPanel.dll
 C:\Users\Wesley Ribeiro\source\repos\Sisteg Dashboard\Sisteg Dashboard\bin\Debug\Bunifu.UI.WinForms.BunifuButton.dll
 C:\Users\Wesley Ribeiro\source\repos\Sisteg Dashboard\Sisteg Dashboard\bin\Debug\Bunifu.UI.WinForms.BunifuCheckBox.dll
@@ -34,11 +38,29 @@ C:\Users\Wesley Ribeiro\source\repos\Sisteg Dashboard\Sisteg Dashboard\bin\Debug
 C:\Users\Wesley Ribeiro\source\repos\Sisteg Dashboard\Sisteg Dashboard\bin\Debug\Bunifu.UI.WinForms.BunifuRadioButton.dll
 C:\Users\Wesley Ribeiro\source\repos\Sisteg Dashboard\Sisteg Dashboard\bin\Debug\Bunifu.UI.WinForms.BunifuTextbox.dll
 C:\Users\Wesley Ribeiro\source\repos\Sisteg Dashboard\Sisteg Dashboard\bin\Debug\Bunifu_UI_v1.5.3.dll
+C:\Users\Wesley Ribeiro\source\repos\Sisteg Dashboard\Sisteg Dashboard\bin\Debug\Common.Logging.Core.dll
+C:\Users\Wesley Ribeiro\source\repos\Sisteg Dashboard\Sisteg Dashboard\bin\Debug\Common.Logging.dll
 C:\Users\Wesley Ribeiro\source\repos\Sisteg Dashboard\Sisteg Dashboard\bin\Debug\EntityFramework.dll
 C:\Users\Wesley Ribeiro\source\repos\Sisteg Dashboard\Sisteg Dashboard\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Wesley Ribeiro\source\repos\Sisteg Dashboard\Sisteg Dashboard\bin\Debug\itext.barcodes.dll
+C:\Users\Wesley Ribeiro\source\repos\Sisteg Dashboard\Sisteg Dashboard\bin\Debug\itext.forms.dll
+C:\Users\Wesley Ribeiro\source\repos\Sisteg Dashboard\Sisteg Dashboard\bin\Debug\itext.io.dll
+C:\Users\Wesley Ribeiro\source\repos\Sisteg Dashboard\Sisteg Dashboard\bin\Debug\itext.kernel.dll
+C:\Users\Wesley Ribeiro\source\repos\Sisteg Dashboard\Sisteg Dashboard\bin\Debug\itext.layout.dll
+C:\Users\Wesley Ribeiro\source\repos\Sisteg Dashboard\Sisteg Dashboard\bin\Debug\itext.pdfa.dll
+C:\Users\Wesley Ribeiro\source\repos\Sisteg Dashboard\Sisteg Dashboard\bin\Debug\itext.sign.dll
+C:\Users\Wesley Ribeiro\source\repos\Sisteg Dashboard\Sisteg Dashboard\bin\Debug\itext.styledxmlparser.dll
+C:\Users\Wesley Ribeiro\source\repos\Sisteg Dashboard\Sisteg Dashboard\bin\Debug\itext.svg.dll
+C:\Users\Wesley Ribeiro\source\repos\Sisteg Dashboard\Sisteg Dashboard\bin\Debug\Microsoft.IdentityModel.Logging.dll
+C:\Users\Wesley Ribeiro\source\repos\Sisteg Dashboard\Sisteg Dashboard\bin\Debug\Microsoft.IdentityModel.Tokens.dll
+C:\Users\Wesley Ribeiro\source\repos\Sisteg Dashboard\Sisteg Dashboard\bin\Debug\Newtonsoft.Json.dll
 C:\Users\Wesley Ribeiro\source\repos\Sisteg Dashboard\Sisteg Dashboard\bin\Debug\System.Data.SQLite.dll
 C:\Users\Wesley Ribeiro\source\repos\Sisteg Dashboard\Sisteg Dashboard\bin\Debug\System.Data.SQLite.EF6.dll
 C:\Users\Wesley Ribeiro\source\repos\Sisteg Dashboard\Sisteg Dashboard\bin\Debug\System.Data.SQLite.Linq.dll
+C:\Users\Wesley Ribeiro\source\repos\Sisteg Dashboard\Sisteg Dashboard\bin\Debug\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\Wesley Ribeiro\source\repos\Sisteg Dashboard\Sisteg Dashboard\bin\Debug\Twilio.dll
+C:\Users\Wesley Ribeiro\source\repos\Sisteg Dashboard\Sisteg Dashboard\bin\Debug\WhatsAppApi.dll
+C:\Users\Wesley Ribeiro\source\repos\Sisteg Dashboard\Sisteg Dashboard\bin\Debug\BouncyCastle.Crypto.xml
 C:\Users\Wesley Ribeiro\source\repos\Sisteg Dashboard\Sisteg Dashboard\bin\Debug\Bunifu.UI.WinForm.BunifuShadowPanel.xml
 C:\Users\Wesley Ribeiro\source\repos\Sisteg Dashboard\Sisteg Dashboard\bin\Debug\Bunifu.UI.WinForms.BunifuButton.xml
 C:\Users\Wesley Ribeiro\source\repos\Sisteg Dashboard\Sisteg Dashboard\bin\Debug\Bunifu.UI.WinForms.BunifuCheckBox.xml
@@ -49,29 +71,12 @@ C:\Users\Wesley Ribeiro\source\repos\Sisteg Dashboard\Sisteg Dashboard\bin\Debug
 C:\Users\Wesley Ribeiro\source\repos\Sisteg Dashboard\Sisteg Dashboard\bin\Debug\Bunifu.UI.WinForms.BunifuRadioButton.xml
 C:\Users\Wesley Ribeiro\source\repos\Sisteg Dashboard\Sisteg Dashboard\bin\Debug\Bunifu.UI.WinForms.BunifuTextbox.xml
 C:\Users\Wesley Ribeiro\source\repos\Sisteg Dashboard\Sisteg Dashboard\bin\Debug\Bunifu_UI_v1.5.3.xml
-C:\Users\Wesley Ribeiro\source\repos\Sisteg Dashboard\Sisteg Dashboard\bin\Debug\EntityFramework.xml
-C:\Users\Wesley Ribeiro\source\repos\Sisteg Dashboard\Sisteg Dashboard\bin\Debug\EntityFramework.SqlServer.xml
-C:\Users\Wesley Ribeiro\source\repos\Sisteg Dashboard\Sisteg Dashboard\bin\Debug\System.Data.SQLite.xml
-C:\Users\Wesley Ribeiro\source\repos\Sisteg Dashboard\Sisteg Dashboard\bin\Debug\Interop.WMPLib.dll
-C:\Users\Wesley Ribeiro\source\repos\Sisteg Dashboard\Sisteg Dashboard\bin\Debug\AxInterop.WMPLib.dll
-C:\Users\Wesley Ribeiro\source\repos\Sisteg Dashboard\Sisteg Dashboard\obj\Debug\Sisteg Dashboard.csproj.CopyComplete
-C:\Users\Wesley Ribeiro\source\repos\Sisteg Dashboard\Sisteg Dashboard\bin\Debug\BouncyCastle.Crypto.dll
-C:\Users\Wesley Ribeiro\source\repos\Sisteg Dashboard\Sisteg Dashboard\bin\Debug\Common.Logging.Core.dll
-C:\Users\Wesley Ribeiro\source\repos\Sisteg Dashboard\Sisteg Dashboard\bin\Debug\Common.Logging.dll
-C:\Users\Wesley Ribeiro\source\repos\Sisteg Dashboard\Sisteg Dashboard\bin\Debug\itext.barcodes.dll
-C:\Users\Wesley Ribeiro\source\repos\Sisteg Dashboard\Sisteg Dashboard\bin\Debug\itext.forms.dll
-C:\Users\Wesley Ribeiro\source\repos\Sisteg Dashboard\Sisteg Dashboard\bin\Debug\itext.io.dll
-C:\Users\Wesley Ribeiro\source\repos\Sisteg Dashboard\Sisteg Dashboard\bin\Debug\itext.kernel.dll
-C:\Users\Wesley Ribeiro\source\repos\Sisteg Dashboard\Sisteg Dashboard\bin\Debug\itext.layout.dll
-C:\Users\Wesley Ribeiro\source\repos\Sisteg Dashboard\Sisteg Dashboard\bin\Debug\itext.pdfa.dll
-C:\Users\Wesley Ribeiro\source\repos\Sisteg Dashboard\Sisteg Dashboard\bin\Debug\itext.sign.dll
-C:\Users\Wesley Ribeiro\source\repos\Sisteg Dashboard\Sisteg Dashboard\bin\Debug\itext.styledxmlparser.dll
-C:\Users\Wesley Ribeiro\source\repos\Sisteg Dashboard\Sisteg Dashboard\bin\Debug\itext.svg.dll
-C:\Users\Wesley Ribeiro\source\repos\Sisteg Dashboard\Sisteg Dashboard\bin\Debug\BouncyCastle.Crypto.xml
 C:\Users\Wesley Ribeiro\source\repos\Sisteg Dashboard\Sisteg Dashboard\bin\Debug\Common.Logging.pdb
 C:\Users\Wesley Ribeiro\source\repos\Sisteg Dashboard\Sisteg Dashboard\bin\Debug\Common.Logging.xml
 C:\Users\Wesley Ribeiro\source\repos\Sisteg Dashboard\Sisteg Dashboard\bin\Debug\Common.Logging.Core.pdb
 C:\Users\Wesley Ribeiro\source\repos\Sisteg Dashboard\Sisteg Dashboard\bin\Debug\Common.Logging.Core.xml
+C:\Users\Wesley Ribeiro\source\repos\Sisteg Dashboard\Sisteg Dashboard\bin\Debug\EntityFramework.xml
+C:\Users\Wesley Ribeiro\source\repos\Sisteg Dashboard\Sisteg Dashboard\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\Wesley Ribeiro\source\repos\Sisteg Dashboard\Sisteg Dashboard\bin\Debug\itext.barcodes.xml
 C:\Users\Wesley Ribeiro\source\repos\Sisteg Dashboard\Sisteg Dashboard\bin\Debug\itext.forms.xml
 C:\Users\Wesley Ribeiro\source\repos\Sisteg Dashboard\Sisteg Dashboard\bin\Debug\itext.io.xml
@@ -81,13 +86,13 @@ C:\Users\Wesley Ribeiro\source\repos\Sisteg Dashboard\Sisteg Dashboard\bin\Debug
 C:\Users\Wesley Ribeiro\source\repos\Sisteg Dashboard\Sisteg Dashboard\bin\Debug\itext.sign.xml
 C:\Users\Wesley Ribeiro\source\repos\Sisteg Dashboard\Sisteg Dashboard\bin\Debug\itext.styledxmlparser.xml
 C:\Users\Wesley Ribeiro\source\repos\Sisteg Dashboard\Sisteg Dashboard\bin\Debug\itext.svg.xml
-C:\Users\Wesley Ribeiro\source\repos\Sisteg Dashboard\Sisteg Dashboard\bin\Debug\Microsoft.IdentityModel.Logging.dll
-C:\Users\Wesley Ribeiro\source\repos\Sisteg Dashboard\Sisteg Dashboard\bin\Debug\Microsoft.IdentityModel.Tokens.dll
-C:\Users\Wesley Ribeiro\source\repos\Sisteg Dashboard\Sisteg Dashboard\bin\Debug\Newtonsoft.Json.dll
-C:\Users\Wesley Ribeiro\source\repos\Sisteg Dashboard\Sisteg Dashboard\bin\Debug\System.IdentityModel.Tokens.Jwt.dll
-C:\Users\Wesley Ribeiro\source\repos\Sisteg Dashboard\Sisteg Dashboard\bin\Debug\Twilio.dll
 C:\Users\Wesley Ribeiro\source\repos\Sisteg Dashboard\Sisteg Dashboard\bin\Debug\Microsoft.IdentityModel.Tokens.xml
 C:\Users\Wesley Ribeiro\source\repos\Sisteg Dashboard\Sisteg Dashboard\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Wesley Ribeiro\source\repos\Sisteg Dashboard\Sisteg Dashboard\bin\Debug\System.Data.SQLite.xml
 C:\Users\Wesley Ribeiro\source\repos\Sisteg Dashboard\Sisteg Dashboard\bin\Debug\System.IdentityModel.Tokens.Jwt.xml
 C:\Users\Wesley Ribeiro\source\repos\Sisteg Dashboard\Sisteg Dashboard\bin\Debug\Twilio.xml
-C:\Users\Wesley Ribeiro\source\repos\Sisteg Dashboard\Sisteg Dashboard\bin\Debug\WhatsAppApi.dll
+C:\Users\Wesley Ribeiro\source\repos\Sisteg Dashboard\Sisteg Dashboard\bin\Debug\Interop.WMPLib.dll
+C:\Users\Wesley Ribeiro\source\repos\Sisteg Dashboard\Sisteg Dashboard\bin\Debug\AxInterop.WMPLib.dll
+C:\Users\Wesley Ribeiro\source\repos\Sisteg Dashboard\Sisteg Dashboard\obj\Debug\Sisteg Dashboard.csproj.CopyComplete
+C:\Users\Wesley Ribeiro\source\repos\Sisteg Dashboard\Sisteg Dashboard\obj\Debug\Sisteg Dashboard.exe
+C:\Users\Wesley Ribeiro\source\repos\Sisteg Dashboard\Sisteg Dashboard\obj\Debug\Sisteg Dashboard.pdb

@@ -158,6 +158,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Account.cs" />
+    <Compile Include="AccountSettings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AccountSettings.Designer.cs">
+      <DependentUpon>AccountSettings.cs</DependentUpon>
+    </Compile>
     <Compile Include="AddClient.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -196,6 +202,13 @@
     <Compile Include="BudgetForm.Designer.cs">
       <DependentUpon>BudgetForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Category.cs" />
+    <Compile Include="CategorySettings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CategorySettings.Designer.cs">
+      <DependentUpon>CategorySettings.cs</DependentUpon>
+    </Compile>
     <Compile Include="Client.cs" />
     <Compile Include="ClientForm.cs">
       <SubType>Form</SubType>
@@ -209,15 +222,27 @@
     <Compile Include="ClientStep.Designer.cs">
       <DependentUpon>ClientStep.cs</DependentUpon>
     </Compile>
-    <Compile Include="Config.cs">
+    <Compile Include="ConfigForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Config.Designer.cs">
-      <DependentUpon>Config.cs</DependentUpon>
+    <Compile Include="ConfigForm.Designer.cs">
+      <DependentUpon>ConfigForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Database.cs" />
     <Compile Include="Expense.cs" />
+    <Compile Include="ExpenseGraphs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ExpenseGraphs.Designer.cs">
+      <DependentUpon>ExpenseGraphs.cs</DependentUpon>
+    </Compile>
     <Compile Include="Income.cs" />
+    <Compile Include="IncomeGraphs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IncomeGraphs.Designer.cs">
+      <DependentUpon>IncomeGraphs.cs</DependentUpon>
+    </Compile>
     <Compile Include="Main.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -255,6 +280,15 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Supplier.cs" />
     <Compile Include="Telephone.cs" />
+    <Compile Include="Transactions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transactions.Designer.cs">
+      <DependentUpon>Transactions.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="AccountSettings.resx">
+      <DependentUpon>AccountSettings.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AddClient.resx">
       <DependentUpon>AddClient.cs</DependentUpon>
     </EmbeddedResource>
@@ -273,14 +307,23 @@
     <EmbeddedResource Include="BudgetForm.resx">
       <DependentUpon>BudgetForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CategorySettings.resx">
+      <DependentUpon>CategorySettings.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ClientForm.resx">
       <DependentUpon>ClientForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ClientStep.resx">
       <DependentUpon>ClientStep.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Config.resx">
-      <DependentUpon>Config.cs</DependentUpon>
+    <EmbeddedResource Include="ConfigForm.resx">
+      <DependentUpon>ConfigForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ExpenseGraphs.resx">
+      <DependentUpon>ExpenseGraphs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IncomeGraphs.resx">
+      <DependentUpon>IncomeGraphs.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
@@ -307,6 +350,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Transactions.resx">
+      <DependentUpon>Transactions.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -543,6 +589,165 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="bin\Debug\assets\img\edit %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\assets\img\add-income-or-expense-bg.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\assets\img\empty-bg.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\assets\img\expense-homepage-bg.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\assets\img\income-and-expense-graphs-bg.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\assets\img\income-and-expense-table-bg.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\assets\img\income-and-expense-table-there-is-no-expense-bg.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\assets\img\income-homepage-bg.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\assets\img\search-bg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\assets\img\there-is-no-expenses-bg.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\assets\img\btn\btn-add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\assets\img\btn\btn-add-active.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\assets\img\btn\btn-add-expense.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\assets\img\btn\btn-add-expense-active.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\assets\img\btn\btn-add-income.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\assets\img\btn\btn-add-income-active.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\assets\img\btn\btn-add-supplier.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\assets\img\btn\btn-add-supplier-active.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\assets\img\btn\btn-budget-form.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\assets\img\btn\btn-budget-form-active.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\assets\img\btn\btn-cancel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\assets\img\btn\btn-cancel-active.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\assets\img\btn\btn-client-form.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\assets\img\btn\btn-client-form-active.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\assets\img\btn\btn-config.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\assets\img\btn\btn-config-active.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\assets\img\btn\btn-confirm-budget.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\assets\img\btn\btn-confirm-budget-active.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\assets\img\btn\btn-delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\assets\img\btn\btn-delete-active.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\assets\img\btn\btn-edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\assets\img\btn\btn-edit-active.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\assets\img\btn\btn-go-back.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\assets\img\btn\btn-go-back-active.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\assets\img\btn\btn-go-forward.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\assets\img\btn\btn-go-forward-active.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\assets\img\btn\btn-main-form.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\assets\img\btn\btn-main-form-active.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\assets\img\btn\btn-print.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\assets\img\btn\btn-print-active.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\assets\img\btn\btn-product-form.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\assets\img\btn\btn-product-form-active.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\assets\img\btn\btn-update.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\assets\img\btn\btn-update-active.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\assets\img\icon\edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\assets\img\icon\close.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\assets\img\icon\minimize.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\assets\img\icon\plus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\assets\img\icon\back.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\assets\img\icon\next.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\assets\img\btn\btn-config-main.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\assets\img\btn\btn-config-main-active.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\assets\img\btn\btn-send-email.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\assets\img\btn\btn-send-email-active.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

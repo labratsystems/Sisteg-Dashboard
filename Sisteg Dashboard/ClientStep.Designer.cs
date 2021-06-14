@@ -29,20 +29,20 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ClientStep));
-            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties5 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
-            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties6 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
-            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties7 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
-            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties8 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties1 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties2 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties3 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties4 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
             this.txt_searchClient = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
             this.panel_client = new System.Windows.Forms.Panel();
+            this.lbl_technicalReport = new System.Windows.Forms.Label();
+            this.ckb_technicalReport = new Bunifu.Framework.UI.BunifuCheckbox();
             this.cbb_budgetNumber = new Bunifu.UI.WinForms.BunifuDropdown();
             this.cbb_clientName = new Bunifu.UI.WinForms.BunifuDropdown();
             this.pcb_btnSendBudget = new System.Windows.Forms.PictureBox();
             this.pcb_btnPrint = new System.Windows.Forms.PictureBox();
             this.pcb_btnConfirmBudget = new System.Windows.Forms.PictureBox();
             this.sfd_saveBudget = new System.Windows.Forms.SaveFileDialog();
-            this.lbl_technicalReport = new System.Windows.Forms.Label();
-            this.ckb_technicalReport = new Bunifu.Framework.UI.BunifuCheckbox();
             this.ofd_sendBudget = new System.Windows.Forms.OpenFileDialog();
             this.panel_client.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pcb_btnSendBudget)).BeginInit();
@@ -84,26 +84,26 @@
             this.txt_searchClient.Modified = false;
             this.txt_searchClient.Multiline = false;
             this.txt_searchClient.Name = "txt_searchClient";
-            stateProperties5.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            stateProperties5.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(157)))));
-            stateProperties5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            stateProperties5.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.txt_searchClient.OnActiveState = stateProperties5;
-            stateProperties6.BorderColor = System.Drawing.Color.Gray;
-            stateProperties6.FillColor = System.Drawing.Color.White;
-            stateProperties6.ForeColor = System.Drawing.Color.Empty;
-            stateProperties6.PlaceholderForeColor = System.Drawing.Color.Silver;
-            this.txt_searchClient.OnDisabledState = stateProperties6;
-            stateProperties7.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            stateProperties7.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(157)))));
-            stateProperties7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            stateProperties7.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.txt_searchClient.OnHoverState = stateProperties7;
-            stateProperties8.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(157)))));
-            stateProperties8.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(157)))));
-            stateProperties8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            stateProperties8.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.txt_searchClient.OnIdleState = stateProperties8;
+            stateProperties1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            stateProperties1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(157)))));
+            stateProperties1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            stateProperties1.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.txt_searchClient.OnActiveState = stateProperties1;
+            stateProperties2.BorderColor = System.Drawing.Color.Gray;
+            stateProperties2.FillColor = System.Drawing.Color.White;
+            stateProperties2.ForeColor = System.Drawing.Color.Empty;
+            stateProperties2.PlaceholderForeColor = System.Drawing.Color.Silver;
+            this.txt_searchClient.OnDisabledState = stateProperties2;
+            stateProperties3.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            stateProperties3.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(157)))));
+            stateProperties3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            stateProperties3.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.txt_searchClient.OnHoverState = stateProperties3;
+            stateProperties4.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(157)))));
+            stateProperties4.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(157)))));
+            stateProperties4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            stateProperties4.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.txt_searchClient.OnIdleState = stateProperties4;
             this.txt_searchClient.PasswordChar = '\0';
             this.txt_searchClient.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.txt_searchClient.PlaceholderText = "Nome do cliente";
@@ -141,6 +141,33 @@
             this.panel_client.Name = "panel_client";
             this.panel_client.Size = new System.Drawing.Size(706, 298);
             this.panel_client.TabIndex = 63;
+            // 
+            // lbl_technicalReport
+            // 
+            this.lbl_technicalReport.AutoSize = true;
+            this.lbl_technicalReport.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_technicalReport.Font = new System.Drawing.Font("Courier Prime Code", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_technicalReport.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.lbl_technicalReport.Location = new System.Drawing.Point(50, 107);
+            this.lbl_technicalReport.Name = "lbl_technicalReport";
+            this.lbl_technicalReport.Size = new System.Drawing.Size(140, 21);
+            this.lbl_technicalReport.TabIndex = 110;
+            this.lbl_technicalReport.Text = "Laudo técnico";
+            // 
+            // ckb_technicalReport
+            // 
+            this.ckb_technicalReport.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.ckb_technicalReport.ChechedOffColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.ckb_technicalReport.Checked = false;
+            this.ckb_technicalReport.CheckedOnColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.ckb_technicalReport.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ckb_technicalReport.Font = new System.Drawing.Font("Courier Prime Code", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ckb_technicalReport.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(157)))));
+            this.ckb_technicalReport.Location = new System.Drawing.Point(13, 107);
+            this.ckb_technicalReport.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.ckb_technicalReport.Name = "ckb_technicalReport";
+            this.ckb_technicalReport.Size = new System.Drawing.Size(20, 20);
+            this.ckb_technicalReport.TabIndex = 109;
             // 
             // cbb_budgetNumber
             // 
@@ -214,7 +241,7 @@
             // 
             this.pcb_btnSendBudget.BackColor = System.Drawing.Color.Transparent;
             this.pcb_btnSendBudget.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pcb_btnSendBudget.Image = global::Sisteg_Dashboard.Properties.Resources.btn_sendBudget;
+            this.pcb_btnSendBudget.Image = ((System.Drawing.Image)(resources.GetObject("pcb_btnSendBudget.Image")));
             this.pcb_btnSendBudget.Location = new System.Drawing.Point(373, 143);
             this.pcb_btnSendBudget.Name = "pcb_btnSendBudget";
             this.pcb_btnSendBudget.Size = new System.Drawing.Size(328, 70);
@@ -228,7 +255,7 @@
             // 
             this.pcb_btnPrint.BackColor = System.Drawing.Color.Transparent;
             this.pcb_btnPrint.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pcb_btnPrint.Image = global::Sisteg_Dashboard.Properties.Resources.btn_print;
+            this.pcb_btnPrint.Image = ((System.Drawing.Image)(resources.GetObject("pcb_btnPrint.Image")));
             this.pcb_btnPrint.Location = new System.Drawing.Point(6, 219);
             this.pcb_btnPrint.Name = "pcb_btnPrint";
             this.pcb_btnPrint.Size = new System.Drawing.Size(328, 70);
@@ -242,7 +269,7 @@
             // 
             this.pcb_btnConfirmBudget.BackColor = System.Drawing.Color.Transparent;
             this.pcb_btnConfirmBudget.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pcb_btnConfirmBudget.Image = global::Sisteg_Dashboard.Properties.Resources.btn_confirmBudget;
+            this.pcb_btnConfirmBudget.Image = ((System.Drawing.Image)(resources.GetObject("pcb_btnConfirmBudget.Image")));
             this.pcb_btnConfirmBudget.Location = new System.Drawing.Point(6, 143);
             this.pcb_btnConfirmBudget.Name = "pcb_btnConfirmBudget";
             this.pcb_btnConfirmBudget.Size = new System.Drawing.Size(328, 70);
@@ -255,33 +282,6 @@
             // sfd_saveBudget
             // 
             this.sfd_saveBudget.Title = "Salvar arquivo";
-            // 
-            // lbl_technicalReport
-            // 
-            this.lbl_technicalReport.AutoSize = true;
-            this.lbl_technicalReport.BackColor = System.Drawing.Color.Transparent;
-            this.lbl_technicalReport.Font = new System.Drawing.Font("Courier Prime Code", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_technicalReport.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.lbl_technicalReport.Location = new System.Drawing.Point(50, 107);
-            this.lbl_technicalReport.Name = "lbl_technicalReport";
-            this.lbl_technicalReport.Size = new System.Drawing.Size(140, 21);
-            this.lbl_technicalReport.TabIndex = 110;
-            this.lbl_technicalReport.Text = "Laudo técnico";
-            // 
-            // ckb_technicalReport
-            // 
-            this.ckb_technicalReport.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.ckb_technicalReport.ChechedOffColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.ckb_technicalReport.Checked = false;
-            this.ckb_technicalReport.CheckedOnColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.ckb_technicalReport.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ckb_technicalReport.Font = new System.Drawing.Font("Courier Prime Code", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ckb_technicalReport.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(157)))));
-            this.ckb_technicalReport.Location = new System.Drawing.Point(13, 107);
-            this.ckb_technicalReport.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
-            this.ckb_technicalReport.Name = "ckb_technicalReport";
-            this.ckb_technicalReport.Size = new System.Drawing.Size(20, 20);
-            this.ckb_technicalReport.TabIndex = 109;
             // 
             // ofd_sendBudget
             // 

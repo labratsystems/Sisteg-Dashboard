@@ -18,15 +18,20 @@ namespace Sisteg_Dashboard
         //INICIA CONEXÃO COM BASE NA LOCALIZAÇÃO DO BANCO DE DADOS INTERNO DA APLICAÇÃO
         private static SQLiteConnection databaseConnection()
         {
-            connection = new SQLiteConnection("Data Source="+databasePath+databaseName);
-            connection.Open();
-            return connection;
+            try
+            {
+                Console.WriteLine("Path: " + databasePath + databaseName);
+                connection = new SQLiteConnection("Data Source=" + databasePath + databaseName);
+                connection.Open();
+                return connection;
+            }
+            catch (Exception exception) { throw exception; }
         }
 
         //FUNÇÃO QUE EXECUTA UMA CONSULTA QUALQUER
         public static DataTable query(string query)
         {
-            SQLiteDataAdapter dataAdapter = null;
+            SQLiteDataAdapter dataAdapter;
             DataTable dataTable = new DataTable();
             try
             {
@@ -52,13 +57,13 @@ namespace Sisteg_Dashboard
                     var command = databaseConnection().CreateCommand();
                     DateTime dateTime = DateTime.Parse(income.dataTransacao.ToString());
                     string formatForSQLite = dateTime.ToString("yyyy-MM-dd");
-                    command.CommandText = "INSERT INTO receita (idConta, numeroOrcamento, valorReceita, descricaoReceita, dataTransacao, categoriaReceita, observacoesReceita, recebimentoConfirmado, repetirParcelarReceita, valorFixoReceita, repeticoesValorFixoReceita, parcelarValorReceita, parcelasReceita, periodoRepetirParcelarReceita) VALUES (@idConta, @numeroOrcamento, @valorReceita, @descricaoReceita, @dataTransacao, @categoriaReceita, @observacoesReceita, @recebimentoConfirmado, @repetirParcelarReceita, @valorFixoReceita, @repeticoesValorFixoReceita, @parcelarValorReceita, @parcelasReceita, @periodoRepetirParcelarReceita)";
+                    command.CommandText = "INSERT INTO receita (idConta, numeroOrcamento, idCategoria, valorReceita, descricaoReceita, dataTransacao, observacoesReceita, recebimentoConfirmado, repetirParcelarReceita, valorFixoReceita, repeticoesValorFixoReceita, parcelarValorReceita, parcelasReceita, periodoRepetirParcelarReceita) VALUES (@idConta, @numeroOrcamento, @idCategoria, @valorReceita, @descricaoReceita, @dataTransacao, @observacoesReceita, @recebimentoConfirmado, @repetirParcelarReceita, @valorFixoReceita, @repeticoesValorFixoReceita, @parcelarValorReceita, @parcelasReceita, @periodoRepetirParcelarReceita)";
                     command.Parameters.AddWithValue("@idConta", income.idConta);
                     command.Parameters.AddWithValue("@numeroOrcamento", income.numeroOrcamento);
+                    command.Parameters.AddWithValue("@idCategoria", income.idCategoria);
                     command.Parameters.AddWithValue("@valorReceita", income.valorReceita);
                     command.Parameters.AddWithValue("@descricaoReceita", income.descricaoReceita);
                     command.Parameters.AddWithValue("@dataTransacao", formatForSQLite);
-                    command.Parameters.AddWithValue("@categoriaReceita", income.categoriaReceita);
                     command.Parameters.AddWithValue("@observacoesReceita", income.observacoesReceita);
                     command.Parameters.AddWithValue("@recebimentoConfirmado", income.recebimentoConfirmado);
                     command.Parameters.AddWithValue("@repetirParcelarReceita", income.repetirParcelarReceita);
@@ -76,18 +81,18 @@ namespace Sisteg_Dashboard
             //Atualizar receita
             public static Boolean updateIncome(Income income)
             {
-                SQLiteDataAdapter dataAdapter = null;
+                SQLiteDataAdapter dataAdapter;
                 try
                 {
                     var connection = databaseConnection();
                     var command = databaseConnection().CreateCommand();
-                    command.CommandText = "UPDATE receita SET idConta = @idConta, numeroOrcamento = @numeroOrcamento, valorReceita = @valorReceita, descricaoReceita = @descricaoReceita, dataTransacao = @dataTransacao, categoriaReceita = @categoriaReceita, observacoesReceita = @observacoesReceita, recebimentoConfirmado = @recebimentoConfirmado, repetirParcelarReceita = @repetirParcelarReceita, valorFixoReceita = @valorFixoReceita, repeticoesValorFixoReceita = @repeticoesValorFixoReceita, parcelarValorReceita = @parcelarValorReceita, parcelasReceita = @parcelasReceita, periodoRepetirParcelarReceita = @periodoRepetirParcelarReceita WHERE idReceita = @idReceita;";
+                    command.CommandText = "UPDATE receita SET idConta = @idConta, numeroOrcamento = @numeroOrcamento, idCategoria = @idCategoria, valorReceita = @valorReceita, descricaoReceita = @descricaoReceita, dataTransacao = @dataTransacao, observacoesReceita = @observacoesReceita, recebimentoConfirmado = @recebimentoConfirmado, repetirParcelarReceita = @repetirParcelarReceita, valorFixoReceita = @valorFixoReceita, repeticoesValorFixoReceita = @repeticoesValorFixoReceita, parcelarValorReceita = @parcelarValorReceita, parcelasReceita = @parcelasReceita, periodoRepetirParcelarReceita = @periodoRepetirParcelarReceita WHERE idReceita = @idReceita;";
                     command.Parameters.AddWithValue("@idConta", income.idConta);
                     command.Parameters.AddWithValue("@numeroOrcamento", income.numeroOrcamento);
+                    command.Parameters.AddWithValue("@idCategoria", income.idCategoria);
                     command.Parameters.AddWithValue("@valorReceita", income.valorReceita);
                     command.Parameters.AddWithValue("@descricaoReceita", income.descricaoReceita);
                     command.Parameters.AddWithValue("@dataTransacao", income.dataTransacao.ToString("yyyy-MM-dd"));
-                    command.Parameters.AddWithValue("@categoriaReceita", income.categoriaReceita);
                     command.Parameters.AddWithValue("@observacoesReceita", income.observacoesReceita);
                     command.Parameters.AddWithValue("@recebimentoConfirmado", income.recebimentoConfirmado);
                     command.Parameters.AddWithValue("@repetirParcelarReceita", income.repetirParcelarReceita);
@@ -108,7 +113,7 @@ namespace Sisteg_Dashboard
             //Atualizar valor total da receita
             public static Boolean updateIncomeTotalValue(BudgetedProduct budgetedProduct, decimal valorReceita)
             {
-                SQLiteDataAdapter dataAdapter = null;
+                SQLiteDataAdapter dataAdapter;
                 try
                 {
                     var connection = databaseConnection();
@@ -127,18 +132,18 @@ namespace Sisteg_Dashboard
             //Atualizar receita não parcelada ou repetida
             public static Boolean updateIncomeNotParceledOrRepeated(Income income)
             {
-                SQLiteDataAdapter dataAdapter = null;
+                SQLiteDataAdapter dataAdapter;
                 try
                 {
                     var connection = databaseConnection();
                     var command = databaseConnection().CreateCommand();
-                    command.CommandText = "UPDATE receita SET idConta = @idConta, numeroOrcamento = @numeroOrcamento, valorReceita = @valorReceita, descricaoReceita = @descricaoReceita, dataTransacao = @dataTransacao, categoriaReceita = @categoriaReceita, observacoesReceita = @observacoesReceita, recebimentoConfirmado = @recebimentoConfirmado, repetirParcelarReceita = @repetirParcelarReceita, valorFixoReceita = @valorFixoReceita, repeticoesValorFixoReceita = @repeticoesValorFixoReceita, parcelarValorReceita = @parcelarValorReceita, parcelasReceita = @parcelasReceita, periodoRepetirParcelarReceita = @periodoRepetirParcelarReceita WHERE idReceita = @idReceita;";
+                    command.CommandText = "UPDATE receita SET idConta = @idConta, numeroOrcamento = @numeroOrcamento, idCategoria = @idCategoria, valorReceita = @valorReceita, descricaoReceita = @descricaoReceita, dataTransacao = @dataTransacao, observacoesReceita = @observacoesReceita, recebimentoConfirmado = @recebimentoConfirmado, repetirParcelarReceita = @repetirParcelarReceita, valorFixoReceita = @valorFixoReceita, repeticoesValorFixoReceita = @repeticoesValorFixoReceita, parcelarValorReceita = @parcelarValorReceita, parcelasReceita = @parcelasReceita, periodoRepetirParcelarReceita = @periodoRepetirParcelarReceita WHERE idReceita = @idReceita;";
                     command.Parameters.AddWithValue("@idConta", income.idConta);
                     command.Parameters.AddWithValue("@numeroOrcamento", income.numeroOrcamento);
+                    command.Parameters.AddWithValue("@idCategoria", income.idCategoria);
                     command.Parameters.AddWithValue("@valorReceita", income.valorReceita);
                     command.Parameters.AddWithValue("@descricaoReceita", income.descricaoReceita);
                     command.Parameters.AddWithValue("@dataTransacao", income.dataTransacao.ToString("yyyy-MM-dd"));
-                    command.Parameters.AddWithValue("@categoriaReceita", income.categoriaReceita);
                     command.Parameters.AddWithValue("@observacoesReceita", income.observacoesReceita);
                     command.Parameters.AddWithValue("@recebimentoConfirmado", income.recebimentoConfirmado);
                     command.Parameters.AddWithValue("@repetirParcelarReceita", false);
@@ -159,7 +164,7 @@ namespace Sisteg_Dashboard
             //Excluir receita
             public static Boolean deleteIncome(Income income)
             {
-                SQLiteDataAdapter dataAdapter = null;
+                SQLiteDataAdapter dataAdapter;
                 try
                 {
                     var connection = databaseConnection();
@@ -177,7 +182,7 @@ namespace Sisteg_Dashboard
             //Pagar parcela
             public static Boolean payIncome(Income income)
             {
-                SQLiteDataAdapter dataAdapter = null;
+                SQLiteDataAdapter dataAdapter;
                 try
                 {
                     var connection = databaseConnection();
@@ -195,13 +200,13 @@ namespace Sisteg_Dashboard
             //Excluir todas as receitas
             public static Boolean deleteAllIncomes(Income income)
             {
-                SQLiteDataAdapter dataAdapter = null;
+                SQLiteDataAdapter dataAdapter;
                 try
                 {
                     var connection = databaseConnection();
                     var command = databaseConnection().CreateCommand();
                     command.CommandText = "DELETE FROM receita WHERE numeroOrcamento = @numeroOrcamento;";
-                    command.Parameters.AddWithValue("@numeroorcamento", income.numeroOrcamento);
+                    command.Parameters.AddWithValue("@numeroOrcamento", income.numeroOrcamento);
                     dataAdapter = new SQLiteDataAdapter(command.CommandText, connection);
                     command.ExecuteNonQuery();
                     connection.Close();
@@ -219,13 +224,13 @@ namespace Sisteg_Dashboard
                 {
                     var connection = databaseConnection();
                     var command = databaseConnection().CreateCommand();
-                    command.CommandText = "INSERT INTO despesa (idConta, numeroOrcamento, valorDespesa, descricaoDespesa, dataTransacao, categoriaDespesa, observacoesDespesa, pagamentoConfirmado, repetirParcelarDespesa, valorFixoDespesa, repeticoesValorFixoDespesa, parcelarValorDespesa, parcelasDespesa, periodoRepetirParcelarDespesa) VALUES (@idConta, @numeroOrcamento, @valorDespesa, @descricaoDespesa, @dataTransacao, @categoriaDespesa, @observacoesDespesa, @pagamentoConfirmado, @repetirParcelarDespesa, @valorFixoDespesa, @repeticoesValorFixoDespesa, @parcelarValorDespesa, @parcelasDespesa, @periodoRepetirParcelarDespesa)";
+                    command.CommandText = "INSERT INTO despesa (idConta, numeroOrcamento, valorDespesa, descricaoDespesa, dataTransacao, observacoesDespesa, pagamentoConfirmado, repetirParcelarDespesa, valorFixoDespesa, repeticoesValorFixoDespesa, parcelarValorDespesa, parcelasDespesa, periodoRepetirParcelarDespesa) VALUES (@idConta, @numeroOrcamento, @idCategoria, @valorDespesa, @descricaoDespesa, @dataTransacao, @observacoesDespesa, @pagamentoConfirmado, @repetirParcelarDespesa, @valorFixoDespesa, @repeticoesValorFixoDespesa, @parcelarValorDespesa, @parcelasDespesa, @periodoRepetirParcelarDespesa)";
                     command.Parameters.AddWithValue("@idConta", expense.idConta);
                     command.Parameters.AddWithValue("@numeroOrcamento", expense.numeroOrcamento);
+                    command.Parameters.AddWithValue("@idCategoria", expense.idCategoria);
                     command.Parameters.AddWithValue("@valorDespesa", expense.valorDespesa);
                     command.Parameters.AddWithValue("@descricaoDespesa", expense.descricaoDespesa);
                     command.Parameters.AddWithValue("@dataTransacao", expense.dataTransacao.ToString("yyyy-MM-dd"));
-                    command.Parameters.AddWithValue("@categoriaDespesa", expense.categoriaDespesa);
                     command.Parameters.AddWithValue("@observacoesDespesa", expense.observacoesDespesa);
                     command.Parameters.AddWithValue("@pagamentoConfirmado", expense.pagamentoConfirmado);
                     command.Parameters.AddWithValue("@repetirParcelarDespesa", expense.repetirParcelarDespesa);
@@ -244,19 +249,18 @@ namespace Sisteg_Dashboard
             //Atualizar despesa
             public static Boolean updateExpense(Expense expense)
             {
-                SQLiteDataAdapter dataAdapter = null;
-                DataTable dataTable = new DataTable();
+                SQLiteDataAdapter dataAdapter;
                 try
                 {
                     var connection = databaseConnection();
                     var command = databaseConnection().CreateCommand();
-                    command.CommandText = "UPDATE despesa SET idConta = @idConta, numeroOrcamento = @numeroOrcamento, valorDespesa = @valorDespesa, descricaoDespesa = @descricaoDespesa, dataTransacao = @dataTransacao, categoriaDespesa = @categoriaDespesa, observacoesDespesa = @observacoesDespesa, pagamentoConfirmado = @pagamentoConfirmado, repetirParcelarDespesa = @repetirParcelarDespesa, valorFixoDespesa = @valorFixoDespesa, repeticoesValorFixoDespesa = @repeticoesValorFixoDespesa, parcelarValorDespesa = @parcelarValorDespesa, parcelasDespesa = @parcelasDespesa, periodoRepetirParcelarDespesa = @periodoRepetirParcelarDespesa WHERE idDespesa = @idDespesa;";
+                    command.CommandText = "UPDATE despesa SET idConta = @idConta, numeroOrcamento = @numeroOrcamento, idCategoria = @idCategoria, valorDespesa = @valorDespesa, descricaoDespesa = @descricaoDespesa, dataTransacao = @dataTransacao, observacoesDespesa = @observacoesDespesa, pagamentoConfirmado = @pagamentoConfirmado, repetirParcelarDespesa = @repetirParcelarDespesa, valorFixoDespesa = @valorFixoDespesa, repeticoesValorFixoDespesa = @repeticoesValorFixoDespesa, parcelarValorDespesa = @parcelarValorDespesa, parcelasDespesa = @parcelasDespesa, periodoRepetirParcelarDespesa = @periodoRepetirParcelarDespesa WHERE idDespesa = @idDespesa;";
                     command.Parameters.AddWithValue("@idConta", expense.idConta);
                     command.Parameters.AddWithValue("@numeroOrcamento", expense.numeroOrcamento);
+                    command.Parameters.AddWithValue("@idCategoria", expense.idCategoria);
                     command.Parameters.AddWithValue("@valorDespesa", expense.valorDespesa);
                     command.Parameters.AddWithValue("@descricaoDespesa", expense.descricaoDespesa);
                     command.Parameters.AddWithValue("@dataTransacao", expense.dataTransacao.ToString("yyyy-MM-dd"));
-                    command.Parameters.AddWithValue("@categoriaDespesa", expense.categoriaDespesa);
                     command.Parameters.AddWithValue("@observacoesDespesa", expense.observacoesDespesa);
                     command.Parameters.AddWithValue("@pagamentoConfirmado", expense.pagamentoConfirmado);
                     command.Parameters.AddWithValue("@repetirParcelarDespesa", expense.repetirParcelarDespesa);
@@ -277,19 +281,18 @@ namespace Sisteg_Dashboard
             //Atualizar despesa não parcelada ou repetida
             public static Boolean updateExpenseNotParceledOrRepeated(Expense expense)
             {
-                SQLiteDataAdapter dataAdapter = null;
-                DataTable dataTable = new DataTable();
+                SQLiteDataAdapter dataAdapter;
                 try
                 {
                     var connection = databaseConnection();
                     var command = databaseConnection().CreateCommand();
-                    command.CommandText = "UPDATE despesa SET idConta = @idConta, numeroOrcamento = @numeroOrcamento, valorDespesa = @valorDespesa, descricaoDespesa = @descricaoDespesa, dataTransacao = @dataTransacao, categoriaDespesa = @categoriaDespesa, observacoesDespesa = @observacoesDespesa, pagamentoConfirmado = @pagamentoConfirmado, repetirParcelarDespesa = @repetirParcelarDespesa, valorFixoDespesa = @valorFixoDespesa, repeticoesValorFixoDespesa = @repeticoesValorFixoDespesa, parcelarValorDespesa = @parcelarValorDespesa, parcelasDespesa = @parcelasDespesa, periodoRepetirParcelarDespesa = @periodoRepetirParcelarDespesa WHERE idDespesa = @idDespesa;";
+                    command.CommandText = "UPDATE despesa SET idConta = @idConta, numeroOrcamento = @numeroOrcamento, idCategoria = @idCategoria, valorDespesa = @valorDespesa, descricaoDespesa = @descricaoDespesa, dataTransacao = @dataTransacao, observacoesDespesa = @observacoesDespesa, pagamentoConfirmado = @pagamentoConfirmado, repetirParcelarDespesa = @repetirParcelarDespesa, valorFixoDespesa = @valorFixoDespesa, repeticoesValorFixoDespesa = @repeticoesValorFixoDespesa, parcelarValorDespesa = @parcelarValorDespesa, parcelasDespesa = @parcelasDespesa, periodoRepetirParcelarDespesa = @periodoRepetirParcelarDespesa WHERE idDespesa = @idDespesa;";
                     command.Parameters.AddWithValue("@idConta", expense.idConta);
                     command.Parameters.AddWithValue("@numeroOrcamento", expense.numeroOrcamento);
+                    command.Parameters.AddWithValue("@idCategoria", expense.idCategoria);
                     command.Parameters.AddWithValue("@valorDespesa", expense.valorDespesa);
                     command.Parameters.AddWithValue("@descricaoDespesa", expense.descricaoDespesa);
                     command.Parameters.AddWithValue("@dataTransacao", expense.dataTransacao.ToString("yyyy-MM-dd"));
-                    command.Parameters.AddWithValue("@categoriaDespesa", expense.categoriaDespesa);
                     command.Parameters.AddWithValue("@observacoesDespesa", expense.observacoesDespesa);
                     command.Parameters.AddWithValue("@pagamentoConfirmado", expense.pagamentoConfirmado);
                     command.Parameters.AddWithValue("@repetirParcelarDespesa", false);
@@ -310,7 +313,7 @@ namespace Sisteg_Dashboard
             //Excluir despesa
             public static Boolean deleteExpense(Expense expense)
             {
-                SQLiteDataAdapter dataAdapter = null;
+                SQLiteDataAdapter dataAdapter;
                 try
                 {
                     var connection = databaseConnection();
@@ -334,13 +337,14 @@ namespace Sisteg_Dashboard
                 {
                     var connection = databaseConnection();
                     var command = databaseConnection().CreateCommand();
-                    command.CommandText = "INSERT INTO repeticao (idReceita, idDespesa, valorRepeticao, descricaoRepeticao, dataTransacao, categoriaRepeticao, observacoesRepeticao, recebimentoConfirmado, pagamentoConfirmado) VALUES (@idReceita, @idDespesa, @valorRepeticao, @descricaoRepeticao, @dataTransacao, @categoriaRepeticao, @observacoesRepeticao, @recebimentoConfirmado, @pagamentoConfirmado)";
+                    command.CommandText = "INSERT INTO repeticao (idReceita, idDespesa, idConta, idCategoria, valorRepeticao, descricaoRepeticao, dataTransacao, observacoesRepeticao, recebimentoConfirmado, pagamentoConfirmado) VALUES (@idReceita, @idDespesa, @idConta, @idCategoria, @valorRepeticao, @descricaoRepeticao, @dataTransacao, @observacoesRepeticao, @recebimentoConfirmado, @pagamentoConfirmado)";
                     command.Parameters.AddWithValue("@idReceita", repeat.idReceita);
                     command.Parameters.AddWithValue("@idDespesa", repeat.idDespesa);
+                    command.Parameters.AddWithValue("@idConta", repeat.idConta);
+                    command.Parameters.AddWithValue("@idCategoria", repeat.idCategoria);
                     command.Parameters.AddWithValue("@valorRepeticao", repeat.valorRepeticao);
                     command.Parameters.AddWithValue("@descricaoRepeticao", repeat.descricaoRepeticao);
                     command.Parameters.AddWithValue("@dataTransacao", repeat.dataTransacao.ToString("yyyy-MM-dd"));
-                    command.Parameters.AddWithValue("@categoriaRepeticao", repeat.categoriaRepeticao);
                     command.Parameters.AddWithValue("@observacoesRepeticao", repeat.observacoesRepeticao);
                     command.Parameters.AddWithValue("@recebimentoConfirmado", repeat.recebimentoConfirmado);
                     command.Parameters.AddWithValue("@pagamentoConfirmado", repeat.pagamentoConfirmado);
@@ -354,16 +358,17 @@ namespace Sisteg_Dashboard
             //Atualizar repetição
             public static Boolean updateRepeat(Repeat repeat)
             {
-                SQLiteDataAdapter dataAdapter = null;
+                SQLiteDataAdapter dataAdapter;
                 try
                 {
                     var connection = databaseConnection();
                     var command = databaseConnection().CreateCommand();
-                    command.CommandText = "UPDATE repeticao SET valorRepeticao = @valorRepeticao, descricaoRepeticao = @descricaoRepeticao, dataTransacao = @dataTransacao, categoriaRepeticao = @categoriaRepeticao, observacoesRepeticao = @observacoesRepeticao, recebimentoConfirmado = @recebimentoConfirmado, pagamentoConfirmado = @pagamentoConfirmado WHERE idRepeticao = @idRepeticao;";
+                    command.CommandText = "UPDATE repeticao SET idConta = @idConta, idCategoria = @idCategoria, valorRepeticao = @valorRepeticao, descricaoRepeticao = @descricaoRepeticao, dataTransacao = @dataTransacao, observacoesRepeticao = @observacoesRepeticao, recebimentoConfirmado = @recebimentoConfirmado, pagamentoConfirmado = @pagamentoConfirmado WHERE idRepeticao = @idRepeticao;";
+                    command.Parameters.AddWithValue("@idConta", repeat.idConta);
+                    command.Parameters.AddWithValue("@idCategoria", repeat.idCategoria);
                     command.Parameters.AddWithValue("@valorRepeticao", repeat.valorRepeticao);
                     command.Parameters.AddWithValue("@descricaoRepeticao", repeat.descricaoRepeticao);
                     command.Parameters.AddWithValue("@dataTransacao", repeat.dataTransacao.ToString("yyyy-MM-dd"));
-                    command.Parameters.AddWithValue("@categoriaRepeticao", repeat.categoriaRepeticao);
                     command.Parameters.AddWithValue("@observacoesRepeticao", repeat.observacoesRepeticao);
                     command.Parameters.AddWithValue("@recebimentoConfirmado", repeat.recebimentoConfirmado);
                     command.Parameters.AddWithValue("@pagamentoConfirmado", repeat.pagamentoConfirmado);
@@ -379,7 +384,7 @@ namespace Sisteg_Dashboard
             //Excluir repetição
             public static Boolean deleteRepeat(Repeat repeat)
             {
-                SQLiteDataAdapter dataAdapter = null;
+                SQLiteDataAdapter dataAdapter;
                 try
                 {
                     var connection = databaseConnection();
@@ -397,7 +402,7 @@ namespace Sisteg_Dashboard
             //Excluir todas as repetições da receita
             public static Boolean deleteAllRepeats(Income income)
             {
-                SQLiteDataAdapter dataAdapter = null;
+                SQLiteDataAdapter dataAdapter;
                 try
                 {
                     var connection = databaseConnection();
@@ -415,8 +420,7 @@ namespace Sisteg_Dashboard
             //Excluir todas as repetições da despesa
             public static Boolean deleteAllRepeats(Expense expense)
             {
-                SQLiteDataAdapter dataAdapter = null;
-                DataTable dataTable = new DataTable();
+                SQLiteDataAdapter dataAdapter;
                 try
                 {
                     var connection = databaseConnection();
@@ -440,13 +444,14 @@ namespace Sisteg_Dashboard
                 {
                     var connection = databaseConnection();
                     var command = databaseConnection().CreateCommand();
-                    command.CommandText = "INSERT INTO parcela (idReceita, idDespesa, valorParcela, descricaoParcela, dataTransacao, categoriaParcela, observacoesParcela, recebimentoConfirmado, pagamentoConfirmado) VALUES (@idReceita, @idDespesa, @valorParcela, @descricaoParcela, @dataTransacao, @categoriaParcela, @observacoesParcela, @recebimentoConfirmado, @pagamentoConfirmado)";
+                    command.CommandText = "INSERT INTO parcela (idReceita, idDespesa, idConta, idCategoria, valorParcela, descricaoParcela, dataTransacao, observacoesParcela, recebimentoConfirmado, pagamentoConfirmado) VALUES (@idReceita, @idDespesa, @idConta, @idCategoria, @valorParcela, @descricaoParcela, @dataTransacao, @observacoesParcela, @recebimentoConfirmado, @pagamentoConfirmado)";
                     command.Parameters.AddWithValue("@idReceita", parcel.idReceita);
                     command.Parameters.AddWithValue("@idDespesa", parcel.idDespesa);
+                    command.Parameters.AddWithValue("@idConta", parcel.idConta);
+                    command.Parameters.AddWithValue("@idCategoria", parcel.idCategoria);
                     command.Parameters.AddWithValue("@valorParcela", parcel.valorParcela);
                     command.Parameters.AddWithValue("@descricaoParcela", parcel.descricaoParcela);
                     command.Parameters.AddWithValue("@dataTransacao", parcel.dataTransacao.ToString("yyyy-MM-dd"));
-                    command.Parameters.AddWithValue("@categoriaParcela", parcel.categoriaParcela);
                     command.Parameters.AddWithValue("@observacoesParcela", parcel.observacoesParcela);
                     command.Parameters.AddWithValue("@recebimentoConfirmado", parcel.recebimentoConfirmado);
                     command.Parameters.AddWithValue("@pagamentoConfirmado", parcel.pagamentoConfirmado);
@@ -460,7 +465,7 @@ namespace Sisteg_Dashboard
         //Atualizar parcela
         public static Boolean updateParcelValue(Parcel parcel)
         {
-            SQLiteDataAdapter dataAdapter = null;
+            SQLiteDataAdapter dataAdapter;
             try
             {
                 var connection = databaseConnection();
@@ -479,16 +484,17 @@ namespace Sisteg_Dashboard
         //Atualizar parcela
         public static Boolean updateParcel(Parcel parcel)
             {
-                SQLiteDataAdapter dataAdapter = null;
+                SQLiteDataAdapter dataAdapter;
                 try
                 {
                     var connection = databaseConnection();
                     var command = databaseConnection().CreateCommand();
-                    command.CommandText = "UPDATE parcela SET valorParcela = @valorParcela, descricaoParcela = @descricaoParcela, dataTransacao = @dataTransacao, categoriaParcela = @categoriaParcela, observacoesParcela = @observacoesParcela, recebimentoConfirmado = @recebimentoConfirmado, pagamentoConfirmado = @pagamentoConfirmado WHERE idParcela = @idParcela;";
+                    command.CommandText = "UPDATE parcela SET idConta = @idConta, idCategoria = @idCategoria, valorParcela = @valorParcela, descricaoParcela = @descricaoParcela, dataTransacao = @dataTransacao, observacoesParcela = @observacoesParcela, recebimentoConfirmado = @recebimentoConfirmado, pagamentoConfirmado = @pagamentoConfirmado WHERE idParcela = @idParcela;";
+                    command.Parameters.AddWithValue("@idConta", parcel.idConta);
+                    command.Parameters.AddWithValue("@idCategoria", parcel.idCategoria);
                     command.Parameters.AddWithValue("@valorParcela", parcel.valorParcela);
                     command.Parameters.AddWithValue("@descricaoParcela", parcel.descricaoParcela);
                     command.Parameters.AddWithValue("@dataTransacao", parcel.dataTransacao.ToString("yyyy-MM-dd"));
-                    command.Parameters.AddWithValue("@categoriaParcela", parcel.categoriaParcela);
                     command.Parameters.AddWithValue("@observacoesParcela", parcel.observacoesParcela);
                     command.Parameters.AddWithValue("@recebimentoConfirmado", parcel.recebimentoConfirmado);
                     command.Parameters.AddWithValue("@pagamentoConfirmado", parcel.pagamentoConfirmado);
@@ -504,7 +510,7 @@ namespace Sisteg_Dashboard
             //Excluir parcela
             public static Boolean deleteParcel(Parcel parcel)
             {
-                SQLiteDataAdapter dataAdapter = null;
+                SQLiteDataAdapter dataAdapter;
                 try
                 {
                     var connection = databaseConnection();
@@ -522,7 +528,7 @@ namespace Sisteg_Dashboard
             //Excluir todas as parcelas da receita
             public static Boolean deleteAllParcels(Income income)
             {
-                SQLiteDataAdapter dataAdapter = null;
+                SQLiteDataAdapter dataAdapter;
                 try
                 {
                     var connection = databaseConnection();
@@ -540,7 +546,7 @@ namespace Sisteg_Dashboard
             //Excluir todas as parcelas da despesa
             public static Boolean deleteAllParcels(Expense expense)
             {
-                SQLiteDataAdapter dataAdapter = null;
+                SQLiteDataAdapter dataAdapter;
                 try
                 {
                     var connection = databaseConnection();
@@ -558,7 +564,7 @@ namespace Sisteg_Dashboard
             //Pagar parcela
             public static Boolean payParcel(Parcel parcel)
             {
-                SQLiteDataAdapter dataAdapter = null;
+                SQLiteDataAdapter dataAdapter;
                 try
                 {
                     var connection = databaseConnection();
@@ -601,7 +607,7 @@ namespace Sisteg_Dashboard
             //Atualizar cliente
             public static Boolean updateClient(Client client)
             {
-                SQLiteDataAdapter dataAdapter = null;
+                SQLiteDataAdapter dataAdapter;
                 try
                 {
                     var connection = databaseConnection();
@@ -626,8 +632,7 @@ namespace Sisteg_Dashboard
             //Excluir cliente
             public static Boolean deleteClient(Client client)
             {
-                SQLiteDataAdapter dataAdapter = null;
-                DataTable dataTable = new DataTable();
+                SQLiteDataAdapter dataAdapter;
                 try
                 {
                     var connection = databaseConnection();
@@ -666,7 +671,7 @@ namespace Sisteg_Dashboard
             //Atualizar telefone
             public static Boolean updateTelephone(Telephone telephone)
             {
-                SQLiteDataAdapter dataAdapter = null;
+                SQLiteDataAdapter dataAdapter;
                 try
                 {
                     var connection = databaseConnection();
@@ -686,7 +691,7 @@ namespace Sisteg_Dashboard
             //Excluir todas os telefones do cliente
             public static Boolean deleteTelephone(Telephone telephone)
             {
-                SQLiteDataAdapter dataAdapter = null;
+                SQLiteDataAdapter dataAdapter;
                 try
                 {
                     var connection = databaseConnection();
@@ -704,7 +709,7 @@ namespace Sisteg_Dashboard
             //Excluir todas os telefones do cliente
             public static Boolean deleteAllTelephones(Client client)
             {
-                SQLiteDataAdapter dataAdapter = null;
+                SQLiteDataAdapter dataAdapter;
                 try
                 {
                     var connection = databaseConnection();
@@ -722,7 +727,7 @@ namespace Sisteg_Dashboard
             //Excluir todas os telefones do fornecedor
             public static Boolean deleteAllTelephones(Supplier supplier)
             {
-                SQLiteDataAdapter dataAdapter = null;
+                SQLiteDataAdapter dataAdapter;
                 try
                 {
                     var connection = databaseConnection();
@@ -746,10 +751,10 @@ namespace Sisteg_Dashboard
                 {
                     var connection = databaseConnection();
                     var command = databaseConnection().CreateCommand();
-                    command.CommandText = "INSERT INTO produto (idFornecedor, nomeProduto, categoriaProduto, valorUnitario) VALUES (@idFornecedor, @nomeProduto, @categoriaProduto, @valorUnitario)";
+                    command.CommandText = "INSERT INTO produto (idFornecedor, idCategoria, nomeProduto, valorUnitario) VALUES (@idFornecedor, @idCategoria, @nomeProduto, @valorUnitario)";
                     command.Parameters.AddWithValue("@idFornecedor", product.idFornecedor);
+                    command.Parameters.AddWithValue("@idCategoria", product.idCategoria);
                     command.Parameters.AddWithValue("@nomeProduto", product.nomeProduto);
-                    command.Parameters.AddWithValue("@categoriaProduto", product.categoriaProduto);
                     command.Parameters.AddWithValue("@valorUnitario", product.valorUnitario);
                     command.ExecuteNonQuery();
                     connection.Close();
@@ -761,16 +766,15 @@ namespace Sisteg_Dashboard
             //Atualizar produto
             public static Boolean updateProduct(Product product)
             {
-                SQLiteDataAdapter dataAdapter = null;
-                DataTable dataTable = new DataTable();
+                SQLiteDataAdapter dataAdapter;
                 try
                 {
                     var connection = databaseConnection();
                     var command = databaseConnection().CreateCommand();
-                    command.CommandText = "UPDATE produto SET idFornecedor = @idFornecedor, nomeProduto = @nomeProduto, categoriaProduto = @categoriaProduto, valorUnitario = @valorUnitario WHERE idProduto = @idProduto;";
+                    command.CommandText = "UPDATE produto SET idFornecedor = @idFornecedor, idCategoria = @idCategoria, nomeProduto = @nomeProduto, valorUnitario = @valorUnitario WHERE idProduto = @idProduto;";
                     command.Parameters.AddWithValue("@idFornecedor", product.idFornecedor);
+                    command.Parameters.AddWithValue("@idCategoria", product.idCategoria);
                     command.Parameters.AddWithValue("@nomeProduto", product.nomeProduto);
-                    command.Parameters.AddWithValue("@categoriaProduto", product.categoriaProduto);
                     command.Parameters.AddWithValue("@valorUnitario", product.valorUnitario);
                     command.Parameters.AddWithValue("@idProduto", product.idProduto);
                     dataAdapter = new SQLiteDataAdapter(command.CommandText, connection);
@@ -784,8 +788,7 @@ namespace Sisteg_Dashboard
             //Excluir produto
             public static Boolean deleteProduct(Product product)
             {
-                SQLiteDataAdapter dataAdapter = null;
-                DataTable dataTable = new DataTable();
+                SQLiteDataAdapter dataAdapter;
                 try
                 {
                     var connection = databaseConnection();
@@ -803,8 +806,7 @@ namespace Sisteg_Dashboard
             //Excluir todos os produtos
             public static Boolean deleteAllProducts(Supplier supplier)
             {
-                SQLiteDataAdapter dataAdapter = null;
-                DataTable dataTable = new DataTable();
+                SQLiteDataAdapter dataAdapter;
                 try
                 {
                     var connection = databaseConnection();
@@ -848,8 +850,7 @@ namespace Sisteg_Dashboard
             //Atualizar fornecedor
             public static Boolean updateSupplier(Supplier supplier)
             {
-                SQLiteDataAdapter dataAdapter = null;
-                DataTable dataTable = new DataTable();
+                SQLiteDataAdapter dataAdapter;
                 try
                 {
                     var connection = databaseConnection();
@@ -874,8 +875,7 @@ namespace Sisteg_Dashboard
             //Excluir fornecedor
             public static Boolean deleteSupplier(Supplier supplier)
             {
-                SQLiteDataAdapter dataAdapter = null;
-                DataTable dataTable = new DataTable();
+                SQLiteDataAdapter dataAdapter;
                 try
                 {
                     var connection = databaseConnection();
@@ -892,286 +892,430 @@ namespace Sisteg_Dashboard
 
         //ORÇAMENTO
 
-        //CADASTRAR ORÇAMENTO
-        public static Boolean newBudget(Budget budget)
-        {
-            try
+            //Cadastrar orçamento
+            public static Boolean newBudget(Budget budget)
             {
-                var connection = databaseConnection();
-                var command = databaseConnection().CreateCommand();
-                DateTime dateTime = DateTime.Parse(budget.dataOrcamento.ToString());
-                string formatForSQLite = dateTime.ToString("yyyy-MM-dd");
-                command.CommandText = "INSERT INTO orcamento (idCliente, dataOrcamento, valorTrabalho, valorTotal, condicaoPagamento, orcamentoConfirmado) VALUES (@idCliente, @dataOrcamento, @valorTrabalho, @valorTotal, @condicaoPagamento, @orcamentoConfirmado)";
-                command.Parameters.AddWithValue("@idCliente", budget.idCliente);
-                command.Parameters.AddWithValue("@dataOrcamento", formatForSQLite);
-                command.Parameters.AddWithValue("@valorTrabalho", budget.valorTrabalho);
-                command.Parameters.AddWithValue("@valorTotal", budget.valorTotal);
-                command.Parameters.AddWithValue("@condicaoPagamento", budget.condicaoPagamento);
-                command.Parameters.AddWithValue("@orcamentoConfirmado", budget.orcamentoConfirmado);
-                command.ExecuteNonQuery();
-                connection.Close();
-                return true;
+                try
+                {
+                    var connection = databaseConnection();
+                    var command = databaseConnection().CreateCommand();
+                    DateTime dateTime = DateTime.Parse(budget.dataOrcamento.ToString());
+                    string formatForSQLite = dateTime.ToString("yyyy-MM-dd");
+                    command.CommandText = "INSERT INTO orcamento (idCliente, dataOrcamento, valorTrabalho, valorTotal, condicaoPagamento, orcamentoConfirmado) VALUES (@idCliente, @dataOrcamento, @valorTrabalho, @valorTotal, @condicaoPagamento, @orcamentoConfirmado)";
+                    command.Parameters.AddWithValue("@idCliente", budget.idCliente);
+                    command.Parameters.AddWithValue("@dataOrcamento", formatForSQLite);
+                    command.Parameters.AddWithValue("@valorTrabalho", budget.valorTrabalho);
+                    command.Parameters.AddWithValue("@valorTotal", budget.valorTotal);
+                    command.Parameters.AddWithValue("@condicaoPagamento", budget.condicaoPagamento);
+                    command.Parameters.AddWithValue("@orcamentoConfirmado", budget.orcamentoConfirmado);
+                    command.ExecuteNonQuery();
+                    connection.Close();
+                    return true;
+                }
+                catch (Exception exception)
+                {
+                    throw exception;
+                }
             }
-            catch (Exception exception)
-            {
-                throw exception;
-            }
-        }
 
-        //ATUALIZAR ORÇAMENTO
-        public static Boolean updateBudget(Budget budget)
-        {
-            SQLiteDataAdapter dataAdapter = null;
-            DataTable dataTable = new DataTable();
-            try
+            //Atualizar orçamento
+            public static Boolean updateBudget(Budget budget)
             {
-                var connection = databaseConnection();
-                var command = databaseConnection().CreateCommand();
-                DateTime dateTime = DateTime.Parse(budget.dataOrcamento.ToString());
-                string formatForSQLite = dateTime.ToString("yyyy-MM-dd");
-                command.CommandText = "UPDATE orcamento SET dataOrcamento = @dataOrcamento, valorTrabalho = @valorTrabalho, valorTotal = @valorTotal, condicaoPagamento = @condicaoPagamento, orcamentoConfirmado = @orcamentoConfirmado WHERE numeroOrcamento = @numeroOrcamento;";
-                command.Parameters.AddWithValue("@dataOrcamento", formatForSQLite);
-                command.Parameters.AddWithValue("@valorTrabalho", budget.valorTrabalho);
-                command.Parameters.AddWithValue("@valorTotal", budget.valorTotal);
-                command.Parameters.AddWithValue("@condicaoPagamento", budget.condicaoPagamento);
-                command.Parameters.AddWithValue("@orcamentoConfirmado", budget.orcamentoConfirmado);
-                command.Parameters.AddWithValue("@numeroOrcamento", budget.numeroOrcamento);
-                dataAdapter = new SQLiteDataAdapter(command.CommandText, connection);
-                command.ExecuteNonQuery();
-                connection.Close();
-                return true;
+                SQLiteDataAdapter dataAdapter;
+                try
+                {
+                    var connection = databaseConnection();
+                    var command = databaseConnection().CreateCommand();
+                    DateTime dateTime = DateTime.Parse(budget.dataOrcamento.ToString());
+                    string formatForSQLite = dateTime.ToString("yyyy-MM-dd");
+                    command.CommandText = "UPDATE orcamento SET dataOrcamento = @dataOrcamento, valorTrabalho = @valorTrabalho, valorTotal = @valorTotal, condicaoPagamento = @condicaoPagamento, orcamentoConfirmado = @orcamentoConfirmado WHERE numeroOrcamento = @numeroOrcamento;";
+                    command.Parameters.AddWithValue("@dataOrcamento", formatForSQLite);
+                    command.Parameters.AddWithValue("@valorTrabalho", budget.valorTrabalho);
+                    command.Parameters.AddWithValue("@valorTotal", budget.valorTotal);
+                    command.Parameters.AddWithValue("@condicaoPagamento", budget.condicaoPagamento);
+                    command.Parameters.AddWithValue("@orcamentoConfirmado", budget.orcamentoConfirmado);
+                    command.Parameters.AddWithValue("@numeroOrcamento", budget.numeroOrcamento);
+                    dataAdapter = new SQLiteDataAdapter(command.CommandText, connection);
+                    command.ExecuteNonQuery();
+                    connection.Close();
+                    return true;
+                }
+                catch (Exception exception)
+                {
+                    throw exception;
+                }
             }
-            catch (Exception exception)
-            {
-                throw exception;
-            }
-        }
 
-        //CONFIRMAR ORÇAMENTO
-        public static Boolean confirmBudget(Budget budget)
-        {
-            SQLiteDataAdapter dataAdapter = null;
-            DataTable dataTable = new DataTable();
-            try
+            //Confirmar orçamento
+            public static Boolean confirmBudget(Budget budget)
             {
-                var connection = databaseConnection();
-                var command = databaseConnection().CreateCommand();
-                command.CommandText = "UPDATE orcamento SET orcamentoConfirmado = @orcamentoConfirmado WHERE numeroOrcamento = @numeroOrcamento;";
-                command.Parameters.AddWithValue("@orcamentoConfirmado", budget.orcamentoConfirmado);
-                command.Parameters.AddWithValue("@numeroOrcamento", budget.numeroOrcamento);
-                dataAdapter = new SQLiteDataAdapter(command.CommandText, connection);
-                command.ExecuteNonQuery();
-                connection.Close();
-                return true;
+                SQLiteDataAdapter dataAdapter;
+                try
+                {
+                    var connection = databaseConnection();
+                    var command = databaseConnection().CreateCommand();
+                    command.CommandText = "UPDATE orcamento SET orcamentoConfirmado = @orcamentoConfirmado WHERE numeroOrcamento = @numeroOrcamento;";
+                    command.Parameters.AddWithValue("@orcamentoConfirmado", budget.orcamentoConfirmado);
+                    command.Parameters.AddWithValue("@numeroOrcamento", budget.numeroOrcamento);
+                    dataAdapter = new SQLiteDataAdapter(command.CommandText, connection);
+                    command.ExecuteNonQuery();
+                    connection.Close();
+                    return true;
+                }
+                catch (Exception exception)
+                {
+                    throw exception;
+                }
             }
-            catch (Exception exception)
-            {
-                throw exception;
-            }
-        }
 
-        //ATUALIZAR VALOR TOTAL DO ORÇAMENTO
-        public static Boolean updateBudgetTotalValue(BudgetedProduct budgetedProduct, decimal valorTotal)
-        {
-            SQLiteDataAdapter dataAdapter = null;
-            DataTable dataTable = new DataTable();
-            try
+            //Atualizar valor total do orçamento
+            public static Boolean updateBudgetTotalValue(BudgetedProduct budgetedProduct, decimal valorTotal)
             {
-                var connection = databaseConnection();
-                var command = databaseConnection().CreateCommand();
-                command.CommandText = "UPDATE orcamento SET valorTotal = @valorTotal WHERE numeroOrcamento = @numeroOrcamento;";
-                command.Parameters.AddWithValue("@valorTotal", valorTotal);
-                command.Parameters.AddWithValue("@numeroOrcamento", budgetedProduct.numeroOrcamento);
-                dataAdapter = new SQLiteDataAdapter(command.CommandText, connection);
-                command.ExecuteNonQuery();
-                connection.Close();
-                return true;
+                SQLiteDataAdapter dataAdapter;
+                try
+                {
+                    var connection = databaseConnection();
+                    var command = databaseConnection().CreateCommand();
+                    command.CommandText = "UPDATE orcamento SET valorTotal = @valorTotal WHERE numeroOrcamento = @numeroOrcamento;";
+                    command.Parameters.AddWithValue("@valorTotal", valorTotal);
+                    command.Parameters.AddWithValue("@numeroOrcamento", budgetedProduct.numeroOrcamento);
+                    dataAdapter = new SQLiteDataAdapter(command.CommandText, connection);
+                    command.ExecuteNonQuery();
+                    connection.Close();
+                    return true;
+                }
+                catch (Exception exception)
+                {
+                    throw exception;
+                }
             }
-            catch (Exception exception)
-            {
-                throw exception;
-            }
-        }
 
-        //EXCLUIR ORÇAMENTO
-        public static Boolean deleteBudget(Budget budget)
-        {
-            SQLiteDataAdapter dataAdapter = null;
-            DataTable dataTable = new DataTable();
-            try
+            //Excluir orçamento
+            public static Boolean deleteBudget(Budget budget)
             {
-                var connection = databaseConnection();
-                var commandClient = databaseConnection().CreateCommand();
-                commandClient.CommandText = "DELETE FROM orcamento WHERE numeroOrcamento = @numeroOrcamento;";
-                commandClient.Parameters.AddWithValue("@numeroOrcamento", budget.numeroOrcamento);
-                dataAdapter = new SQLiteDataAdapter(commandClient.CommandText, connection);
-                commandClient.ExecuteNonQuery();
-                connection.Close();
-                return true;
+                SQLiteDataAdapter dataAdapter;
+                try
+                {
+                    var connection = databaseConnection();
+                    var commandClient = databaseConnection().CreateCommand();
+                    commandClient.CommandText = "DELETE FROM orcamento WHERE numeroOrcamento = @numeroOrcamento;";
+                    commandClient.Parameters.AddWithValue("@numeroOrcamento", budget.numeroOrcamento);
+                    dataAdapter = new SQLiteDataAdapter(commandClient.CommandText, connection);
+                    commandClient.ExecuteNonQuery();
+                    connection.Close();
+                    return true;
+                }
+                catch (Exception exception)
+                {
+                    throw exception;
+                }
             }
-            catch (Exception exception)
-            {
-                throw exception;
-            }
-        }
 
-        //EXCLUIR TODOS OS ORÇAMENTOS
-        public static Boolean deleteAllBudgets(Client client)
-        {
-            SQLiteDataAdapter dataAdapter = null;
-            DataTable dataTable = new DataTable();
-            try
+            //Excluir todos os orçamentos
+            public static Boolean deleteAllBudgets(Client client)
             {
-                var connection = databaseConnection();
-                var commandClient = databaseConnection().CreateCommand();
-                commandClient.CommandText = "DELETE FROM orcamento WHERE idCliente = @idCliente;";
-                commandClient.Parameters.AddWithValue("@idCliente", client.idCliente);
-                dataAdapter = new SQLiteDataAdapter(commandClient.CommandText, connection);
-                commandClient.ExecuteNonQuery();
-                connection.Close();
-                return true;
+                SQLiteDataAdapter dataAdapter;
+                try
+                {
+                    var connection = databaseConnection();
+                    var commandClient = databaseConnection().CreateCommand();
+                    commandClient.CommandText = "DELETE FROM orcamento WHERE idCliente = @idCliente;";
+                    commandClient.Parameters.AddWithValue("@idCliente", client.idCliente);
+                    dataAdapter = new SQLiteDataAdapter(commandClient.CommandText, connection);
+                    commandClient.ExecuteNonQuery();
+                    connection.Close();
+                    return true;
+                }
+                catch (Exception exception)
+                {
+                    throw exception;
+                }
             }
-            catch (Exception exception)
-            {
-                throw exception;
-            }
-        }
 
-        //CADASTRAR PRODUTO ORÇADO
-        public static Boolean newBudgetedProduct(BudgetedProduct budgetedProduct)
-        {
-            try
+        //PRODUTO ORÇADO
+        
+            //Cadastrar produto orçado
+            public static Boolean newBudgetedProduct(BudgetedProduct budgetedProduct)
             {
-                var connection = databaseConnection();
-                var command = databaseConnection().CreateCommand();
-                command.CommandText = "INSERT INTO produtoOrcado (idProduto, numeroOrcamento, item, quantidadeProduto, valorTotal) VALUES (@idProduto, @numeroOrcamento, @item, @quantidadeProduto, @valorTotal)";
-                command.Parameters.AddWithValue("@idProduto", budgetedProduct.idProduto);
-                command.Parameters.AddWithValue("@numeroOrcamento", budgetedProduct.numeroOrcamento);
-                command.Parameters.AddWithValue("@item", budgetedProduct.item);
-                command.Parameters.AddWithValue("@quantidadeProduto", budgetedProduct.quantidadeProduto);
-                command.Parameters.AddWithValue("@valorTotal", budgetedProduct.valorTotal);
-                command.ExecuteNonQuery();
-                connection.Close();
-                return true;
+                try
+                {
+                    var connection = databaseConnection();
+                    var command = databaseConnection().CreateCommand();
+                    command.CommandText = "INSERT INTO produtoOrcado (idProduto, numeroOrcamento, item, quantidadeProduto, valorTotal) VALUES (@idProduto, @numeroOrcamento, @item, @quantidadeProduto, @valorTotal)";
+                    command.Parameters.AddWithValue("@idProduto", budgetedProduct.idProduto);
+                    command.Parameters.AddWithValue("@numeroOrcamento", budgetedProduct.numeroOrcamento);
+                    command.Parameters.AddWithValue("@item", budgetedProduct.item);
+                    command.Parameters.AddWithValue("@quantidadeProduto", budgetedProduct.quantidadeProduto);
+                    command.Parameters.AddWithValue("@valorTotal", budgetedProduct.valorTotal);
+                    command.ExecuteNonQuery();
+                    connection.Close();
+                    return true;
+                }
+                catch (Exception exception)
+                {
+                    throw exception;
+                }
             }
-            catch (Exception exception)
-            {
-                throw exception;
-            }
-        }
 
-        //ATUALIZAR PRODUTO ORÇADO
-        public static Boolean updateBudgetedProduct(BudgetedProduct budgetedProduct)
-        {
-            SQLiteDataAdapter dataAdapter = null;
-            DataTable dataTable = new DataTable();
-            try
+            //Atualizar produto orçado
+            public static Boolean updateBudgetedProduct(BudgetedProduct budgetedProduct)
             {
-                var connection = databaseConnection();
-                var command = databaseConnection().CreateCommand();
-                command.CommandText = "UPDATE produtoOrcado SET idProduto = @idProduto, numeroOrcamento = @numeroOrcamento, item = @item, quantidadeProduto = @quantidadeProduto, valorTotal = @valorTotal WHERE idProdutoOrcado = @idProdutoOrcado;";
-                command.Parameters.AddWithValue("@idProduto", budgetedProduct.idProduto);
-                command.Parameters.AddWithValue("@numeroOrcamento", budgetedProduct.numeroOrcamento);
-                command.Parameters.AddWithValue("@item", budgetedProduct.item);
-                command.Parameters.AddWithValue("@quantidadeProduto", budgetedProduct.quantidadeProduto);
-                command.Parameters.AddWithValue("@valorTotal", budgetedProduct.valorTotal);
-                command.Parameters.AddWithValue("@idProdutoOrcado", budgetedProduct.idProdutoOrcado);
-                dataAdapter = new SQLiteDataAdapter(command.CommandText, connection);
-                command.ExecuteNonQuery();
-                connection.Close();
-                return true;
+                SQLiteDataAdapter dataAdapter;
+                try
+                {
+                    var connection = databaseConnection();
+                    var command = databaseConnection().CreateCommand();
+                    command.CommandText = "UPDATE produtoOrcado SET idProduto = @idProduto, numeroOrcamento = @numeroOrcamento, item = @item, quantidadeProduto = @quantidadeProduto, valorTotal = @valorTotal WHERE idProdutoOrcado = @idProdutoOrcado;";
+                    command.Parameters.AddWithValue("@idProduto", budgetedProduct.idProduto);
+                    command.Parameters.AddWithValue("@numeroOrcamento", budgetedProduct.numeroOrcamento);
+                    command.Parameters.AddWithValue("@item", budgetedProduct.item);
+                    command.Parameters.AddWithValue("@quantidadeProduto", budgetedProduct.quantidadeProduto);
+                    command.Parameters.AddWithValue("@valorTotal", budgetedProduct.valorTotal);
+                    command.Parameters.AddWithValue("@idProdutoOrcado", budgetedProduct.idProdutoOrcado);
+                    dataAdapter = new SQLiteDataAdapter(command.CommandText, connection);
+                    command.ExecuteNonQuery();
+                    connection.Close();
+                    return true;
+                }
+                catch (Exception exception)
+                {
+                    throw exception;
+                }
             }
-            catch (Exception exception)
-            {
-                throw exception;
-            }
-        }
 
+            //Excluir produto orçado
+            public static Boolean deleteBudgetedProduct(BudgetedProduct budgetedProduct)
+            {
+                SQLiteDataAdapter dataAdapter;
+                try
+                {
+                    var connection = databaseConnection();
+                    var commandClient = databaseConnection().CreateCommand();
+                    commandClient.CommandText = "DELETE FROM produtoOrcado WHERE idProdutoOrcado = @idProdutoOrcado;";
+                    commandClient.Parameters.AddWithValue("@idProdutoOrcado", budgetedProduct.idProdutoOrcado);
+                    dataAdapter = new SQLiteDataAdapter(commandClient.CommandText, connection);
+                    commandClient.ExecuteNonQuery();
+                    connection.Close();
+                    return true;
+                }
+                catch (Exception exception)
+                {
+                    throw exception;
+                }
+            }
 
-        //EXCLUIR PRODUTO ORCADO
-        public static Boolean deleteBudgetedProduct(BudgetedProduct budgetedProduct)
-        {
-            SQLiteDataAdapter dataAdapter = null;
-            DataTable dataTable = new DataTable();
-            try
+            //Excluir todos os produtos orçados
+            public static Boolean deleteAllBudgetedProducts(Product product)
             {
-                var connection = databaseConnection();
-                var commandClient = databaseConnection().CreateCommand();
-                commandClient.CommandText = "DELETE FROM produtoOrcado WHERE idProdutoOrcado = @idProdutoOrcado;";
-                commandClient.Parameters.AddWithValue("@idProdutoOrcado", budgetedProduct.idProdutoOrcado);
-                dataAdapter = new SQLiteDataAdapter(commandClient.CommandText, connection);
-                commandClient.ExecuteNonQuery();
-                connection.Close();
-                return true;
+                SQLiteDataAdapter dataAdapter;
+                try
+                {
+                    var connection = databaseConnection();
+                    var command = databaseConnection().CreateCommand();
+                    command.CommandText = "DELETE FROM produtoOrcado WHERE idProduto = @idProduto;";
+                    command.Parameters.AddWithValue("@idProduto", product.idProduto);
+                    dataAdapter = new SQLiteDataAdapter(command.CommandText, connection);
+                    command.ExecuteNonQuery();
+                    connection.Close();
+                    return true;
+                }
+                catch (Exception exception) { throw exception; }
             }
-            catch (Exception exception)
-            {
-                throw exception;
-            }
-        }
 
-        //Excluir todos os produtos orçados
-        public static Boolean deleteAllBudgetedProducts(Product product)
-        {
-            SQLiteDataAdapter dataAdapter = null;
-            DataTable dataTable = new DataTable();
-            try
+            //Excluir todos os produtos orçados
+            public static Boolean deleteAllBudgetedProducts(Budget budget)
             {
-                var connection = databaseConnection();
-                var command = databaseConnection().CreateCommand();
-                command.CommandText = "DELETE FROM produtoOrcado WHERE idProduto = @idProduto;";
-                command.Parameters.AddWithValue("@idProduto", product.idProduto);
-                dataAdapter = new SQLiteDataAdapter(command.CommandText, connection);
-                command.ExecuteNonQuery();
-                connection.Close();
-                return true;
+                SQLiteDataAdapter dataAdapter;
+                try
+                {
+                    var connection = databaseConnection();
+                    var command = databaseConnection().CreateCommand();
+                    command.CommandText = "DELETE FROM produtoOrcado WHERE numeroOrcamento = @numeroOrcamento;";
+                    command.Parameters.AddWithValue("@numeroOrcamento", budget.numeroOrcamento);
+                    dataAdapter = new SQLiteDataAdapter(command.CommandText, connection);
+                    command.ExecuteNonQuery();
+                    connection.Close();
+                    return true;
+                }
+                catch (Exception exception)
+                {
+                    throw exception;
+                }
             }
-            catch (Exception exception) { throw exception; }
-        }
 
-        //Excluir todos os produtos orçados
-        public static Boolean deleteAllBudgetedProducts(Budget budget)
-        {
-            SQLiteDataAdapter dataAdapter = null;
-            DataTable dataTable = new DataTable();
-            try
+            //Atualizar número do item dos produtos orçados
+            public static Boolean updateBudgetedProductItemValue(BudgetedProduct budgetedProduct)
             {
-                var connection = databaseConnection();
-                var command = databaseConnection().CreateCommand();
-                command.CommandText = "DELETE FROM produtoOrcado WHERE numeroOrcamento = @numeroOrcamento;";
-                command.Parameters.AddWithValue("@numeroOrcamento", budget.numeroOrcamento);
-                dataAdapter = new SQLiteDataAdapter(command.CommandText, connection);
-                command.ExecuteNonQuery();
-                connection.Close();
-                return true;
+                SQLiteDataAdapter dataAdapter;
+                try
+                {
+                    var connection = databaseConnection();
+                    var commandClient = databaseConnection().CreateCommand();
+                    commandClient.CommandText = "UPDATE produtoOrcado SET item = @item WHERE idProdutoOrcado = @idProdutoOrcado;";
+                    commandClient.Parameters.AddWithValue("@item", budgetedProduct.item);
+                    commandClient.Parameters.AddWithValue("@idProdutoOrcado", budgetedProduct.idProdutoOrcado);
+                    dataAdapter = new SQLiteDataAdapter(commandClient.CommandText, connection);
+                    commandClient.ExecuteNonQuery();
+                    connection.Close();
+                    return true;
+                }
+                catch (Exception exception)
+                {
+                    throw exception;
+                }
             }
-            catch (Exception exception)
-            {
-                throw exception;
-            }
-        }
 
-        //ATUALIZAR NÚMERO DO ITEM DOS PRODUTOS ORÇADOS
-        public static Boolean updateBudgetedProductItemValue(BudgetedProduct budgetedProduct)
-        {
-            SQLiteDataAdapter dataAdapter = null;
-            DataTable dataTable = new DataTable();
+        //CONTA
+
+            //Cadastrar conta
+            public static Boolean newAccount(Account account)
+            {
+                try
+                {
+                    var connection = databaseConnection();
+                    var command = databaseConnection().CreateCommand();
+                    command.CommandText = "INSERT INTO conta (saldoConta, nomeConta, tipoConta, somarTotal) VALUES (@saldoConta, @nomeConta, @tipoConta, @somarTotal)";
+                    command.Parameters.AddWithValue("@saldoConta", account.saldoConta);
+                    command.Parameters.AddWithValue("@nomeConta", account.nomeConta);
+                    command.Parameters.AddWithValue("@tipoConta", account.tipoConta);
+                    command.Parameters.AddWithValue("@somarTotal", account.somarTotal);
+                    command.ExecuteNonQuery();
+                    connection.Close();
+                    return true;
+                }
+                catch (Exception exception) { throw exception; }
+            }
+
+            //Atualizar conta
+            public static Boolean updateAccount(Account account)
+            {
+                SQLiteDataAdapter dataAdapter;
+                try
+                {
+                    var connection = databaseConnection();
+                    var command = databaseConnection().CreateCommand();
+                    command.CommandText = "UPDATE conta SET saldoConta = @saldoConta, nomeConta = @nomeConta, tipoConta = @tipoConta, somarTotal = @somarTotal WHERE idConta = @idConta;";
+                    command.Parameters.AddWithValue("@saldoConta", account.saldoConta);
+                    command.Parameters.AddWithValue("@nomeConta", account.nomeConta);
+                    command.Parameters.AddWithValue("@tipoConta", account.tipoConta);
+                    command.Parameters.AddWithValue("@somarTotal", account.somarTotal);
+                    command.Parameters.AddWithValue("@idConta", account.idConta);
+                    dataAdapter = new SQLiteDataAdapter(command.CommandText, connection);
+                    command.ExecuteNonQuery();
+                    connection.Close();
+                    return true;
+                }
+                catch (Exception exception)
+                {
+                    throw exception;
+                }
+            }
+
+            //Excluir conta
+            public static Boolean deleteAccount(Account account)
+            {
+            SQLiteDataAdapter dataAdapter;
             try
-            {
-                var connection = databaseConnection();
-                var commandClient = databaseConnection().CreateCommand();
-                commandClient.CommandText = "UPDATE produtoOrcado SET item = @item WHERE idProdutoOrcado = @idProdutoOrcado;";
-                commandClient.Parameters.AddWithValue("@item", budgetedProduct.item);
-                commandClient.Parameters.AddWithValue("@idProdutoOrcado", budgetedProduct.idProdutoOrcado);
-                dataAdapter = new SQLiteDataAdapter(commandClient.CommandText, connection);
-                commandClient.ExecuteNonQuery();
-                connection.Close();
-                return true;
+                {
+                    var connection = databaseConnection();
+                    var command = databaseConnection().CreateCommand();
+                    command.CommandText = "DELETE FROM conta WHERE idConta = @idConta;";
+                    command.Parameters.AddWithValue("@idConta", account.idConta);
+                    dataAdapter = new SQLiteDataAdapter(command.CommandText, connection);
+                    command.ExecuteNonQuery();
+                    connection.Close();
+                    return true;
+                }
+                catch (Exception exception)
+                {
+                    throw exception;
+                }
             }
-            catch (Exception exception)
+
+            //Atualizar conta ativa
+            public static Boolean updateActiveAccount(Account account)
             {
-                throw exception;
+                SQLiteDataAdapter dataAdapter;
+                try
+                {
+                    var connection = databaseConnection();
+                    var command = databaseConnection().CreateCommand();
+                    command.CommandText = "UPDATE conta SET contaAtiva = @contaAtiva WHERE idConta = @idConta;";
+                    command.Parameters.AddWithValue("@contaAtiva", account.contaAtiva);
+                    command.Parameters.AddWithValue("@idConta", account.idConta);
+                    dataAdapter = new SQLiteDataAdapter(command.CommandText, connection);
+                    command.ExecuteNonQuery();
+                    connection.Close();
+                    return true;
+                }
+                catch (Exception exception)
+                {
+                    throw exception;
+                }
             }
-        }
+
+        //CATEGORIA
+
+            //Cadastrar categoria
+            public static Boolean newCategory(Category category)
+            {
+                try
+                {
+                    var connection = databaseConnection();
+                    var command = databaseConnection().CreateCommand();
+                    command.CommandText = "INSERT INTO categoria (categoriaReceita, categoriaDespesa, categoriaProduto, nomeCategoria) VALUES (@categoriaReceita, @categoriaDespesa, @categoriaProduto, @nomeCategoria)";
+                    command.Parameters.AddWithValue("@categoriaReceita", category.categoriaReceita);
+                    command.Parameters.AddWithValue("@categoriaDespesa", category.categoriaDespesa);
+                    command.Parameters.AddWithValue("@categoriaProduto", category.categoriaProduto);
+                    command.Parameters.AddWithValue("@nomeCategoria", category.nomeCategoria);
+                    command.ExecuteNonQuery();
+                    connection.Close();
+                    return true;
+                }
+                catch (Exception exception) { throw exception; }
+            }
+
+            //Atualizar categoria
+            public static Boolean updateCategory(Category category)
+            {
+                SQLiteDataAdapter dataAdapter;
+                try
+                {
+                    var connection = databaseConnection();
+                    var command = databaseConnection().CreateCommand();
+                    command.CommandText = "UPDATE categoria SET nomeCategoria = @nomeCategoria WHERE idCategoria = @idCategoria;";
+                    command.Parameters.AddWithValue("@nomeCategoria", category.nomeCategoria);
+                    command.Parameters.AddWithValue("@idCategoria", category.idCategoria);
+                    dataAdapter = new SQLiteDataAdapter(command.CommandText, connection);
+                    command.ExecuteNonQuery();
+                    connection.Close();
+                    return true;
+                }
+                catch (Exception exception)
+                {
+                    throw exception;
+                }
+            }
+
+            //Excluir categoria
+            public static Boolean deleteCategory(Category category)
+            {
+                SQLiteDataAdapter dataAdapter;
+                try
+                {
+                    var connection = databaseConnection();
+                    var command = databaseConnection().CreateCommand();
+                    command.CommandText = "DELETE FROM categoria WHERE idCategoria = @idCategoria;";
+                    command.Parameters.AddWithValue("@idCategoria", category.idCategoria);
+                    dataAdapter = new SQLiteDataAdapter(command.CommandText, connection);
+                    command.ExecuteNonQuery();
+                    connection.Close();
+                    return true;
+                }
+                catch (Exception exception)
+                {
+                    throw exception;
+                }
+            }
     }
 }
