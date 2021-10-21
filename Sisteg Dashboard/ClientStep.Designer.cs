@@ -29,12 +29,18 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ClientStep));
-            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties1 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
-            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties2 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
-            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties3 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
-            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties4 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties5 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties6 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties7 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties8 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
             this.txt_searchClient = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
-            this.panel_client = new System.Windows.Forms.Panel();
+            this.panel_clientStep = new System.Windows.Forms.Panel();
+            this.lbl_btnEndBudgetTag = new System.Windows.Forms.Label();
+            this.pcb_btnEndBudget = new System.Windows.Forms.PictureBox();
+            this.lbl_searchTag = new System.Windows.Forms.Label();
+            this.lbl_btnSendBudgetTag = new System.Windows.Forms.Label();
+            this.lbl_btnPrintBudgetTag = new System.Windows.Forms.Label();
+            this.lbl_btnConfirmBudgetTag = new System.Windows.Forms.Label();
             this.lbl_technicalReport = new System.Windows.Forms.Label();
             this.ckb_technicalReport = new Bunifu.Framework.UI.BunifuCheckbox();
             this.cbb_budgetNumber = new Bunifu.UI.WinForms.BunifuDropdown();
@@ -44,7 +50,8 @@
             this.pcb_btnConfirmBudget = new System.Windows.Forms.PictureBox();
             this.sfd_saveBudget = new System.Windows.Forms.SaveFileDialog();
             this.ofd_sendBudget = new System.Windows.Forms.OpenFileDialog();
-            this.panel_client.SuspendLayout();
+            this.panel_clientStep.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pcb_btnEndBudget)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcb_btnSendBudget)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcb_btnPrint)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcb_btnConfirmBudget)).BeginInit();
@@ -67,7 +74,7 @@
             this.txt_searchClient.BorderThickness = 1;
             this.txt_searchClient.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
             this.txt_searchClient.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txt_searchClient.DefaultFont = new System.Drawing.Font("Courier Prime Code", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_searchClient.DefaultFont = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_searchClient.DefaultText = "";
             this.txt_searchClient.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(157)))));
             this.txt_searchClient.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
@@ -84,26 +91,26 @@
             this.txt_searchClient.Modified = false;
             this.txt_searchClient.Multiline = false;
             this.txt_searchClient.Name = "txt_searchClient";
-            stateProperties1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            stateProperties1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(157)))));
-            stateProperties1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            stateProperties1.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.txt_searchClient.OnActiveState = stateProperties1;
-            stateProperties2.BorderColor = System.Drawing.Color.Gray;
-            stateProperties2.FillColor = System.Drawing.Color.White;
-            stateProperties2.ForeColor = System.Drawing.Color.Empty;
-            stateProperties2.PlaceholderForeColor = System.Drawing.Color.Silver;
-            this.txt_searchClient.OnDisabledState = stateProperties2;
-            stateProperties3.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            stateProperties3.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(157)))));
-            stateProperties3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            stateProperties3.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.txt_searchClient.OnHoverState = stateProperties3;
-            stateProperties4.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(157)))));
-            stateProperties4.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(157)))));
-            stateProperties4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            stateProperties4.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.txt_searchClient.OnIdleState = stateProperties4;
+            stateProperties5.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            stateProperties5.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(157)))));
+            stateProperties5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            stateProperties5.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.txt_searchClient.OnActiveState = stateProperties5;
+            stateProperties6.BorderColor = System.Drawing.Color.Gray;
+            stateProperties6.FillColor = System.Drawing.Color.White;
+            stateProperties6.ForeColor = System.Drawing.Color.Empty;
+            stateProperties6.PlaceholderForeColor = System.Drawing.Color.Silver;
+            this.txt_searchClient.OnDisabledState = stateProperties6;
+            stateProperties7.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            stateProperties7.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(157)))));
+            stateProperties7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            stateProperties7.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.txt_searchClient.OnHoverState = stateProperties7;
+            stateProperties8.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(157)))));
+            stateProperties8.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(157)))));
+            stateProperties8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            stateProperties8.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.txt_searchClient.OnIdleState = stateProperties8;
             this.txt_searchClient.PasswordChar = '\0';
             this.txt_searchClient.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.txt_searchClient.PlaceholderText = "Nome do cliente";
@@ -115,7 +122,7 @@
             this.txt_searchClient.ShortcutsEnabled = true;
             this.txt_searchClient.Size = new System.Drawing.Size(200, 35);
             this.txt_searchClient.Style = Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox._Style.Material;
-            this.txt_searchClient.TabIndex = 46;
+            this.txt_searchClient.TabIndex = 7;
             this.txt_searchClient.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.txt_searchClient.TextMarginBottom = 0;
             this.txt_searchClient.TextMarginLeft = -5;
@@ -125,33 +132,122 @@
             this.txt_searchClient.WordWrap = true;
             this.txt_searchClient.TextChange += new System.EventHandler(this.txt_searchClient_TextChange);
             // 
-            // panel_client
+            // panel_clientStep
             // 
-            this.panel_client.AutoScrollMargin = new System.Drawing.Size(0, 15);
-            this.panel_client.BackColor = System.Drawing.Color.Transparent;
-            this.panel_client.Controls.Add(this.lbl_technicalReport);
-            this.panel_client.Controls.Add(this.ckb_technicalReport);
-            this.panel_client.Controls.Add(this.cbb_budgetNumber);
-            this.panel_client.Controls.Add(this.cbb_clientName);
-            this.panel_client.Controls.Add(this.pcb_btnSendBudget);
-            this.panel_client.Controls.Add(this.txt_searchClient);
-            this.panel_client.Controls.Add(this.pcb_btnPrint);
-            this.panel_client.Controls.Add(this.pcb_btnConfirmBudget);
-            this.panel_client.Location = new System.Drawing.Point(39, 40);
-            this.panel_client.Name = "panel_client";
-            this.panel_client.Size = new System.Drawing.Size(706, 298);
-            this.panel_client.TabIndex = 63;
+            this.panel_clientStep.AutoScrollMargin = new System.Drawing.Size(0, 15);
+            this.panel_clientStep.BackColor = System.Drawing.Color.Transparent;
+            this.panel_clientStep.Controls.Add(this.lbl_btnEndBudgetTag);
+            this.panel_clientStep.Controls.Add(this.pcb_btnEndBudget);
+            this.panel_clientStep.Controls.Add(this.lbl_searchTag);
+            this.panel_clientStep.Controls.Add(this.lbl_btnSendBudgetTag);
+            this.panel_clientStep.Controls.Add(this.lbl_btnPrintBudgetTag);
+            this.panel_clientStep.Controls.Add(this.lbl_btnConfirmBudgetTag);
+            this.panel_clientStep.Controls.Add(this.lbl_technicalReport);
+            this.panel_clientStep.Controls.Add(this.ckb_technicalReport);
+            this.panel_clientStep.Controls.Add(this.cbb_budgetNumber);
+            this.panel_clientStep.Controls.Add(this.cbb_clientName);
+            this.panel_clientStep.Controls.Add(this.pcb_btnSendBudget);
+            this.panel_clientStep.Controls.Add(this.txt_searchClient);
+            this.panel_clientStep.Controls.Add(this.pcb_btnPrint);
+            this.panel_clientStep.Controls.Add(this.pcb_btnConfirmBudget);
+            this.panel_clientStep.Location = new System.Drawing.Point(39, 40);
+            this.panel_clientStep.Name = "panel_clientStep";
+            this.panel_clientStep.Size = new System.Drawing.Size(706, 298);
+            this.panel_clientStep.TabIndex = 1;
+            // 
+            // lbl_btnEndBudgetTag
+            // 
+            this.lbl_btnEndBudgetTag.AutoSize = true;
+            this.lbl_btnEndBudgetTag.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_btnEndBudgetTag.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lbl_btnEndBudgetTag.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lbl_btnEndBudgetTag.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.lbl_btnEndBudgetTag.Location = new System.Drawing.Point(456, 171);
+            this.lbl_btnEndBudgetTag.Name = "lbl_btnEndBudgetTag";
+            this.lbl_btnEndBudgetTag.Size = new System.Drawing.Size(218, 20);
+            this.lbl_btnEndBudgetTag.TabIndex = 100;
+            this.lbl_btnEndBudgetTag.Text = "ENCERRAR ORÇAMENTO///";
+            this.lbl_btnEndBudgetTag.Click += new System.EventHandler(this.lbl_btnEndBudgetTag_Click);
+            // 
+            // pcb_btnEndBudget
+            // 
+            this.pcb_btnEndBudget.BackColor = System.Drawing.Color.Transparent;
+            this.pcb_btnEndBudget.BackgroundImage = global::Sisteg_Dashboard.Properties.Resources.btn_end_budget;
+            this.pcb_btnEndBudget.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pcb_btnEndBudget.Location = new System.Drawing.Point(373, 143);
+            this.pcb_btnEndBudget.Name = "pcb_btnEndBudget";
+            this.pcb_btnEndBudget.Size = new System.Drawing.Size(328, 70);
+            this.pcb_btnEndBudget.TabIndex = 98;
+            this.pcb_btnEndBudget.TabStop = false;
+            this.pcb_btnEndBudget.Click += new System.EventHandler(this.pcb_btnEndBudget_Click);
+            this.pcb_btnEndBudget.MouseEnter += new System.EventHandler(this.pcb_btnEndBudget_MouseEnter);
+            this.pcb_btnEndBudget.MouseLeave += new System.EventHandler(this.pcb_btnEndBudget_MouseLeave);
+            // 
+            // lbl_searchTag
+            // 
+            this.lbl_searchTag.AutoSize = true;
+            this.lbl_searchTag.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_searchTag.Cursor = System.Windows.Forms.Cursors.Default;
+            this.lbl_searchTag.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lbl_searchTag.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.lbl_searchTag.Location = new System.Drawing.Point(471, 23);
+            this.lbl_searchTag.Name = "lbl_searchTag";
+            this.lbl_searchTag.Size = new System.Drawing.Size(113, 20);
+            this.lbl_searchTag.TabIndex = 6;
+            this.lbl_searchTag.Text = "PROCURAR///";
+            // 
+            // lbl_btnSendBudgetTag
+            // 
+            this.lbl_btnSendBudgetTag.AutoSize = true;
+            this.lbl_btnSendBudgetTag.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_btnSendBudgetTag.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lbl_btnSendBudgetTag.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lbl_btnSendBudgetTag.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.lbl_btnSendBudgetTag.Location = new System.Drawing.Point(83, 247);
+            this.lbl_btnSendBudgetTag.Name = "lbl_btnSendBudgetTag";
+            this.lbl_btnSendBudgetTag.Size = new System.Drawing.Size(188, 20);
+            this.lbl_btnSendBudgetTag.TabIndex = 9;
+            this.lbl_btnSendBudgetTag.Text = "ENVIAR ORÇAMENTO///";
+            this.lbl_btnSendBudgetTag.Click += new System.EventHandler(this.lbl_btnSendBudgetTag_Click);
+            // 
+            // lbl_btnPrintBudgetTag
+            // 
+            this.lbl_btnPrintBudgetTag.AutoSize = true;
+            this.lbl_btnPrintBudgetTag.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_btnPrintBudgetTag.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lbl_btnPrintBudgetTag.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lbl_btnPrintBudgetTag.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.lbl_btnPrintBudgetTag.Location = new System.Drawing.Point(83, 171);
+            this.lbl_btnPrintBudgetTag.Name = "lbl_btnPrintBudgetTag";
+            this.lbl_btnPrintBudgetTag.Size = new System.Drawing.Size(202, 20);
+            this.lbl_btnPrintBudgetTag.TabIndex = 10;
+            this.lbl_btnPrintBudgetTag.Text = "IMPRIMIR ORÇAMENTO///";
+            this.lbl_btnPrintBudgetTag.Click += new System.EventHandler(this.lbl_btnPrintBudgetTag_Click);
+            // 
+            // lbl_btnConfirmBudgetTag
+            // 
+            this.lbl_btnConfirmBudgetTag.AutoSize = true;
+            this.lbl_btnConfirmBudgetTag.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_btnConfirmBudgetTag.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lbl_btnConfirmBudgetTag.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lbl_btnConfirmBudgetTag.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.lbl_btnConfirmBudgetTag.Location = new System.Drawing.Point(456, 247);
+            this.lbl_btnConfirmBudgetTag.Name = "lbl_btnConfirmBudgetTag";
+            this.lbl_btnConfirmBudgetTag.Size = new System.Drawing.Size(224, 20);
+            this.lbl_btnConfirmBudgetTag.TabIndex = 8;
+            this.lbl_btnConfirmBudgetTag.Text = "CONFIRMAR ORÇAMENTO///";
+            this.lbl_btnConfirmBudgetTag.Click += new System.EventHandler(this.lbl_btnConfirmBudgetTag_Click);
             // 
             // lbl_technicalReport
             // 
             this.lbl_technicalReport.AutoSize = true;
             this.lbl_technicalReport.BackColor = System.Drawing.Color.Transparent;
-            this.lbl_technicalReport.Font = new System.Drawing.Font("Courier Prime Code", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_technicalReport.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_technicalReport.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.lbl_technicalReport.Location = new System.Drawing.Point(50, 107);
             this.lbl_technicalReport.Name = "lbl_technicalReport";
-            this.lbl_technicalReport.Size = new System.Drawing.Size(140, 21);
-            this.lbl_technicalReport.TabIndex = 110;
+            this.lbl_technicalReport.Size = new System.Drawing.Size(109, 20);
+            this.lbl_technicalReport.TabIndex = 5;
             this.lbl_technicalReport.Text = "Laudo técnico";
             // 
             // ckb_technicalReport
@@ -161,13 +257,13 @@
             this.ckb_technicalReport.Checked = false;
             this.ckb_technicalReport.CheckedOnColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.ckb_technicalReport.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ckb_technicalReport.Font = new System.Drawing.Font("Courier Prime Code", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ckb_technicalReport.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ckb_technicalReport.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(157)))));
             this.ckb_technicalReport.Location = new System.Drawing.Point(13, 107);
-            this.ckb_technicalReport.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.ckb_technicalReport.Margin = new System.Windows.Forms.Padding(5);
             this.ckb_technicalReport.Name = "ckb_technicalReport";
             this.ckb_technicalReport.Size = new System.Drawing.Size(20, 20);
-            this.ckb_technicalReport.TabIndex = 109;
+            this.ckb_technicalReport.TabIndex = 4;
             // 
             // cbb_budgetNumber
             // 
@@ -184,7 +280,7 @@
             this.cbb_budgetNumber.FillDropDown = false;
             this.cbb_budgetNumber.FillIndicator = false;
             this.cbb_budgetNumber.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cbb_budgetNumber.Font = new System.Drawing.Font("Courier Prime Code", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbb_budgetNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbb_budgetNumber.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.cbb_budgetNumber.FormattingEnabled = true;
             this.cbb_budgetNumber.Icon = null;
@@ -199,7 +295,7 @@
             this.cbb_budgetNumber.MinimumSize = new System.Drawing.Size(300, 0);
             this.cbb_budgetNumber.Name = "cbb_budgetNumber";
             this.cbb_budgetNumber.Size = new System.Drawing.Size(300, 35);
-            this.cbb_budgetNumber.TabIndex = 108;
+            this.cbb_budgetNumber.TabIndex = 3;
             this.cbb_budgetNumber.Text = " Número do orçamento";
             this.cbb_budgetNumber.SelectedIndexChanged += new System.EventHandler(this.cbb_budgetNumber_SelectedIndexChanged);
             // 
@@ -218,7 +314,7 @@
             this.cbb_clientName.FillDropDown = false;
             this.cbb_clientName.FillIndicator = false;
             this.cbb_clientName.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cbb_clientName.Font = new System.Drawing.Font("Courier Prime Code", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbb_clientName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbb_clientName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.cbb_clientName.FormattingEnabled = true;
             this.cbb_clientName.Icon = null;
@@ -233,16 +329,16 @@
             this.cbb_clientName.MinimumSize = new System.Drawing.Size(300, 0);
             this.cbb_clientName.Name = "cbb_clientName";
             this.cbb_clientName.Size = new System.Drawing.Size(300, 35);
-            this.cbb_clientName.TabIndex = 107;
+            this.cbb_clientName.TabIndex = 2;
             this.cbb_clientName.Text = " Cliente";
             this.cbb_clientName.SelectedIndexChanged += new System.EventHandler(this.cbb_clientName_SelectedIndexChanged);
             // 
             // pcb_btnSendBudget
             // 
             this.pcb_btnSendBudget.BackColor = System.Drawing.Color.Transparent;
+            this.pcb_btnSendBudget.BackgroundImage = global::Sisteg_Dashboard.Properties.Resources.btn_send_email;
             this.pcb_btnSendBudget.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pcb_btnSendBudget.Image = ((System.Drawing.Image)(resources.GetObject("pcb_btnSendBudget.Image")));
-            this.pcb_btnSendBudget.Location = new System.Drawing.Point(373, 143);
+            this.pcb_btnSendBudget.Location = new System.Drawing.Point(0, 219);
             this.pcb_btnSendBudget.Name = "pcb_btnSendBudget";
             this.pcb_btnSendBudget.Size = new System.Drawing.Size(328, 70);
             this.pcb_btnSendBudget.TabIndex = 97;
@@ -254,9 +350,9 @@
             // pcb_btnPrint
             // 
             this.pcb_btnPrint.BackColor = System.Drawing.Color.Transparent;
+            this.pcb_btnPrint.BackgroundImage = global::Sisteg_Dashboard.Properties.Resources.btn_print;
             this.pcb_btnPrint.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pcb_btnPrint.Image = ((System.Drawing.Image)(resources.GetObject("pcb_btnPrint.Image")));
-            this.pcb_btnPrint.Location = new System.Drawing.Point(6, 219);
+            this.pcb_btnPrint.Location = new System.Drawing.Point(0, 143);
             this.pcb_btnPrint.Name = "pcb_btnPrint";
             this.pcb_btnPrint.Size = new System.Drawing.Size(328, 70);
             this.pcb_btnPrint.TabIndex = 96;
@@ -268,9 +364,9 @@
             // pcb_btnConfirmBudget
             // 
             this.pcb_btnConfirmBudget.BackColor = System.Drawing.Color.Transparent;
+            this.pcb_btnConfirmBudget.BackgroundImage = global::Sisteg_Dashboard.Properties.Resources.btn_confirm_budget;
             this.pcb_btnConfirmBudget.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pcb_btnConfirmBudget.Image = ((System.Drawing.Image)(resources.GetObject("pcb_btnConfirmBudget.Image")));
-            this.pcb_btnConfirmBudget.Location = new System.Drawing.Point(6, 143);
+            this.pcb_btnConfirmBudget.Location = new System.Drawing.Point(373, 219);
             this.pcb_btnConfirmBudget.Name = "pcb_btnConfirmBudget";
             this.pcb_btnConfirmBudget.Size = new System.Drawing.Size(328, 70);
             this.pcb_btnConfirmBudget.TabIndex = 95;
@@ -285,7 +381,6 @@
             // 
             // ofd_sendBudget
             // 
-            this.ofd_sendBudget.FileName = "openFileDialog1";
             this.ofd_sendBudget.Title = "Abrir arquivo";
             // 
             // ClientStep
@@ -295,12 +390,13 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(773, 381);
-            this.Controls.Add(this.panel_client);
+            this.Controls.Add(this.panel_clientStep);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ClientStep";
             this.Text = "ClientStep";
-            this.panel_client.ResumeLayout(false);
-            this.panel_client.PerformLayout();
+            this.panel_clientStep.ResumeLayout(false);
+            this.panel_clientStep.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pcb_btnEndBudget)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcb_btnSendBudget)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcb_btnPrint)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcb_btnConfirmBudget)).EndInit();
@@ -311,7 +407,7 @@
         #endregion
 
         private Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox txt_searchClient;
-        private System.Windows.Forms.Panel panel_client;
+        private System.Windows.Forms.Panel panel_clientStep;
         private System.Windows.Forms.PictureBox pcb_btnSendBudget;
         private System.Windows.Forms.PictureBox pcb_btnPrint;
         private System.Windows.Forms.PictureBox pcb_btnConfirmBudget;
@@ -321,5 +417,11 @@
         private System.Windows.Forms.Label lbl_technicalReport;
         private Bunifu.Framework.UI.BunifuCheckbox ckb_technicalReport;
         private System.Windows.Forms.OpenFileDialog ofd_sendBudget;
+        protected internal System.Windows.Forms.Label lbl_searchTag;
+        protected internal System.Windows.Forms.Label lbl_btnSendBudgetTag;
+        protected internal System.Windows.Forms.Label lbl_btnPrintBudgetTag;
+        protected internal System.Windows.Forms.Label lbl_btnConfirmBudgetTag;
+        private System.Windows.Forms.PictureBox pcb_btnEndBudget;
+        protected internal System.Windows.Forms.Label lbl_btnEndBudgetTag;
     }
 }

@@ -118,172 +118,214 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="splashScreen" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\bin\Debug\assets\video\splashScreen.mp4;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="add_income_or_expense_bg" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\bin\Debug\assets\img\add-income-or-expense-bg.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="back" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\bin\Debug\assets\img\icon\back.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="btn_add" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\bin\Debug\assets\img\btn\btn-add.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="btn_add_active" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\bin\Debug\assets\img\btn\btn-add-active.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="btn_add_expense" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\bin\Debug\assets\img\btn\btn-add-expense.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="logo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\assets\img\icon\logo.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="btn_add_expense_active" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\bin\Debug\assets\img\btn\btn-add-expense-active.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="btn_add_income" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\bin\Debug\assets\img\btn\btn-add-income.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="btn_add_income_active" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\bin\Debug\assets\img\btn\btn-add-income-active.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="btn_add_supplier" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\bin\Debug\assets\img\btn\btn-add-supplier.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="btn_add_supplier_active" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\bin\Debug\assets\img\btn\btn-add-supplier-active.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="btn_budget_form" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\bin\Debug\assets\img\btn\btn-budget-form.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="btn_budget_form_active" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\bin\Debug\assets\img\btn\btn-budget-form-active.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="btn_cancel" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\bin\Debug\assets\img\btn\btn-cancel.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="btn_cancel_active" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\bin\Debug\assets\img\btn\btn-cancel-active.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="btn_client_form" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\bin\Debug\assets\img\btn\btn-client-form.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="btn_add_account" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\assets\img\btn\btn-add-account.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="btn_client_form_active" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\bin\Debug\assets\img\btn\btn-client-form-active.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="btn_confirm_budget" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\bin\Debug\assets\img\btn\btn-confirm-budget.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="income_and_expense_table_there_is_no_expense_bg" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\assets\img\income-and-expense-table-there-is-no-expense-bg.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="btn_confirm_budget_active" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\bin\Debug\assets\img\btn\btn-confirm-budget-active.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="btn_add_category_active" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\assets\img\btn\btn-add-category-active.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="btn_delete" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\bin\Debug\assets\img\btn\btn-delete.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="btn_add_phone_active" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\assets\img\btn\btn-add-phone-active.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="btn_delete_active" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\bin\Debug\assets\img\btn\btn-delete-active.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="btn_add_income_active" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\assets\img\btn\btn-add-income-active.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="btn_edit" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\bin\Debug\assets\img\btn\btn-edit.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="btn_edit_active" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\bin\Debug\assets\img\btn\btn-edit-active.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="btn_go_back" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\bin\Debug\assets\img\btn\btn-go-back.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="btn_go_back_active" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\bin\Debug\assets\img\btn\btn-go-back-active.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="btn_go_forward" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\bin\Debug\assets\img\btn\btn-go-forward.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="btn_go_forward_active" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\bin\Debug\assets\img\btn\btn-go-forward-active.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="btn_main_form" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\bin\Debug\assets\img\btn\btn-main-form.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="btn_main_form_active" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\bin\Debug\assets\img\btn\btn-main-form-active.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="btn_print" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\bin\Debug\assets\img\btn\btn-print.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="btn_print_active" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\bin\Debug\assets\img\btn\btn-print-active.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="btn_product_form" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\bin\Debug\assets\img\btn\btn-product-form.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="btn_product_form_active" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\bin\Debug\assets\img\btn\btn-product-form-active.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="btn_update" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\bin\Debug\assets\img\btn\btn-update.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="btn_update_active" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\bin\Debug\assets\img\btn\btn-update-active.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="budget_step_bg" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\bin\Debug\assets\img\budget-step-bg.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="client_product_step_bg" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\bin\Debug\assets\img\client-product-step-bg.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="client_sisteg_bg_value" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\bin\Debug\assets\img\client-sisteg-bg-value.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="close" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\bin\Debug\assets\img\icon\close.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="edit" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\bin\Debug\assets\img\icon\edit.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="btn_send_email_active" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\assets\img\btn\btn-send-email-active.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="empty_bg" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\bin\Debug\assets\img\empty-bg.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="expense_homepage_bg" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\bin\Debug\assets\img\expense-homepage-bg.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="btn_send_email" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\assets\img\btn\btn-send-email.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="income_and_expense_graphs_bg" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\bin\Debug\assets\img\income-and-expense-graphs-bg.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="angle_right__2_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\assets\img\icon\angle-right (2).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="income_and_expense_table_bg" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\bin\Debug\assets\img\income-and-expense-table-bg.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="budget_step_bg" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\assets\img\budget-step-bg.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="income_and_expense_table_there_is_no_expense_bg" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\bin\Debug\assets\img\income-and-expense-table-there-is-no-expense-bg.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="income_homepage_bg" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\bin\Debug\assets\img\income-homepage-bg.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="minimize" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\bin\Debug\assets\img\icon\minimize.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="next" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\bin\Debug\assets\img\icon\next.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="plus" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\bin\Debug\assets\img\icon\plus.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="product_sisteg_bg" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\bin\Debug\assets\img\product-sisteg-bg.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="search_bg" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\bin\Debug\assets\img\search-bg.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="btn_confirm_budget_active" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\assets\img\btn\btn-confirm-budget-active.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="there_is_no_expenses_bg" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\bin\Debug\assets\img\there-is-no-expenses-bg.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="btn_add" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\assets\img\btn\btn-add.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="income_and_expense_graphs_bg" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\assets\img\income-and-expense-graphs-bg.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="btn_product_form_active" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\assets\img\btn\btn-product-form-active.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="btn_budget_form_active" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\assets\img\btn\btn-budget-form-active.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="btn_go_back_active" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\assets\img\btn\btn-go-back-active.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="btn_add_expense" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\assets\img\btn\btn-add-expense.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="btn_product_form" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\assets\img\btn\btn-product-form.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="product_sisteg_bg" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\assets\img\product-sisteg-bg.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="btn_add_budgeted_product" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\assets\img\btn\btn-add-budgeted-product.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="btn_go_forward_active" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\assets\img\btn\btn-go-forward-active.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="btn_delete_active" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\assets\img\btn\btn-delete-active.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="btn_main_form_active" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\assets\img\btn\btn-main-form-active.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="splashScreen" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\assets\video\splashScreen.mp4;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="config_panel_bg" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\assets\img\config-panel-bg.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="add_income_or_expense_bg" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\assets\img\add-income-or-expense-bg.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="income_homepage_bg" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\assets\img\income-homepage-bg.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="btn_config_main" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\bin\Debug\assets\img\btn\btn-config-main.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="client_product_step_bg" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\assets\img\client-product-step-bg.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="cancel__2_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\assets\img\icon\cancel (2).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="expense_homepage_bg" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\assets\img\expense-homepage-bg.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="btn_end_budget" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\assets\img\btn\btn-end-budget.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="btn_add_supplier" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\assets\img\btn\btn-add-supplier.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="btn_budget_form" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\assets\img\btn\btn-budget-form.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="btn_main_form" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\assets\img\btn\btn-main-form.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="btn_go_back" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\assets\img\btn\btn-go-back.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="minus" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\assets\img\icon\minus.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="btn_print_active" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\assets\img\btn\btn-print-active.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="btn_config_main_active" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\bin\Debug\assets\img\btn\btn-config-main-active.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="btn_send_email" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\bin\Debug\assets\img\btn\btn-send-email.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="btn_update_active" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\assets\img\btn\btn-update-active.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="btn_send_email_active" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\bin\Debug\assets\img\btn\btn-send-email-active.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="btn_edit_active" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\assets\img\btn\btn-edit-active.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="btn_print" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\assets\img\btn\btn-print.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="btn_add_budgeted_product_active" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\assets\img\btn\btn-add-budgeted-product-active.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="btn_update" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\assets\img\btn\btn-update.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="btn_pay_parcel" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\assets\img\btn\btn-pay-parcel.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="income_and_expense_table_bg" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\assets\img\income-and-expense-table-bg.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="btn_delete" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\assets\img\btn\btn-delete.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="btn_add_account_active" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\assets\img\btn\btn-add-account-active.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="btn_add_income" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\assets\img\btn\btn-add-income.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="btn_add_category" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\assets\img\btn\btn-add-category.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="btn_confirm_budget" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\assets\img\btn\btn-confirm-budget.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="search_bg" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\assets\img\search-bg.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="btn_end_budget_active" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\assets\img\btn\btn-end-budget-active.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="btn_pay_parcel_active" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\assets\img\btn\btn-pay-parcel-active.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="edit__2_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\assets\img\icon\edit (2).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="btn_edit" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\assets\img\btn\btn-edit.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="btn_client_form" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\assets\img\btn\btn-client-form.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="btn_add_supplier_active" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\assets\img\btn\btn-add-supplier-active.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="btn_cancel" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\assets\img\btn\btn-cancel.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="btn_add_phone" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\assets\img\btn\btn-add-phone.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="btn_add_expense_active" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\assets\img\btn\btn-add-expense-active.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="btn_cancel_active" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\assets\img\btn\btn-cancel-active.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="client_sisteg_bg_value" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\assets\img\client-sisteg-bg-value.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="btn_go_forward" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\assets\img\btn\btn-go-forward.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="angle_left__2_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\assets\img\icon\angle-left (2).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="plus__2_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\assets\img\icon\plus (2).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

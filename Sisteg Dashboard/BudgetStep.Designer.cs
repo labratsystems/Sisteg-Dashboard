@@ -53,7 +53,9 @@
             this.pcb_btnDelete = new System.Windows.Forms.PictureBox();
             this.lbl_confirmedBudget = new System.Windows.Forms.Label();
             this.ckb_confirmedBudget = new Bunifu.Framework.UI.BunifuCheckbox();
-            this.panel_income = new System.Windows.Forms.Panel();
+            this.panel_budgetStep = new System.Windows.Forms.Panel();
+            this.lbl_btnDeleteTag = new System.Windows.Forms.Label();
+            this.lbl_btnUpdateTag = new System.Windows.Forms.Label();
             this.ckb_parcelValue = new Bunifu.Framework.UI.BunifuCheckbox();
             this.label1 = new System.Windows.Forms.Label();
             this.txt_parcels = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
@@ -70,14 +72,14 @@
             this.lbl_repeatOrParcelValue = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pcb_btnUpdate)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcb_btnDelete)).BeginInit();
-            this.panel_income.SuspendLayout();
+            this.panel_budgetStep.SuspendLayout();
             this.SuspendLayout();
             // 
             // pcb_btnUpdate
             // 
             this.pcb_btnUpdate.BackColor = System.Drawing.Color.Transparent;
+            this.pcb_btnUpdate.BackgroundImage = global::Sisteg_Dashboard.Properties.Resources.btn_update;
             this.pcb_btnUpdate.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pcb_btnUpdate.Image = ((System.Drawing.Image)(resources.GetObject("pcb_btnUpdate.Image")));
             this.pcb_btnUpdate.Location = new System.Drawing.Point(383, 201);
             this.pcb_btnUpdate.Name = "pcb_btnUpdate";
             this.pcb_btnUpdate.Size = new System.Drawing.Size(327, 70);
@@ -90,8 +92,8 @@
             // pcb_btnDelete
             // 
             this.pcb_btnDelete.BackColor = System.Drawing.Color.Transparent;
+            this.pcb_btnDelete.BackgroundImage = global::Sisteg_Dashboard.Properties.Resources.btn_delete;
             this.pcb_btnDelete.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pcb_btnDelete.Image = ((System.Drawing.Image)(resources.GetObject("pcb_btnDelete.Image")));
             this.pcb_btnDelete.Location = new System.Drawing.Point(383, 277);
             this.pcb_btnDelete.Name = "pcb_btnDelete";
             this.pcb_btnDelete.Size = new System.Drawing.Size(327, 70);
@@ -105,12 +107,12 @@
             // 
             this.lbl_confirmedBudget.AutoSize = true;
             this.lbl_confirmedBudget.BackColor = System.Drawing.Color.Transparent;
-            this.lbl_confirmedBudget.Font = new System.Drawing.Font("Courier Prime Code", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_confirmedBudget.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_confirmedBudget.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.lbl_confirmedBudget.Location = new System.Drawing.Point(53, 156);
+            this.lbl_confirmedBudget.Location = new System.Drawing.Point(57, 160);
             this.lbl_confirmedBudget.Name = "lbl_confirmedBudget";
-            this.lbl_confirmedBudget.Size = new System.Drawing.Size(210, 21);
-            this.lbl_confirmedBudget.TabIndex = 99;
+            this.lbl_confirmedBudget.Size = new System.Drawing.Size(171, 20);
+            this.lbl_confirmedBudget.TabIndex = 7;
             this.lbl_confirmedBudget.Text = "Orçamento confirmado";
             // 
             // ckb_confirmedBudget
@@ -119,40 +121,70 @@
             this.ckb_confirmedBudget.ChechedOffColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.ckb_confirmedBudget.Checked = true;
             this.ckb_confirmedBudget.CheckedOnColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.ckb_confirmedBudget.Font = new System.Drawing.Font("Courier Prime Code", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ckb_confirmedBudget.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ckb_confirmedBudget.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(157)))));
-            this.ckb_confirmedBudget.Location = new System.Drawing.Point(16, 155);
-            this.ckb_confirmedBudget.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.ckb_confirmedBudget.Location = new System.Drawing.Point(20, 159);
+            this.ckb_confirmedBudget.Margin = new System.Windows.Forms.Padding(5);
             this.ckb_confirmedBudget.Name = "ckb_confirmedBudget";
             this.ckb_confirmedBudget.Size = new System.Drawing.Size(20, 20);
-            this.ckb_confirmedBudget.TabIndex = 98;
+            this.ckb_confirmedBudget.TabIndex = 6;
             // 
-            // panel_income
+            // panel_budgetStep
             // 
-            this.panel_income.AutoScroll = true;
-            this.panel_income.AutoScrollMargin = new System.Drawing.Size(0, 15);
-            this.panel_income.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(157)))));
-            this.panel_income.Controls.Add(this.ckb_parcelValue);
-            this.panel_income.Controls.Add(this.label1);
-            this.panel_income.Controls.Add(this.txt_parcels);
-            this.panel_income.Controls.Add(this.txt_incomeObservations);
-            this.panel_income.Controls.Add(this.txt_incomeDescription);
-            this.panel_income.Controls.Add(this.cbb_period);
-            this.panel_income.Controls.Add(this.cbb_incomeAccount);
-            this.panel_income.Controls.Add(this.lbl_incomeReceived);
-            this.panel_income.Controls.Add(this.ckb_incomeReceived);
-            this.panel_income.Controls.Add(this.cbb_paymentCondition);
-            this.panel_income.Controls.Add(this.txt_laborValue);
-            this.panel_income.Controls.Add(this.mtb_budgetDate);
-            this.panel_income.Controls.Add(this.border_mtbBudgetDate);
-            this.panel_income.Controls.Add(this.pcb_btnUpdate);
-            this.panel_income.Controls.Add(this.pcb_btnDelete);
-            this.panel_income.Controls.Add(this.lbl_confirmedBudget);
-            this.panel_income.Controls.Add(this.ckb_confirmedBudget);
-            this.panel_income.Location = new System.Drawing.Point(12, 29);
-            this.panel_income.Name = "panel_income";
-            this.panel_income.Size = new System.Drawing.Size(741, 320);
-            this.panel_income.TabIndex = 65;
+            this.panel_budgetStep.AutoScroll = true;
+            this.panel_budgetStep.AutoScrollMargin = new System.Drawing.Size(0, 15);
+            this.panel_budgetStep.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(157)))));
+            this.panel_budgetStep.Controls.Add(this.lbl_btnDeleteTag);
+            this.panel_budgetStep.Controls.Add(this.lbl_btnUpdateTag);
+            this.panel_budgetStep.Controls.Add(this.ckb_parcelValue);
+            this.panel_budgetStep.Controls.Add(this.label1);
+            this.panel_budgetStep.Controls.Add(this.txt_parcels);
+            this.panel_budgetStep.Controls.Add(this.txt_incomeObservations);
+            this.panel_budgetStep.Controls.Add(this.txt_incomeDescription);
+            this.panel_budgetStep.Controls.Add(this.cbb_period);
+            this.panel_budgetStep.Controls.Add(this.cbb_incomeAccount);
+            this.panel_budgetStep.Controls.Add(this.lbl_incomeReceived);
+            this.panel_budgetStep.Controls.Add(this.ckb_incomeReceived);
+            this.panel_budgetStep.Controls.Add(this.cbb_paymentCondition);
+            this.panel_budgetStep.Controls.Add(this.txt_laborValue);
+            this.panel_budgetStep.Controls.Add(this.mtb_budgetDate);
+            this.panel_budgetStep.Controls.Add(this.border_mtbBudgetDate);
+            this.panel_budgetStep.Controls.Add(this.pcb_btnUpdate);
+            this.panel_budgetStep.Controls.Add(this.pcb_btnDelete);
+            this.panel_budgetStep.Controls.Add(this.lbl_confirmedBudget);
+            this.panel_budgetStep.Controls.Add(this.ckb_confirmedBudget);
+            this.panel_budgetStep.Location = new System.Drawing.Point(12, 29);
+            this.panel_budgetStep.Name = "panel_budgetStep";
+            this.panel_budgetStep.Size = new System.Drawing.Size(741, 320);
+            this.panel_budgetStep.TabIndex = 1;
+            // 
+            // lbl_btnDeleteTag
+            // 
+            this.lbl_btnDeleteTag.AutoSize = true;
+            this.lbl_btnDeleteTag.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_btnDeleteTag.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lbl_btnDeleteTag.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lbl_btnDeleteTag.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.lbl_btnDeleteTag.Location = new System.Drawing.Point(466, 305);
+            this.lbl_btnDeleteTag.Name = "lbl_btnDeleteTag";
+            this.lbl_btnDeleteTag.Size = new System.Drawing.Size(198, 20);
+            this.lbl_btnDeleteTag.TabIndex = 18;
+            this.lbl_btnDeleteTag.Text = "EXCLUIR ORÇAMENTO///";
+            this.lbl_btnDeleteTag.Click += new System.EventHandler(this.lbl_btnDeleteTag_Click);
+            // 
+            // lbl_btnUpdateTag
+            // 
+            this.lbl_btnUpdateTag.AutoSize = true;
+            this.lbl_btnUpdateTag.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_btnUpdateTag.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lbl_btnUpdateTag.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lbl_btnUpdateTag.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.lbl_btnUpdateTag.Location = new System.Drawing.Point(466, 229);
+            this.lbl_btnUpdateTag.Name = "lbl_btnUpdateTag";
+            this.lbl_btnUpdateTag.Size = new System.Drawing.Size(217, 20);
+            this.lbl_btnUpdateTag.TabIndex = 17;
+            this.lbl_btnUpdateTag.Text = "ATUALIZAR ORÇAMENTO///";
+            this.lbl_btnUpdateTag.Click += new System.EventHandler(this.lbl_btnUpdateTag_Click);
             // 
             // ckb_parcelValue
             // 
@@ -161,25 +193,25 @@
             this.ckb_parcelValue.Checked = true;
             this.ckb_parcelValue.CheckedOnColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.ckb_parcelValue.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ckb_parcelValue.Font = new System.Drawing.Font("Courier Prime Code", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ckb_parcelValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ckb_parcelValue.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(157)))));
             this.ckb_parcelValue.Location = new System.Drawing.Point(386, 67);
-            this.ckb_parcelValue.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.ckb_parcelValue.Margin = new System.Windows.Forms.Padding(5);
             this.ckb_parcelValue.Name = "ckb_parcelValue";
             this.ckb_parcelValue.Size = new System.Drawing.Size(20, 20);
-            this.ckb_parcelValue.TabIndex = 122;
+            this.ckb_parcelValue.TabIndex = 13;
             this.ckb_parcelValue.OnChange += new System.EventHandler(this.ckb_parcelValue_OnChange);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Courier Prime Code", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.label1.Location = new System.Drawing.Point(423, 68);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(170, 21);
-            this.label1.TabIndex = 121;
+            this.label1.Size = new System.Drawing.Size(117, 20);
+            this.label1.TabIndex = 14;
             this.label1.Text = "Parcelar o valor";
             // 
             // txt_parcels
@@ -199,7 +231,7 @@
             this.txt_parcels.BorderThickness = 1;
             this.txt_parcels.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
             this.txt_parcels.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txt_parcels.DefaultFont = new System.Drawing.Font("Courier Prime Code", 12F);
+            this.txt_parcels.DefaultFont = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.txt_parcels.DefaultText = "";
             this.txt_parcels.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(157)))));
             this.txt_parcels.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
@@ -247,7 +279,7 @@
             this.txt_parcels.ShortcutsEnabled = true;
             this.txt_parcels.Size = new System.Drawing.Size(300, 35);
             this.txt_parcels.Style = Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox._Style.Bunifu;
-            this.txt_parcels.TabIndex = 120;
+            this.txt_parcels.TabIndex = 15;
             this.txt_parcels.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.txt_parcels.TextMarginBottom = 0;
             this.txt_parcels.TextMarginLeft = 5;
@@ -255,6 +287,7 @@
             this.txt_parcels.TextPlaceholder = "Parcelas";
             this.txt_parcels.UseSystemPasswordChar = false;
             this.txt_parcels.WordWrap = true;
+            this.txt_parcels.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_parcels_KeyPress);
             // 
             // txt_incomeObservations
             // 
@@ -273,7 +306,7 @@
             this.txt_incomeObservations.BorderThickness = 1;
             this.txt_incomeObservations.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
             this.txt_incomeObservations.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txt_incomeObservations.DefaultFont = new System.Drawing.Font("Courier Prime Code", 12F);
+            this.txt_incomeObservations.DefaultFont = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.txt_incomeObservations.DefaultText = "";
             this.txt_incomeObservations.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(157)))));
             this.txt_incomeObservations.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
@@ -284,7 +317,7 @@
             this.txt_incomeObservations.IconRight = null;
             this.txt_incomeObservations.IconRightCursor = System.Windows.Forms.Cursors.IBeam;
             this.txt_incomeObservations.Lines = new string[0];
-            this.txt_incomeObservations.Location = new System.Drawing.Point(16, 277);
+            this.txt_incomeObservations.Location = new System.Drawing.Point(16, 288);
             this.txt_incomeObservations.MaxLength = 32767;
             this.txt_incomeObservations.MinimumSize = new System.Drawing.Size(100, 35);
             this.txt_incomeObservations.Modified = false;
@@ -319,9 +352,9 @@
             this.txt_incomeObservations.SelectionLength = 0;
             this.txt_incomeObservations.SelectionStart = 0;
             this.txt_incomeObservations.ShortcutsEnabled = true;
-            this.txt_incomeObservations.Size = new System.Drawing.Size(300, 70);
+            this.txt_incomeObservations.Size = new System.Drawing.Size(300, 59);
             this.txt_incomeObservations.Style = Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox._Style.Bunifu;
-            this.txt_incomeObservations.TabIndex = 119;
+            this.txt_incomeObservations.TabIndex = 10;
             this.txt_incomeObservations.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.txt_incomeObservations.TextMarginBottom = 0;
             this.txt_incomeObservations.TextMarginLeft = 5;
@@ -347,7 +380,7 @@
             this.txt_incomeDescription.BorderThickness = 1;
             this.txt_incomeDescription.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
             this.txt_incomeDescription.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txt_incomeDescription.DefaultFont = new System.Drawing.Font("Courier Prime Code", 12F);
+            this.txt_incomeDescription.DefaultFont = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.txt_incomeDescription.DefaultText = "";
             this.txt_incomeDescription.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(157)))));
             this.txt_incomeDescription.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
@@ -358,7 +391,7 @@
             this.txt_incomeDescription.IconRight = null;
             this.txt_incomeDescription.IconRightCursor = System.Windows.Forms.Cursors.IBeam;
             this.txt_incomeDescription.Lines = new string[0];
-            this.txt_incomeDescription.Location = new System.Drawing.Point(16, 185);
+            this.txt_incomeDescription.Location = new System.Drawing.Point(16, 196);
             this.txt_incomeDescription.MaxLength = 32767;
             this.txt_incomeDescription.MinimumSize = new System.Drawing.Size(100, 35);
             this.txt_incomeDescription.Modified = false;
@@ -395,7 +428,7 @@
             this.txt_incomeDescription.ShortcutsEnabled = true;
             this.txt_incomeDescription.Size = new System.Drawing.Size(300, 35);
             this.txt_incomeDescription.Style = Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox._Style.Bunifu;
-            this.txt_incomeDescription.TabIndex = 107;
+            this.txt_incomeDescription.TabIndex = 8;
             this.txt_incomeDescription.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.txt_incomeDescription.TextMarginBottom = 0;
             this.txt_incomeDescription.TextMarginLeft = 5;
@@ -419,7 +452,7 @@
             this.cbb_period.FillDropDown = false;
             this.cbb_period.FillIndicator = false;
             this.cbb_period.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cbb_period.Font = new System.Drawing.Font("Courier Prime Code", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbb_period.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbb_period.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.cbb_period.FormattingEnabled = true;
             this.cbb_period.Icon = null;
@@ -442,7 +475,7 @@
             this.cbb_period.Location = new System.Drawing.Point(383, 153);
             this.cbb_period.Name = "cbb_period";
             this.cbb_period.Size = new System.Drawing.Size(300, 35);
-            this.cbb_period.TabIndex = 118;
+            this.cbb_period.TabIndex = 16;
             this.cbb_period.Text = " Período";
             // 
             // cbb_incomeAccount
@@ -460,7 +493,7 @@
             this.cbb_incomeAccount.FillDropDown = false;
             this.cbb_incomeAccount.FillIndicator = false;
             this.cbb_incomeAccount.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cbb_incomeAccount.Font = new System.Drawing.Font("Courier Prime Code", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbb_incomeAccount.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbb_incomeAccount.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.cbb_incomeAccount.FormattingEnabled = true;
             this.cbb_incomeAccount.Icon = null;
@@ -471,22 +504,22 @@
             this.cbb_incomeAccount.ItemForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.cbb_incomeAccount.ItemHeight = 29;
             this.cbb_incomeAccount.ItemHighLightColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(104)))), ((int)(((byte)(232)))));
-            this.cbb_incomeAccount.Location = new System.Drawing.Point(16, 231);
+            this.cbb_incomeAccount.Location = new System.Drawing.Point(16, 242);
             this.cbb_incomeAccount.Name = "cbb_incomeAccount";
             this.cbb_incomeAccount.Size = new System.Drawing.Size(300, 35);
-            this.cbb_incomeAccount.TabIndex = 117;
+            this.cbb_incomeAccount.TabIndex = 9;
             this.cbb_incomeAccount.Text = " Conta";
             // 
             // lbl_incomeReceived
             // 
             this.lbl_incomeReceived.AutoSize = true;
             this.lbl_incomeReceived.BackColor = System.Drawing.Color.Transparent;
-            this.lbl_incomeReceived.Font = new System.Drawing.Font("Courier Prime Code", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_incomeReceived.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_incomeReceived.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.lbl_incomeReceived.Location = new System.Drawing.Point(423, 25);
             this.lbl_incomeReceived.Name = "lbl_incomeReceived";
-            this.lbl_incomeReceived.Size = new System.Drawing.Size(90, 21);
-            this.lbl_incomeReceived.TabIndex = 110;
+            this.lbl_incomeReceived.Size = new System.Drawing.Size(77, 20);
+            this.lbl_incomeReceived.TabIndex = 12;
             this.lbl_incomeReceived.Text = "Recebido";
             // 
             // ckb_incomeReceived
@@ -496,13 +529,13 @@
             this.ckb_incomeReceived.Checked = true;
             this.ckb_incomeReceived.CheckedOnColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.ckb_incomeReceived.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ckb_incomeReceived.Font = new System.Drawing.Font("Courier Prime Code", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ckb_incomeReceived.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ckb_incomeReceived.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(157)))));
             this.ckb_incomeReceived.Location = new System.Drawing.Point(386, 24);
-            this.ckb_incomeReceived.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.ckb_incomeReceived.Margin = new System.Windows.Forms.Padding(5);
             this.ckb_incomeReceived.Name = "ckb_incomeReceived";
             this.ckb_incomeReceived.Size = new System.Drawing.Size(20, 20);
-            this.ckb_incomeReceived.TabIndex = 109;
+            this.ckb_incomeReceived.TabIndex = 11;
             // 
             // cbb_paymentCondition
             // 
@@ -519,7 +552,7 @@
             this.cbb_paymentCondition.FillDropDown = false;
             this.cbb_paymentCondition.FillIndicator = false;
             this.cbb_paymentCondition.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cbb_paymentCondition.Font = new System.Drawing.Font("Courier Prime Code", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbb_paymentCondition.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbb_paymentCondition.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.cbb_paymentCondition.FormattingEnabled = true;
             this.cbb_paymentCondition.Icon = null;
@@ -538,7 +571,7 @@
             this.cbb_paymentCondition.MinimumSize = new System.Drawing.Size(300, 0);
             this.cbb_paymentCondition.Name = "cbb_paymentCondition";
             this.cbb_paymentCondition.Size = new System.Drawing.Size(300, 35);
-            this.cbb_paymentCondition.TabIndex = 106;
+            this.cbb_paymentCondition.TabIndex = 5;
             this.cbb_paymentCondition.Text = " Condição de pagamento";
             // 
             // txt_laborValue
@@ -558,7 +591,7 @@
             this.txt_laborValue.BorderThickness = 1;
             this.txt_laborValue.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
             this.txt_laborValue.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txt_laborValue.DefaultFont = new System.Drawing.Font("Courier Prime Code", 12F);
+            this.txt_laborValue.DefaultFont = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.txt_laborValue.DefaultText = "";
             this.txt_laborValue.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(157)))));
             this.txt_laborValue.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
@@ -606,7 +639,7 @@
             this.txt_laborValue.ShortcutsEnabled = true;
             this.txt_laborValue.Size = new System.Drawing.Size(300, 35);
             this.txt_laborValue.Style = Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox._Style.Bunifu;
-            this.txt_laborValue.TabIndex = 105;
+            this.txt_laborValue.TabIndex = 4;
             this.txt_laborValue.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.txt_laborValue.TextMarginBottom = 0;
             this.txt_laborValue.TextMarginLeft = 5;
@@ -619,15 +652,20 @@
             // 
             this.mtb_budgetDate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(157)))));
             this.mtb_budgetDate.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.mtb_budgetDate.Font = new System.Drawing.Font("Courier Prime Code", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mtb_budgetDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mtb_budgetDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.mtb_budgetDate.Location = new System.Drawing.Point(26, 25);
+            this.mtb_budgetDate.Location = new System.Drawing.Point(26, 26);
             this.mtb_budgetDate.Mask = "00/00/0000";
             this.mtb_budgetDate.Name = "mtb_budgetDate";
             this.mtb_budgetDate.PromptChar = ' ';
-            this.mtb_budgetDate.Size = new System.Drawing.Size(275, 21);
-            this.mtb_budgetDate.TabIndex = 104;
+            this.mtb_budgetDate.Size = new System.Drawing.Size(275, 19);
+            this.mtb_budgetDate.TabIndex = 2;
             this.mtb_budgetDate.ValidatingType = typeof(System.DateTime);
+            this.mtb_budgetDate.Enter += new System.EventHandler(this.mtb_budgetDate_Enter);
+            this.mtb_budgetDate.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.mtb_budgetDate_KeyPress);
+            this.mtb_budgetDate.Leave += new System.EventHandler(this.mtb_budgetDate_Leave);
+            this.mtb_budgetDate.MouseEnter += new System.EventHandler(this.mtb_budgetDate_MouseEnter);
+            this.mtb_budgetDate.MouseLeave += new System.EventHandler(this.mtb_budgetDate_MouseLeave);
             // 
             // border_mtbBudgetDate
             // 
@@ -646,7 +684,7 @@
             this.border_mtbBudgetDate.BorderThickness = 1;
             this.border_mtbBudgetDate.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
             this.border_mtbBudgetDate.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.border_mtbBudgetDate.DefaultFont = new System.Drawing.Font("Courier Prime Code", 12F);
+            this.border_mtbBudgetDate.DefaultFont = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.border_mtbBudgetDate.DefaultText = "";
             this.border_mtbBudgetDate.FillColor = System.Drawing.Color.Empty;
             this.border_mtbBudgetDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
@@ -694,7 +732,7 @@
             this.border_mtbBudgetDate.ShortcutsEnabled = true;
             this.border_mtbBudgetDate.Size = new System.Drawing.Size(300, 35);
             this.border_mtbBudgetDate.Style = Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox._Style.Bunifu;
-            this.border_mtbBudgetDate.TabIndex = 103;
+            this.border_mtbBudgetDate.TabIndex = 3;
             this.border_mtbBudgetDate.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.border_mtbBudgetDate.TextMarginBottom = 0;
             this.border_mtbBudgetDate.TextMarginLeft = 5;
@@ -702,12 +740,13 @@
             this.border_mtbBudgetDate.TextPlaceholder = "";
             this.border_mtbBudgetDate.UseSystemPasswordChar = false;
             this.border_mtbBudgetDate.WordWrap = true;
+            this.border_mtbBudgetDate.Enter += new System.EventHandler(this.border_mtbBudgetDate_Enter);
             // 
             // lbl_repeatOrParcelValue
             // 
             this.lbl_repeatOrParcelValue.AutoSize = true;
             this.lbl_repeatOrParcelValue.BackColor = System.Drawing.Color.Transparent;
-            this.lbl_repeatOrParcelValue.Font = new System.Drawing.Font("Courier Prime Code", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_repeatOrParcelValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_repeatOrParcelValue.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.lbl_repeatOrParcelValue.Location = new System.Drawing.Point(423, 70);
             this.lbl_repeatOrParcelValue.Name = "lbl_repeatOrParcelValue";
@@ -721,14 +760,14 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(773, 381);
-            this.Controls.Add(this.panel_income);
+            this.Controls.Add(this.panel_budgetStep);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "BudgetStep";
             this.Text = "ProdutStep";
             ((System.ComponentModel.ISupportInitialize)(this.pcb_btnUpdate)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcb_btnDelete)).EndInit();
-            this.panel_income.ResumeLayout(false);
-            this.panel_income.PerformLayout();
+            this.panel_budgetStep.ResumeLayout(false);
+            this.panel_budgetStep.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -737,7 +776,7 @@
         private System.Windows.Forms.Label lbl_confirmedBudget;
         public System.Windows.Forms.PictureBox pcb_btnUpdate;
         public System.Windows.Forms.PictureBox pcb_btnDelete;
-        private System.Windows.Forms.Panel panel_income;
+        private System.Windows.Forms.Panel panel_budgetStep;
         protected internal Bunifu.Framework.UI.BunifuCheckbox ckb_confirmedBudget;
         protected internal Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox txt_laborValue;
         protected internal Bunifu.UI.WinForms.BunifuDropdown cbb_paymentCondition;
@@ -753,5 +792,7 @@
         protected internal Bunifu.Framework.UI.BunifuCheckbox ckb_parcelValue;
         protected internal System.Windows.Forms.Label label1;
         protected internal System.Windows.Forms.Label lbl_repeatOrParcelValue;
+        protected internal System.Windows.Forms.Label lbl_btnDeleteTag;
+        protected internal System.Windows.Forms.Label lbl_btnUpdateTag;
     }
 }

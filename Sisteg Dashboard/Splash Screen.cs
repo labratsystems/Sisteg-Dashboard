@@ -1,13 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.IO;
-using System.Drawing;
 using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Sisteg_Dashboard
@@ -18,9 +11,8 @@ namespace Sisteg_Dashboard
         {
             InitializeComponent();
             this.timer_splashScreen.Start();
-            string caminhoVideo = Path.Combine(Application.StartupPath, "splashScreen.mp4");
-            File.WriteAllBytes(caminhoVideo, Properties.Resources.splashScreen);
-            axWindowsMediaPlayer.URL = caminhoVideo;
+            string videoPath = Globals.path + "assets\\video\\splashScreen.mp4";
+            axWindowsMediaPlayer.URL = videoPath;
         }
 
         private void timer_splashScreen_Tick(object sender, EventArgs e)
@@ -33,7 +25,7 @@ namespace Sisteg_Dashboard
                 main.Show();
                 do
                 {
-                    System.Threading.Thread.Sleep(25);
+                    System.Threading.Thread.Sleep(20);
                     this.Opacity -= 0.025;
                     main.Opacity += 0.050;
                 } while ((this.Opacity > 0) && (main.Opacity < 1));

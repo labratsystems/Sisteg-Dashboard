@@ -1,17 +1,52 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Sisteg_Dashboard
 {
     class Product
     {
-        public Int32 idProduto;
-        public Int32 idFornecedor;
-        public Int32 idCategoria;
-        public string nomeProduto;
-        public Decimal valorUnitario;
+        private Int32 idProduto;
+        private Int32 idFornecedor;
+        private Int32 idCategoria;
+        private string nomeProduto;
+        private Decimal valorUnitario;
+
+        public Product()
+        {
+            this.idProduto = 0;
+            this.idFornecedor = 0;
+            this.idCategoria = 0;
+            this.nomeProduto = null;
+            this.valorUnitario = 0;
+        }
+
+        public Int32 IdProduto
+        {
+            get { return idProduto; }
+            set { this.idProduto = value; }
+        }
+
+        public Int32 IdFornecedor
+        {
+            get { return idFornecedor; }
+            set { this.idFornecedor = value; }
+        }
+
+        public Int32 IdCategoria
+        {
+            get { return idCategoria; }
+            set { this.idCategoria = value; }
+        }
+
+        public string NomeProduto
+        {
+            get { return nomeProduto; }
+            set { this.nomeProduto = value; }
+        }
+
+        public Decimal ValorUnitario
+        {
+            get { return valorUnitario; }
+            set { this.valorUnitario = value; }
+        }
     }
 }

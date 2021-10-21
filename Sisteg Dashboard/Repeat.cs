@@ -1,23 +1,100 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Sisteg_Dashboard
 {
     class Repeat
     {
-        public Int32 idRepeticao;
-        public Int32 idReceita;
-        public Int32 idDespesa;
-        public Int32 idConta;
-        public Int32 idCategoria;
-        public Decimal valorRepeticao;
-        public string descricaoRepeticao;
-        public DateTime dataTransacao;
-        public string observacoesRepeticao;
-        public Boolean recebimentoConfirmado;
-        public Boolean pagamentoConfirmado;
+        private Int32 idRepeticao;
+        private Int32 idReceita;
+        private Int32 idDespesa;
+        private Int32 idConta;
+        private Int32 idCategoria;
+        private Decimal valorRepeticao;
+        private string descricaoRepeticao;
+        private DateTime dataTransacao;
+        private string observacoesRepeticao;
+        private Boolean recebimentoConfirmado;
+        private Boolean pagamentoConfirmado;
+
+        public Repeat()
+        {
+            this.idRepeticao = 0;
+            this.idReceita = 0;
+            this.idDespesa = 0;
+            this.idConta = 0;
+            this.idCategoria = 0;
+            this.valorRepeticao = 0;
+            this.descricaoRepeticao = null;
+            this.dataTransacao = new DateTime();
+            this.observacoesRepeticao = null;
+            this.recebimentoConfirmado = false;
+            this.pagamentoConfirmado = false;
+        }
+
+        public Int32 IdRepeticao
+        {
+            get { return idRepeticao; }
+            set { this.idRepeticao = value; }
+        }
+
+        public Int32 IdReceita
+        {
+            get { return idReceita; }
+            set { this.idReceita = value; }
+        }
+
+        public Int32 IdDespesa
+        {
+            get { return idDespesa; }
+            set { this.idDespesa = value; }
+        }
+
+        public Int32 IdConta
+        {
+            get { return idConta; }
+            set { this.idConta = value; }
+        }
+
+        public Int32 IdCategoria
+        {
+            get { return idCategoria; }
+            set { this.idCategoria = value; }
+        }
+
+        public Decimal ValorRepeticao
+        {
+            get { return valorRepeticao; }
+            set { this.valorRepeticao = value; }
+        }
+
+        public string DescricaoRepeticao
+        {
+            get { return descricaoRepeticao; }
+            set { this.descricaoRepeticao = value; }
+        }
+
+        public DateTime DataTransacao
+        {
+            get { return dataTransacao; }
+            set { this.dataTransacao = value; }
+        }
+
+        public string ObservacoesRepeticao
+        {
+            get { return observacoesRepeticao; }
+            set { this.observacoesRepeticao = value; }
+        }
+
+        public Boolean RecebimentoConfirmado
+        {
+            get { return recebimentoConfirmado; }
+            set { this.recebimentoConfirmado = value; }
+        }
+
+        public Boolean PagamentoConfirmado
+        {
+            get { return pagamentoConfirmado; }
+            set { this.pagamentoConfirmado = value; }
+        }
     }
 }

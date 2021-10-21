@@ -37,7 +37,7 @@
             Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties6 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
             Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties7 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
             Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties8 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
-            this.panel_client = new System.Windows.Forms.Panel();
+            this.panel_product = new System.Windows.Forms.Panel();
             this.txt_productValue = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
             this.cbb_productCategory = new Bunifu.UI.WinForms.BunifuDropdown();
             this.cbb_supplierName = new Bunifu.UI.WinForms.BunifuDropdown();
@@ -46,28 +46,30 @@
             this.pcb_btnUpdate = new System.Windows.Forms.PictureBox();
             this.pcb_btnDelete = new System.Windows.Forms.PictureBox();
             this.pcb_btnCancel = new System.Windows.Forms.PictureBox();
-            this.pcb_appClose = new System.Windows.Forms.PictureBox();
-            this.panel_client.SuspendLayout();
+            this.lbl_btnCancelTag = new System.Windows.Forms.Label();
+            this.lbl_btnDeleteTag = new System.Windows.Forms.Label();
+            this.lbl_btnUpdateTag = new System.Windows.Forms.Label();
+            this.lbl_productRegisterTag = new System.Windows.Forms.Label();
+            this.panel_product.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pcb_btnProductRegister)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcb_btnUpdate)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcb_btnDelete)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcb_btnCancel)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pcb_appClose)).BeginInit();
             this.SuspendLayout();
             // 
-            // panel_client
+            // panel_product
             // 
-            this.panel_client.AutoScroll = true;
-            this.panel_client.AutoScrollMargin = new System.Drawing.Size(0, 15);
-            this.panel_client.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(157)))));
-            this.panel_client.Controls.Add(this.txt_productValue);
-            this.panel_client.Controls.Add(this.cbb_productCategory);
-            this.panel_client.Controls.Add(this.cbb_supplierName);
-            this.panel_client.Controls.Add(this.txt_productName);
-            this.panel_client.Location = new System.Drawing.Point(111, 103);
-            this.panel_client.Name = "panel_client";
-            this.panel_client.Size = new System.Drawing.Size(443, 318);
-            this.panel_client.TabIndex = 62;
+            this.panel_product.AutoScroll = true;
+            this.panel_product.AutoScrollMargin = new System.Drawing.Size(0, 15);
+            this.panel_product.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(157)))));
+            this.panel_product.Controls.Add(this.txt_productValue);
+            this.panel_product.Controls.Add(this.cbb_productCategory);
+            this.panel_product.Controls.Add(this.cbb_supplierName);
+            this.panel_product.Controls.Add(this.txt_productName);
+            this.panel_product.Location = new System.Drawing.Point(405, 29);
+            this.panel_product.Name = "panel_product";
+            this.panel_product.Size = new System.Drawing.Size(348, 338);
+            this.panel_product.TabIndex = 5;
             // 
             // txt_productValue
             // 
@@ -86,7 +88,7 @@
             this.txt_productValue.BorderThickness = 1;
             this.txt_productValue.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
             this.txt_productValue.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txt_productValue.DefaultFont = new System.Drawing.Font("Courier Prime Code", 12F);
+            this.txt_productValue.DefaultFont = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.txt_productValue.DefaultText = "";
             this.txt_productValue.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(157)))));
             this.txt_productValue.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
@@ -134,7 +136,7 @@
             this.txt_productValue.ShortcutsEnabled = true;
             this.txt_productValue.Size = new System.Drawing.Size(300, 35);
             this.txt_productValue.Style = Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox._Style.Bunifu;
-            this.txt_productValue.TabIndex = 108;
+            this.txt_productValue.TabIndex = 9;
             this.txt_productValue.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.txt_productValue.TextMarginBottom = 0;
             this.txt_productValue.TextMarginLeft = 5;
@@ -159,7 +161,7 @@
             this.cbb_productCategory.FillDropDown = false;
             this.cbb_productCategory.FillIndicator = false;
             this.cbb_productCategory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cbb_productCategory.Font = new System.Drawing.Font("Courier Prime Code", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbb_productCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbb_productCategory.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.cbb_productCategory.FormattingEnabled = true;
             this.cbb_productCategory.Icon = null;
@@ -170,13 +172,10 @@
             this.cbb_productCategory.ItemForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.cbb_productCategory.ItemHeight = 29;
             this.cbb_productCategory.ItemHighLightColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(104)))), ((int)(((byte)(232)))));
-            this.cbb_productCategory.Items.AddRange(new object[] {
-            " Materiais elétricos",
-            " Produtos eletrônicos"});
             this.cbb_productCategory.Location = new System.Drawing.Point(15, 104);
             this.cbb_productCategory.Name = "cbb_productCategory";
             this.cbb_productCategory.Size = new System.Drawing.Size(298, 35);
-            this.cbb_productCategory.TabIndex = 107;
+            this.cbb_productCategory.TabIndex = 8;
             this.cbb_productCategory.Text = " Categoria";
             // 
             // cbb_supplierName
@@ -194,7 +193,7 @@
             this.cbb_supplierName.FillDropDown = false;
             this.cbb_supplierName.FillIndicator = false;
             this.cbb_supplierName.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cbb_supplierName.Font = new System.Drawing.Font("Courier Prime Code", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbb_supplierName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbb_supplierName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.cbb_supplierName.FormattingEnabled = true;
             this.cbb_supplierName.Icon = null;
@@ -208,7 +207,7 @@
             this.cbb_supplierName.Location = new System.Drawing.Point(15, 58);
             this.cbb_supplierName.Name = "cbb_supplierName";
             this.cbb_supplierName.Size = new System.Drawing.Size(298, 35);
-            this.cbb_supplierName.TabIndex = 106;
+            this.cbb_supplierName.TabIndex = 7;
             this.cbb_supplierName.Text = " Fornecedor";
             // 
             // txt_productName
@@ -228,7 +227,7 @@
             this.txt_productName.BorderThickness = 1;
             this.txt_productName.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
             this.txt_productName.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txt_productName.DefaultFont = new System.Drawing.Font("Courier Prime Code", 12F);
+            this.txt_productName.DefaultFont = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.txt_productName.DefaultText = "";
             this.txt_productName.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(157)))));
             this.txt_productName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
@@ -276,7 +275,7 @@
             this.txt_productName.ShortcutsEnabled = true;
             this.txt_productName.Size = new System.Drawing.Size(300, 35);
             this.txt_productName.Style = Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox._Style.Bunifu;
-            this.txt_productName.TabIndex = 102;
+            this.txt_productName.TabIndex = 6;
             this.txt_productName.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.txt_productName.TextMarginBottom = 0;
             this.txt_productName.TextMarginLeft = 5;
@@ -289,9 +288,9 @@
             // pcb_btnProductRegister
             // 
             this.pcb_btnProductRegister.BackColor = System.Drawing.Color.Transparent;
+            this.pcb_btnProductRegister.BackgroundImage = global::Sisteg_Dashboard.Properties.Resources.btn_product_form;
             this.pcb_btnProductRegister.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pcb_btnProductRegister.Image = ((System.Drawing.Image)(resources.GetObject("pcb_btnProductRegister.Image")));
-            this.pcb_btnProductRegister.Location = new System.Drawing.Point(628, 160);
+            this.pcb_btnProductRegister.Location = new System.Drawing.Point(42, 46);
             this.pcb_btnProductRegister.Name = "pcb_btnProductRegister";
             this.pcb_btnProductRegister.Size = new System.Drawing.Size(327, 70);
             this.pcb_btnProductRegister.TabIndex = 61;
@@ -303,9 +302,9 @@
             // pcb_btnUpdate
             // 
             this.pcb_btnUpdate.BackColor = System.Drawing.Color.Transparent;
+            this.pcb_btnUpdate.BackgroundImage = global::Sisteg_Dashboard.Properties.Resources.btn_update;
             this.pcb_btnUpdate.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pcb_btnUpdate.Image = ((System.Drawing.Image)(resources.GetObject("pcb_btnUpdate.Image")));
-            this.pcb_btnUpdate.Location = new System.Drawing.Point(628, 236);
+            this.pcb_btnUpdate.Location = new System.Drawing.Point(42, 122);
             this.pcb_btnUpdate.Name = "pcb_btnUpdate";
             this.pcb_btnUpdate.Size = new System.Drawing.Size(327, 70);
             this.pcb_btnUpdate.TabIndex = 60;
@@ -317,9 +316,9 @@
             // pcb_btnDelete
             // 
             this.pcb_btnDelete.BackColor = System.Drawing.Color.Transparent;
+            this.pcb_btnDelete.BackgroundImage = global::Sisteg_Dashboard.Properties.Resources.btn_delete;
             this.pcb_btnDelete.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pcb_btnDelete.Image = ((System.Drawing.Image)(resources.GetObject("pcb_btnDelete.Image")));
-            this.pcb_btnDelete.Location = new System.Drawing.Point(628, 312);
+            this.pcb_btnDelete.Location = new System.Drawing.Point(42, 198);
             this.pcb_btnDelete.Name = "pcb_btnDelete";
             this.pcb_btnDelete.Size = new System.Drawing.Size(327, 70);
             this.pcb_btnDelete.TabIndex = 59;
@@ -331,9 +330,9 @@
             // pcb_btnCancel
             // 
             this.pcb_btnCancel.BackColor = System.Drawing.Color.Transparent;
+            this.pcb_btnCancel.BackgroundImage = global::Sisteg_Dashboard.Properties.Resources.btn_cancel;
             this.pcb_btnCancel.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pcb_btnCancel.Image = ((System.Drawing.Image)(resources.GetObject("pcb_btnCancel.Image")));
-            this.pcb_btnCancel.Location = new System.Drawing.Point(628, 388);
+            this.pcb_btnCancel.Location = new System.Drawing.Point(42, 274);
             this.pcb_btnCancel.Name = "pcb_btnCancel";
             this.pcb_btnCancel.Size = new System.Drawing.Size(327, 70);
             this.pcb_btnCancel.TabIndex = 58;
@@ -342,55 +341,107 @@
             this.pcb_btnCancel.MouseEnter += new System.EventHandler(this.pcb_btnCancel_MouseEnter);
             this.pcb_btnCancel.MouseLeave += new System.EventHandler(this.pcb_btnCancel_MouseLeave);
             // 
-            // pcb_appClose
+            // lbl_btnCancelTag
             // 
-            this.pcb_appClose.BackColor = System.Drawing.Color.Transparent;
-            this.pcb_appClose.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pcb_appClose.BackgroundImage")));
-            this.pcb_appClose.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pcb_appClose.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pcb_appClose.Location = new System.Drawing.Point(744, 6);
-            this.pcb_appClose.Name = "pcb_appClose";
-            this.pcb_appClose.Size = new System.Drawing.Size(32, 32);
-            this.pcb_appClose.TabIndex = 57;
-            this.pcb_appClose.TabStop = false;
+            this.lbl_btnCancelTag.AutoSize = true;
+            this.lbl_btnCancelTag.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_btnCancelTag.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lbl_btnCancelTag.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lbl_btnCancelTag.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.lbl_btnCancelTag.Location = new System.Drawing.Point(124, 302);
+            this.lbl_btnCancelTag.Name = "lbl_btnCancelTag";
+            this.lbl_btnCancelTag.Size = new System.Drawing.Size(174, 20);
+            this.lbl_btnCancelTag.TabIndex = 4;
+            this.lbl_btnCancelTag.Text = "CANCELAR EDIÇÃO///";
+            this.lbl_btnCancelTag.Click += new System.EventHandler(this.lbl_btnCancelTag_Click);
+            // 
+            // lbl_btnDeleteTag
+            // 
+            this.lbl_btnDeleteTag.AutoSize = true;
+            this.lbl_btnDeleteTag.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_btnDeleteTag.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lbl_btnDeleteTag.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lbl_btnDeleteTag.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.lbl_btnDeleteTag.Location = new System.Drawing.Point(124, 226);
+            this.lbl_btnDeleteTag.Name = "lbl_btnDeleteTag";
+            this.lbl_btnDeleteTag.Size = new System.Drawing.Size(175, 20);
+            this.lbl_btnDeleteTag.TabIndex = 3;
+            this.lbl_btnDeleteTag.Text = "EXCLUIR PRODUTO///";
+            this.lbl_btnDeleteTag.Click += new System.EventHandler(this.lbl_btnDeleteTag_Click);
+            // 
+            // lbl_btnUpdateTag
+            // 
+            this.lbl_btnUpdateTag.AutoSize = true;
+            this.lbl_btnUpdateTag.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_btnUpdateTag.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lbl_btnUpdateTag.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lbl_btnUpdateTag.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.lbl_btnUpdateTag.Location = new System.Drawing.Point(124, 150);
+            this.lbl_btnUpdateTag.Name = "lbl_btnUpdateTag";
+            this.lbl_btnUpdateTag.Size = new System.Drawing.Size(194, 20);
+            this.lbl_btnUpdateTag.TabIndex = 2;
+            this.lbl_btnUpdateTag.Text = "ATUALIZAR PRODUTO///";
+            this.lbl_btnUpdateTag.Click += new System.EventHandler(this.lbl_btnUpdateTag_Click);
+            // 
+            // lbl_productRegisterTag
+            // 
+            this.lbl_productRegisterTag.AutoSize = true;
+            this.lbl_productRegisterTag.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_productRegisterTag.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lbl_productRegisterTag.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lbl_productRegisterTag.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.lbl_productRegisterTag.Location = new System.Drawing.Point(124, 74);
+            this.lbl_productRegisterTag.Name = "lbl_productRegisterTag";
+            this.lbl_productRegisterTag.Size = new System.Drawing.Size(204, 20);
+            this.lbl_productRegisterTag.TabIndex = 1;
+            this.lbl_productRegisterTag.Text = "CADASTRAR PRODUTO///";
+            this.lbl_productRegisterTag.Click += new System.EventHandler(this.lbl_productRegisterTag_Click);
             // 
             // AddProduct
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(1030, 530);
-            this.Controls.Add(this.panel_client);
+            this.BackgroundImage = global::Sisteg_Dashboard.Properties.Resources.budget_step_bg;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.ClientSize = new System.Drawing.Size(773, 381);
+            this.Controls.Add(this.lbl_btnCancelTag);
+            this.Controls.Add(this.lbl_btnDeleteTag);
+            this.Controls.Add(this.lbl_btnUpdateTag);
+            this.Controls.Add(this.lbl_productRegisterTag);
+            this.Controls.Add(this.panel_product);
             this.Controls.Add(this.pcb_btnProductRegister);
             this.Controls.Add(this.pcb_btnUpdate);
             this.Controls.Add(this.pcb_btnDelete);
             this.Controls.Add(this.pcb_btnCancel);
-            this.Controls.Add(this.pcb_appClose);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "AddProduct";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "AddProduct";
-            this.panel_client.ResumeLayout(false);
+            this.Text = "Produtos";
+            this.panel_product.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pcb_btnProductRegister)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcb_btnUpdate)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcb_btnDelete)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcb_btnCancel)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pcb_appClose)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Panel panel_client;
+        private System.Windows.Forms.Panel panel_product;
         public System.Windows.Forms.PictureBox pcb_btnProductRegister;
         public System.Windows.Forms.PictureBox pcb_btnUpdate;
         public System.Windows.Forms.PictureBox pcb_btnDelete;
         private System.Windows.Forms.PictureBox pcb_btnCancel;
-        private System.Windows.Forms.PictureBox pcb_appClose;
         private Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox txt_productName;
         private Bunifu.UI.WinForms.BunifuDropdown cbb_supplierName;
         private Bunifu.UI.WinForms.BunifuDropdown cbb_productCategory;
         private Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox txt_productValue;
+        protected internal System.Windows.Forms.Label lbl_btnCancelTag;
+        protected internal System.Windows.Forms.Label lbl_btnDeleteTag;
+        protected internal System.Windows.Forms.Label lbl_btnUpdateTag;
+        protected internal System.Windows.Forms.Label lbl_productRegisterTag;
     }
 }

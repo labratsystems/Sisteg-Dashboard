@@ -1,17 +1,52 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Sisteg_Dashboard
 {
     class Category
     {
-        public Int32 idCategoria;
-        public Boolean categoriaReceita;
-        public Boolean categoriaDespesa;
-        public Boolean categoriaProduto;
-        public string nomeCategoria;
+        private Int32 idCategoria;
+        private Boolean categoriaReceita;
+        private Boolean categoriaDespesa;
+        private Boolean categoriaProduto;
+        private string nomeCategoria;
+
+        public Category()
+        {
+            this.idCategoria = 0;
+            this.categoriaReceita = false;
+            this.categoriaDespesa = false;
+            this.categoriaProduto = false;
+            this.nomeCategoria = null;
+        }
+
+        public Int32 IdCategoria
+        {
+            get { return idCategoria; }
+            set { this.idCategoria = value; }
+        }
+
+        public Boolean CategoriaReceita
+        {
+            get { return categoriaReceita; }
+            set { this.categoriaReceita = value; }
+        }
+
+        public Boolean CategoriaDespesa
+        {
+            get { return categoriaDespesa; }
+            set { this.categoriaDespesa = value; }
+        }
+
+        public Boolean CategoriaProduto
+        {
+            get { return categoriaProduto; }
+            set { this.categoriaProduto = value; }
+        }
+
+        public string NomeCategoria
+        {
+            get { return nomeCategoria; }
+            set { this.nomeCategoria = value; }
+        }
     }
 }

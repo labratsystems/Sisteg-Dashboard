@@ -1,12 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Sisteg_Dashboard
@@ -14,24 +11,7 @@ namespace Sisteg_Dashboard
     public partial class BudgetForm : Form
     {
         //DECLARAÇÃO DE VARIÁVEIS
-        protected internal ClientStep clientStep;
-        protected internal BudgetStep budgetStep;
-        protected internal ProductStep productStep;
-        protected internal DataTable clientStepDataTable, budgetStepDataTable, budgetNumberDataTable;
-        protected internal int step = 0, budgetNumber = 0, selectedIndex = -1;
-        private static int idReceita, idCliente = 0;
-        private List<Repeat> repeats = new List<Repeat>();
-        private List<Parcel> parcels = new List<Parcel>();
-
-        public BudgetForm()
-        {
-            InitializeComponent();
-            clientStep = new ClientStep(this, null) { Dock = DockStyle.Fill, TopLevel = false, TopMost = true};
-            this.panel_steps.Controls.Add(clientStep);
-            clientStep.Show();
-            this.pcb_btnGoBack.Visible = false;
-            this.pcb_btnEndBudget.Visible = false;
-        }
+        Bitmap backGround, backGroundTemp;
 
         //EVITA TREMULAÇÃO DE COMPONENTES
         protected override CreateParams CreateParams
@@ -44,131 +24,58 @@ namespace Sisteg_Dashboard
             }
         }
 
-        private void selectClientLastBudget()
+        private void initialize()
         {
-            //Seleciona todos os dados do último orçamento cadastrado do cliente
-            budgetStepDataTable = Database.query("SELECT * FROM orcamento WHERE orcamento.idCliente = " + clientStepDataTable.Rows[0].ItemArray[0] + " ORDER BY numeroOrcamento DESC LIMIT 1");
-            this.budgetNumber = Convert.ToInt32(budgetStepDataTable.Rows[0].ItemArray[0]);
-            productStep = new ProductStep(this, budgetStepDataTable) { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
-            this.panel_steps.Controls.Remove(budgetStep);
-            this.panel_steps.Controls.Add(productStep);
-            productStep.Show();
-            this.pcb_btnGoBack.Visible = true;
-            this.pcb_btnGoForward.Visible = false;
-            this.pcb_btnEndBudget.Visible = true;
-            this.pcb_btnEndBudget.Location = new Point(845, 417);
+            SetStyle(ControlStyles.UserPaint, true);
+            SetStyle(ControlStyles.AllPaintingInWmPaint, true);
+            SetStyle(ControlStyles.DoubleBuffer, true);
+            backGroundTemp = new Bitmap(Properties.Resources.empty_bg);
+            backGround = new Bitmap(backGroundTemp, backGroundTemp.Width, backGroundTemp.Height);
         }
 
-        //FUNÇÃO QUE RETORNA OS COMPONENTES DO FORMULÁRIO AO ESTADO INICIAL CASO NÃO HAJA REPETIÇÕES OU PARCELAS
-        private void doNotRepeatOrParcel()
+        protected override void OnPaint(PaintEventArgs e)
         {
-            budgetStep.txt_parcels.Clear();
-            budgetStep.txt_parcels.Hide();
-            budgetStep.cbb_period.SelectedIndex = -1;
-            budgetStep.cbb_period.Text = " Período";
-            budgetStep.cbb_period.Hide();
+            Graphics graphics = e.Graphics;
+            graphics.DrawImageUnscaled(backGround, 0, 0);
+            base.OnPaint(e);
         }
 
-        //FUNÇÃO QUE RETORNA OS CAMPOS DO FORMULÁRIO AO ESTADO INICIAL
-        private void clearFields()
+        //CARREGA INSTÂNCIA DO FORMULÁRIO DE ORÇAMENTOS CONJUNTO À UMA INSTÂNCIA DO PAINEL DE CLIENTES
+        public BudgetForm()
         {
-            budgetStep.txt_laborValue.Clear();
-            budgetStep.txt_incomeDescription.Clear();
-            budgetStep.mtb_budgetDate.Text = DateTime.Today.ToShortDateString();
-            budgetStep.cbb_paymentCondition.SelectedIndex = budgetStep.cbb_paymentCondition.FindString(" Dinheiro");
-            budgetStep.ckb_confirmedBudget.Checked = false;
-            budgetStep.txt_incomeObservations.Clear();
-            this.doNotRepeatOrParcel();
-        }
-
-        //FUNÇÃO QUE SELECIONA A DATA DA TRANSAÇÃO DA PARCELA DE ACORDO COM O PERÍDO ESCOLHIDO PELO USUÁRIO
-        private void periodSelection(int i, Income income, List<Parcel> parcels)
-        {
-            if (i == 0)
+            InitializeComponent();
+            initialize();
+            Globals.clientStep = new ClientStep(this, null) { Dock = DockStyle.Fill, TopLevel = false, TopMost = true};
+            this.panel_steps.Controls.Add(Globals.clientStep);
+            Globals.clientStep.Show();
+            
+            if(Globals.idConta != 0)
             {
-                switch (income.periodoRepetirParcelarReceita)
+                DataTable sumTotalValueDataTable = Database.query("SELECT somarTotal FROM conta WHERE idConta = " + Globals.idConta);
+                if(sumTotalValueDataTable.Rows.Count > 0)
                 {
-                    case "Diário":
-                        parcels[i].dataTransacao = income.dataTransacao.AddDays(1);
-                        break;
-                    case "Semanal":
-                        parcels[i].dataTransacao = income.dataTransacao.AddDays(7);
-                        break;
-                    case "A cada 2 semanas":
-                        parcels[i].dataTransacao = income.dataTransacao.AddDays(14);
-                        break;
-                    case "Mensal":
-                        parcels[i].dataTransacao = income.dataTransacao.AddMonths(1);
-                        break;
-                    case "Bimestral":
-                        parcels[i].dataTransacao = income.dataTransacao.AddMonths(2);
-                        break;
-                    case "Trimestral":
-                        parcels[i].dataTransacao = income.dataTransacao.AddMonths(3);
-                        break;
-                    case "Semestral":
-                        parcels[i].dataTransacao = income.dataTransacao.AddMonths(6);
-                        break;
-                    case "Anual":
-                        parcels[i].dataTransacao = income.dataTransacao.AddYears(1);
-                        break;
+                    if (Convert.ToBoolean(sumTotalValueDataTable.Rows[0].ItemArray[0])) Globals.saldoConta = Convert.ToDecimal(Database.query("SELECT saldoConta FROM conta WHERE idConta = " + Globals.idConta).Rows[0].ItemArray[0]);
+                    else Globals.saldoConta = 0;
                 }
             }
-            else
-            {
-                switch (income.periodoRepetirParcelarReceita)
-                {
-                    case "Diário":
-                        parcels[i].dataTransacao = parcels[i - 1].dataTransacao.AddDays(1);
-                        break;
-                    case "Semanal":
-                        parcels[i].dataTransacao = parcels[i - 1].dataTransacao.AddDays(7);
-                        break;
-                    case "A cada 2 semanas":
-                        parcels[i].dataTransacao = parcels[i - 1].dataTransacao.AddDays(14);
-                        break;
-                    case "Mensal":
-                        parcels[i].dataTransacao = parcels[i - 1].dataTransacao.AddMonths(1);
-                        break;
-                    case "Bimestral":
-                        parcels[i].dataTransacao = parcels[i - 1].dataTransacao.AddMonths(2);
-                        break;
-                    case "Trimestral":
-                        parcels[i].dataTransacao = parcels[i - 1].dataTransacao.AddMonths(3);
-                        break;
-                    case "Semestral":
-                        parcels[i].dataTransacao = parcels[i - 1].dataTransacao.AddMonths(6);
-                        break;
-                    case "Anual":
-                        parcels[i].dataTransacao = parcels[i - 1].dataTransacao.AddYears(1);
-                        break;
-                }
-            }
-        }
 
-        private void displayOnPanel()
-        {
-            //Retorna ao formulário de orçamentos se usuário estiver no último formulário
-            if (this.panel_steps.Controls.Contains(productStep)) this.panel_steps.Controls.Remove(productStep);
-
-            //Avança ao formulário de orçamentos se usuário estiver no primeiro formulário
-            if (this.panel_steps.Controls.Contains(clientStep)) this.panel_steps.Controls.Remove(clientStep);
-            this.panel_steps.Controls.Add(budgetStep);
-            budgetStep.Show();
-
-            this.pcb_btnGoBack.Visible = true;
-            this.pcb_btnEdit.Visible = false;
+            this.pcb_btnGoBack.Visible = false;
+            this.lbl_btnGoBackTag.Visible = false;
+            this.pcb_btnEndBudget.Visible = false;
+            this.lbl_btnEndBudgetTag.Visible = false;
         }
 
         //MENU DE NAVEGAÇÃO DA APLICAÇÃO
+
+        //Formulário Painel principal
         private void pcb_btnMain_MouseEnter(object sender, EventArgs e)
         {
-            this.pcb_btnMain.Image = Properties.Resources.btn_main_form_active;
+            this.pcb_btnMain.BackgroundImage = Properties.Resources.btn_main_form_active;
         }
 
         private void pcb_btnMain_MouseLeave(object sender, EventArgs e)
         {
-            this.pcb_btnMain.Image = Properties.Resources.btn_main_form;
+            if (!lbl_mainTag.ClientRectangle.Contains(lbl_mainTag.PointToClient(Cursor.Position))) this.pcb_btnMain.BackgroundImage = Properties.Resources.btn_main_form;
         }
 
         private void pcb_btnMain_Click(object sender, EventArgs e)
@@ -181,14 +88,25 @@ namespace Sisteg_Dashboard
             }
         }
 
+        private void lbl_mainTag_Click(object sender, EventArgs e)
+        {
+            if (Application.OpenForms.OfType<Main>().Count() == 0)
+            {
+                Main main = new Main();
+                main.Show();
+                this.Close();
+            }
+        }
+
+        //Formulário Cliente
         private void pcb_btnClient_MouseEnter(object sender, EventArgs e)
         {
-            this.pcb_btnClient.Image = Properties.Resources.btn_client_form_active;
+            this.pcb_btnClient.BackgroundImage = Properties.Resources.btn_client_form_active;
         }
 
         private void pcb_btnClient_MouseLeave(object sender, EventArgs e)
         {
-            this.pcb_btnClient.Image = Properties.Resources.btn_client_form;
+            if (!lbl_clientTag.ClientRectangle.Contains(lbl_clientTag.PointToClient(Cursor.Position))) this.pcb_btnClient.BackgroundImage = Properties.Resources.btn_client_form;
         }
 
         private void pcb_btnClient_Click(object sender, EventArgs e)
@@ -201,14 +119,25 @@ namespace Sisteg_Dashboard
             }
         }
 
+        private void lbl_clientTag_Click(object sender, EventArgs e)
+        {
+            if (Application.OpenForms.OfType<ClientForm>().Count() == 0)
+            {
+                ClientForm client = new ClientForm();
+                client.Show();
+                this.Close();
+            }
+        }
+
+        //Formulário Produto
         private void pcb_btnProduct_MouseEnter(object sender, EventArgs e)
         {
-            this.pcb_btnProduct.Image = Properties.Resources.btn_product_form_active;
+            this.pcb_btnProduct.BackgroundImage = Properties.Resources.btn_product_form_active;
         }
 
         private void pcb_btnProduct_MouseLeave(object sender, EventArgs e)
         {
-            this.pcb_btnProduct.Image = Properties.Resources.btn_product_form;
+            if (!lbl_productTag.ClientRectangle.Contains(lbl_productTag.PointToClient(Cursor.Position))) this.pcb_btnProduct.BackgroundImage = Properties.Resources.btn_product_form;
         }
 
         private void pcb_btnProduct_Click(object sender, EventArgs e)
@@ -221,14 +150,25 @@ namespace Sisteg_Dashboard
             }
         }
 
+        private void lbl_productTag_Click(object sender, EventArgs e)
+        {
+            if (Application.OpenForms.OfType<ProductForm>().Count() == 0)
+            {
+                ProductForm productForm = new ProductForm();
+                productForm.Show();
+                this.Close();
+            }
+        }
+
+        //Formulário Configurações
         private void pcb_btnConfig_MouseEnter(object sender, EventArgs e)
         {
-            this.pcb_btnConfig.Image = Properties.Resources.btn_config_main_active;
+            this.pcb_btnConfig.BackgroundImage = Properties.Resources.btn_config_main_active;
         }
 
         private void pcb_btnConfig_MouseLeave(object sender, EventArgs e)
         {
-            this.pcb_btnConfig.Image = Properties.Resources.btn_config_main;
+            if (!lbl_configTag.ClientRectangle.Contains(lbl_configTag.PointToClient(Cursor.Position))) this.pcb_btnConfig.BackgroundImage = Properties.Resources.btn_config_main;
         }
 
         private void pcb_btnConfig_Click(object sender, EventArgs e)
@@ -241,222 +181,302 @@ namespace Sisteg_Dashboard
             }
         }
 
-        private void pcb_btnGoBack_MouseEnter(object sender, EventArgs e)
+        private void lbl_configTag_Click(object sender, EventArgs e)
         {
-            this.pcb_btnGoBack.Image = Properties.Resources.btn_go_back_active;
+            if (Application.OpenForms.OfType<ConfigForm>().Count() == 0)
+            {
+                ConfigForm config = new ConfigForm();
+                config.Show();
+                this.Close();
+            }
         }
 
-        private void pcb_btnGoBack_MouseLeave(object sender, EventArgs e)
+        //FUNÇÕES
+
+        //Seleciona todos os dados do último orçamento cadastrado do cliente
+        private void selectClientLastBudget()
         {
-            this.pcb_btnGoBack.Image = Properties.Resources.btn_go_back;
+            Globals.budgetStepDataTable = Database.query("SELECT * FROM orcamento WHERE orcamento.idCliente = " + Globals.clientStepDataTable.Rows[0].ItemArray[0] + " ORDER BY numeroOrcamento DESC LIMIT 1;");
+            Globals.numeroOrcamento = Convert.ToInt32(Globals.budgetStepDataTable.Rows[0].ItemArray[0]);
+            
+            Globals.productStep = new ProductStep(this) { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+            this.panel_steps.Controls.Remove(Globals.budgetStep);
+            this.panel_steps.Controls.Add(Globals.productStep);
+            Globals.productStep.Show();
+
+            this.pcb_btnGoBack.Visible = true;
+            this.lbl_btnGoBackTag.Visible = true;
+            this.pcb_btnGoForward.Visible = false;
+            this.lbl_btnGoForwardTag.Visible = false;
+            this.pcb_btnEndBudget.Visible = true;
+            this.lbl_btnEndBudgetTag.Visible = true;
+            this.lbl_btnEndBudgetTag.Location = new Point(925, 445);
+            this.pcb_btnEndBudget.Location = new Point(845, 417);
         }
 
-        //VOLTAR
-        private void pcb_btnGoBack_Click(object sender, EventArgs e)
+        //Função que seleciona a data de transação da parcela de acordo com o período escolhido pelo usuário
+        private void periodSelection(int i, Income income, List<Parcel> parcels)
         {
-            step -= 1;
-            if(step == 0)
+            if (i == 0)
+            {
+                switch (income.PeriodoRepetirParcelarReceita)
+                {
+                    case "Diário":
+                        parcels[i].DataTransacao = income.DataTransacao.AddDays(1);
+                        break;
+                    case "Semanal":
+                        parcels[i].DataTransacao = income.DataTransacao.AddDays(7);
+                        break;
+                    case "A cada 2 semanas":
+                        parcels[i].DataTransacao = income.DataTransacao.AddDays(14);
+                        break;
+                    case "Mensal":
+                        parcels[i].DataTransacao = income.DataTransacao.AddMonths(1);
+                        break;
+                    case "Bimestral":
+                        parcels[i].DataTransacao = income.DataTransacao.AddMonths(2);
+                        break;
+                    case "Trimestral":
+                        parcels[i].DataTransacao = income.DataTransacao.AddMonths(3);
+                        break;
+                    case "Semestral":
+                        parcels[i].DataTransacao = income.DataTransacao.AddMonths(6);
+                        break;
+                    case "Anual":
+                        parcels[i].DataTransacao = income.DataTransacao.AddYears(1);
+                        break;
+                }
+            }
+            else
+            {
+                switch (income.PeriodoRepetirParcelarReceita)
+                {
+                    case "Diário":
+                        parcels[i].DataTransacao = parcels[i - 1].DataTransacao.AddDays(1);
+                        break;
+                    case "Semanal":
+                        parcels[i].DataTransacao = parcels[i - 1].DataTransacao.AddDays(7);
+                        break;
+                    case "A cada 2 semanas":
+                        parcels[i].DataTransacao = parcels[i - 1].DataTransacao.AddDays(14);
+                        break;
+                    case "Mensal":
+                        parcels[i].DataTransacao = parcels[i - 1].DataTransacao.AddMonths(1);
+                        break;
+                    case "Bimestral":
+                        parcels[i].DataTransacao = parcels[i - 1].DataTransacao.AddMonths(2);
+                        break;
+                    case "Trimestral":
+                        parcels[i].DataTransacao = parcels[i - 1].DataTransacao.AddMonths(3);
+                        break;
+                    case "Semestral":
+                        parcels[i].DataTransacao = parcels[i - 1].DataTransacao.AddMonths(6);
+                        break;
+                    case "Anual":
+                        parcels[i].DataTransacao = parcels[i - 1].DataTransacao.AddYears(1);
+                        break;
+                }
+            }
+        }
+
+        //Função que dispõe outros formulários dentro do painel
+        private void displayOnPanel()
+        {
+            //Retorna ao formulário inicial se usuário estiver no último formulário
+            if (this.panel_steps.Controls.Contains(Globals.productStep)) this.panel_steps.Controls.Remove(Globals.productStep);
+
+            //Avança ao formulário de orçamentos se usuário estiver no primeiro formulário
+            if (this.panel_steps.Controls.Contains(Globals.clientStep)) this.panel_steps.Controls.Remove(Globals.clientStep);
+            this.panel_steps.Controls.Add(Globals.budgetStep);
+            Globals.budgetStep.Show();
+
+            this.pcb_btnGoBack.Visible = true;
+            this.lbl_btnGoBackTag.Visible = true;
+            this.pcb_btnEdit.Visible = false;
+            this.lbl_btnEditTag.Visible = false;
+        }
+
+        //Função que retorna ao formulário anterior
+        private void goBack()
+        {
+            Globals.step -= 1;
+            if (Globals.step == 0)
             {
                 //Usuário retornou ao painel de clientes
-                clientStep = new ClientStep(this, clientStepDataTable) { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
-                this.panel_steps.Controls.Remove(budgetStep);
-                this.panel_steps.Controls.Add(clientStep);
-                clientStep.Show();
+                Globals.clientStep = new ClientStep(this, Globals.clientStepDataTable) { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+                this.panel_steps.Controls.Remove(Globals.budgetStep);
+                this.panel_steps.Controls.Add(Globals.clientStep);
+                Globals.clientStep.Show();
+                
+                this.lbl_btnGoBackTag.Visible = false;
                 this.pcb_btnGoBack.Visible = false;
             }
-            else if(step == 1)
+            else if (Globals.step == 1)
             {
-                if (clientStep.cbb_clientName.SelectedIndex == -1)
+                if (Globals.clientStep.cbb_clientName.SelectedIndex == -1)
                 {
                     MessageBox.Show("Selecione um cliente, antes de avançar!", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    step += 1;
+                    Globals.step += 1;
                 }
 
                 //Usuário avançou e retornou ao formulário de orçamentos
-                if (idCliente != 0)
+                if (Globals.idCliente != 0)
                 {
-                    MessageBox.Show(idCliente.ToString());
-                    MessageBox.Show(budgetNumber.ToString());
-                    if (this.budgetNumber != 0) budgetStepDataTable = Database.query("SELECT * FROM orcamento WHERE orcamento.numeroOrcamento = " + this.budgetNumber);
-                    else budgetStepDataTable = clientStep.budgetStepDataTable;
+                    if (Globals.numeroOrcamento != 0) Globals.budgetStepDataTable = Database.query("SELECT * FROM orcamento WHERE orcamento.numeroOrcamento = " + Globals.numeroOrcamento);
 
-                    if (budgetStepDataTable.Rows.Count > 0) budgetStep = new BudgetStep(this, budgetStepDataTable) { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
-                    else budgetStep = new BudgetStep(this, null) { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+                    if (Globals.budgetStepDataTable.Rows.Count > 0) Globals.budgetStep = new BudgetStep(this, Globals.budgetStepDataTable) { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+                    else Globals.budgetStep = new BudgetStep(this, null) { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
                 }
                 //Usuário não passou pelo formulário de orçamentos
-                else budgetStep = new BudgetStep(this, null) { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+                else Globals.budgetStep = new BudgetStep(this, null) { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+                
                 this.displayOnPanel();
-                this.pcb_btnEndBudget.Visible = false;
-                this.pcb_btnEndBudget.Location = new Point(845, 569);
+                this.lbl_btnGoForwardTag.Visible = true;
                 this.pcb_btnGoForward.Visible = true;
+                this.lbl_btnEndBudgetTag.Visible = false;
+                this.pcb_btnEndBudget.Visible = false;
+                this.lbl_btnEndBudgetTag.Location = new Point(925, 597);
+                this.pcb_btnEndBudget.Location = new Point(845, 569);
             }
         }
 
-        private void pcb_btnGoForward_MouseEnter(object sender, EventArgs e)
+        //Função que avança ao próximo formulário
+        private void goForward()
         {
-            this.pcb_btnGoForward.Image = Properties.Resources.btn_go_forward_active;
-        }
-
-        private void pcb_btnGoForward_MouseLeave(object sender, EventArgs e)
-        {
-            this.pcb_btnGoForward.Image = Properties.Resources.btn_go_forward;
-        }
-
-        //AVANÇAR
-        private void pcb_btnGoForward_Click(object sender, EventArgs e)
-        {
-            step += 1;
-            if(step == 1)
+            Globals.step += 1;
+            if (Globals.step == 1)
             {
-                if (clientStep.cbb_clientName.SelectedIndex == -1)
+                if (Globals.clientStep.cbb_clientName.SelectedIndex == -1)
                 {
                     MessageBox.Show("Selecione um cliente antes de avançar!", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    step -= 1;
+                    Globals.step -= 1;
                 }
                 else
                 {
                     //Cadastro de orçamento
-                    this.budgetNumber = 0;
+                    Globals.numeroOrcamento = 0;
 
-                    //Usuário avançou e retornou ao formulário de orçamentos
-                    /*if (idCliente != 0)
-                    {
-                        MessageBox.Show("Usuário avançou e retornou ao formulário de orçamentos");
-                        //selectedIndex = clientStep.cbb_budgetNumber.SelectedIndex;
-                        clientStep.cbb_budgetNumber.SelectedIndex = -1;
-                        clientStep.cbb_budgetNumber.Text = " Número do orçamento";
-                        budgetStepDataTable = clientStep.budgetStepDataTable;
-                        if (budgetStepDataTable.Rows.Count > 0)
-                        {
-                            //Cliente já tem orçamento
-                            MessageBox.Show("Cliente já tem orçamento");
-                            budgetStep = new BudgetStep(this, budgetStepDataTable) { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
-                            budgetStep.pcb_btnUpdate.Visible = false;
-                            budgetStep.pcb_btnDelete.Visible = false;
-                        }
-                        else
-                        {
-                            //Cliente não tem orçamento
-                            budgetStep = new BudgetStep(this, null) { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
-                            MessageBox.Show("Cliente não tem orçamento");
-                        }
-                    }
-                    else
-                    {*/
-                        //Usuário não passou pelo formulário de orçamentos
-                        budgetStep = new BudgetStep(this, null) { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
-                    //}
+                    //Usuário não passou pelo formulário de orçamentos
+                    Globals.budgetStep = new BudgetStep(this, null) { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
 
                     //Todos os dados do cliente
-                    clientStepDataTable = clientStep.clientStepDataTable;
                     this.displayOnPanel();
                 }
             }
-            else if(step == 2)
+            else if (Globals.step == 2)
             {
                 //Todos os dados do orçamento do cliente
-                MessageBox.Show(this.budgetNumber.ToString());
-                budgetStepDataTable = Database.query("SELECT * FROM orcamento WHERE orcamento.numeroOrcamento = " + this.budgetNumber);
-                if (budgetStepDataTable.Rows.Count > 0)
+                Globals.budgetStepDataTable = Database.query("SELECT * FROM orcamento WHERE orcamento.numeroOrcamento = " + Globals.numeroOrcamento);
+                if (Globals.budgetStepDataTable.Rows.Count > 0)
                 {
                     //Cliente já tem orçamento cadastrado
-                    idCliente = Convert.ToInt32(budgetStepDataTable.Rows[0].ItemArray[1]);
-                    productStep = new ProductStep(this, budgetStepDataTable) { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
-                    this.panel_steps.Controls.Remove(budgetStep);
-                    this.panel_steps.Controls.Add(productStep);
-                    productStep.Show();
+                    Globals.idCliente = Convert.ToInt32(Globals.budgetStepDataTable.Rows[0].ItemArray[1]);
+                    
+                    Globals.productStep = new ProductStep(this) { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+                    this.panel_steps.Controls.Remove(Globals.budgetStep);
+                    this.panel_steps.Controls.Add(Globals.productStep);
+                    Globals.productStep.Show();
+
+                    this.lbl_btnGoBackTag.Visible = true;
                     this.pcb_btnGoBack.Visible = true;
+                    this.lbl_btnGoForwardTag.Visible = false;
                     this.pcb_btnGoForward.Visible = false;
+                    this.lbl_btnEndBudgetTag.Visible = true;
                     this.pcb_btnEndBudget.Visible = true;
+                    this.lbl_btnEndBudgetTag.Location = new Point(925, 445);
                     this.pcb_btnEndBudget.Location = new Point(845, 417);
                 }
                 else
                 {
-                    if (String.IsNullOrEmpty(budgetStep.mtb_budgetDate.Text) || String.IsNullOrEmpty(budgetStep.txt_laborValue.Text))
+                    if (String.IsNullOrEmpty(Globals.budgetStep.mtb_budgetDate.Text.Trim()) || String.IsNullOrEmpty(Globals.budgetStep.txt_laborValue.Text.Trim()) || Globals.budgetStep.cbb_incomeAccount.SelectedIndex == -1 || Globals.budgetStep.cbb_paymentCondition.SelectedIndex == -1)
                     {
                         MessageBox.Show("Preencha todos os campos antes de avançar!", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        step -= 1;
+                        Globals.step -= 1;
                     }
                     else
                     {
                         //Cliente ainda não cadastrou orçamento
-                        if ((budgetStep.ckb_parcelValue.Checked) && ((String.IsNullOrEmpty(budgetStep.txt_parcels.Text.Trim())) || (budgetStep.cbb_period.SelectedIndex == -1))) MessageBox.Show("Informe o número de parcelas da receita e o período em que elas se repetem!", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        if ((Globals.budgetStep.ckb_parcelValue.Checked) && ((String.IsNullOrEmpty(Globals.budgetStep.txt_parcels.Text.Trim())) || (Globals.budgetStep.cbb_period.SelectedIndex == -1))) MessageBox.Show("Informe o número de parcelas da receita e o período em que elas se repetem!", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         else
                         {
+                            Account account = new Account();
                             Budget budget = new Budget();
                             Income income = new Income();
-                            budget.idCliente = Convert.ToInt32(clientStepDataTable.Rows[0].ItemArray[0]);
-                            idCliente = Convert.ToInt32(clientStepDataTable.Rows[0].ItemArray[0]);
-                            budget.dataOrcamento = Convert.ToDateTime(budgetStep.mtb_budgetDate.Text.Trim());
-                            income.dataTransacao = Convert.ToDateTime(budgetStep.mtb_budgetDate.Text.Trim());
+                            account.IdConta = income.IdConta;
+                            budget.IdCliente = Convert.ToInt32(Globals.clientStepDataTable.Rows[0].ItemArray[0]);
+                            Globals.idCliente = Convert.ToInt32(Globals.clientStepDataTable.Rows[0].ItemArray[0]);
+                            budget.DataOrcamento = Convert.ToDateTime(Globals.budgetStep.mtb_budgetDate.Text.Trim());
+                            income.DataTransacao = Convert.ToDateTime(Globals.budgetStep.mtb_budgetDate.Text.Trim());
                             Regex regexValor = new Regex(@"[R$ ]?[R$]?\d{1,3}(\.\d{3})*,\d{2}");
-                            string valorTrabalho = budgetStep.txt_laborValue.Text;
+                            string valorTrabalho = Globals.budgetStep.txt_laborValue.Text.Trim();
                             if (regexValor.IsMatch(valorTrabalho))
                             {
                                 if (valorTrabalho.Contains("R$ "))
                                 {
-                                    budget.valorTrabalho = Convert.ToDecimal(valorTrabalho.Substring(3));
-                                    budget.valorTotal = Convert.ToDecimal(valorTrabalho.Substring(3));
-                                    income.valorReceita = Convert.ToDecimal(valorTrabalho.Substring(3));
+                                    budget.ValorTrabalho = Convert.ToDecimal(valorTrabalho.Substring(3).Trim());
+                                    budget.ValorTotal = Convert.ToDecimal(valorTrabalho.Substring(3).Trim());
+                                    income.ValorReceita = Convert.ToDecimal(valorTrabalho.Substring(3).Trim());
                                 }
                                 else if (valorTrabalho.Contains("R$"))
                                 {
-                                    budget.valorTrabalho = Convert.ToDecimal(valorTrabalho.Substring(2));
-                                    budget.valorTotal = Convert.ToDecimal(valorTrabalho.Substring(2));
-                                    income.valorReceita = Convert.ToDecimal(valorTrabalho.Substring(2));
+                                    budget.ValorTrabalho = Convert.ToDecimal(valorTrabalho.Substring(2).Trim());
+                                    budget.ValorTotal = Convert.ToDecimal(valorTrabalho.Substring(2).Trim());
+                                    income.ValorReceita = Convert.ToDecimal(valorTrabalho.Substring(2).Trim());
                                 }
                                 else
                                 {
-                                    budget.valorTrabalho = Convert.ToDecimal(budgetStep.txt_laborValue.Text);
-                                    budget.valorTotal = Convert.ToDecimal(budgetStep.txt_laborValue.Text);
-                                    income.valorReceita = Convert.ToDecimal(budgetStep.txt_laborValue.Text);
+                                    budget.ValorTrabalho = Convert.ToDecimal(Globals.budgetStep.txt_laborValue.Text.Trim());
+                                    budget.ValorTotal = Convert.ToDecimal(Globals.budgetStep.txt_laborValue.Text.Trim());
+                                    income.ValorReceita = Convert.ToDecimal(Globals.budgetStep.txt_laborValue.Text.Trim());
                                 }
                             }
                             else
                             {
                                 MessageBox.Show("Formato monetário incorreto!", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                                budgetStep.txt_laborValue.Clear();
-                                budgetStep.txt_laborValue.PlaceholderText = "";
-                                budgetStep.txt_laborValue.Focus();
+                                Globals.budgetStep.txt_laborValue.Clear();
+                                Globals.budgetStep.txt_laborValue.PlaceholderText = "";
+                                Globals.budgetStep.txt_laborValue.Focus();
                                 return;
                             }
-                            budget.condicaoPagamento = budgetStep.cbb_paymentCondition.SelectedItem.ToString().Trim();
-                            if (budgetStep.ckb_confirmedBudget.Checked) budget.orcamentoConfirmado = true; else budget.orcamentoConfirmado = false;
-                            income.descricaoReceita = budgetStep.txt_incomeDescription.Text;
-                            income.idConta = Convert.ToInt32(Database.query("SELECT idConta FROM conta WHERE nomeConta = '" + budgetStep.cbb_incomeAccount.SelectedItem.ToString().Trim() + "';").Rows[0].ItemArray[0]); ;
-                            income.idCategoria = Convert.ToInt32(Database.query("SELECT idCategoria FROM categoria WHERE nomeConta = 'Orçamentos';").Rows[0].ItemArray[0]); ;
-                            income.observacoesReceita = budgetStep.txt_incomeObservations.Text;
-                            if (budgetStep.ckb_incomeReceived.Checked) income.recebimentoConfirmado = true; else income.recebimentoConfirmado = false;
+                            budget.CondicaoPagamento = Globals.budgetStep.cbb_paymentCondition.SelectedItem.ToString().Trim();
+                            if (Globals.budgetStep.ckb_confirmedBudget.Checked) budget.OrcamentoConfirmado = true; else budget.OrcamentoConfirmado = false;
+                            income.DescricaoReceita = Globals.budgetStep.txt_incomeDescription.Text.Trim();
+                            income.IdConta = Convert.ToInt32(Database.query("SELECT idConta FROM conta WHERE nomeConta = '" + Globals.budgetStep.cbb_incomeAccount.SelectedItem.ToString().Trim() + "';").Rows[0].ItemArray[0]);
+                            income.IdCategoria = Convert.ToInt32(Database.query("SELECT idCategoria FROM categoria WHERE nomeCategoria = 'Orçamentos';").Rows[0].ItemArray[0]);
+                            income.ObservacoesReceita = Globals.budgetStep.txt_incomeObservations.Text.Trim();
+                            if (Globals.budgetStep.ckb_incomeReceived.Checked) income.RecebimentoConfirmado = true; else income.RecebimentoConfirmado = false;
 
-                            if (budgetStep.ckb_parcelValue.Checked)
+                            if (Globals.budgetStep.ckb_parcelValue.Checked)
                             {
-                                if (budgetStep.ckb_parcelValue.Checked)
+                                if (Globals.budgetStep.ckb_parcelValue.Checked)
                                 {
-                                    income.repetirParcelarReceita = true;
+                                    income.RepetirParcelarReceita = true;
 
-                                    income.parcelarValorReceita = true;
-                                    income.parcelasReceita = Convert.ToInt32(budgetStep.txt_parcels.Text);
-                                    income.periodoRepetirParcelarReceita = budgetStep.cbb_period.SelectedItem.ToString();
-                                    income.valorReceita = income.valorReceita / income.parcelasReceita;
+                                    income.ParcelarValorReceita = true;
+                                    income.ParcelasReceita = Convert.ToInt32(Globals.budgetStep.txt_parcels.Text.Trim());
+                                    income.PeriodoRepetirParcelarReceita = Globals.budgetStep.cbb_period.SelectedItem.ToString().Trim();
+                                    income.ValorReceita = income.ValorReceita / income.ParcelasReceita;
 
                                     if (Database.newBudget(budget))
                                     {
-                                        income.numeroOrcamento = Convert.ToInt32(Database.query("SELECT numeroOrcamento FROM orcamento ORDER BY numeroOrcamento DESC LIMIT 1;").Rows[0].ItemArray[0]);
+                                        income.NumeroOrcamento = Convert.ToInt32(Database.query("SELECT numeroOrcamento FROM orcamento ORDER BY numeroOrcamento DESC LIMIT 1;").Rows[0].ItemArray[0]);
+                                        Globals.numeroOrcamento = income.NumeroOrcamento;
                                         if (Database.newIncome(income))
                                         {
+                                            Globals.idReceita = Convert.ToInt32(Database.query("SELECT idReceita FROM receita ORDER BY idReceita DESC LIMIT 1;").Rows[0].ItemArray[0]);
                                             List<Parcel> parcels = new List<Parcel>();
                                             int success = 1;
-                                            for (int i = 0; i < (income.parcelasReceita - 1); i++)
+                                            for (int i = 0; i < (income.ParcelasReceita - 1); i++)
                                             {
                                                 parcels.Add(new Parcel());
-                                                parcels[i].idReceita = Convert.ToInt32(Database.query("SELECT idReceita FROM receita ORDER BY idReceita DESC LIMIT 1;").Rows[0].ItemArray[0]);
-                                                parcels[i].idConta = income.idConta;
-                                                parcels[i].idCategoria = income.idCategoria;
-                                                parcels[i].valorParcela = income.valorReceita;
-                                                parcels[i].descricaoParcela = income.descricaoReceita;
+                                                parcels[i].IdReceita = Convert.ToInt32(Database.query("SELECT idReceita FROM receita ORDER BY idReceita DESC LIMIT 1;").Rows[0].ItemArray[0]);
+                                                parcels[i].IdConta = income.IdConta;
+                                                parcels[i].IdCategoria = income.IdCategoria;
+                                                parcels[i].ValorParcela = income.ValorReceita;
+                                                parcels[i].DescricaoParcela = income.DescricaoReceita;
                                                 this.periodSelection(i, income, parcels);
-                                                parcels[i].observacoesParcela = income.observacoesReceita;
-                                                parcels[i].recebimentoConfirmado = false;
+                                                parcels[i].ObservacoesParcela = income.ObservacoesReceita;
+                                                parcels[i].RecebimentoConfirmado = false;
                                                 if (Database.newParcel(parcels[i])) continue;
                                                 else
                                                 {
@@ -464,30 +484,54 @@ namespace Sisteg_Dashboard
                                                     break;
                                                 }
                                             }
-                                            if (success == 0) MessageBox.Show("Não foi possível cadastrar todas as parcelas!", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                            if (success == 0) MessageBox.Show("[ERRO] Não foi possível cadastrar todas as parcelas!", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                            
                                             this.selectClientLastBudget();
-                                            MessageBox.Show("Receita cadastrada com sucesso!", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                            MessageBox.Show("Orçamento cadastrado com sucesso!", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                            this.clearFields();
+                                            Globals.idCliente = Convert.ToInt32(Globals.budgetStepDataTable.Rows[0].ItemArray[1]);
+                                            Globals.productStep = new ProductStep(this) { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+                                            this.panel_steps.Controls.Remove(Globals.budgetStep);
+                                            this.panel_steps.Controls.Add(Globals.productStep);
+                                            Globals.productStep.Show();
+
+                                            this.lbl_btnGoBackTag.Visible = true;
+                                            this.pcb_btnGoBack.Visible = true;
+                                            this.lbl_btnGoForwardTag.Visible = false;
+                                            this.pcb_btnGoForward.Visible = false;
+                                            this.lbl_btnEndBudgetTag.Visible = true;
+                                            this.pcb_btnEndBudget.Visible = true;
+                                            this.lbl_btnEndBudgetTag.Location = new Point(925, 445);
+                                            this.pcb_btnEndBudget.Location = new Point(845, 417);
                                         }
                                         else MessageBox.Show("[ERRO] Não foi possível cadastrar receita!", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                     }
                                     else MessageBox.Show("[ERRO] Não foi possível cadastrar orçamento!", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                 }
-                                else income.parcelarValorReceita = false;
+                                else income.ParcelarValorReceita = false;
                             }
                             else
                             {
-                                income.repetirParcelarReceita = false;
+                                income.RepetirParcelarReceita = false;
                                 if (Database.newBudget(budget))
                                 {
-                                    income.numeroOrcamento = Convert.ToInt32(Database.query("SELECT numeroOrcamento FROM orcamento ORDER BY numeroOrcamento DESC LIMIT 1;").Rows[0].ItemArray[0]);
+                                    income.NumeroOrcamento = Convert.ToInt32(Database.query("SELECT numeroOrcamento FROM orcamento ORDER BY numeroOrcamento DESC LIMIT 1;").Rows[0].ItemArray[0]);
+                                    Globals.numeroOrcamento = income.NumeroOrcamento;
                                     if (Database.newIncome(income))
                                     {
-                                        this.selectClientLastBudget();
-                                        MessageBox.Show("Receita cadastrada com sucesso!", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                        MessageBox.Show("Orçamento cadastrado com sucesso!", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                        this.clearFields();
+                                        Globals.idReceita = Convert.ToInt32(Database.query("SELECT idReceita FROM receita ORDER BY idReceita DESC LIMIT 1;").Rows[0].ItemArray[0]);
+                                        
+                                        Globals.productStep = new ProductStep(this) { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+                                        this.panel_steps.Controls.Remove(Globals.budgetStep);
+                                        this.panel_steps.Controls.Add(Globals.productStep);
+                                        Globals.productStep.Show();
+                                        
+                                        this.lbl_btnGoBackTag.Visible = true;
+                                        this.pcb_btnGoBack.Visible = true;
+                                        this.lbl_btnGoForwardTag.Visible = false;
+                                        this.pcb_btnGoForward.Visible = false;
+                                        this.lbl_btnEndBudgetTag.Visible = true;
+                                        this.pcb_btnEndBudget.Visible = true;
+                                        this.lbl_btnEndBudgetTag.Location = new Point(925, 445);
+                                        this.pcb_btnEndBudget.Location = new Point(845, 417);
                                     }
                                     else MessageBox.Show("[ERRO] Não foi possível cadastrar receita!", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                 }
@@ -499,58 +543,147 @@ namespace Sisteg_Dashboard
             }
         }
 
-        //EDITAR
+        //Função que edita orçamento
+        private void editBudget()
+        {
+            if (Globals.clientStep.cbb_clientName.SelectedIndex == -1)
+            {
+                MessageBox.Show("Selecione um cliente antes de avançar!", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                if (Globals.clientStep.cbb_budgetNumber.Visible == true) if (Globals.clientStep.cbb_budgetNumber.SelectedIndex == -1) MessageBox.Show("Selecione um orçamento antes de avançar!");
+            }
+            Globals.budgetStepDataTable = Database.query("SELECT * FROM orcamento WHERE orcamento.numeroOrcamento = " + Globals.numeroOrcamento);
+            
+            Globals.budgetStep = new BudgetStep(this, Globals.budgetStepDataTable) { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+            if (this.panel_steps.Controls.Contains(Globals.productStep)) this.panel_steps.Controls.Remove(Globals.productStep); 
+            if (this.panel_steps.Controls.Contains(Globals.clientStep)) this.panel_steps.Controls.Remove(Globals.clientStep);
+            Globals.step = 1;
+            
+            this.panel_steps.Controls.Add(Globals.budgetStep);
+            Globals.budgetStep.Show();
+            
+            this.lbl_btnGoBackTag.Visible = true;
+            this.pcb_btnGoBack.Visible = true;
+            this.lbl_btnEditTag.Visible = false;
+            this.pcb_btnEdit.Visible = false;
+        }
+
+        //Função que finaliza orçamento
+        private void endBudget()
+        {
+            Globals.step = 0;
+            
+            Globals.clientStep = new ClientStep(this, null) { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+            this.panel_steps.Controls.Remove(Globals.productStep);
+            this.panel_steps.Controls.Add(Globals.clientStep);
+            Globals.clientStep.Show();
+            
+            this.lbl_btnGoBackTag.Visible = false;
+            this.pcb_btnGoBack.Visible = false;
+            this.lbl_btnEndBudgetTag.Visible = false;
+            this.pcb_btnEndBudget.Visible = false;
+            this.lbl_btnEndBudgetTag.Location = new Point(925, 445);
+            this.pcb_btnEndBudget.Location = new Point(845, 569);
+            this.lbl_btnGoForwardTag.Visible = true;
+            this.pcb_btnGoForward.Visible = true;
+            
+            MessageBox.Show("Orçamento concluído com sucesso!", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        //ENCERRAR APLICAÇÃO
+        private void pcb_appClose_Click(object sender, EventArgs e)
+        {
+            if (((DialogResult)MessageBox.Show("Tem certeza que deseja encerrar a aplicação?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2)).ToString().ToUpper() == "YES") Application.Exit();
+        }
+
+        //MINIMIZAR APLICAÇÃO
+        private void pcb_minimizeProgram_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+
+        //VOLTAR
+        private void pcb_btnGoBack_MouseEnter(object sender, EventArgs e)
+        {
+            this.pcb_btnGoBack.BackgroundImage = Properties.Resources.btn_go_back_active;
+        }
+
+        private void pcb_btnGoBack_MouseLeave(object sender, EventArgs e)
+        {
+            if (!lbl_btnGoBackTag.ClientRectangle.Contains(lbl_btnGoBackTag.PointToClient(Cursor.Position))) this.pcb_btnGoBack.BackgroundImage = Properties.Resources.btn_go_back;
+        }
+
+        private void pcb_btnGoBack_Click(object sender, EventArgs e)
+        {
+            this.goBack();
+        }
+
+        private void lbl_btnGoBackTag_Click(object sender, EventArgs e)
+        {
+            this.goBack();
+        }
+
+        private void pcb_btnGoForward_MouseEnter(object sender, EventArgs e)
+        {
+            this.pcb_btnGoForward.BackgroundImage = Properties.Resources.btn_go_forward_active;
+        }
+
+        private void pcb_btnGoForward_MouseLeave(object sender, EventArgs e)
+        {
+            if (!lbl_btnGoForwardTag.ClientRectangle.Contains(lbl_btnGoForwardTag.PointToClient(Cursor.Position))) this.pcb_btnGoForward.BackgroundImage = Properties.Resources.btn_go_forward;
+        }
+
+        //AVANÇAR
+        private void pcb_btnGoForward_Click(object sender, EventArgs e)
+        {
+            this.goForward();
+        }
+
+        private void lbl_btnGoForwardTag_Click(object sender, EventArgs e)
+        {
+            this.goForward();
+        }
+
+        //EDITAR ORÇAMENTO
         private void pcb_btnEdit_MouseEnter(object sender, EventArgs e) 
         { 
-            this.pcb_btnEdit.Image = Properties.Resources.btn_edit_active; 
+            this.pcb_btnEdit.BackgroundImage = Properties.Resources.btn_edit_active; 
         }
 
         private void pcb_btnEdit_MouseLeave(object sender, EventArgs e)
         {
-            this.pcb_btnEdit.Image = Properties.Resources.btn_edit;
-        }
-
-        private void pcb_btnEndBudget_Click(object sender, EventArgs e)
-        {
-            step = 0;
-            clientStep = new ClientStep(this, null) { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
-            this.panel_steps.Controls.Remove(productStep);
-            this.panel_steps.Controls.Add(clientStep);
-            clientStep.Show();
-            this.pcb_btnGoBack.Visible = false;
-            this.pcb_btnEndBudget.Visible = false;
-            this.pcb_btnEndBudget.Location = new Point(845, 569);
-            this.pcb_btnGoForward.Visible = true;
-            MessageBox.Show("Orçamento concluído com sucesso!");
-        }
-
-        private void pcb_btnEndBudget_MouseEnter(object sender, EventArgs e) 
-        { 
-            this.pcb_btnEndBudget.Image = Properties.Resources.btn_budget_form_active; 
-        }
-
-        private void pcb_btnEndBudget_MouseLeave(object sender, EventArgs e) 
-        { 
-            this.pcb_btnEndBudget.Image = Properties.Resources.btn_budget_form; 
+            if (!lbl_btnEditTag.ClientRectangle.Contains(lbl_btnEditTag.PointToClient(Cursor.Position))) this.pcb_btnEdit.BackgroundImage = Properties.Resources.btn_edit;
         }
 
         private void pcb_btnEdit_Click(object sender, EventArgs e)
         {
-            if (clientStep.cbb_clientName.SelectedIndex == -1)
-            {
-                MessageBox.Show("Selecione um cliente antes de avançar!");
-                if (clientStep.cbb_budgetNumber.Visible == true) if (clientStep.cbb_budgetNumber.SelectedIndex == -1) MessageBox.Show("Selecione um orçamento antes de avançar!");
-            }
-            clientStepDataTable = clientStep.clientStepDataTable;
-            this.budgetNumber = clientStep.budgetNumber;
-            budgetStepDataTable = Database.query("SELECT * FROM orcamento WHERE orcamento.numeroOrcamento = " + clientStep.budgetNumber);
-            budgetStep = new BudgetStep(this, budgetStepDataTable) { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
-            if (this.panel_steps.Controls.Contains(productStep)) this.panel_steps.Controls.Remove(productStep); if (this.panel_steps.Controls.Contains(clientStep)) this.panel_steps.Controls.Remove(clientStep);
-            step = 1;
-            this.panel_steps.Controls.Add(budgetStep);
-            budgetStep.Show();
-            this.pcb_btnGoBack.Visible = true;
-            this.pcb_btnEdit.Visible = false;
+            this.editBudget();
+        }
+
+        private void lbl_btnEditTag_Click(object sender, EventArgs e)
+        {
+            this.editBudget();
+        }
+
+        //FINALIZAR ORÇAMENTO
+        private void pcb_btnEndBudget_MouseEnter(object sender, EventArgs e) 
+        { 
+            this.pcb_btnEndBudget.BackgroundImage = Properties.Resources.btn_confirm_budget_active; 
+        }
+
+        private void pcb_btnEndBudget_MouseLeave(object sender, EventArgs e) 
+        {
+            if (!lbl_btnEndBudgetTag.ClientRectangle.Contains(lbl_btnEndBudgetTag.PointToClient(Cursor.Position))) this.pcb_btnEndBudget.BackgroundImage = Properties.Resources.btn_confirm_budget; 
+        }
+
+        private void pcb_btnEndBudget_Click(object sender, EventArgs e)
+        {
+            this.endBudget();
+        }
+
+        private void lbl_btnEndBudgetTag_Click(object sender, EventArgs e)
+        {
+            this.endBudget();
         }
     }
 }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
@@ -37,6 +38,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(IncomeGraphs));
             this.chart_incomeCategory = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.chart_incomeAccount = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.ttp_incomeCategory = new System.Windows.Forms.ToolTip(this.components);
+            this.ttp_incomeAccount = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.chart_incomeCategory)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart_incomeAccount)).BeginInit();
             this.SuspendLayout();
@@ -57,13 +60,14 @@
             series1.ChartArea = "ChartArea1";
             series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
             series1.Color = System.Drawing.Color.Transparent;
-            series1.Font = new System.Drawing.Font("Courier Prime Code", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            series1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             series1.LabelForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             series1.Legend = "Legend2";
             series1.Name = "Series1";
             this.chart_incomeCategory.Series.Add(series1);
             this.chart_incomeCategory.Size = new System.Drawing.Size(277, 241);
             this.chart_incomeCategory.TabIndex = 1;
+            this.chart_incomeCategory.MouseHover += new System.EventHandler(this.chart_incomeCategory_MouseHover);
             // 
             // chart_incomeAccount
             // 
@@ -81,13 +85,14 @@
             series2.ChartArea = "ChartArea1";
             series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
             series2.Color = System.Drawing.Color.Transparent;
-            series2.Font = new System.Drawing.Font("Courier Prime Code", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            series2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             series2.LabelForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             series2.Legend = "Legend2";
             series2.Name = "Series1";
             this.chart_incomeAccount.Series.Add(series2);
             this.chart_incomeAccount.Size = new System.Drawing.Size(277, 241);
             this.chart_incomeAccount.TabIndex = 2;
+            this.chart_incomeAccount.MouseHover += new System.EventHandler(this.chart_incomeAccount_MouseHover);
             // 
             // IncomeGraphs
             // 
@@ -97,6 +102,7 @@
             this.ClientSize = new System.Drawing.Size(773, 381);
             this.Controls.Add(this.chart_incomeCategory);
             this.Controls.Add(this.chart_incomeAccount);
+            this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "IncomeGraphs";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -111,5 +117,7 @@
 
         protected internal System.Windows.Forms.DataVisualization.Charting.Chart chart_incomeCategory;
         protected internal System.Windows.Forms.DataVisualization.Charting.Chart chart_incomeAccount;
+        private System.Windows.Forms.ToolTip ttp_incomeCategory;
+        private System.Windows.Forms.ToolTip ttp_incomeAccount;
     }
 }

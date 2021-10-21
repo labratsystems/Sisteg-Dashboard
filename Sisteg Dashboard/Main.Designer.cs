@@ -48,16 +48,18 @@
             this.lbl_dailyExpenses = new System.Windows.Forms.Label();
             this.cbb_activeAccount = new Bunifu.UI.WinForms.BunifuDropdown();
             this.panel_activeAccount = new System.Windows.Forms.Panel();
-            this.pcb_minimizeProgram = new System.Windows.Forms.PictureBox();
             this.lbl_balanceTag = new System.Windows.Forms.Label();
             this.lbl_monthIncomesTag = new System.Windows.Forms.Label();
             this.lbl_monthExpensesTag = new System.Windows.Forms.Label();
             this.lbl_dailyExpensesTag = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
+            this.lbl_mainTag = new System.Windows.Forms.Label();
+            this.lbl_clientTag = new System.Windows.Forms.Label();
+            this.lbl_productTag = new System.Windows.Forms.Label();
+            this.lbl_budgetTag = new System.Windows.Forms.Label();
+            this.lbl_configTag = new System.Windows.Forms.Label();
+            this.pcb_minimizeProgram = new System.Windows.Forms.PictureBox();
+            this.lbl_btnGoBackTag = new System.Windows.Forms.Label();
+            this.lbl_btnGoForwardTag = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pcb_btnConfig)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcb_btnBudget)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcb_btnProduct)).BeginInit();
@@ -77,8 +79,8 @@
             // pcb_btnConfig
             // 
             this.pcb_btnConfig.BackColor = System.Drawing.Color.Transparent;
+            this.pcb_btnConfig.BackgroundImage = global::Sisteg_Dashboard.Properties.Resources.btn_config_main;
             this.pcb_btnConfig.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pcb_btnConfig.Image = ((System.Drawing.Image)(resources.GetObject("pcb_btnConfig.Image")));
             this.pcb_btnConfig.Location = new System.Drawing.Point(23, 339);
             this.pcb_btnConfig.Name = "pcb_btnConfig";
             this.pcb_btnConfig.Size = new System.Drawing.Size(328, 70);
@@ -91,8 +93,8 @@
             // pcb_btnBudget
             // 
             this.pcb_btnBudget.BackColor = System.Drawing.Color.Transparent;
+            this.pcb_btnBudget.BackgroundImage = global::Sisteg_Dashboard.Properties.Resources.btn_budget_form;
             this.pcb_btnBudget.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pcb_btnBudget.Image = ((System.Drawing.Image)(resources.GetObject("pcb_btnBudget.Image")));
             this.pcb_btnBudget.Location = new System.Drawing.Point(22, 263);
             this.pcb_btnBudget.Name = "pcb_btnBudget";
             this.pcb_btnBudget.Size = new System.Drawing.Size(328, 70);
@@ -105,8 +107,8 @@
             // pcb_btnProduct
             // 
             this.pcb_btnProduct.BackColor = System.Drawing.Color.Transparent;
+            this.pcb_btnProduct.BackgroundImage = global::Sisteg_Dashboard.Properties.Resources.btn_product_form;
             this.pcb_btnProduct.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pcb_btnProduct.Image = ((System.Drawing.Image)(resources.GetObject("pcb_btnProduct.Image")));
             this.pcb_btnProduct.Location = new System.Drawing.Point(22, 187);
             this.pcb_btnProduct.Name = "pcb_btnProduct";
             this.pcb_btnProduct.Size = new System.Drawing.Size(328, 70);
@@ -119,8 +121,9 @@
             // pcb_btnMain
             // 
             this.pcb_btnMain.BackColor = System.Drawing.Color.Transparent;
+            this.pcb_btnMain.BackgroundImage = global::Sisteg_Dashboard.Properties.Resources.btn_main_form_active;
+            this.pcb_btnMain.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.pcb_btnMain.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pcb_btnMain.Image = ((System.Drawing.Image)(resources.GetObject("pcb_btnMain.Image")));
             this.pcb_btnMain.Location = new System.Drawing.Point(22, 35);
             this.pcb_btnMain.Name = "pcb_btnMain";
             this.pcb_btnMain.Size = new System.Drawing.Size(328, 70);
@@ -130,8 +133,9 @@
             // pcb_btnClient
             // 
             this.pcb_btnClient.BackColor = System.Drawing.Color.Transparent;
+            this.pcb_btnClient.BackgroundImage = global::Sisteg_Dashboard.Properties.Resources.btn_client_form;
+            this.pcb_btnClient.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.pcb_btnClient.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pcb_btnClient.Image = ((System.Drawing.Image)(resources.GetObject("pcb_btnClient.Image")));
             this.pcb_btnClient.Location = new System.Drawing.Point(22, 111);
             this.pcb_btnClient.Name = "pcb_btnClient";
             this.pcb_btnClient.Size = new System.Drawing.Size(328, 70);
@@ -145,25 +149,25 @@
             // 
             this.lbl_monthExpenses.AutoSize = true;
             this.lbl_monthExpenses.BackColor = System.Drawing.Color.Transparent;
-            this.lbl_monthExpenses.Font = new System.Drawing.Font("Courier Prime Code", 24F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lbl_monthExpenses.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.lbl_monthExpenses.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(104)))), ((int)(((byte)(82)))));
             this.lbl_monthExpenses.Location = new System.Drawing.Point(931, 593);
             this.lbl_monthExpenses.Name = "lbl_monthExpenses";
-            this.lbl_monthExpenses.Size = new System.Drawing.Size(170, 41);
-            this.lbl_monthExpenses.TabIndex = 2;
-            this.lbl_monthExpenses.Text = "DESPESAS";
+            this.lbl_monthExpenses.Size = new System.Drawing.Size(129, 37);
+            this.lbl_monthExpenses.TabIndex = 10;
+            this.lbl_monthExpenses.Text = "R$ 0,00";
             // 
             // lbl_monthIncomes
             // 
             this.lbl_monthIncomes.AutoSize = true;
             this.lbl_monthIncomes.BackColor = System.Drawing.Color.Transparent;
-            this.lbl_monthIncomes.Font = new System.Drawing.Font("Courier Prime Code", 24F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lbl_monthIncomes.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.lbl_monthIncomes.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.lbl_monthIncomes.Location = new System.Drawing.Point(521, 593);
             this.lbl_monthIncomes.Name = "lbl_monthIncomes";
-            this.lbl_monthIncomes.Size = new System.Drawing.Size(170, 41);
-            this.lbl_monthIncomes.TabIndex = 2;
-            this.lbl_monthIncomes.Text = "RECEITAS";
+            this.lbl_monthIncomes.Size = new System.Drawing.Size(129, 37);
+            this.lbl_monthIncomes.TabIndex = 10;
+            this.lbl_monthIncomes.Text = "R$ 0,00";
             // 
             // pcb_addIncome
             // 
@@ -202,7 +206,7 @@
             // pcb_closeProgram
             // 
             this.pcb_closeProgram.BackColor = System.Drawing.Color.Transparent;
-            this.pcb_closeProgram.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pcb_closeProgram.BackgroundImage")));
+            this.pcb_closeProgram.BackgroundImage = global::Sisteg_Dashboard.Properties.Resources.cancel__2_;
             this.pcb_closeProgram.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pcb_closeProgram.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pcb_closeProgram.Location = new System.Drawing.Point(968, 6);
@@ -210,11 +214,12 @@
             this.pcb_closeProgram.Size = new System.Drawing.Size(32, 32);
             this.pcb_closeProgram.TabIndex = 34;
             this.pcb_closeProgram.TabStop = false;
+            this.pcb_closeProgram.Click += new System.EventHandler(this.pcb_appClose_Click);
             // 
             // pcb_nextMonth
             // 
             this.pcb_nextMonth.BackColor = System.Drawing.Color.Transparent;
-            this.pcb_nextMonth.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pcb_nextMonth.BackgroundImage")));
+            this.pcb_nextMonth.BackgroundImage = global::Sisteg_Dashboard.Properties.Resources.angle_right__2_;
             this.pcb_nextMonth.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pcb_nextMonth.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pcb_nextMonth.Location = new System.Drawing.Point(1044, 6);
@@ -227,7 +232,7 @@
             // pcb_previousMonth
             // 
             this.pcb_previousMonth.BackColor = System.Drawing.Color.Transparent;
-            this.pcb_previousMonth.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pcb_previousMonth.BackgroundImage")));
+            this.pcb_previousMonth.BackgroundImage = global::Sisteg_Dashboard.Properties.Resources.angle_left__2_;
             this.pcb_previousMonth.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pcb_previousMonth.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pcb_previousMonth.Location = new System.Drawing.Point(1006, 6);
@@ -240,8 +245,8 @@
             // pcb_btnGoForward
             // 
             this.pcb_btnGoForward.BackColor = System.Drawing.Color.Transparent;
+            this.pcb_btnGoForward.BackgroundImage = global::Sisteg_Dashboard.Properties.Resources.btn_go_forward;
             this.pcb_btnGoForward.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pcb_btnGoForward.Image = ((System.Drawing.Image)(resources.GetObject("pcb_btnGoForward.Image")));
             this.pcb_btnGoForward.Location = new System.Drawing.Point(845, 417);
             this.pcb_btnGoForward.Name = "pcb_btnGoForward";
             this.pcb_btnGoForward.Size = new System.Drawing.Size(328, 70);
@@ -254,8 +259,8 @@
             // pcb_btnGoBack
             // 
             this.pcb_btnGoBack.BackColor = System.Drawing.Color.Transparent;
+            this.pcb_btnGoBack.BackgroundImage = global::Sisteg_Dashboard.Properties.Resources.btn_go_back;
             this.pcb_btnGoBack.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pcb_btnGoBack.Image = ((System.Drawing.Image)(resources.GetObject("pcb_btnGoBack.Image")));
             this.pcb_btnGoBack.Location = new System.Drawing.Point(400, 417);
             this.pcb_btnGoBack.Name = "pcb_btnGoBack";
             this.pcb_btnGoBack.Size = new System.Drawing.Size(328, 70);
@@ -269,25 +274,25 @@
             // 
             this.lbl_balance.AutoSize = true;
             this.lbl_balance.BackColor = System.Drawing.Color.Transparent;
-            this.lbl_balance.Font = new System.Drawing.Font("Courier Prime Code", 24F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lbl_balance.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.lbl_balance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.lbl_balance.Location = new System.Drawing.Point(521, 462);
             this.lbl_balance.Name = "lbl_balance";
-            this.lbl_balance.Size = new System.Drawing.Size(113, 41);
-            this.lbl_balance.TabIndex = 1;
-            this.lbl_balance.Text = "SALDO";
+            this.lbl_balance.Size = new System.Drawing.Size(129, 37);
+            this.lbl_balance.TabIndex = 8;
+            this.lbl_balance.Text = "R$ 0,00";
             // 
             // lbl_dailyExpenses
             // 
             this.lbl_dailyExpenses.AutoSize = true;
             this.lbl_dailyExpenses.BackColor = System.Drawing.Color.Transparent;
-            this.lbl_dailyExpenses.Font = new System.Drawing.Font("Courier Prime Code", 24F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lbl_dailyExpenses.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.lbl_dailyExpenses.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(104)))), ((int)(((byte)(82)))));
             this.lbl_dailyExpenses.Location = new System.Drawing.Point(931, 462);
             this.lbl_dailyExpenses.Name = "lbl_dailyExpenses";
-            this.lbl_dailyExpenses.Size = new System.Drawing.Size(132, 41);
-            this.lbl_dailyExpenses.TabIndex = 1;
-            this.lbl_dailyExpenses.Text = "GASTOS";
+            this.lbl_dailyExpenses.Size = new System.Drawing.Size(129, 37);
+            this.lbl_dailyExpenses.TabIndex = 8;
+            this.lbl_dailyExpenses.Text = "R$ 0,00";
             // 
             // cbb_activeAccount
             // 
@@ -304,7 +309,7 @@
             this.cbb_activeAccount.FillDropDown = false;
             this.cbb_activeAccount.FillIndicator = false;
             this.cbb_activeAccount.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cbb_activeAccount.Font = new System.Drawing.Font("Courier Prime Code", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbb_activeAccount.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbb_activeAccount.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.cbb_activeAccount.FormattingEnabled = true;
             this.cbb_activeAccount.Icon = null;
@@ -318,7 +323,7 @@
             this.cbb_activeAccount.Location = new System.Drawing.Point(12, 0);
             this.cbb_activeAccount.Name = "cbb_activeAccount";
             this.cbb_activeAccount.Size = new System.Drawing.Size(300, 35);
-            this.cbb_activeAccount.TabIndex = 3;
+            this.cbb_activeAccount.TabIndex = 10;
             this.cbb_activeAccount.Text = " Conta ativa";
             this.cbb_activeAccount.SelectedIndexChanged += new System.EventHandler(this.cbb_activeAccount_SelectedIndexChanged);
             // 
@@ -333,10 +338,127 @@
             this.panel_activeAccount.Size = new System.Drawing.Size(328, 47);
             this.panel_activeAccount.TabIndex = 3;
             // 
+            // lbl_balanceTag
+            // 
+            this.lbl_balanceTag.AutoSize = true;
+            this.lbl_balanceTag.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_balanceTag.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lbl_balanceTag.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.lbl_balanceTag.Location = new System.Drawing.Point(523, 441);
+            this.lbl_balanceTag.Name = "lbl_balanceTag";
+            this.lbl_balanceTag.Size = new System.Drawing.Size(76, 20);
+            this.lbl_balanceTag.TabIndex = 7;
+            this.lbl_balanceTag.Text = "SALDO///";
+            // 
+            // lbl_monthIncomesTag
+            // 
+            this.lbl_monthIncomesTag.AutoSize = true;
+            this.lbl_monthIncomesTag.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_monthIncomesTag.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lbl_monthIncomesTag.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.lbl_monthIncomesTag.Location = new System.Drawing.Point(523, 571);
+            this.lbl_monthIncomesTag.Name = "lbl_monthIncomesTag";
+            this.lbl_monthIncomesTag.Size = new System.Drawing.Size(102, 20);
+            this.lbl_monthIncomesTag.TabIndex = 9;
+            this.lbl_monthIncomesTag.Text = "RECEITAS///";
+            // 
+            // lbl_monthExpensesTag
+            // 
+            this.lbl_monthExpensesTag.AutoSize = true;
+            this.lbl_monthExpensesTag.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_monthExpensesTag.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lbl_monthExpensesTag.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(104)))), ((int)(((byte)(82)))));
+            this.lbl_monthExpensesTag.Location = new System.Drawing.Point(932, 571);
+            this.lbl_monthExpensesTag.Name = "lbl_monthExpensesTag";
+            this.lbl_monthExpensesTag.Size = new System.Drawing.Size(109, 20);
+            this.lbl_monthExpensesTag.TabIndex = 9;
+            this.lbl_monthExpensesTag.Text = "DESPESAS///";
+            // 
+            // lbl_dailyExpensesTag
+            // 
+            this.lbl_dailyExpensesTag.AutoSize = true;
+            this.lbl_dailyExpensesTag.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_dailyExpensesTag.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lbl_dailyExpensesTag.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(104)))), ((int)(((byte)(82)))));
+            this.lbl_dailyExpensesTag.Location = new System.Drawing.Point(933, 441);
+            this.lbl_dailyExpensesTag.Name = "lbl_dailyExpensesTag";
+            this.lbl_dailyExpensesTag.Size = new System.Drawing.Size(160, 20);
+            this.lbl_dailyExpensesTag.TabIndex = 7;
+            this.lbl_dailyExpensesTag.Text = "GASTOS DIÁRIOS///";
+            // 
+            // lbl_mainTag
+            // 
+            this.lbl_mainTag.AutoSize = true;
+            this.lbl_mainTag.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_mainTag.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lbl_mainTag.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lbl_mainTag.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.lbl_mainTag.Location = new System.Drawing.Point(105, 63);
+            this.lbl_mainTag.Name = "lbl_mainTag";
+            this.lbl_mainTag.Size = new System.Drawing.Size(166, 20);
+            this.lbl_mainTag.TabIndex = 1;
+            this.lbl_mainTag.Text = "PAINEL PRINCIPAL///";
+            // 
+            // lbl_clientTag
+            // 
+            this.lbl_clientTag.AutoSize = true;
+            this.lbl_clientTag.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_clientTag.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lbl_clientTag.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lbl_clientTag.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.lbl_clientTag.Location = new System.Drawing.Point(105, 139);
+            this.lbl_clientTag.Name = "lbl_clientTag";
+            this.lbl_clientTag.Size = new System.Drawing.Size(99, 20);
+            this.lbl_clientTag.TabIndex = 2;
+            this.lbl_clientTag.Text = "CLIENTES///";
+            this.lbl_clientTag.Click += new System.EventHandler(this.lbl_clientTag_Click);
+            // 
+            // lbl_productTag
+            // 
+            this.lbl_productTag.AutoSize = true;
+            this.lbl_productTag.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_productTag.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lbl_productTag.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lbl_productTag.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.lbl_productTag.Location = new System.Drawing.Point(105, 215);
+            this.lbl_productTag.Name = "lbl_productTag";
+            this.lbl_productTag.Size = new System.Drawing.Size(111, 20);
+            this.lbl_productTag.TabIndex = 3;
+            this.lbl_productTag.Text = "PRODUTOS///";
+            this.lbl_productTag.Click += new System.EventHandler(this.lbl_productTag_Click);
+            // 
+            // lbl_budgetTag
+            // 
+            this.lbl_budgetTag.AutoSize = true;
+            this.lbl_budgetTag.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_budgetTag.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lbl_budgetTag.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lbl_budgetTag.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.lbl_budgetTag.Location = new System.Drawing.Point(105, 291);
+            this.lbl_budgetTag.Name = "lbl_budgetTag";
+            this.lbl_budgetTag.Size = new System.Drawing.Size(134, 20);
+            this.lbl_budgetTag.TabIndex = 4;
+            this.lbl_budgetTag.Text = "ORÇAMENTOS///";
+            this.lbl_budgetTag.Click += new System.EventHandler(this.lbl_budgetTag_Click);
+            // 
+            // lbl_configTag
+            // 
+            this.lbl_configTag.AutoSize = true;
+            this.lbl_configTag.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_configTag.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lbl_configTag.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lbl_configTag.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.lbl_configTag.Location = new System.Drawing.Point(105, 367);
+            this.lbl_configTag.Name = "lbl_configTag";
+            this.lbl_configTag.Size = new System.Drawing.Size(163, 20);
+            this.lbl_configTag.TabIndex = 5;
+            this.lbl_configTag.Text = "CONFIGURAÇÕES///";
+            this.lbl_configTag.Click += new System.EventHandler(this.lbl_configTag_Click);
+            // 
             // pcb_minimizeProgram
             // 
             this.pcb_minimizeProgram.BackColor = System.Drawing.Color.Transparent;
-            this.pcb_minimizeProgram.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pcb_minimizeProgram.BackgroundImage")));
+            this.pcb_minimizeProgram.BackgroundImage = global::Sisteg_Dashboard.Properties.Resources.minus;
             this.pcb_minimizeProgram.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pcb_minimizeProgram.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pcb_minimizeProgram.Location = new System.Drawing.Point(1082, 6);
@@ -346,136 +468,52 @@
             this.pcb_minimizeProgram.TabStop = false;
             this.pcb_minimizeProgram.Click += new System.EventHandler(this.pcb_minimizeProgram_Click);
             // 
-            // lbl_balanceTag
+            // lbl_btnGoBackTag
             // 
-            this.lbl_balanceTag.AutoSize = true;
-            this.lbl_balanceTag.BackColor = System.Drawing.Color.Transparent;
-            this.lbl_balanceTag.Font = new System.Drawing.Font("Courier Prime Code", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lbl_balanceTag.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.lbl_balanceTag.Location = new System.Drawing.Point(523, 441);
-            this.lbl_balanceTag.Name = "lbl_balanceTag";
-            this.lbl_balanceTag.Size = new System.Drawing.Size(90, 21);
-            this.lbl_balanceTag.TabIndex = 40;
-            this.lbl_balanceTag.Text = "SALDO///";
+            this.lbl_btnGoBackTag.AutoSize = true;
+            this.lbl_btnGoBackTag.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_btnGoBackTag.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lbl_btnGoBackTag.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lbl_btnGoBackTag.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.lbl_btnGoBackTag.Location = new System.Drawing.Point(483, 445);
+            this.lbl_btnGoBackTag.Name = "lbl_btnGoBackTag";
+            this.lbl_btnGoBackTag.Size = new System.Drawing.Size(85, 20);
+            this.lbl_btnGoBackTag.TabIndex = 6;
+            this.lbl_btnGoBackTag.Text = "VOLTAR///";
+            this.lbl_btnGoBackTag.Click += new System.EventHandler(this.lbl_btnGoBackTag_Click);
             // 
-            // lbl_monthIncomesTag
+            // lbl_btnGoForwardTag
             // 
-            this.lbl_monthIncomesTag.AutoSize = true;
-            this.lbl_monthIncomesTag.BackColor = System.Drawing.Color.Transparent;
-            this.lbl_monthIncomesTag.Font = new System.Drawing.Font("Courier Prime Code", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lbl_monthIncomesTag.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.lbl_monthIncomesTag.Location = new System.Drawing.Point(523, 571);
-            this.lbl_monthIncomesTag.Name = "lbl_monthIncomesTag";
-            this.lbl_monthIncomesTag.Size = new System.Drawing.Size(120, 21);
-            this.lbl_monthIncomesTag.TabIndex = 41;
-            this.lbl_monthIncomesTag.Text = "RECEITAS///";
-            // 
-            // lbl_monthExpensesTag
-            // 
-            this.lbl_monthExpensesTag.AutoSize = true;
-            this.lbl_monthExpensesTag.BackColor = System.Drawing.Color.Transparent;
-            this.lbl_monthExpensesTag.Font = new System.Drawing.Font("Courier Prime Code", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lbl_monthExpensesTag.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(104)))), ((int)(((byte)(82)))));
-            this.lbl_monthExpensesTag.Location = new System.Drawing.Point(932, 571);
-            this.lbl_monthExpensesTag.Name = "lbl_monthExpensesTag";
-            this.lbl_monthExpensesTag.Size = new System.Drawing.Size(120, 21);
-            this.lbl_monthExpensesTag.TabIndex = 43;
-            this.lbl_monthExpensesTag.Text = "DESPESAS///";
-            // 
-            // lbl_dailyExpensesTag
-            // 
-            this.lbl_dailyExpensesTag.AutoSize = true;
-            this.lbl_dailyExpensesTag.BackColor = System.Drawing.Color.Transparent;
-            this.lbl_dailyExpensesTag.Font = new System.Drawing.Font("Courier Prime Code", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lbl_dailyExpensesTag.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(104)))), ((int)(((byte)(82)))));
-            this.lbl_dailyExpensesTag.Location = new System.Drawing.Point(933, 441);
-            this.lbl_dailyExpensesTag.Name = "lbl_dailyExpensesTag";
-            this.lbl_dailyExpensesTag.Size = new System.Drawing.Size(160, 21);
-            this.lbl_dailyExpensesTag.TabIndex = 42;
-            this.lbl_dailyExpensesTag.Text = "GASTOS DIÁRIOS/";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.label1.Font = new System.Drawing.Font("Courier Prime Code", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.label1.Location = new System.Drawing.Point(105, 63);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(200, 21);
-            this.label1.TabIndex = 44;
-            this.label1.Text = "PAINEL PRINCIPAL///";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.label2.Font = new System.Drawing.Font("Courier Prime Code", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.label2.Location = new System.Drawing.Point(105, 139);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(120, 21);
-            this.label2.TabIndex = 45;
-            this.label2.Text = "CLIENTES///";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.label3.Font = new System.Drawing.Font("Courier Prime Code", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.label3.Location = new System.Drawing.Point(105, 215);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(120, 21);
-            this.label3.TabIndex = 46;
-            this.label3.Text = "PRODUTOS///";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.label4.Font = new System.Drawing.Font("Courier Prime Code", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.label4.Location = new System.Drawing.Point(105, 291);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(140, 21);
-            this.label4.TabIndex = 47;
-            this.label4.Text = "ORÇAMENTOS///";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.Color.Transparent;
-            this.label5.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.label5.Font = new System.Drawing.Font("Courier Prime Code", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.label5.Location = new System.Drawing.Point(105, 367);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(170, 21);
-            this.label5.TabIndex = 48;
-            this.label5.Text = "CONFIGURAÇÕES///";
+            this.lbl_btnGoForwardTag.AutoSize = true;
+            this.lbl_btnGoForwardTag.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_btnGoForwardTag.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lbl_btnGoForwardTag.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lbl_btnGoForwardTag.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.lbl_btnGoForwardTag.Location = new System.Drawing.Point(927, 445);
+            this.lbl_btnGoForwardTag.Name = "lbl_btnGoForwardTag";
+            this.lbl_btnGoForwardTag.Size = new System.Drawing.Size(99, 20);
+            this.lbl_btnGoForwardTag.TabIndex = 6;
+            this.lbl_btnGoForwardTag.Text = "AVANÇAR///";
+            this.lbl_btnGoForwardTag.Click += new System.EventHandler(this.lbl_btnGoForwardTag_Click);
             // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(1220, 686);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lbl_btnGoForwardTag);
+            this.Controls.Add(this.lbl_btnGoBackTag);
+            this.Controls.Add(this.pcb_minimizeProgram);
+            this.Controls.Add(this.lbl_configTag);
+            this.Controls.Add(this.lbl_budgetTag);
+            this.Controls.Add(this.lbl_productTag);
+            this.Controls.Add(this.lbl_clientTag);
+            this.Controls.Add(this.lbl_mainTag);
             this.Controls.Add(this.lbl_monthExpensesTag);
             this.Controls.Add(this.lbl_dailyExpensesTag);
             this.Controls.Add(this.lbl_monthIncomesTag);
             this.Controls.Add(this.lbl_balanceTag);
-            this.Controls.Add(this.pcb_minimizeProgram);
             this.Controls.Add(this.panel_activeAccount);
             this.Controls.Add(this.lbl_dailyExpenses);
             this.Controls.Add(this.lbl_balance);
@@ -495,8 +533,9 @@
             this.Controls.Add(this.pcb_btnMain);
             this.Controls.Add(this.pcb_btnClient);
             this.DoubleBuffered = true;
-            this.ForeColor = System.Drawing.Color.OrangeRed;
+            this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "Main";
             this.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -541,15 +580,17 @@
         protected internal System.Windows.Forms.Label lbl_dailyExpenses;
         private System.Windows.Forms.Panel panel_activeAccount;
         protected internal Bunifu.UI.WinForms.BunifuDropdown cbb_activeAccount;
-        private System.Windows.Forms.PictureBox pcb_minimizeProgram;
         protected internal System.Windows.Forms.Label lbl_balanceTag;
         protected internal System.Windows.Forms.Label lbl_monthIncomesTag;
         protected internal System.Windows.Forms.Label lbl_monthExpensesTag;
         protected internal System.Windows.Forms.Label lbl_dailyExpensesTag;
-        protected internal System.Windows.Forms.Label label1;
-        protected internal System.Windows.Forms.Label label2;
-        protected internal System.Windows.Forms.Label label3;
-        protected internal System.Windows.Forms.Label label4;
-        protected internal System.Windows.Forms.Label label5;
+        protected internal System.Windows.Forms.Label lbl_mainTag;
+        protected internal System.Windows.Forms.Label lbl_clientTag;
+        protected internal System.Windows.Forms.Label lbl_productTag;
+        protected internal System.Windows.Forms.Label lbl_budgetTag;
+        protected internal System.Windows.Forms.Label lbl_configTag;
+        private System.Windows.Forms.PictureBox pcb_minimizeProgram;
+        protected internal System.Windows.Forms.Label lbl_btnGoBackTag;
+        protected internal System.Windows.Forms.Label lbl_btnGoForwardTag;
     }
 }

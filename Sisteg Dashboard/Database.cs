@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Data;
 using System.Data.SQLite;
 
@@ -20,7 +16,6 @@ namespace Sisteg_Dashboard
         {
             try
             {
-                Console.WriteLine("Path: " + databasePath + databaseName);
                 connection = new SQLiteConnection("Data Source=" + databasePath + databaseName);
                 connection.Open();
                 return connection;
@@ -55,27 +50,27 @@ namespace Sisteg_Dashboard
                 {
                     var connection = databaseConnection();
                     var command = databaseConnection().CreateCommand();
-                    DateTime dateTime = DateTime.Parse(income.dataTransacao.ToString());
+                    DateTime dateTime = DateTime.Parse(income.DataTransacao.ToString());
                     string formatForSQLite = dateTime.ToString("yyyy-MM-dd");
                     command.CommandText = "INSERT INTO receita (idConta, numeroOrcamento, idCategoria, valorReceita, descricaoReceita, dataTransacao, observacoesReceita, recebimentoConfirmado, repetirParcelarReceita, valorFixoReceita, repeticoesValorFixoReceita, parcelarValorReceita, parcelasReceita, periodoRepetirParcelarReceita) VALUES (@idConta, @numeroOrcamento, @idCategoria, @valorReceita, @descricaoReceita, @dataTransacao, @observacoesReceita, @recebimentoConfirmado, @repetirParcelarReceita, @valorFixoReceita, @repeticoesValorFixoReceita, @parcelarValorReceita, @parcelasReceita, @periodoRepetirParcelarReceita)";
-                    command.Parameters.AddWithValue("@idConta", income.idConta);
-                    command.Parameters.AddWithValue("@numeroOrcamento", income.numeroOrcamento);
-                    command.Parameters.AddWithValue("@idCategoria", income.idCategoria);
-                    command.Parameters.AddWithValue("@valorReceita", income.valorReceita);
-                    command.Parameters.AddWithValue("@descricaoReceita", income.descricaoReceita);
+                    command.Parameters.AddWithValue("@idConta", income.IdConta);
+                    command.Parameters.AddWithValue("@numeroOrcamento", income.NumeroOrcamento);
+                    command.Parameters.AddWithValue("@idCategoria", income.IdCategoria);
+                    command.Parameters.AddWithValue("@valorReceita", income.ValorReceita);
+                    command.Parameters.AddWithValue("@descricaoReceita", income.DescricaoReceita);
                     command.Parameters.AddWithValue("@dataTransacao", formatForSQLite);
-                    command.Parameters.AddWithValue("@observacoesReceita", income.observacoesReceita);
-                    command.Parameters.AddWithValue("@recebimentoConfirmado", income.recebimentoConfirmado);
-                    command.Parameters.AddWithValue("@repetirParcelarReceita", income.repetirParcelarReceita);
-                    command.Parameters.AddWithValue("@valorFixoReceita", income.valorFixoReceita);
-                    command.Parameters.AddWithValue("@repeticoesValorFixoReceita", income.repeticoesValorFixoReceita);
-                    command.Parameters.AddWithValue("@parcelarValorReceita", income.parcelarValorReceita);
-                    command.Parameters.AddWithValue("@parcelasReceita", income.parcelasReceita);
-                    command.Parameters.AddWithValue("@periodoRepetirParcelarReceita", income.periodoRepetirParcelarReceita);
+                    command.Parameters.AddWithValue("@observacoesReceita", income.ObservacoesReceita);
+                    command.Parameters.AddWithValue("@recebimentoConfirmado", income.RecebimentoConfirmado);
+                    command.Parameters.AddWithValue("@repetirParcelarReceita", income.RepetirParcelarReceita);
+                    command.Parameters.AddWithValue("@valorFixoReceita", income.ValorFixoReceita);
+                    command.Parameters.AddWithValue("@repeticoesValorFixoReceita", income.RepeticoesValorFixoReceita);
+                    command.Parameters.AddWithValue("@parcelarValorReceita", income.ParcelarValorReceita);
+                    command.Parameters.AddWithValue("@parcelasReceita", income.ParcelasReceita);
+                    command.Parameters.AddWithValue("@periodoRepetirParcelarReceita", income.PeriodoRepetirParcelarReceita);
                     command.ExecuteNonQuery();
                     connection.Close();
                     return true;
-                }catch(Exception exception) { throw exception; }
+                }catch(Exception exception) { return false; }
             }
 
             //Atualizar receita
@@ -87,28 +82,28 @@ namespace Sisteg_Dashboard
                     var connection = databaseConnection();
                     var command = databaseConnection().CreateCommand();
                     command.CommandText = "UPDATE receita SET idConta = @idConta, numeroOrcamento = @numeroOrcamento, idCategoria = @idCategoria, valorReceita = @valorReceita, descricaoReceita = @descricaoReceita, dataTransacao = @dataTransacao, observacoesReceita = @observacoesReceita, recebimentoConfirmado = @recebimentoConfirmado, repetirParcelarReceita = @repetirParcelarReceita, valorFixoReceita = @valorFixoReceita, repeticoesValorFixoReceita = @repeticoesValorFixoReceita, parcelarValorReceita = @parcelarValorReceita, parcelasReceita = @parcelasReceita, periodoRepetirParcelarReceita = @periodoRepetirParcelarReceita WHERE idReceita = @idReceita;";
-                    command.Parameters.AddWithValue("@idConta", income.idConta);
-                    command.Parameters.AddWithValue("@numeroOrcamento", income.numeroOrcamento);
-                    command.Parameters.AddWithValue("@idCategoria", income.idCategoria);
-                    command.Parameters.AddWithValue("@valorReceita", income.valorReceita);
-                    command.Parameters.AddWithValue("@descricaoReceita", income.descricaoReceita);
-                    command.Parameters.AddWithValue("@dataTransacao", income.dataTransacao.ToString("yyyy-MM-dd"));
-                    command.Parameters.AddWithValue("@observacoesReceita", income.observacoesReceita);
-                    command.Parameters.AddWithValue("@recebimentoConfirmado", income.recebimentoConfirmado);
-                    command.Parameters.AddWithValue("@repetirParcelarReceita", income.repetirParcelarReceita);
-                    command.Parameters.AddWithValue("@valorFixoReceita", income.valorFixoReceita);
-                    command.Parameters.AddWithValue("@repeticoesValorFixoReceita", income.repeticoesValorFixoReceita);
-                    command.Parameters.AddWithValue("@parcelarValorReceita", income.parcelarValorReceita);
-                    command.Parameters.AddWithValue("@parcelasReceita", income.parcelasReceita);
-                    command.Parameters.AddWithValue("@periodoRepetirParcelarReceita", income.periodoRepetirParcelarReceita);
-                    command.Parameters.AddWithValue("@idReceita", income.idReceita);
+                    command.Parameters.AddWithValue("@idConta", income.IdConta);
+                    command.Parameters.AddWithValue("@numeroOrcamento", income.NumeroOrcamento);
+                    command.Parameters.AddWithValue("@idCategoria", income.IdCategoria);
+                    command.Parameters.AddWithValue("@valorReceita", income.ValorReceita);
+                    command.Parameters.AddWithValue("@descricaoReceita", income.DescricaoReceita);
+                    command.Parameters.AddWithValue("@dataTransacao", income.DataTransacao.ToString("yyyy-MM-dd"));
+                    command.Parameters.AddWithValue("@observacoesReceita", income.ObservacoesReceita);
+                    command.Parameters.AddWithValue("@recebimentoConfirmado", income.RecebimentoConfirmado);
+                    command.Parameters.AddWithValue("@repetirParcelarReceita", income.RepetirParcelarReceita);
+                    command.Parameters.AddWithValue("@valorFixoReceita", income.ValorFixoReceita);
+                    command.Parameters.AddWithValue("@repeticoesValorFixoReceita", income.RepeticoesValorFixoReceita);
+                    command.Parameters.AddWithValue("@parcelarValorReceita", income.ParcelarValorReceita);
+                    command.Parameters.AddWithValue("@parcelasReceita", income.ParcelasReceita);
+                    command.Parameters.AddWithValue("@periodoRepetirParcelarReceita", income.PeriodoRepetirParcelarReceita);
+                    command.Parameters.AddWithValue("@idReceita", income.IdReceita);
                     dataAdapter = new SQLiteDataAdapter(command.CommandText, connection);
                     command.ExecuteNonQuery();
                     connection.Close();
                     return true;
                 }
-                catch (Exception exception) { throw exception; }
-            }
+                catch (Exception exception) { return false; }
+        }
 
             //Atualizar valor total da receita
             public static Boolean updateIncomeTotalValue(BudgetedProduct budgetedProduct, decimal valorReceita)
@@ -120,14 +115,14 @@ namespace Sisteg_Dashboard
                     var command = databaseConnection().CreateCommand();
                     command.CommandText = "UPDATE receita SET valorReceita = @valorReceita WHERE numeroOrcamento = @numeroOrcamento;";
                     command.Parameters.AddWithValue("@valorReceita", valorReceita);
-                    command.Parameters.AddWithValue("@numeroOrcamento", budgetedProduct.numeroOrcamento);
+                    command.Parameters.AddWithValue("@numeroOrcamento", budgetedProduct.NumeroOrcamento);
                     dataAdapter = new SQLiteDataAdapter(command.CommandText, connection);
                     command.ExecuteNonQuery();
                     connection.Close();
                     return true;
                 }
-                catch (Exception exception) { throw exception; }
-            }
+                catch (Exception exception) { return false; }
+        }
 
             //Atualizar receita não parcelada ou repetida
             public static Boolean updateIncomeNotParceledOrRepeated(Income income)
@@ -138,27 +133,27 @@ namespace Sisteg_Dashboard
                     var connection = databaseConnection();
                     var command = databaseConnection().CreateCommand();
                     command.CommandText = "UPDATE receita SET idConta = @idConta, numeroOrcamento = @numeroOrcamento, idCategoria = @idCategoria, valorReceita = @valorReceita, descricaoReceita = @descricaoReceita, dataTransacao = @dataTransacao, observacoesReceita = @observacoesReceita, recebimentoConfirmado = @recebimentoConfirmado, repetirParcelarReceita = @repetirParcelarReceita, valorFixoReceita = @valorFixoReceita, repeticoesValorFixoReceita = @repeticoesValorFixoReceita, parcelarValorReceita = @parcelarValorReceita, parcelasReceita = @parcelasReceita, periodoRepetirParcelarReceita = @periodoRepetirParcelarReceita WHERE idReceita = @idReceita;";
-                    command.Parameters.AddWithValue("@idConta", income.idConta);
-                    command.Parameters.AddWithValue("@numeroOrcamento", income.numeroOrcamento);
-                    command.Parameters.AddWithValue("@idCategoria", income.idCategoria);
-                    command.Parameters.AddWithValue("@valorReceita", income.valorReceita);
-                    command.Parameters.AddWithValue("@descricaoReceita", income.descricaoReceita);
-                    command.Parameters.AddWithValue("@dataTransacao", income.dataTransacao.ToString("yyyy-MM-dd"));
-                    command.Parameters.AddWithValue("@observacoesReceita", income.observacoesReceita);
-                    command.Parameters.AddWithValue("@recebimentoConfirmado", income.recebimentoConfirmado);
+                    command.Parameters.AddWithValue("@idConta", income.IdConta);
+                    command.Parameters.AddWithValue("@numeroOrcamento", income.NumeroOrcamento);
+                    command.Parameters.AddWithValue("@idCategoria", income.IdCategoria);
+                    command.Parameters.AddWithValue("@valorReceita", income.ValorReceita);
+                    command.Parameters.AddWithValue("@descricaoReceita", income.DescricaoReceita);
+                    command.Parameters.AddWithValue("@dataTransacao", income.DataTransacao.ToString("yyyy-MM-dd"));
+                    command.Parameters.AddWithValue("@observacoesReceita", income.ObservacoesReceita);
+                    command.Parameters.AddWithValue("@recebimentoConfirmado", income.RecebimentoConfirmado);
                     command.Parameters.AddWithValue("@repetirParcelarReceita", false);
                     command.Parameters.AddWithValue("@valorFixoReceita", null);
                     command.Parameters.AddWithValue("@repeticoesValorFixoReceita", null);
                     command.Parameters.AddWithValue("@parcelarValorReceita", null);
                     command.Parameters.AddWithValue("@parcelasReceita", null);
                     command.Parameters.AddWithValue("@periodoRepetirParcelarReceita", null);
-                    command.Parameters.AddWithValue("@idReceita", income.idReceita);
+                    command.Parameters.AddWithValue("@idReceita", income.IdReceita);
                     dataAdapter = new SQLiteDataAdapter(command.CommandText, connection);
                     command.ExecuteNonQuery();
                     connection.Close();
                     return true;
                 }
-                catch (Exception exception) { throw exception; }
+                catch (Exception exception) { return false; }
             }
 
             //Excluir receita
@@ -170,13 +165,13 @@ namespace Sisteg_Dashboard
                     var connection = databaseConnection();
                     var command = databaseConnection().CreateCommand();
                     command.CommandText = "DELETE FROM receita WHERE idReceita = @idReceita;";
-                    command.Parameters.AddWithValue("@idReceita", income.idReceita);
+                    command.Parameters.AddWithValue("@idReceita", income.IdReceita);
                     dataAdapter = new SQLiteDataAdapter(command.CommandText, connection);
                     command.ExecuteNonQuery();
                     connection.Close();
                     return true;
                 }
-                catch (Exception exception) { throw exception; }
+                catch (Exception exception) { return false; }
             }
 
             //Pagar parcela
@@ -188,31 +183,13 @@ namespace Sisteg_Dashboard
                     var connection = databaseConnection();
                     var command = databaseConnection().CreateCommand();
                     command.CommandText = "UPDATE receita SET recebimentoConfirmado = true WHERE idReceita = @idReceita;";
-                    command.Parameters.AddWithValue("@idReceita", income.idReceita);
+                    command.Parameters.AddWithValue("@idReceita", income.IdReceita);
                     dataAdapter = new SQLiteDataAdapter(command.CommandText, connection);
                     command.ExecuteNonQuery();
                     connection.Close();
                     return true;
                 }
-                catch (Exception exception) { throw exception; }
-            }
-
-            //Excluir todas as receitas
-            public static Boolean deleteAllIncomes(Income income)
-            {
-                SQLiteDataAdapter dataAdapter;
-                try
-                {
-                    var connection = databaseConnection();
-                    var command = databaseConnection().CreateCommand();
-                    command.CommandText = "DELETE FROM receita WHERE numeroOrcamento = @numeroOrcamento;";
-                    command.Parameters.AddWithValue("@numeroOrcamento", income.numeroOrcamento);
-                    dataAdapter = new SQLiteDataAdapter(command.CommandText, connection);
-                    command.ExecuteNonQuery();
-                    connection.Close();
-                    return true;
-                }
-                catch (Exception exception) { throw exception; }
+                catch (Exception exception) { return false; }
             }
 
         //DESPESA
@@ -224,26 +201,25 @@ namespace Sisteg_Dashboard
                 {
                     var connection = databaseConnection();
                     var command = databaseConnection().CreateCommand();
-                    command.CommandText = "INSERT INTO despesa (idConta, numeroOrcamento, valorDespesa, descricaoDespesa, dataTransacao, observacoesDespesa, pagamentoConfirmado, repetirParcelarDespesa, valorFixoDespesa, repeticoesValorFixoDespesa, parcelarValorDespesa, parcelasDespesa, periodoRepetirParcelarDespesa) VALUES (@idConta, @numeroOrcamento, @idCategoria, @valorDespesa, @descricaoDespesa, @dataTransacao, @observacoesDespesa, @pagamentoConfirmado, @repetirParcelarDespesa, @valorFixoDespesa, @repeticoesValorFixoDespesa, @parcelarValorDespesa, @parcelasDespesa, @periodoRepetirParcelarDespesa)";
-                    command.Parameters.AddWithValue("@idConta", expense.idConta);
-                    command.Parameters.AddWithValue("@numeroOrcamento", expense.numeroOrcamento);
-                    command.Parameters.AddWithValue("@idCategoria", expense.idCategoria);
-                    command.Parameters.AddWithValue("@valorDespesa", expense.valorDespesa);
-                    command.Parameters.AddWithValue("@descricaoDespesa", expense.descricaoDespesa);
-                    command.Parameters.AddWithValue("@dataTransacao", expense.dataTransacao.ToString("yyyy-MM-dd"));
-                    command.Parameters.AddWithValue("@observacoesDespesa", expense.observacoesDespesa);
-                    command.Parameters.AddWithValue("@pagamentoConfirmado", expense.pagamentoConfirmado);
-                    command.Parameters.AddWithValue("@repetirParcelarDespesa", expense.repetirParcelarDespesa);
-                    command.Parameters.AddWithValue("@valorFixoDespesa", expense.valorFixoDespesa);
-                    command.Parameters.AddWithValue("@repeticoesValorFixoDespesa", expense.repeticoesValorFixoDespesa);
-                    command.Parameters.AddWithValue("@parcelarValorDespesa", expense.parcelarValorDespesa);
-                    command.Parameters.AddWithValue("@parcelasDespesa", expense.parcelasDespesa);
-                    command.Parameters.AddWithValue("@periodoRepetirParcelarDespesa", expense.periodoRepetirParcelarDespesa);
+                    command.CommandText = "INSERT INTO despesa (idConta, idCategoria, valorDespesa, descricaoDespesa, dataTransacao, observacoesDespesa, pagamentoConfirmado, repetirParcelarDespesa, valorFixoDespesa, repeticoesValorFixoDespesa, parcelarValorDespesa, parcelasDespesa, periodoRepetirParcelarDespesa) VALUES (@idConta, @idCategoria, @valorDespesa, @descricaoDespesa, @dataTransacao, @observacoesDespesa, @pagamentoConfirmado, @repetirParcelarDespesa, @valorFixoDespesa, @repeticoesValorFixoDespesa, @parcelarValorDespesa, @parcelasDespesa, @periodoRepetirParcelarDespesa)";
+                    command.Parameters.AddWithValue("@idConta", expense.IdConta);
+                    command.Parameters.AddWithValue("@idCategoria", expense.IdCategoria);
+                    command.Parameters.AddWithValue("@valorDespesa", expense.ValorDespesa);
+                    command.Parameters.AddWithValue("@descricaoDespesa", expense.DescricaoDespesa);
+                    command.Parameters.AddWithValue("@dataTransacao", expense.DataTransacao.ToString("yyyy-MM-dd"));
+                    command.Parameters.AddWithValue("@observacoesDespesa", expense.ObservacoesDespesa);
+                    command.Parameters.AddWithValue("@pagamentoConfirmado", expense.PagamentoConfirmado);
+                    command.Parameters.AddWithValue("@repetirParcelarDespesa", expense.RepetirParcelarDespesa);
+                    command.Parameters.AddWithValue("@valorFixoDespesa", expense.ValorFixoDespesa);
+                    command.Parameters.AddWithValue("@repeticoesValorFixoDespesa", expense.RepeticoesValorFixoDespesa);
+                    command.Parameters.AddWithValue("@parcelarValorDespesa", expense.ParcelarValorDespesa);
+                    command.Parameters.AddWithValue("@parcelasDespesa", expense.ParcelasDespesa);
+                    command.Parameters.AddWithValue("@periodoRepetirParcelarDespesa", expense.PeriodoRepetirParcelarDespesa);
                     command.ExecuteNonQuery();
                     connection.Close();
                     return true;
                 }
-                catch (Exception exception) { throw exception; }
+                catch (Exception exception) { return false; }
             }
 
             //Atualizar despesa
@@ -254,28 +230,27 @@ namespace Sisteg_Dashboard
                 {
                     var connection = databaseConnection();
                     var command = databaseConnection().CreateCommand();
-                    command.CommandText = "UPDATE despesa SET idConta = @idConta, numeroOrcamento = @numeroOrcamento, idCategoria = @idCategoria, valorDespesa = @valorDespesa, descricaoDespesa = @descricaoDespesa, dataTransacao = @dataTransacao, observacoesDespesa = @observacoesDespesa, pagamentoConfirmado = @pagamentoConfirmado, repetirParcelarDespesa = @repetirParcelarDespesa, valorFixoDespesa = @valorFixoDespesa, repeticoesValorFixoDespesa = @repeticoesValorFixoDespesa, parcelarValorDespesa = @parcelarValorDespesa, parcelasDespesa = @parcelasDespesa, periodoRepetirParcelarDespesa = @periodoRepetirParcelarDespesa WHERE idDespesa = @idDespesa;";
-                    command.Parameters.AddWithValue("@idConta", expense.idConta);
-                    command.Parameters.AddWithValue("@numeroOrcamento", expense.numeroOrcamento);
-                    command.Parameters.AddWithValue("@idCategoria", expense.idCategoria);
-                    command.Parameters.AddWithValue("@valorDespesa", expense.valorDespesa);
-                    command.Parameters.AddWithValue("@descricaoDespesa", expense.descricaoDespesa);
-                    command.Parameters.AddWithValue("@dataTransacao", expense.dataTransacao.ToString("yyyy-MM-dd"));
-                    command.Parameters.AddWithValue("@observacoesDespesa", expense.observacoesDespesa);
-                    command.Parameters.AddWithValue("@pagamentoConfirmado", expense.pagamentoConfirmado);
-                    command.Parameters.AddWithValue("@repetirParcelarDespesa", expense.repetirParcelarDespesa);
-                    command.Parameters.AddWithValue("@valorFixoDespesa", expense.valorFixoDespesa);
-                    command.Parameters.AddWithValue("@repeticoesValorFixoDespesa", expense.repeticoesValorFixoDespesa);
-                    command.Parameters.AddWithValue("@parcelarValorDespesa", expense.parcelarValorDespesa);
-                    command.Parameters.AddWithValue("@parcelasDespesa", expense.parcelasDespesa);
-                    command.Parameters.AddWithValue("@periodoRepetirParcelarDespesa", expense.periodoRepetirParcelarDespesa);
-                    command.Parameters.AddWithValue("@idDespesa", expense.idDespesa);
+                    command.CommandText = "UPDATE despesa SET idConta = @idConta, idCategoria = @idCategoria, valorDespesa = @valorDespesa, descricaoDespesa = @descricaoDespesa, dataTransacao = @dataTransacao, observacoesDespesa = @observacoesDespesa, pagamentoConfirmado = @pagamentoConfirmado, repetirParcelarDespesa = @repetirParcelarDespesa, valorFixoDespesa = @valorFixoDespesa, repeticoesValorFixoDespesa = @repeticoesValorFixoDespesa, parcelarValorDespesa = @parcelarValorDespesa, parcelasDespesa = @parcelasDespesa, periodoRepetirParcelarDespesa = @periodoRepetirParcelarDespesa WHERE idDespesa = @idDespesa;";
+                    command.Parameters.AddWithValue("@idConta", expense.IdConta);
+                    command.Parameters.AddWithValue("@idCategoria", expense.IdCategoria);
+                    command.Parameters.AddWithValue("@valorDespesa", expense.ValorDespesa);
+                    command.Parameters.AddWithValue("@descricaoDespesa", expense.DescricaoDespesa);
+                    command.Parameters.AddWithValue("@dataTransacao", expense.DataTransacao.ToString("yyyy-MM-dd"));
+                    command.Parameters.AddWithValue("@observacoesDespesa", expense.ObservacoesDespesa);
+                    command.Parameters.AddWithValue("@pagamentoConfirmado", expense.PagamentoConfirmado);
+                    command.Parameters.AddWithValue("@repetirParcelarDespesa", expense.RepetirParcelarDespesa);
+                    command.Parameters.AddWithValue("@valorFixoDespesa", expense.ValorFixoDespesa);
+                    command.Parameters.AddWithValue("@repeticoesValorFixoDespesa", expense.RepeticoesValorFixoDespesa);
+                    command.Parameters.AddWithValue("@parcelarValorDespesa", expense.ParcelarValorDespesa);
+                    command.Parameters.AddWithValue("@parcelasDespesa", expense.ParcelasDespesa);
+                    command.Parameters.AddWithValue("@periodoRepetirParcelarDespesa", expense.PeriodoRepetirParcelarDespesa);
+                    command.Parameters.AddWithValue("@idDespesa", expense.IdDespesa);
                     dataAdapter = new SQLiteDataAdapter(command.CommandText, connection);
                     command.ExecuteNonQuery();
                     connection.Close();
                     return true;
                 }
-                catch (Exception exception) { throw exception; }
+                catch (Exception exception) { return false; }
             }
 
             //Atualizar despesa não parcelada ou repetida
@@ -286,28 +261,27 @@ namespace Sisteg_Dashboard
                 {
                     var connection = databaseConnection();
                     var command = databaseConnection().CreateCommand();
-                    command.CommandText = "UPDATE despesa SET idConta = @idConta, numeroOrcamento = @numeroOrcamento, idCategoria = @idCategoria, valorDespesa = @valorDespesa, descricaoDespesa = @descricaoDespesa, dataTransacao = @dataTransacao, observacoesDespesa = @observacoesDespesa, pagamentoConfirmado = @pagamentoConfirmado, repetirParcelarDespesa = @repetirParcelarDespesa, valorFixoDespesa = @valorFixoDespesa, repeticoesValorFixoDespesa = @repeticoesValorFixoDespesa, parcelarValorDespesa = @parcelarValorDespesa, parcelasDespesa = @parcelasDespesa, periodoRepetirParcelarDespesa = @periodoRepetirParcelarDespesa WHERE idDespesa = @idDespesa;";
-                    command.Parameters.AddWithValue("@idConta", expense.idConta);
-                    command.Parameters.AddWithValue("@numeroOrcamento", expense.numeroOrcamento);
-                    command.Parameters.AddWithValue("@idCategoria", expense.idCategoria);
-                    command.Parameters.AddWithValue("@valorDespesa", expense.valorDespesa);
-                    command.Parameters.AddWithValue("@descricaoDespesa", expense.descricaoDespesa);
-                    command.Parameters.AddWithValue("@dataTransacao", expense.dataTransacao.ToString("yyyy-MM-dd"));
-                    command.Parameters.AddWithValue("@observacoesDespesa", expense.observacoesDespesa);
-                    command.Parameters.AddWithValue("@pagamentoConfirmado", expense.pagamentoConfirmado);
+                    command.CommandText = "UPDATE despesa SET idConta = @idConta, idCategoria = @idCategoria, valorDespesa = @valorDespesa, descricaoDespesa = @descricaoDespesa, dataTransacao = @dataTransacao, observacoesDespesa = @observacoesDespesa, pagamentoConfirmado = @pagamentoConfirmado, repetirParcelarDespesa = @repetirParcelarDespesa, valorFixoDespesa = @valorFixoDespesa, repeticoesValorFixoDespesa = @repeticoesValorFixoDespesa, parcelarValorDespesa = @parcelarValorDespesa, parcelasDespesa = @parcelasDespesa, periodoRepetirParcelarDespesa = @periodoRepetirParcelarDespesa WHERE idDespesa = @idDespesa;";
+                    command.Parameters.AddWithValue("@idConta", expense.IdConta);
+                    command.Parameters.AddWithValue("@idCategoria", expense.IdCategoria);
+                    command.Parameters.AddWithValue("@valorDespesa", expense.ValorDespesa);
+                    command.Parameters.AddWithValue("@descricaoDespesa", expense.DescricaoDespesa);
+                    command.Parameters.AddWithValue("@dataTransacao", expense.DataTransacao.ToString("yyyy-MM-dd"));
+                    command.Parameters.AddWithValue("@observacoesDespesa", expense.ObservacoesDespesa);
+                    command.Parameters.AddWithValue("@pagamentoConfirmado", expense.PagamentoConfirmado);
                     command.Parameters.AddWithValue("@repetirParcelarDespesa", false);
                     command.Parameters.AddWithValue("@valorFixoDespesa", null);
                     command.Parameters.AddWithValue("@repeticoesValorFixoDespesa", null);
                     command.Parameters.AddWithValue("@parcelarValorDespesa", null);
                     command.Parameters.AddWithValue("@parcelasDespesa", null);
                     command.Parameters.AddWithValue("@periodoRepetirParcelarDespesa", null);
-                    command.Parameters.AddWithValue("@idReceita", expense.idDespesa);
+                    command.Parameters.AddWithValue("@idReceita", expense.IdDespesa);
                     dataAdapter = new SQLiteDataAdapter(command.CommandText, connection);
                     command.ExecuteNonQuery();
                     connection.Close();
                     return true;
                 }
-                catch (Exception exception) { throw exception; }
+                catch (Exception exception) { return false; }
             }
 
             //Excluir despesa
@@ -319,13 +293,13 @@ namespace Sisteg_Dashboard
                     var connection = databaseConnection();
                     var command = databaseConnection().CreateCommand();
                     command.CommandText = "DELETE FROM despesa WHERE idDespesa = @idDespesa;";
-                    command.Parameters.AddWithValue("@idDespesa", expense.idDespesa);
+                    command.Parameters.AddWithValue("@idDespesa", expense.IdDespesa);
                     dataAdapter = new SQLiteDataAdapter(command.CommandText, connection);
                     command.ExecuteNonQuery();
                     connection.Close();
                     return true;
                 }
-                catch (Exception exception) { throw exception; }
+                catch (Exception exception) { return false; }
             }
 
         //REPETIÇÃO
@@ -338,21 +312,21 @@ namespace Sisteg_Dashboard
                     var connection = databaseConnection();
                     var command = databaseConnection().CreateCommand();
                     command.CommandText = "INSERT INTO repeticao (idReceita, idDespesa, idConta, idCategoria, valorRepeticao, descricaoRepeticao, dataTransacao, observacoesRepeticao, recebimentoConfirmado, pagamentoConfirmado) VALUES (@idReceita, @idDespesa, @idConta, @idCategoria, @valorRepeticao, @descricaoRepeticao, @dataTransacao, @observacoesRepeticao, @recebimentoConfirmado, @pagamentoConfirmado)";
-                    command.Parameters.AddWithValue("@idReceita", repeat.idReceita);
-                    command.Parameters.AddWithValue("@idDespesa", repeat.idDespesa);
-                    command.Parameters.AddWithValue("@idConta", repeat.idConta);
-                    command.Parameters.AddWithValue("@idCategoria", repeat.idCategoria);
-                    command.Parameters.AddWithValue("@valorRepeticao", repeat.valorRepeticao);
-                    command.Parameters.AddWithValue("@descricaoRepeticao", repeat.descricaoRepeticao);
-                    command.Parameters.AddWithValue("@dataTransacao", repeat.dataTransacao.ToString("yyyy-MM-dd"));
-                    command.Parameters.AddWithValue("@observacoesRepeticao", repeat.observacoesRepeticao);
-                    command.Parameters.AddWithValue("@recebimentoConfirmado", repeat.recebimentoConfirmado);
-                    command.Parameters.AddWithValue("@pagamentoConfirmado", repeat.pagamentoConfirmado);
+                    command.Parameters.AddWithValue("@idReceita", repeat.IdReceita);
+                    command.Parameters.AddWithValue("@idDespesa", repeat.IdDespesa);
+                    command.Parameters.AddWithValue("@idConta", repeat.IdConta);
+                    command.Parameters.AddWithValue("@idCategoria", repeat.IdCategoria);
+                    command.Parameters.AddWithValue("@valorRepeticao", repeat.ValorRepeticao);
+                    command.Parameters.AddWithValue("@descricaoRepeticao", repeat.DescricaoRepeticao);
+                    command.Parameters.AddWithValue("@dataTransacao", repeat.DataTransacao.ToString("yyyy-MM-dd"));
+                    command.Parameters.AddWithValue("@observacoesRepeticao", repeat.ObservacoesRepeticao);
+                    command.Parameters.AddWithValue("@recebimentoConfirmado", repeat.RecebimentoConfirmado);
+                    command.Parameters.AddWithValue("@pagamentoConfirmado", repeat.PagamentoConfirmado);
                     command.ExecuteNonQuery();
                     connection.Close();
                     return true;
                 }
-                catch (Exception exception) { throw exception; }
+                catch (Exception exception) { return false; }
             }
 
             //Atualizar repetição
@@ -364,21 +338,21 @@ namespace Sisteg_Dashboard
                     var connection = databaseConnection();
                     var command = databaseConnection().CreateCommand();
                     command.CommandText = "UPDATE repeticao SET idConta = @idConta, idCategoria = @idCategoria, valorRepeticao = @valorRepeticao, descricaoRepeticao = @descricaoRepeticao, dataTransacao = @dataTransacao, observacoesRepeticao = @observacoesRepeticao, recebimentoConfirmado = @recebimentoConfirmado, pagamentoConfirmado = @pagamentoConfirmado WHERE idRepeticao = @idRepeticao;";
-                    command.Parameters.AddWithValue("@idConta", repeat.idConta);
-                    command.Parameters.AddWithValue("@idCategoria", repeat.idCategoria);
-                    command.Parameters.AddWithValue("@valorRepeticao", repeat.valorRepeticao);
-                    command.Parameters.AddWithValue("@descricaoRepeticao", repeat.descricaoRepeticao);
-                    command.Parameters.AddWithValue("@dataTransacao", repeat.dataTransacao.ToString("yyyy-MM-dd"));
-                    command.Parameters.AddWithValue("@observacoesRepeticao", repeat.observacoesRepeticao);
-                    command.Parameters.AddWithValue("@recebimentoConfirmado", repeat.recebimentoConfirmado);
-                    command.Parameters.AddWithValue("@pagamentoConfirmado", repeat.pagamentoConfirmado);
-                    command.Parameters.AddWithValue("@idRepeticao", repeat.idRepeticao);
+                    command.Parameters.AddWithValue("@idConta", repeat.IdConta);
+                    command.Parameters.AddWithValue("@idCategoria", repeat.IdCategoria);
+                    command.Parameters.AddWithValue("@valorRepeticao", repeat.ValorRepeticao);
+                    command.Parameters.AddWithValue("@descricaoRepeticao", repeat.DescricaoRepeticao);
+                    command.Parameters.AddWithValue("@dataTransacao", repeat.DataTransacao.ToString("yyyy-MM-dd"));
+                    command.Parameters.AddWithValue("@observacoesRepeticao", repeat.ObservacoesRepeticao);
+                    command.Parameters.AddWithValue("@recebimentoConfirmado", repeat.RecebimentoConfirmado);
+                    command.Parameters.AddWithValue("@pagamentoConfirmado", repeat.PagamentoConfirmado);
+                    command.Parameters.AddWithValue("@idRepeticao", repeat.IdRepeticao);
                     dataAdapter = new SQLiteDataAdapter(command.CommandText, connection);
                     command.ExecuteNonQuery();
                     connection.Close();
                     return true;
                 }
-                catch (Exception exception) { throw exception; }
+                catch (Exception exception) { return false; }
             }
 
             //Excluir repetição
@@ -390,13 +364,13 @@ namespace Sisteg_Dashboard
                     var connection = databaseConnection();
                     var command = databaseConnection().CreateCommand();
                     command.CommandText = "DELETE FROM repeticao WHERE idRepeticao = @idRepeticao;";
-                    command.Parameters.AddWithValue("@idRepeticao", repeat.idRepeticao);
+                    command.Parameters.AddWithValue("@idRepeticao", repeat.IdRepeticao);
                     dataAdapter = new SQLiteDataAdapter(command.CommandText, connection);
                     command.ExecuteNonQuery();
                     connection.Close();
                     return true;
                 }
-                catch (Exception exception) { throw exception; }
+                catch (Exception exception) { return false; }
             }
 
             //Excluir todas as repetições da receita
@@ -408,13 +382,13 @@ namespace Sisteg_Dashboard
                     var connection = databaseConnection();
                     var command = databaseConnection().CreateCommand();
                     command.CommandText = "DELETE FROM repeticao WHERE idReceita = @idReceita;";
-                    command.Parameters.AddWithValue("@idReceita", income.idReceita);
+                    command.Parameters.AddWithValue("@idReceita", income.IdReceita);
                     dataAdapter = new SQLiteDataAdapter(command.CommandText, connection);
                     command.ExecuteNonQuery();
                     connection.Close();
                     return true;
                 }
-                catch (Exception exception) { throw exception; }
+                catch (Exception exception) { return false; }
             }
 
             //Excluir todas as repetições da despesa
@@ -426,13 +400,13 @@ namespace Sisteg_Dashboard
                     var connection = databaseConnection();
                     var command = databaseConnection().CreateCommand();
                     command.CommandText = "DELETE FROM repeticao WHERE idDespesa = @idDespesa;";
-                    command.Parameters.AddWithValue("@idDespesa", expense.idDespesa);
+                    command.Parameters.AddWithValue("@idDespesa", expense.IdDespesa);
                     dataAdapter = new SQLiteDataAdapter(command.CommandText, connection);
                     command.ExecuteNonQuery();
                     connection.Close();
                     return true;
                 }
-                catch (Exception exception) { throw exception; }
+                catch (Exception exception) { return false; }
             }
 
         //PARCELA
@@ -445,21 +419,21 @@ namespace Sisteg_Dashboard
                     var connection = databaseConnection();
                     var command = databaseConnection().CreateCommand();
                     command.CommandText = "INSERT INTO parcela (idReceita, idDespesa, idConta, idCategoria, valorParcela, descricaoParcela, dataTransacao, observacoesParcela, recebimentoConfirmado, pagamentoConfirmado) VALUES (@idReceita, @idDespesa, @idConta, @idCategoria, @valorParcela, @descricaoParcela, @dataTransacao, @observacoesParcela, @recebimentoConfirmado, @pagamentoConfirmado)";
-                    command.Parameters.AddWithValue("@idReceita", parcel.idReceita);
-                    command.Parameters.AddWithValue("@idDespesa", parcel.idDespesa);
-                    command.Parameters.AddWithValue("@idConta", parcel.idConta);
-                    command.Parameters.AddWithValue("@idCategoria", parcel.idCategoria);
-                    command.Parameters.AddWithValue("@valorParcela", parcel.valorParcela);
-                    command.Parameters.AddWithValue("@descricaoParcela", parcel.descricaoParcela);
-                    command.Parameters.AddWithValue("@dataTransacao", parcel.dataTransacao.ToString("yyyy-MM-dd"));
-                    command.Parameters.AddWithValue("@observacoesParcela", parcel.observacoesParcela);
-                    command.Parameters.AddWithValue("@recebimentoConfirmado", parcel.recebimentoConfirmado);
-                    command.Parameters.AddWithValue("@pagamentoConfirmado", parcel.pagamentoConfirmado);
+                    command.Parameters.AddWithValue("@idReceita", parcel.IdReceita);
+                    command.Parameters.AddWithValue("@idDespesa", parcel.IdDespesa);
+                    command.Parameters.AddWithValue("@idConta", parcel.IdConta);
+                    command.Parameters.AddWithValue("@idCategoria", parcel.IdCategoria);
+                    command.Parameters.AddWithValue("@valorParcela", parcel.ValorParcela);
+                    command.Parameters.AddWithValue("@descricaoParcela", parcel.DescricaoParcela);
+                    command.Parameters.AddWithValue("@dataTransacao", parcel.DataTransacao.ToString("yyyy-MM-dd"));
+                    command.Parameters.AddWithValue("@observacoesParcela", parcel.ObservacoesParcela);
+                    command.Parameters.AddWithValue("@recebimentoConfirmado", parcel.RecebimentoConfirmado);
+                    command.Parameters.AddWithValue("@pagamentoConfirmado", parcel.PagamentoConfirmado);
                     command.ExecuteNonQuery();
                     connection.Close();
                     return true;
                 }
-                catch (Exception exception) { throw exception; }
+                catch (Exception exception) { return false; }
             }
 
         //Atualizar parcela
@@ -471,14 +445,14 @@ namespace Sisteg_Dashboard
                 var connection = databaseConnection();
                 var command = databaseConnection().CreateCommand();
                 command.CommandText = "UPDATE parcela SET valorParcela = @valorParcela WHERE idParcela = @idParcela;";
-                command.Parameters.AddWithValue("@valorParcela", parcel.valorParcela);
-                command.Parameters.AddWithValue("@idParcela", parcel.idParcela);
+                command.Parameters.AddWithValue("@valorParcela", parcel.ValorParcela);
+                command.Parameters.AddWithValue("@idParcela", parcel.IdParcela);
                 dataAdapter = new SQLiteDataAdapter(command.CommandText, connection);
                 command.ExecuteNonQuery();
                 connection.Close();
                 return true;
             }
-            catch (Exception exception) { throw exception; }
+            catch (Exception exception) { return false; }
         }
 
         //Atualizar parcela
@@ -490,21 +464,21 @@ namespace Sisteg_Dashboard
                     var connection = databaseConnection();
                     var command = databaseConnection().CreateCommand();
                     command.CommandText = "UPDATE parcela SET idConta = @idConta, idCategoria = @idCategoria, valorParcela = @valorParcela, descricaoParcela = @descricaoParcela, dataTransacao = @dataTransacao, observacoesParcela = @observacoesParcela, recebimentoConfirmado = @recebimentoConfirmado, pagamentoConfirmado = @pagamentoConfirmado WHERE idParcela = @idParcela;";
-                    command.Parameters.AddWithValue("@idConta", parcel.idConta);
-                    command.Parameters.AddWithValue("@idCategoria", parcel.idCategoria);
-                    command.Parameters.AddWithValue("@valorParcela", parcel.valorParcela);
-                    command.Parameters.AddWithValue("@descricaoParcela", parcel.descricaoParcela);
-                    command.Parameters.AddWithValue("@dataTransacao", parcel.dataTransacao.ToString("yyyy-MM-dd"));
-                    command.Parameters.AddWithValue("@observacoesParcela", parcel.observacoesParcela);
-                    command.Parameters.AddWithValue("@recebimentoConfirmado", parcel.recebimentoConfirmado);
-                    command.Parameters.AddWithValue("@pagamentoConfirmado", parcel.pagamentoConfirmado);
-                    command.Parameters.AddWithValue("@idParcela", parcel.idParcela);
+                    command.Parameters.AddWithValue("@idConta", parcel.IdConta);
+                    command.Parameters.AddWithValue("@idCategoria", parcel.IdCategoria);
+                    command.Parameters.AddWithValue("@valorParcela", parcel.ValorParcela);
+                    command.Parameters.AddWithValue("@descricaoParcela", parcel.DescricaoParcela);
+                    command.Parameters.AddWithValue("@dataTransacao", parcel.DataTransacao.ToString("yyyy-MM-dd"));
+                    command.Parameters.AddWithValue("@observacoesParcela", parcel.ObservacoesParcela);
+                    command.Parameters.AddWithValue("@recebimentoConfirmado", parcel.RecebimentoConfirmado);
+                    command.Parameters.AddWithValue("@pagamentoConfirmado", parcel.PagamentoConfirmado);
+                    command.Parameters.AddWithValue("@idParcela", parcel.IdParcela);
                     dataAdapter = new SQLiteDataAdapter(command.CommandText, connection);
                     command.ExecuteNonQuery();
                     connection.Close();
                     return true;
                 }
-                catch (Exception exception) { throw exception; }
+                catch (Exception exception) { return false; }
             }
 
             //Excluir parcela
@@ -516,13 +490,13 @@ namespace Sisteg_Dashboard
                     var connection = databaseConnection();
                     var command = databaseConnection().CreateCommand();
                     command.CommandText = "DELETE FROM parcela WHERE idParcela = @idParcela;";
-                    command.Parameters.AddWithValue("@idParcela", parcel.idParcela);
+                    command.Parameters.AddWithValue("@idParcela", parcel.IdParcela);
                     dataAdapter = new SQLiteDataAdapter(command.CommandText, connection);
                     command.ExecuteNonQuery();
                     connection.Close();
                     return true;
                 }
-                catch (Exception exception) { throw exception; }
+                catch (Exception exception) { return false; }
             }
 
             //Excluir todas as parcelas da receita
@@ -534,13 +508,13 @@ namespace Sisteg_Dashboard
                     var connection = databaseConnection();
                     var command = databaseConnection().CreateCommand();
                     command.CommandText = "DELETE FROM parcela WHERE idReceita = @idReceita;";
-                    command.Parameters.AddWithValue("@idReceita", income.idReceita);
+                    command.Parameters.AddWithValue("@idReceita", income.IdReceita);
                     dataAdapter = new SQLiteDataAdapter(command.CommandText, connection);
                     command.ExecuteNonQuery();
                     connection.Close();
                     return true;
                 }
-                catch (Exception exception) { throw exception; }
+                catch (Exception exception) { return false; }
             }
 
             //Excluir todas as parcelas da despesa
@@ -552,13 +526,13 @@ namespace Sisteg_Dashboard
                     var connection = databaseConnection();
                     var command = databaseConnection().CreateCommand();
                     command.CommandText = "DELETE FROM parcela WHERE idDespesa = @idDespesa;";
-                    command.Parameters.AddWithValue("@idDespesa", expense.idDespesa);
+                    command.Parameters.AddWithValue("@idDespesa", expense.IdDespesa);
                     dataAdapter = new SQLiteDataAdapter(command.CommandText, connection);
                     command.ExecuteNonQuery();
                     connection.Close();
                     return true;
                 }
-                catch (Exception exception) { throw exception; }
+                catch (Exception exception) { return false; }
             }
 
             //Pagar parcela
@@ -570,13 +544,13 @@ namespace Sisteg_Dashboard
                     var connection = databaseConnection();
                     var command = databaseConnection().CreateCommand();
                     command.CommandText = "UPDATE parcela SET recebimentoConfirmado = true WHERE idParcela = @idParcela;";
-                    command.Parameters.AddWithValue("@idParcela", parcel.idParcela);
+                    command.Parameters.AddWithValue("@idParcela", parcel.IdParcela);
                     dataAdapter = new SQLiteDataAdapter(command.CommandText, connection);
                     command.ExecuteNonQuery();
                     connection.Close();
                     return true;
                 }
-                catch (Exception exception) { throw exception; }
+                catch (Exception exception) { return false; }
             }
 
         //CLIENTE
@@ -589,18 +563,18 @@ namespace Sisteg_Dashboard
                     var connection = databaseConnection();
                     var command = databaseConnection().CreateCommand();
                     command.CommandText = "INSERT INTO cliente (nomeCliente, enderecoCliente, numeroResidencia, bairroCliente, cidadeCliente, estadoCliente, emailCliente) VALUES (@nomeCliente, @enderecoCliente, @numeroResidencia, @bairroCliente, @cidadeCliente, @estadoCliente, @emailCliente)";
-                    command.Parameters.AddWithValue("@nomeCliente", client.nomeCliente);
-                    command.Parameters.AddWithValue("@enderecoCliente", client.enderecoCliente);
-                    command.Parameters.AddWithValue("@numeroResidencia", client.numeroResidencia);
-                    command.Parameters.AddWithValue("@bairroCliente", client.bairroCliente);
-                    command.Parameters.AddWithValue("@cidadeCliente", client.cidadeCliente);
-                    command.Parameters.AddWithValue("@estadoCliente", client.estadoCliente);
-                    command.Parameters.AddWithValue("@emailCliente", client.emailCliente);
+                    command.Parameters.AddWithValue("@nomeCliente", client.NomeCliente);
+                    command.Parameters.AddWithValue("@enderecoCliente", client.EnderecoCliente);
+                    command.Parameters.AddWithValue("@numeroResidencia", client.NumeroResidencia);
+                    command.Parameters.AddWithValue("@bairroCliente", client.BairroCliente);
+                    command.Parameters.AddWithValue("@cidadeCliente", client.CidadeCliente);
+                    command.Parameters.AddWithValue("@estadoCliente", client.EstadoCliente);
+                    command.Parameters.AddWithValue("@emailCliente", client.EmailCliente);
                     command.ExecuteNonQuery();
                     connection.Close();
                     return true;
                 }
-                catch (Exception exception) { throw exception; }
+                catch (Exception exception) { return false; }
             }
 
 
@@ -613,20 +587,38 @@ namespace Sisteg_Dashboard
                     var connection = databaseConnection();
                     var command = databaseConnection().CreateCommand();
                     command.CommandText = "UPDATE cliente SET nomeCliente = @nomeCliente, enderecoCliente = @enderecoCliente, numeroResidencia = @numeroResidencia, bairroCliente = @bairroCliente, cidadeCliente = @cidadeCliente, estadoCliente = @estadoCliente, emailCliente = @emailCliente WHERE idCliente = @idCliente;";
-                    command.Parameters.AddWithValue("@nomeCliente", client.nomeCliente);
-                    command.Parameters.AddWithValue("@enderecoCliente", client.enderecoCliente);
-                    command.Parameters.AddWithValue("@numeroResidencia", client.numeroResidencia);
-                    command.Parameters.AddWithValue("@bairroCliente", client.bairroCliente);
-                    command.Parameters.AddWithValue("@cidadeCliente", client.cidadeCliente);
-                    command.Parameters.AddWithValue("@estadoCliente", client.estadoCliente);
-                    command.Parameters.AddWithValue("@emailCliente", client.emailCliente);
-                    command.Parameters.AddWithValue("@idCliente", client.idCliente);
+                    command.Parameters.AddWithValue("@nomeCliente", client.NomeCliente);
+                    command.Parameters.AddWithValue("@enderecoCliente", client.EnderecoCliente);
+                    command.Parameters.AddWithValue("@numeroResidencia", client.NumeroResidencia);
+                    command.Parameters.AddWithValue("@bairroCliente", client.BairroCliente);
+                    command.Parameters.AddWithValue("@cidadeCliente", client.CidadeCliente);
+                    command.Parameters.AddWithValue("@estadoCliente", client.EstadoCliente);
+                    command.Parameters.AddWithValue("@emailCliente", client.EmailCliente);
+                    command.Parameters.AddWithValue("@idCliente", client.IdCliente);
                     dataAdapter = new SQLiteDataAdapter(command.CommandText, connection);
                     command.ExecuteNonQuery();
                     connection.Close();
                     return true;
                 }
-                catch (Exception exception) { throw exception; }
+                catch (Exception exception) { return false; }
+            }
+
+            //Desassocia a receita do orçamento do cliente, a fim de exclui-lo
+            public static Boolean updateBudgetNumber(Client client)
+            {
+                SQLiteDataAdapter dataAdapter;
+                try
+                {
+                    var connection = databaseConnection();
+                    var command = databaseConnection().CreateCommand();
+                    command.CommandText = "UPDATE receita SET numeroOrcamento = null WHERE idCliente = @idCliente;";
+                    command.Parameters.AddWithValue("@idCliente", client.IdCliente);
+                    dataAdapter = new SQLiteDataAdapter(command.CommandText, connection);
+                    command.ExecuteNonQuery();
+                    connection.Close();
+                    return true;
+                }
+                catch (Exception exception) { return false; }
             }
 
             //Excluir cliente
@@ -638,13 +630,13 @@ namespace Sisteg_Dashboard
                     var connection = databaseConnection();
                     var commandClient = databaseConnection().CreateCommand();
                     commandClient.CommandText = "DELETE FROM cliente WHERE idCliente = @idCliente;";
-                    commandClient.Parameters.AddWithValue("@idCliente", client.idCliente);
+                    commandClient.Parameters.AddWithValue("@idCliente", client.IdCliente);
                     dataAdapter = new SQLiteDataAdapter(commandClient.CommandText, connection);
                     commandClient.ExecuteNonQuery();
                     connection.Close();
                     return true;
                 }
-                catch (Exception exception) { throw exception; }
+                catch (Exception exception) { return false; }
             }
 
         //TELEFONE
@@ -657,15 +649,15 @@ namespace Sisteg_Dashboard
                     var connection = databaseConnection();
                     var command = databaseConnection().CreateCommand();
                     command.CommandText = "INSERT INTO telefone (idCliente, idFornecedor, tipoTelefone, numeroTelefone) VALUES (@idCliente, @idFornecedor, @tipoTelefone, @numeroTelefone)";
-                    command.Parameters.AddWithValue("@idCliente", telephone.idCliente);
-                    command.Parameters.AddWithValue("@idFornecedor", telephone.idFornecedor);
-                    command.Parameters.AddWithValue("@tipoTelefone", telephone.tipoTelefone);
-                    command.Parameters.AddWithValue("@numeroTelefone", telephone.numeroTelefone);
+                    command.Parameters.AddWithValue("@idCliente", telephone.IdCliente);
+                    command.Parameters.AddWithValue("@idFornecedor", telephone.IdFornecedor);
+                    command.Parameters.AddWithValue("@tipoTelefone", telephone.TipoTelefone);
+                    command.Parameters.AddWithValue("@numeroTelefone", telephone.NumeroTelefone);
                     command.ExecuteNonQuery();
                     connection.Close();
                     return true;
                 }
-                catch (Exception exception) { throw exception; }
+                catch (Exception exception) { return false; }
             }
 
             //Atualizar telefone
@@ -677,15 +669,15 @@ namespace Sisteg_Dashboard
                     var connection = databaseConnection();
                     var command = databaseConnection().CreateCommand();
                     command.CommandText = "UPDATE telefone SET tipoTelefone = @tipoTelefone, numeroTelefone = @numeroTelefone WHERE idTelefone = @idTelefone;";
-                    command.Parameters.AddWithValue("@tipoTelefone", telephone.tipoTelefone);
-                    command.Parameters.AddWithValue("@numeroTelefone", telephone.numeroTelefone);
-                    command.Parameters.AddWithValue("@idTelefone", telephone.idTelefone);
+                    command.Parameters.AddWithValue("@tipoTelefone", telephone.TipoTelefone);
+                    command.Parameters.AddWithValue("@numeroTelefone", telephone.NumeroTelefone);
+                    command.Parameters.AddWithValue("@idTelefone", telephone.IdTelefone);
                     dataAdapter = new SQLiteDataAdapter(command.CommandText, connection);
                     command.ExecuteNonQuery();
                     connection.Close();
                     return true;
                 }
-                catch (Exception exception) { throw exception; }
+                catch (Exception exception) { return false; }
             }
 
             //Excluir todas os telefones do cliente
@@ -697,13 +689,13 @@ namespace Sisteg_Dashboard
                     var connection = databaseConnection();
                     var command = databaseConnection().CreateCommand();
                     command.CommandText = "DELETE FROM telefone WHERE idTelefone = @idTelefone;";
-                    command.Parameters.AddWithValue("@idTelefone", telephone.idTelefone);
+                    command.Parameters.AddWithValue("@idTelefone", telephone.IdTelefone);
                     dataAdapter = new SQLiteDataAdapter(command.CommandText, connection);
                     command.ExecuteNonQuery();
                     connection.Close();
                     return true;
                 }
-                catch (Exception exception) { throw exception; }
+                catch (Exception exception) { return false; }
             }
 
             //Excluir todas os telefones do cliente
@@ -715,13 +707,13 @@ namespace Sisteg_Dashboard
                     var connection = databaseConnection();
                     var command = databaseConnection().CreateCommand();
                     command.CommandText = "DELETE FROM telefone WHERE idCliente = @idCliente;";
-                    command.Parameters.AddWithValue("@idCliente", client.idCliente);
+                    command.Parameters.AddWithValue("@idCliente", client.IdCliente);
                     dataAdapter = new SQLiteDataAdapter(command.CommandText, connection);
                     command.ExecuteNonQuery();
                     connection.Close();
                     return true;
                 }
-                catch (Exception exception) { throw exception; }
+                catch (Exception exception) { return false; }
             }
 
             //Excluir todas os telefones do fornecedor
@@ -733,13 +725,13 @@ namespace Sisteg_Dashboard
                     var connection = databaseConnection();
                     var command = databaseConnection().CreateCommand();
                     command.CommandText = "DELETE FROM telefone WHERE idFornecedor = @idFornecedor;";
-                    command.Parameters.AddWithValue("@idFornecedor", supplier.idFornecedor);
+                    command.Parameters.AddWithValue("@idFornecedor", supplier.IdFornecedor);
                     dataAdapter = new SQLiteDataAdapter(command.CommandText, connection);
                     command.ExecuteNonQuery();
                     connection.Close();
                     return true;
                 }
-                catch (Exception exception) { throw exception; }
+                catch (Exception exception) { return false; }
             }
 
         //PRODUTO
@@ -752,15 +744,15 @@ namespace Sisteg_Dashboard
                     var connection = databaseConnection();
                     var command = databaseConnection().CreateCommand();
                     command.CommandText = "INSERT INTO produto (idFornecedor, idCategoria, nomeProduto, valorUnitario) VALUES (@idFornecedor, @idCategoria, @nomeProduto, @valorUnitario)";
-                    command.Parameters.AddWithValue("@idFornecedor", product.idFornecedor);
-                    command.Parameters.AddWithValue("@idCategoria", product.idCategoria);
-                    command.Parameters.AddWithValue("@nomeProduto", product.nomeProduto);
-                    command.Parameters.AddWithValue("@valorUnitario", product.valorUnitario);
+                    command.Parameters.AddWithValue("@idFornecedor", product.IdFornecedor);
+                    command.Parameters.AddWithValue("@idCategoria", product.IdCategoria);
+                    command.Parameters.AddWithValue("@nomeProduto", product.NomeProduto);
+                    command.Parameters.AddWithValue("@valorUnitario", product.ValorUnitario);
                     command.ExecuteNonQuery();
                     connection.Close();
                     return true;
                 }
-                catch (Exception exception) { throw exception; }
+                catch (Exception exception) { return false; }
             }
 
             //Atualizar produto
@@ -772,17 +764,17 @@ namespace Sisteg_Dashboard
                     var connection = databaseConnection();
                     var command = databaseConnection().CreateCommand();
                     command.CommandText = "UPDATE produto SET idFornecedor = @idFornecedor, idCategoria = @idCategoria, nomeProduto = @nomeProduto, valorUnitario = @valorUnitario WHERE idProduto = @idProduto;";
-                    command.Parameters.AddWithValue("@idFornecedor", product.idFornecedor);
-                    command.Parameters.AddWithValue("@idCategoria", product.idCategoria);
-                    command.Parameters.AddWithValue("@nomeProduto", product.nomeProduto);
-                    command.Parameters.AddWithValue("@valorUnitario", product.valorUnitario);
-                    command.Parameters.AddWithValue("@idProduto", product.idProduto);
+                    command.Parameters.AddWithValue("@idFornecedor", product.IdFornecedor);
+                    command.Parameters.AddWithValue("@idCategoria", product.IdCategoria);
+                    command.Parameters.AddWithValue("@nomeProduto", product.NomeProduto);
+                    command.Parameters.AddWithValue("@valorUnitario", product.ValorUnitario);
+                    command.Parameters.AddWithValue("@idProduto", product.IdProduto);
                     dataAdapter = new SQLiteDataAdapter(command.CommandText, connection);
                     command.ExecuteNonQuery();
                     connection.Close();
                     return true;
                 }
-                catch (Exception exception) { throw exception; }
+                catch (Exception exception) { return false; }
             }
 
             //Excluir produto
@@ -794,13 +786,13 @@ namespace Sisteg_Dashboard
                     var connection = databaseConnection();
                     var command = databaseConnection().CreateCommand();
                     command.CommandText = "DELETE FROM produto WHERE idProduto = @idProduto;";
-                    command.Parameters.AddWithValue("@idProduto", product.idProduto);
+                    command.Parameters.AddWithValue("@idProduto", product.IdProduto);
                     dataAdapter = new SQLiteDataAdapter(command.CommandText, connection);
                     command.ExecuteNonQuery();
                     connection.Close();
                     return true;
                 }
-                catch (Exception exception) { throw exception; }
+                catch (Exception exception) { return false; }
             }
 
             //Excluir todos os produtos
@@ -812,13 +804,13 @@ namespace Sisteg_Dashboard
                     var connection = databaseConnection();
                     var command = databaseConnection().CreateCommand();
                     command.CommandText = "DELETE FROM produto WHERE idFornecedor = @idFornecedor;";
-                    command.Parameters.AddWithValue("@idFornecedor", supplier.idFornecedor);
+                    command.Parameters.AddWithValue("@idFornecedor", supplier.IdFornecedor);
                     dataAdapter = new SQLiteDataAdapter(command.CommandText, connection);
                     command.ExecuteNonQuery();
                     connection.Close();
                     return true;
                 }
-                catch (Exception exception) { throw exception; }
+                catch (Exception exception) { return false; }
             }
 
         //FORNECEDOR
@@ -832,18 +824,18 @@ namespace Sisteg_Dashboard
                     var connection = databaseConnection();
                     var command = databaseConnection().CreateCommand();
                     command.CommandText = "INSERT INTO fornecedor (nomeFornecedor, enderecoFornecedor, numeroResidencia, bairroFornecedor, cidadeFornecedor, estadoFornecedor, emailFornecedor) VALUES (@nomeFornecedor, @enderecoFornecedor, @numeroResidencia, @bairroFornecedor, @cidadeFornecedor, @estadoFornecedor, @emailFornecedor)";
-                    command.Parameters.AddWithValue("@nomeFornecedor", supplier.nomeFornecedor);
-                    command.Parameters.AddWithValue("@enderecoFornecedor", supplier.enderecoFornecedor);
-                    command.Parameters.AddWithValue("@numeroResidencia", supplier.numeroResidencia);
-                    command.Parameters.AddWithValue("@bairroFornecedor", supplier.bairroFornecedor);
-                    command.Parameters.AddWithValue("@cidadeFornecedor", supplier.cidadeFornecedor);
-                    command.Parameters.AddWithValue("@estadoFornecedor", supplier.estadoFornecedor);
-                    command.Parameters.AddWithValue("@emailFornecedor", supplier.emailFornecedor);
+                    command.Parameters.AddWithValue("@nomeFornecedor", supplier.NomeFornecedor);
+                    command.Parameters.AddWithValue("@enderecoFornecedor", supplier.EnderecoFornecedor);
+                    command.Parameters.AddWithValue("@numeroResidencia", supplier.NumeroResidencia);
+                    command.Parameters.AddWithValue("@bairroFornecedor", supplier.BairroFornecedor);
+                    command.Parameters.AddWithValue("@cidadeFornecedor", supplier.CidadeFornecedor);
+                    command.Parameters.AddWithValue("@estadoFornecedor", supplier.EstadoFornecedor);
+                    command.Parameters.AddWithValue("@emailFornecedor", supplier.EmailFornecedor);
                     command.ExecuteNonQuery();
                     connection.Close();
                     return true;
                 }
-                catch (Exception exception) { throw exception; }
+                catch (Exception exception) { return false; }
             }
 
 
@@ -856,20 +848,20 @@ namespace Sisteg_Dashboard
                     var connection = databaseConnection();
                     var command = databaseConnection().CreateCommand();
                     command.CommandText = "UPDATE fornecedor SET nomeFornecedor = @nomeFornecedor, enderecoFornecedor = @enderecoFornecedor, numeroResidencia = @numeroResidencia, bairroFornecedor = @bairroFornecedor, cidadeFornecedor = @cidadeFornecedor, estadoFornecedor = @estadoFornecedor,  emailFornecedor = @emailFornecedor WHERE idFornecedor = @idFornecedor;";
-                    command.Parameters.AddWithValue("@nomeFornecedor", supplier.nomeFornecedor);
-                    command.Parameters.AddWithValue("@enderecoFornecedor", supplier.enderecoFornecedor);
-                    command.Parameters.AddWithValue("@numeroResidencia", supplier.numeroResidencia);
-                    command.Parameters.AddWithValue("@bairroFornecedor", supplier.bairroFornecedor);
-                    command.Parameters.AddWithValue("@cidadeFornecedor", supplier.cidadeFornecedor);
-                    command.Parameters.AddWithValue("@estadoFornecedor", supplier.estadoFornecedor);
-                    command.Parameters.AddWithValue("@emailFornecedor", supplier.emailFornecedor);
-                    command.Parameters.AddWithValue("@idFornecedor", supplier.idFornecedor);
+                    command.Parameters.AddWithValue("@nomeFornecedor", supplier.NomeFornecedor);
+                    command.Parameters.AddWithValue("@enderecoFornecedor", supplier.EnderecoFornecedor);
+                    command.Parameters.AddWithValue("@numeroResidencia", supplier.NumeroResidencia);
+                    command.Parameters.AddWithValue("@bairroFornecedor", supplier.BairroFornecedor);
+                    command.Parameters.AddWithValue("@cidadeFornecedor", supplier.CidadeFornecedor);
+                    command.Parameters.AddWithValue("@estadoFornecedor", supplier.EstadoFornecedor);
+                    command.Parameters.AddWithValue("@emailFornecedor", supplier.EmailFornecedor);
+                    command.Parameters.AddWithValue("@idFornecedor", supplier.IdFornecedor);
                     dataAdapter = new SQLiteDataAdapter(command.CommandText, connection);
                     command.ExecuteNonQuery();
                     connection.Close();
                     return true;
                 }
-                catch (Exception exception) { throw exception; }
+                catch (Exception exception) { return false; }
             }
 
             //Excluir fornecedor
@@ -881,13 +873,13 @@ namespace Sisteg_Dashboard
                     var connection = databaseConnection();
                     var commandClient = databaseConnection().CreateCommand();
                     commandClient.CommandText = "DELETE FROM fornecedor WHERE idFornecedor = @idFornecedor;";
-                    commandClient.Parameters.AddWithValue("@idFornecedor", supplier.idFornecedor);
+                    commandClient.Parameters.AddWithValue("@idFornecedor", supplier.IdFornecedor);
                     dataAdapter = new SQLiteDataAdapter(commandClient.CommandText, connection);
                     commandClient.ExecuteNonQuery();
                     connection.Close();
                     return true;
                 }
-                catch (Exception exception)  { throw exception; }
+                catch (Exception exception) { return false; }
             }
 
         //ORÇAMENTO
@@ -899,23 +891,20 @@ namespace Sisteg_Dashboard
                 {
                     var connection = databaseConnection();
                     var command = databaseConnection().CreateCommand();
-                    DateTime dateTime = DateTime.Parse(budget.dataOrcamento.ToString());
+                    DateTime dateTime = DateTime.Parse(budget.DataOrcamento.ToString());
                     string formatForSQLite = dateTime.ToString("yyyy-MM-dd");
                     command.CommandText = "INSERT INTO orcamento (idCliente, dataOrcamento, valorTrabalho, valorTotal, condicaoPagamento, orcamentoConfirmado) VALUES (@idCliente, @dataOrcamento, @valorTrabalho, @valorTotal, @condicaoPagamento, @orcamentoConfirmado)";
-                    command.Parameters.AddWithValue("@idCliente", budget.idCliente);
+                    command.Parameters.AddWithValue("@idCliente", budget.IdCliente);
                     command.Parameters.AddWithValue("@dataOrcamento", formatForSQLite);
-                    command.Parameters.AddWithValue("@valorTrabalho", budget.valorTrabalho);
-                    command.Parameters.AddWithValue("@valorTotal", budget.valorTotal);
-                    command.Parameters.AddWithValue("@condicaoPagamento", budget.condicaoPagamento);
-                    command.Parameters.AddWithValue("@orcamentoConfirmado", budget.orcamentoConfirmado);
+                    command.Parameters.AddWithValue("@valorTrabalho", budget.ValorTrabalho);
+                    command.Parameters.AddWithValue("@valorTotal", budget.ValorTotal);
+                    command.Parameters.AddWithValue("@condicaoPagamento", budget.CondicaoPagamento);
+                    command.Parameters.AddWithValue("@orcamentoConfirmado", budget.OrcamentoConfirmado);
                     command.ExecuteNonQuery();
                     connection.Close();
                     return true;
                 }
-                catch (Exception exception)
-                {
-                    throw exception;
-                }
+                catch (Exception exception) { return false; }
             }
 
             //Atualizar orçamento
@@ -926,24 +915,21 @@ namespace Sisteg_Dashboard
                 {
                     var connection = databaseConnection();
                     var command = databaseConnection().CreateCommand();
-                    DateTime dateTime = DateTime.Parse(budget.dataOrcamento.ToString());
+                    DateTime dateTime = DateTime.Parse(budget.DataOrcamento.ToString());
                     string formatForSQLite = dateTime.ToString("yyyy-MM-dd");
                     command.CommandText = "UPDATE orcamento SET dataOrcamento = @dataOrcamento, valorTrabalho = @valorTrabalho, valorTotal = @valorTotal, condicaoPagamento = @condicaoPagamento, orcamentoConfirmado = @orcamentoConfirmado WHERE numeroOrcamento = @numeroOrcamento;";
                     command.Parameters.AddWithValue("@dataOrcamento", formatForSQLite);
-                    command.Parameters.AddWithValue("@valorTrabalho", budget.valorTrabalho);
-                    command.Parameters.AddWithValue("@valorTotal", budget.valorTotal);
-                    command.Parameters.AddWithValue("@condicaoPagamento", budget.condicaoPagamento);
-                    command.Parameters.AddWithValue("@orcamentoConfirmado", budget.orcamentoConfirmado);
-                    command.Parameters.AddWithValue("@numeroOrcamento", budget.numeroOrcamento);
+                    command.Parameters.AddWithValue("@valorTrabalho", budget.ValorTrabalho);
+                    command.Parameters.AddWithValue("@valorTotal", budget.ValorTotal);
+                    command.Parameters.AddWithValue("@condicaoPagamento", budget.CondicaoPagamento);
+                    command.Parameters.AddWithValue("@orcamentoConfirmado", budget.OrcamentoConfirmado);
+                    command.Parameters.AddWithValue("@numeroOrcamento", budget.NumeroOrcamento);
                     dataAdapter = new SQLiteDataAdapter(command.CommandText, connection);
                     command.ExecuteNonQuery();
                     connection.Close();
                     return true;
                 }
-                catch (Exception exception)
-                {
-                    throw exception;
-                }
+                catch (Exception exception) { return false; }
             }
 
             //Confirmar orçamento
@@ -955,17 +941,14 @@ namespace Sisteg_Dashboard
                     var connection = databaseConnection();
                     var command = databaseConnection().CreateCommand();
                     command.CommandText = "UPDATE orcamento SET orcamentoConfirmado = @orcamentoConfirmado WHERE numeroOrcamento = @numeroOrcamento;";
-                    command.Parameters.AddWithValue("@orcamentoConfirmado", budget.orcamentoConfirmado);
-                    command.Parameters.AddWithValue("@numeroOrcamento", budget.numeroOrcamento);
+                    command.Parameters.AddWithValue("@orcamentoConfirmado", budget.OrcamentoConfirmado);
+                    command.Parameters.AddWithValue("@numeroOrcamento", budget.NumeroOrcamento);
                     dataAdapter = new SQLiteDataAdapter(command.CommandText, connection);
                     command.ExecuteNonQuery();
                     connection.Close();
                     return true;
                 }
-                catch (Exception exception)
-                {
-                    throw exception;
-                }
+                catch (Exception exception) { return false; }
             }
 
             //Atualizar valor total do orçamento
@@ -978,16 +961,13 @@ namespace Sisteg_Dashboard
                     var command = databaseConnection().CreateCommand();
                     command.CommandText = "UPDATE orcamento SET valorTotal = @valorTotal WHERE numeroOrcamento = @numeroOrcamento;";
                     command.Parameters.AddWithValue("@valorTotal", valorTotal);
-                    command.Parameters.AddWithValue("@numeroOrcamento", budgetedProduct.numeroOrcamento);
+                    command.Parameters.AddWithValue("@numeroOrcamento", budgetedProduct.NumeroOrcamento);
                     dataAdapter = new SQLiteDataAdapter(command.CommandText, connection);
                     command.ExecuteNonQuery();
                     connection.Close();
                     return true;
                 }
-                catch (Exception exception)
-                {
-                    throw exception;
-                }
+                catch (Exception exception) { return false; }
             }
 
             //Excluir orçamento
@@ -999,16 +979,13 @@ namespace Sisteg_Dashboard
                     var connection = databaseConnection();
                     var commandClient = databaseConnection().CreateCommand();
                     commandClient.CommandText = "DELETE FROM orcamento WHERE numeroOrcamento = @numeroOrcamento;";
-                    commandClient.Parameters.AddWithValue("@numeroOrcamento", budget.numeroOrcamento);
+                    commandClient.Parameters.AddWithValue("@numeroOrcamento", budget.NumeroOrcamento);
                     dataAdapter = new SQLiteDataAdapter(commandClient.CommandText, connection);
                     commandClient.ExecuteNonQuery();
                     connection.Close();
                     return true;
                 }
-                catch (Exception exception)
-                {
-                    throw exception;
-                }
+                catch (Exception exception) { return false; }
             }
 
             //Excluir todos os orçamentos
@@ -1020,16 +997,13 @@ namespace Sisteg_Dashboard
                     var connection = databaseConnection();
                     var commandClient = databaseConnection().CreateCommand();
                     commandClient.CommandText = "DELETE FROM orcamento WHERE idCliente = @idCliente;";
-                    commandClient.Parameters.AddWithValue("@idCliente", client.idCliente);
+                    commandClient.Parameters.AddWithValue("@idCliente", client.IdCliente);
                     dataAdapter = new SQLiteDataAdapter(commandClient.CommandText, connection);
                     commandClient.ExecuteNonQuery();
                     connection.Close();
                     return true;
                 }
-                catch (Exception exception)
-                {
-                    throw exception;
-                }
+                catch (Exception exception) { return false; }
             }
 
         //PRODUTO ORÇADO
@@ -1042,19 +1016,16 @@ namespace Sisteg_Dashboard
                     var connection = databaseConnection();
                     var command = databaseConnection().CreateCommand();
                     command.CommandText = "INSERT INTO produtoOrcado (idProduto, numeroOrcamento, item, quantidadeProduto, valorTotal) VALUES (@idProduto, @numeroOrcamento, @item, @quantidadeProduto, @valorTotal)";
-                    command.Parameters.AddWithValue("@idProduto", budgetedProduct.idProduto);
-                    command.Parameters.AddWithValue("@numeroOrcamento", budgetedProduct.numeroOrcamento);
-                    command.Parameters.AddWithValue("@item", budgetedProduct.item);
-                    command.Parameters.AddWithValue("@quantidadeProduto", budgetedProduct.quantidadeProduto);
-                    command.Parameters.AddWithValue("@valorTotal", budgetedProduct.valorTotal);
+                    command.Parameters.AddWithValue("@idProduto", budgetedProduct.IdProduto);
+                    command.Parameters.AddWithValue("@numeroOrcamento", budgetedProduct.NumeroOrcamento);
+                    command.Parameters.AddWithValue("@item", budgetedProduct.Item);
+                    command.Parameters.AddWithValue("@quantidadeProduto", budgetedProduct.QuantidadeProduto);
+                    command.Parameters.AddWithValue("@valorTotal", budgetedProduct.ValorTotal);
                     command.ExecuteNonQuery();
                     connection.Close();
                     return true;
                 }
-                catch (Exception exception)
-                {
-                    throw exception;
-                }
+                catch (Exception exception) { return false; }
             }
 
             //Atualizar produto orçado
@@ -1066,21 +1037,18 @@ namespace Sisteg_Dashboard
                     var connection = databaseConnection();
                     var command = databaseConnection().CreateCommand();
                     command.CommandText = "UPDATE produtoOrcado SET idProduto = @idProduto, numeroOrcamento = @numeroOrcamento, item = @item, quantidadeProduto = @quantidadeProduto, valorTotal = @valorTotal WHERE idProdutoOrcado = @idProdutoOrcado;";
-                    command.Parameters.AddWithValue("@idProduto", budgetedProduct.idProduto);
-                    command.Parameters.AddWithValue("@numeroOrcamento", budgetedProduct.numeroOrcamento);
-                    command.Parameters.AddWithValue("@item", budgetedProduct.item);
-                    command.Parameters.AddWithValue("@quantidadeProduto", budgetedProduct.quantidadeProduto);
-                    command.Parameters.AddWithValue("@valorTotal", budgetedProduct.valorTotal);
-                    command.Parameters.AddWithValue("@idProdutoOrcado", budgetedProduct.idProdutoOrcado);
+                    command.Parameters.AddWithValue("@idProduto", budgetedProduct.IdProduto);
+                    command.Parameters.AddWithValue("@numeroOrcamento", budgetedProduct.NumeroOrcamento);
+                    command.Parameters.AddWithValue("@item", budgetedProduct.Item);
+                    command.Parameters.AddWithValue("@quantidadeProduto", budgetedProduct.QuantidadeProduto);
+                    command.Parameters.AddWithValue("@valorTotal", budgetedProduct.ValorTotal);
+                    command.Parameters.AddWithValue("@idProdutoOrcado", budgetedProduct.IdProdutoOrcado);
                     dataAdapter = new SQLiteDataAdapter(command.CommandText, connection);
                     command.ExecuteNonQuery();
                     connection.Close();
                     return true;
                 }
-                catch (Exception exception)
-                {
-                    throw exception;
-                }
+                catch (Exception exception) { return false; }
             }
 
             //Excluir produto orçado
@@ -1092,16 +1060,13 @@ namespace Sisteg_Dashboard
                     var connection = databaseConnection();
                     var commandClient = databaseConnection().CreateCommand();
                     commandClient.CommandText = "DELETE FROM produtoOrcado WHERE idProdutoOrcado = @idProdutoOrcado;";
-                    commandClient.Parameters.AddWithValue("@idProdutoOrcado", budgetedProduct.idProdutoOrcado);
+                    commandClient.Parameters.AddWithValue("@idProdutoOrcado", budgetedProduct.IdProdutoOrcado);
                     dataAdapter = new SQLiteDataAdapter(commandClient.CommandText, connection);
                     commandClient.ExecuteNonQuery();
                     connection.Close();
                     return true;
                 }
-                catch (Exception exception)
-                {
-                    throw exception;
-                }
+                catch (Exception exception) { return false; }
             }
 
             //Excluir todos os produtos orçados
@@ -1113,13 +1078,13 @@ namespace Sisteg_Dashboard
                     var connection = databaseConnection();
                     var command = databaseConnection().CreateCommand();
                     command.CommandText = "DELETE FROM produtoOrcado WHERE idProduto = @idProduto;";
-                    command.Parameters.AddWithValue("@idProduto", product.idProduto);
+                    command.Parameters.AddWithValue("@idProduto", product.IdProduto);
                     dataAdapter = new SQLiteDataAdapter(command.CommandText, connection);
                     command.ExecuteNonQuery();
                     connection.Close();
                     return true;
                 }
-                catch (Exception exception) { throw exception; }
+                catch (Exception exception) { return false; }
             }
 
             //Excluir todos os produtos orçados
@@ -1131,16 +1096,13 @@ namespace Sisteg_Dashboard
                     var connection = databaseConnection();
                     var command = databaseConnection().CreateCommand();
                     command.CommandText = "DELETE FROM produtoOrcado WHERE numeroOrcamento = @numeroOrcamento;";
-                    command.Parameters.AddWithValue("@numeroOrcamento", budget.numeroOrcamento);
+                    command.Parameters.AddWithValue("@numeroOrcamento", budget.NumeroOrcamento);
                     dataAdapter = new SQLiteDataAdapter(command.CommandText, connection);
                     command.ExecuteNonQuery();
                     connection.Close();
                     return true;
                 }
-                catch (Exception exception)
-                {
-                    throw exception;
-                }
+                catch (Exception exception) { return false; }
             }
 
             //Atualizar número do item dos produtos orçados
@@ -1152,17 +1114,14 @@ namespace Sisteg_Dashboard
                     var connection = databaseConnection();
                     var commandClient = databaseConnection().CreateCommand();
                     commandClient.CommandText = "UPDATE produtoOrcado SET item = @item WHERE idProdutoOrcado = @idProdutoOrcado;";
-                    commandClient.Parameters.AddWithValue("@item", budgetedProduct.item);
-                    commandClient.Parameters.AddWithValue("@idProdutoOrcado", budgetedProduct.idProdutoOrcado);
+                    commandClient.Parameters.AddWithValue("@item", budgetedProduct.Item);
+                    commandClient.Parameters.AddWithValue("@idProdutoOrcado", budgetedProduct.IdProdutoOrcado);
                     dataAdapter = new SQLiteDataAdapter(commandClient.CommandText, connection);
                     commandClient.ExecuteNonQuery();
                     connection.Close();
                     return true;
                 }
-                catch (Exception exception)
-                {
-                    throw exception;
-                }
+                catch (Exception exception) { return false; }
             }
 
         //CONTA
@@ -1175,15 +1134,15 @@ namespace Sisteg_Dashboard
                     var connection = databaseConnection();
                     var command = databaseConnection().CreateCommand();
                     command.CommandText = "INSERT INTO conta (saldoConta, nomeConta, tipoConta, somarTotal) VALUES (@saldoConta, @nomeConta, @tipoConta, @somarTotal)";
-                    command.Parameters.AddWithValue("@saldoConta", account.saldoConta);
-                    command.Parameters.AddWithValue("@nomeConta", account.nomeConta);
-                    command.Parameters.AddWithValue("@tipoConta", account.tipoConta);
-                    command.Parameters.AddWithValue("@somarTotal", account.somarTotal);
+                    command.Parameters.AddWithValue("@saldoConta", account.SaldoConta);
+                    command.Parameters.AddWithValue("@nomeConta", account.NomeConta);
+                    command.Parameters.AddWithValue("@tipoConta", account.TipoConta);
+                    command.Parameters.AddWithValue("@somarTotal", account.SomarTotal);
                     command.ExecuteNonQuery();
                     connection.Close();
                     return true;
                 }
-                catch (Exception exception) { throw exception; }
+                catch (Exception exception) { return false; }
             }
 
             //Atualizar conta
@@ -1195,20 +1154,17 @@ namespace Sisteg_Dashboard
                     var connection = databaseConnection();
                     var command = databaseConnection().CreateCommand();
                     command.CommandText = "UPDATE conta SET saldoConta = @saldoConta, nomeConta = @nomeConta, tipoConta = @tipoConta, somarTotal = @somarTotal WHERE idConta = @idConta;";
-                    command.Parameters.AddWithValue("@saldoConta", account.saldoConta);
-                    command.Parameters.AddWithValue("@nomeConta", account.nomeConta);
-                    command.Parameters.AddWithValue("@tipoConta", account.tipoConta);
-                    command.Parameters.AddWithValue("@somarTotal", account.somarTotal);
-                    command.Parameters.AddWithValue("@idConta", account.idConta);
+                    command.Parameters.AddWithValue("@saldoConta", account.SaldoConta);
+                    command.Parameters.AddWithValue("@nomeConta", account.NomeConta);
+                    command.Parameters.AddWithValue("@tipoConta", account.TipoConta);
+                    command.Parameters.AddWithValue("@somarTotal", account.SomarTotal);
+                    command.Parameters.AddWithValue("@idConta", account.IdConta);
                     dataAdapter = new SQLiteDataAdapter(command.CommandText, connection);
                     command.ExecuteNonQuery();
                     connection.Close();
                     return true;
                 }
-                catch (Exception exception)
-                {
-                    throw exception;
-                }
+                catch (Exception exception) { return false; }
             }
 
             //Excluir conta
@@ -1220,16 +1176,13 @@ namespace Sisteg_Dashboard
                     var connection = databaseConnection();
                     var command = databaseConnection().CreateCommand();
                     command.CommandText = "DELETE FROM conta WHERE idConta = @idConta;";
-                    command.Parameters.AddWithValue("@idConta", account.idConta);
+                    command.Parameters.AddWithValue("@idConta", account.IdConta);
                     dataAdapter = new SQLiteDataAdapter(command.CommandText, connection);
                     command.ExecuteNonQuery();
                     connection.Close();
                     return true;
                 }
-                catch (Exception exception)
-                {
-                    throw exception;
-                }
+                catch (Exception exception) { return false; }
             }
 
             //Atualizar conta ativa
@@ -1241,38 +1194,54 @@ namespace Sisteg_Dashboard
                     var connection = databaseConnection();
                     var command = databaseConnection().CreateCommand();
                     command.CommandText = "UPDATE conta SET contaAtiva = @contaAtiva WHERE idConta = @idConta;";
-                    command.Parameters.AddWithValue("@contaAtiva", account.contaAtiva);
-                    command.Parameters.AddWithValue("@idConta", account.idConta);
+                    command.Parameters.AddWithValue("@contaAtiva", account.ContaAtiva);
+                    command.Parameters.AddWithValue("@idConta", account.IdConta);
                     dataAdapter = new SQLiteDataAdapter(command.CommandText, connection);
                     command.ExecuteNonQuery();
                     connection.Close();
                     return true;
                 }
-                catch (Exception exception)
+                catch (Exception exception) { return false; }
+            }
+
+            //Atualizar saldo da conta
+            public static Boolean updateAccountBalance(Account account)
+            {
+                SQLiteDataAdapter dataAdapter;
+                try
                 {
-                    throw exception;
+                    var connection = databaseConnection();
+                    var command = databaseConnection().CreateCommand();
+                    command.CommandText = "UPDATE conta SET saldoConta = @saldoConta WHERE idConta = @idConta;";
+                    command.Parameters.AddWithValue("@saldoConta", account.SaldoConta);
+                    command.Parameters.AddWithValue("@idConta", account.IdConta);
+                    dataAdapter = new SQLiteDataAdapter(command.CommandText, connection);
+                    command.ExecuteNonQuery();
+                    connection.Close();
+                    return true;
                 }
+                catch (Exception exception) { return false; }
             }
 
         //CATEGORIA
 
-            //Cadastrar categoria
-            public static Boolean newCategory(Category category)
+        //Cadastrar categoria
+        public static Boolean newCategory(Category category)
             {
                 try
                 {
                     var connection = databaseConnection();
                     var command = databaseConnection().CreateCommand();
                     command.CommandText = "INSERT INTO categoria (categoriaReceita, categoriaDespesa, categoriaProduto, nomeCategoria) VALUES (@categoriaReceita, @categoriaDespesa, @categoriaProduto, @nomeCategoria)";
-                    command.Parameters.AddWithValue("@categoriaReceita", category.categoriaReceita);
-                    command.Parameters.AddWithValue("@categoriaDespesa", category.categoriaDespesa);
-                    command.Parameters.AddWithValue("@categoriaProduto", category.categoriaProduto);
-                    command.Parameters.AddWithValue("@nomeCategoria", category.nomeCategoria);
+                    command.Parameters.AddWithValue("@categoriaReceita", category.CategoriaReceita);
+                    command.Parameters.AddWithValue("@categoriaDespesa", category.CategoriaDespesa);
+                    command.Parameters.AddWithValue("@categoriaProduto", category.CategoriaProduto);
+                    command.Parameters.AddWithValue("@nomeCategoria", category.NomeCategoria);
                     command.ExecuteNonQuery();
                     connection.Close();
                     return true;
                 }
-                catch (Exception exception) { throw exception; }
+                catch (Exception exception) { return false; }
             }
 
             //Atualizar categoria
@@ -1284,17 +1253,14 @@ namespace Sisteg_Dashboard
                     var connection = databaseConnection();
                     var command = databaseConnection().CreateCommand();
                     command.CommandText = "UPDATE categoria SET nomeCategoria = @nomeCategoria WHERE idCategoria = @idCategoria;";
-                    command.Parameters.AddWithValue("@nomeCategoria", category.nomeCategoria);
-                    command.Parameters.AddWithValue("@idCategoria", category.idCategoria);
+                    command.Parameters.AddWithValue("@nomeCategoria", category.NomeCategoria);
+                    command.Parameters.AddWithValue("@idCategoria", category.IdCategoria);
                     dataAdapter = new SQLiteDataAdapter(command.CommandText, connection);
                     command.ExecuteNonQuery();
                     connection.Close();
                     return true;
                 }
-                catch (Exception exception)
-                {
-                    throw exception;
-                }
+                catch (Exception exception) { return false; }
             }
 
             //Excluir categoria
@@ -1306,16 +1272,13 @@ namespace Sisteg_Dashboard
                     var connection = databaseConnection();
                     var command = databaseConnection().CreateCommand();
                     command.CommandText = "DELETE FROM categoria WHERE idCategoria = @idCategoria;";
-                    command.Parameters.AddWithValue("@idCategoria", category.idCategoria);
+                    command.Parameters.AddWithValue("@idCategoria", category.IdCategoria);
                     dataAdapter = new SQLiteDataAdapter(command.CommandText, connection);
                     command.ExecuteNonQuery();
                     connection.Close();
                     return true;
                 }
-                catch (Exception exception)
-                {
-                    throw exception;
-                }
+                catch (Exception exception) { return false; }
             }
     }
 }

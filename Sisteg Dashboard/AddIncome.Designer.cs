@@ -29,31 +29,30 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddIncome));
-            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties21 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
-            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties22 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
-            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties23 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
-            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties24 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
-            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties25 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
-            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties26 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
-            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties27 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
-            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties28 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
-            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties29 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
-            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties30 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
-            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties31 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
-            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties32 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
-            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties33 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
-            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties34 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
-            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties35 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
-            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties36 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
-            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties37 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
-            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties38 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
-            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties39 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
-            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties40 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties1 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties2 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties3 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties4 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties5 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties6 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties7 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties8 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties9 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties10 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties11 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties12 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties13 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties14 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties15 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties16 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties17 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties18 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties19 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties20 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
             this.pcb_incomeRegister = new System.Windows.Forms.PictureBox();
             this.pcb_btnUpdate = new System.Windows.Forms.PictureBox();
             this.pcb_btnDelete = new System.Windows.Forms.PictureBox();
             this.pcb_btnCancel = new System.Windows.Forms.PictureBox();
-            this.pcb_appClose = new System.Windows.Forms.PictureBox();
             this.panel_income = new System.Windows.Forms.Panel();
             this.mtb_incomeDate = new System.Windows.Forms.MaskedTextBox();
             this.border_mtbIncomeDate = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
@@ -74,20 +73,23 @@
             this.ckb_incomeReceived = new Bunifu.Framework.UI.BunifuCheckbox();
             this.label1 = new System.Windows.Forms.Label();
             this.dtp_expenseDate = new Bunifu.UI.WinForms.BunifuDatePicker();
+            this.lbl_btnCancelTag = new System.Windows.Forms.Label();
+            this.lbl_btnDeleteTag = new System.Windows.Forms.Label();
+            this.lbl_btnUpdateTag = new System.Windows.Forms.Label();
+            this.lbl_incomeRegisterTag = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pcb_incomeRegister)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcb_btnUpdate)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcb_btnDelete)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcb_btnCancel)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pcb_appClose)).BeginInit();
             this.panel_income.SuspendLayout();
             this.SuspendLayout();
             // 
             // pcb_incomeRegister
             // 
             this.pcb_incomeRegister.BackColor = System.Drawing.Color.Transparent;
+            this.pcb_incomeRegister.BackgroundImage = global::Sisteg_Dashboard.Properties.Resources.btn_add_income;
             this.pcb_incomeRegister.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pcb_incomeRegister.Image = ((System.Drawing.Image)(resources.GetObject("pcb_incomeRegister.Image")));
-            this.pcb_incomeRegister.Location = new System.Drawing.Point(628, 160);
+            this.pcb_incomeRegister.Location = new System.Drawing.Point(42, 46);
             this.pcb_incomeRegister.Name = "pcb_incomeRegister";
             this.pcb_incomeRegister.Size = new System.Drawing.Size(327, 70);
             this.pcb_incomeRegister.TabIndex = 33;
@@ -99,9 +101,9 @@
             // pcb_btnUpdate
             // 
             this.pcb_btnUpdate.BackColor = System.Drawing.Color.Transparent;
-            this.pcb_btnUpdate.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pcb_btnUpdate.BackgroundImage")));
+            this.pcb_btnUpdate.BackgroundImage = global::Sisteg_Dashboard.Properties.Resources.btn_update;
             this.pcb_btnUpdate.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pcb_btnUpdate.Location = new System.Drawing.Point(628, 236);
+            this.pcb_btnUpdate.Location = new System.Drawing.Point(42, 122);
             this.pcb_btnUpdate.Name = "pcb_btnUpdate";
             this.pcb_btnUpdate.Size = new System.Drawing.Size(327, 70);
             this.pcb_btnUpdate.TabIndex = 32;
@@ -113,9 +115,9 @@
             // pcb_btnDelete
             // 
             this.pcb_btnDelete.BackColor = System.Drawing.Color.Transparent;
+            this.pcb_btnDelete.BackgroundImage = global::Sisteg_Dashboard.Properties.Resources.btn_delete;
             this.pcb_btnDelete.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pcb_btnDelete.Image = ((System.Drawing.Image)(resources.GetObject("pcb_btnDelete.Image")));
-            this.pcb_btnDelete.Location = new System.Drawing.Point(628, 312);
+            this.pcb_btnDelete.Location = new System.Drawing.Point(42, 198);
             this.pcb_btnDelete.Name = "pcb_btnDelete";
             this.pcb_btnDelete.Size = new System.Drawing.Size(327, 70);
             this.pcb_btnDelete.TabIndex = 31;
@@ -127,9 +129,9 @@
             // pcb_btnCancel
             // 
             this.pcb_btnCancel.BackColor = System.Drawing.Color.Transparent;
+            this.pcb_btnCancel.BackgroundImage = global::Sisteg_Dashboard.Properties.Resources.btn_cancel;
             this.pcb_btnCancel.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pcb_btnCancel.Image = ((System.Drawing.Image)(resources.GetObject("pcb_btnCancel.Image")));
-            this.pcb_btnCancel.Location = new System.Drawing.Point(628, 388);
+            this.pcb_btnCancel.Location = new System.Drawing.Point(42, 274);
             this.pcb_btnCancel.Name = "pcb_btnCancel";
             this.pcb_btnCancel.Size = new System.Drawing.Size(327, 70);
             this.pcb_btnCancel.TabIndex = 30;
@@ -138,24 +140,11 @@
             this.pcb_btnCancel.MouseEnter += new System.EventHandler(this.pcb_btnCancel_MouseEnter);
             this.pcb_btnCancel.MouseLeave += new System.EventHandler(this.pcb_btnCancel_MouseLeave);
             // 
-            // pcb_appClose
-            // 
-            this.pcb_appClose.BackColor = System.Drawing.Color.Transparent;
-            this.pcb_appClose.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pcb_appClose.BackgroundImage")));
-            this.pcb_appClose.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pcb_appClose.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pcb_appClose.Location = new System.Drawing.Point(744, 6);
-            this.pcb_appClose.Name = "pcb_appClose";
-            this.pcb_appClose.Size = new System.Drawing.Size(32, 32);
-            this.pcb_appClose.TabIndex = 29;
-            this.pcb_appClose.TabStop = false;
-            this.pcb_appClose.Click += new System.EventHandler(this.pcb_appClose_Click);
-            // 
             // panel_income
             // 
             this.panel_income.AutoScroll = true;
             this.panel_income.AutoScrollMargin = new System.Drawing.Size(0, 15);
-            this.panel_income.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(157)))));
+            this.panel_income.BackColor = System.Drawing.Color.Transparent;
             this.panel_income.Controls.Add(this.mtb_incomeDate);
             this.panel_income.Controls.Add(this.border_mtbIncomeDate);
             this.panel_income.Controls.Add(this.txt_repeatsOrParcels);
@@ -173,25 +162,26 @@
             this.panel_income.Controls.Add(this.ckb_repeatOrParcelValue);
             this.panel_income.Controls.Add(this.lbl_incomeReceived);
             this.panel_income.Controls.Add(this.ckb_incomeReceived);
-            this.panel_income.Location = new System.Drawing.Point(112, 102);
+            this.panel_income.Location = new System.Drawing.Point(405, 29);
             this.panel_income.Name = "panel_income";
-            this.panel_income.Size = new System.Drawing.Size(443, 318);
-            this.panel_income.TabIndex = 0;
+            this.panel_income.Size = new System.Drawing.Size(348, 338);
+            this.panel_income.TabIndex = 1;
             // 
             // mtb_incomeDate
             // 
             this.mtb_incomeDate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(157)))));
             this.mtb_incomeDate.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.mtb_incomeDate.Font = new System.Drawing.Font("Courier Prime Code", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mtb_incomeDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mtb_incomeDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.mtb_incomeDate.Location = new System.Drawing.Point(29, 112);
+            this.mtb_incomeDate.Location = new System.Drawing.Point(29, 113);
             this.mtb_incomeDate.Mask = "00/00/0000";
             this.mtb_incomeDate.Name = "mtb_incomeDate";
             this.mtb_incomeDate.PromptChar = ' ';
-            this.mtb_incomeDate.Size = new System.Drawing.Size(275, 21);
-            this.mtb_incomeDate.TabIndex = 104;
+            this.mtb_incomeDate.Size = new System.Drawing.Size(275, 19);
+            this.mtb_incomeDate.TabIndex = 4;
             this.mtb_incomeDate.ValidatingType = typeof(System.DateTime);
             this.mtb_incomeDate.Enter += new System.EventHandler(this.mtb_incomeDate_Enter);
+            this.mtb_incomeDate.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.mtb_incomeDate_KeyPress);
             this.mtb_incomeDate.Leave += new System.EventHandler(this.mtb_incomeDate_Leave);
             this.mtb_incomeDate.MouseEnter += new System.EventHandler(this.mtb_incomeDate_MouseEnter);
             this.mtb_incomeDate.MouseLeave += new System.EventHandler(this.mtb_incomeDate_MouseLeave);
@@ -213,7 +203,7 @@
             this.border_mtbIncomeDate.BorderThickness = 1;
             this.border_mtbIncomeDate.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
             this.border_mtbIncomeDate.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.border_mtbIncomeDate.DefaultFont = new System.Drawing.Font("Courier Prime Code", 12F);
+            this.border_mtbIncomeDate.DefaultFont = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.border_mtbIncomeDate.DefaultText = "";
             this.border_mtbIncomeDate.FillColor = System.Drawing.Color.Empty;
             this.border_mtbIncomeDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
@@ -230,26 +220,26 @@
             this.border_mtbIncomeDate.Modified = false;
             this.border_mtbIncomeDate.Multiline = false;
             this.border_mtbIncomeDate.Name = "border_mtbIncomeDate";
-            stateProperties21.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            stateProperties21.FillColor = System.Drawing.Color.Empty;
-            stateProperties21.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            stateProperties21.PlaceholderForeColor = System.Drawing.Color.Empty;
-            this.border_mtbIncomeDate.OnActiveState = stateProperties21;
-            stateProperties22.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            stateProperties22.FillColor = System.Drawing.Color.White;
-            stateProperties22.ForeColor = System.Drawing.Color.Empty;
-            stateProperties22.PlaceholderForeColor = System.Drawing.Color.Silver;
-            this.border_mtbIncomeDate.OnDisabledState = stateProperties22;
-            stateProperties23.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            stateProperties23.FillColor = System.Drawing.Color.Empty;
-            stateProperties23.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            stateProperties23.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.border_mtbIncomeDate.OnHoverState = stateProperties23;
-            stateProperties24.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            stateProperties24.FillColor = System.Drawing.Color.Empty;
-            stateProperties24.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            stateProperties24.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.border_mtbIncomeDate.OnIdleState = stateProperties24;
+            stateProperties1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            stateProperties1.FillColor = System.Drawing.Color.Empty;
+            stateProperties1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            stateProperties1.PlaceholderForeColor = System.Drawing.Color.Empty;
+            this.border_mtbIncomeDate.OnActiveState = stateProperties1;
+            stateProperties2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            stateProperties2.FillColor = System.Drawing.Color.White;
+            stateProperties2.ForeColor = System.Drawing.Color.Empty;
+            stateProperties2.PlaceholderForeColor = System.Drawing.Color.Silver;
+            this.border_mtbIncomeDate.OnDisabledState = stateProperties2;
+            stateProperties3.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            stateProperties3.FillColor = System.Drawing.Color.Empty;
+            stateProperties3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            stateProperties3.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.border_mtbIncomeDate.OnHoverState = stateProperties3;
+            stateProperties4.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            stateProperties4.FillColor = System.Drawing.Color.Empty;
+            stateProperties4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            stateProperties4.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.border_mtbIncomeDate.OnIdleState = stateProperties4;
             this.border_mtbIncomeDate.PasswordChar = '\0';
             this.border_mtbIncomeDate.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.border_mtbIncomeDate.PlaceholderText = "";
@@ -261,7 +251,7 @@
             this.border_mtbIncomeDate.ShortcutsEnabled = true;
             this.border_mtbIncomeDate.Size = new System.Drawing.Size(300, 35);
             this.border_mtbIncomeDate.Style = Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox._Style.Bunifu;
-            this.border_mtbIncomeDate.TabIndex = 103;
+            this.border_mtbIncomeDate.TabIndex = 5;
             this.border_mtbIncomeDate.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.border_mtbIncomeDate.TextMarginBottom = 0;
             this.border_mtbIncomeDate.TextMarginLeft = 5;
@@ -288,7 +278,7 @@
             this.txt_repeatsOrParcels.BorderThickness = 1;
             this.txt_repeatsOrParcels.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
             this.txt_repeatsOrParcels.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txt_repeatsOrParcels.DefaultFont = new System.Drawing.Font("Courier Prime Code", 12F);
+            this.txt_repeatsOrParcels.DefaultFont = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.txt_repeatsOrParcels.DefaultText = "";
             this.txt_repeatsOrParcels.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(157)))));
             this.txt_repeatsOrParcels.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
@@ -305,26 +295,26 @@
             this.txt_repeatsOrParcels.Modified = false;
             this.txt_repeatsOrParcels.Multiline = false;
             this.txt_repeatsOrParcels.Name = "txt_repeatsOrParcels";
-            stateProperties25.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            stateProperties25.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(104)))), ((int)(((byte)(232)))));
-            stateProperties25.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            stateProperties25.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(104)))), ((int)(((byte)(232)))));
-            this.txt_repeatsOrParcels.OnActiveState = stateProperties25;
-            stateProperties26.BorderColor = System.Drawing.Color.Empty;
-            stateProperties26.FillColor = System.Drawing.Color.White;
-            stateProperties26.ForeColor = System.Drawing.Color.Empty;
-            stateProperties26.PlaceholderForeColor = System.Drawing.Color.Silver;
-            this.txt_repeatsOrParcels.OnDisabledState = stateProperties26;
-            stateProperties27.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            stateProperties27.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(104)))), ((int)(((byte)(232)))));
-            stateProperties27.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            stateProperties27.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.txt_repeatsOrParcels.OnHoverState = stateProperties27;
-            stateProperties28.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            stateProperties28.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(157)))));
-            stateProperties28.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            stateProperties28.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.txt_repeatsOrParcels.OnIdleState = stateProperties28;
+            stateProperties5.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            stateProperties5.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(104)))), ((int)(((byte)(232)))));
+            stateProperties5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            stateProperties5.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(104)))), ((int)(((byte)(232)))));
+            this.txt_repeatsOrParcels.OnActiveState = stateProperties5;
+            stateProperties6.BorderColor = System.Drawing.Color.Empty;
+            stateProperties6.FillColor = System.Drawing.Color.White;
+            stateProperties6.ForeColor = System.Drawing.Color.Empty;
+            stateProperties6.PlaceholderForeColor = System.Drawing.Color.Silver;
+            this.txt_repeatsOrParcels.OnDisabledState = stateProperties6;
+            stateProperties7.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            stateProperties7.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(104)))), ((int)(((byte)(232)))));
+            stateProperties7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            stateProperties7.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.txt_repeatsOrParcels.OnHoverState = stateProperties7;
+            stateProperties8.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            stateProperties8.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(157)))));
+            stateProperties8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            stateProperties8.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.txt_repeatsOrParcels.OnIdleState = stateProperties8;
             this.txt_repeatsOrParcels.PasswordChar = '\0';
             this.txt_repeatsOrParcels.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.txt_repeatsOrParcels.PlaceholderText = "Repetições";
@@ -336,7 +326,7 @@
             this.txt_repeatsOrParcels.ShortcutsEnabled = true;
             this.txt_repeatsOrParcels.Size = new System.Drawing.Size(300, 35);
             this.txt_repeatsOrParcels.Style = Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox._Style.Bunifu;
-            this.txt_repeatsOrParcels.TabIndex = 83;
+            this.txt_repeatsOrParcels.TabIndex = 17;
             this.txt_repeatsOrParcels.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.txt_repeatsOrParcels.TextMarginBottom = 0;
             this.txt_repeatsOrParcels.TextMarginLeft = 5;
@@ -363,7 +353,7 @@
             this.txt_incomeObservations.BorderThickness = 1;
             this.txt_incomeObservations.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
             this.txt_incomeObservations.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txt_incomeObservations.DefaultFont = new System.Drawing.Font("Courier Prime Code", 12F);
+            this.txt_incomeObservations.DefaultFont = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.txt_incomeObservations.DefaultText = "";
             this.txt_incomeObservations.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(157)))));
             this.txt_incomeObservations.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
@@ -380,26 +370,26 @@
             this.txt_incomeObservations.Modified = false;
             this.txt_incomeObservations.Multiline = true;
             this.txt_incomeObservations.Name = "txt_incomeObservations";
-            stateProperties29.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            stateProperties29.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(104)))), ((int)(((byte)(232)))));
-            stateProperties29.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            stateProperties29.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(104)))), ((int)(((byte)(232)))));
-            this.txt_incomeObservations.OnActiveState = stateProperties29;
-            stateProperties30.BorderColor = System.Drawing.Color.Empty;
-            stateProperties30.FillColor = System.Drawing.Color.White;
-            stateProperties30.ForeColor = System.Drawing.Color.Empty;
-            stateProperties30.PlaceholderForeColor = System.Drawing.Color.Silver;
-            this.txt_incomeObservations.OnDisabledState = stateProperties30;
-            stateProperties31.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            stateProperties31.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(104)))), ((int)(((byte)(232)))));
-            stateProperties31.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            stateProperties31.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.txt_incomeObservations.OnHoverState = stateProperties31;
-            stateProperties32.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            stateProperties32.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(157)))));
-            stateProperties32.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            stateProperties32.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.txt_incomeObservations.OnIdleState = stateProperties32;
+            stateProperties9.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            stateProperties9.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(104)))), ((int)(((byte)(232)))));
+            stateProperties9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            stateProperties9.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(104)))), ((int)(((byte)(232)))));
+            this.txt_incomeObservations.OnActiveState = stateProperties9;
+            stateProperties10.BorderColor = System.Drawing.Color.Empty;
+            stateProperties10.FillColor = System.Drawing.Color.White;
+            stateProperties10.ForeColor = System.Drawing.Color.Empty;
+            stateProperties10.PlaceholderForeColor = System.Drawing.Color.Silver;
+            this.txt_incomeObservations.OnDisabledState = stateProperties10;
+            stateProperties11.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            stateProperties11.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(104)))), ((int)(((byte)(232)))));
+            stateProperties11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            stateProperties11.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.txt_incomeObservations.OnHoverState = stateProperties11;
+            stateProperties12.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            stateProperties12.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(157)))));
+            stateProperties12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            stateProperties12.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.txt_incomeObservations.OnIdleState = stateProperties12;
             this.txt_incomeObservations.PasswordChar = '\0';
             this.txt_incomeObservations.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.txt_incomeObservations.PlaceholderText = "Observações (opcional)";
@@ -411,7 +401,7 @@
             this.txt_incomeObservations.ShortcutsEnabled = true;
             this.txt_incomeObservations.Size = new System.Drawing.Size(300, 70);
             this.txt_incomeObservations.Style = Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox._Style.Bunifu;
-            this.txt_incomeObservations.TabIndex = 82;
+            this.txt_incomeObservations.TabIndex = 8;
             this.txt_incomeObservations.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.txt_incomeObservations.TextMarginBottom = 0;
             this.txt_incomeObservations.TextMarginLeft = 5;
@@ -437,7 +427,7 @@
             this.txt_incomeDescription.BorderThickness = 1;
             this.txt_incomeDescription.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
             this.txt_incomeDescription.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txt_incomeDescription.DefaultFont = new System.Drawing.Font("Courier Prime Code", 12F);
+            this.txt_incomeDescription.DefaultFont = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.txt_incomeDescription.DefaultText = "";
             this.txt_incomeDescription.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(157)))));
             this.txt_incomeDescription.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
@@ -454,26 +444,26 @@
             this.txt_incomeDescription.Modified = false;
             this.txt_incomeDescription.Multiline = false;
             this.txt_incomeDescription.Name = "txt_incomeDescription";
-            stateProperties33.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            stateProperties33.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(104)))), ((int)(((byte)(232)))));
-            stateProperties33.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            stateProperties33.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(104)))), ((int)(((byte)(232)))));
-            this.txt_incomeDescription.OnActiveState = stateProperties33;
-            stateProperties34.BorderColor = System.Drawing.Color.Empty;
-            stateProperties34.FillColor = System.Drawing.Color.White;
-            stateProperties34.ForeColor = System.Drawing.Color.Empty;
-            stateProperties34.PlaceholderForeColor = System.Drawing.Color.Silver;
-            this.txt_incomeDescription.OnDisabledState = stateProperties34;
-            stateProperties35.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            stateProperties35.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(104)))), ((int)(((byte)(232)))));
-            stateProperties35.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            stateProperties35.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.txt_incomeDescription.OnHoverState = stateProperties35;
-            stateProperties36.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            stateProperties36.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(157)))));
-            stateProperties36.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            stateProperties36.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.txt_incomeDescription.OnIdleState = stateProperties36;
+            stateProperties13.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            stateProperties13.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(104)))), ((int)(((byte)(232)))));
+            stateProperties13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            stateProperties13.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(104)))), ((int)(((byte)(232)))));
+            this.txt_incomeDescription.OnActiveState = stateProperties13;
+            stateProperties14.BorderColor = System.Drawing.Color.Empty;
+            stateProperties14.FillColor = System.Drawing.Color.White;
+            stateProperties14.ForeColor = System.Drawing.Color.Empty;
+            stateProperties14.PlaceholderForeColor = System.Drawing.Color.Silver;
+            this.txt_incomeDescription.OnDisabledState = stateProperties14;
+            stateProperties15.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            stateProperties15.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(104)))), ((int)(((byte)(232)))));
+            stateProperties15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            stateProperties15.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.txt_incomeDescription.OnHoverState = stateProperties15;
+            stateProperties16.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            stateProperties16.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(157)))));
+            stateProperties16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            stateProperties16.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.txt_incomeDescription.OnIdleState = stateProperties16;
             this.txt_incomeDescription.PasswordChar = '\0';
             this.txt_incomeDescription.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.txt_incomeDescription.PlaceholderText = "Descrição (opcional)";
@@ -485,7 +475,7 @@
             this.txt_incomeDescription.ShortcutsEnabled = true;
             this.txt_incomeDescription.Size = new System.Drawing.Size(300, 35);
             this.txt_incomeDescription.Style = Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox._Style.Bunifu;
-            this.txt_incomeDescription.TabIndex = 1;
+            this.txt_incomeDescription.TabIndex = 3;
             this.txt_incomeDescription.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.txt_incomeDescription.TextMarginBottom = 0;
             this.txt_incomeDescription.TextMarginLeft = 5;
@@ -511,7 +501,7 @@
             this.txt_incomeValue.BorderThickness = 1;
             this.txt_incomeValue.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
             this.txt_incomeValue.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txt_incomeValue.DefaultFont = new System.Drawing.Font("Courier Prime Code", 12F);
+            this.txt_incomeValue.DefaultFont = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.txt_incomeValue.DefaultText = "";
             this.txt_incomeValue.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(157)))));
             this.txt_incomeValue.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
@@ -528,26 +518,26 @@
             this.txt_incomeValue.Modified = false;
             this.txt_incomeValue.Multiline = false;
             this.txt_incomeValue.Name = "txt_incomeValue";
-            stateProperties37.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            stateProperties37.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(104)))), ((int)(((byte)(232)))));
-            stateProperties37.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            stateProperties37.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(104)))), ((int)(((byte)(232)))));
-            this.txt_incomeValue.OnActiveState = stateProperties37;
-            stateProperties38.BorderColor = System.Drawing.Color.Empty;
-            stateProperties38.FillColor = System.Drawing.Color.White;
-            stateProperties38.ForeColor = System.Drawing.Color.Empty;
-            stateProperties38.PlaceholderForeColor = System.Drawing.Color.Silver;
-            this.txt_incomeValue.OnDisabledState = stateProperties38;
-            stateProperties39.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            stateProperties39.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(104)))), ((int)(((byte)(232)))));
-            stateProperties39.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            stateProperties39.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.txt_incomeValue.OnHoverState = stateProperties39;
-            stateProperties40.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            stateProperties40.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(157)))));
-            stateProperties40.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            stateProperties40.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.txt_incomeValue.OnIdleState = stateProperties40;
+            stateProperties17.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            stateProperties17.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(104)))), ((int)(((byte)(232)))));
+            stateProperties17.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            stateProperties17.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(104)))), ((int)(((byte)(232)))));
+            this.txt_incomeValue.OnActiveState = stateProperties17;
+            stateProperties18.BorderColor = System.Drawing.Color.Empty;
+            stateProperties18.FillColor = System.Drawing.Color.White;
+            stateProperties18.ForeColor = System.Drawing.Color.Empty;
+            stateProperties18.PlaceholderForeColor = System.Drawing.Color.Silver;
+            this.txt_incomeValue.OnDisabledState = stateProperties18;
+            stateProperties19.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            stateProperties19.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(104)))), ((int)(((byte)(232)))));
+            stateProperties19.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            stateProperties19.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.txt_incomeValue.OnHoverState = stateProperties19;
+            stateProperties20.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            stateProperties20.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(157)))));
+            stateProperties20.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            stateProperties20.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.txt_incomeValue.OnIdleState = stateProperties20;
             this.txt_incomeValue.PasswordChar = '\0';
             this.txt_incomeValue.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.txt_incomeValue.PlaceholderText = "R$ 0,00";
@@ -559,7 +549,7 @@
             this.txt_incomeValue.ShortcutsEnabled = true;
             this.txt_incomeValue.Size = new System.Drawing.Size(300, 35);
             this.txt_incomeValue.Style = Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox._Style.Bunifu;
-            this.txt_incomeValue.TabIndex = 0;
+            this.txt_incomeValue.TabIndex = 2;
             this.txt_incomeValue.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.txt_incomeValue.TextMarginBottom = 0;
             this.txt_incomeValue.TextMarginLeft = 5;
@@ -585,7 +575,7 @@
             this.cbb_period.FillDropDown = false;
             this.cbb_period.FillIndicator = false;
             this.cbb_period.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cbb_period.Font = new System.Drawing.Font("Courier Prime Code", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbb_period.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbb_period.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.cbb_period.FormattingEnabled = true;
             this.cbb_period.Icon = null;
@@ -608,12 +598,12 @@
             this.cbb_period.Location = new System.Drawing.Point(16, 513);
             this.cbb_period.Name = "cbb_period";
             this.cbb_period.Size = new System.Drawing.Size(300, 35);
-            this.cbb_period.TabIndex = 81;
+            this.cbb_period.TabIndex = 18;
             this.cbb_period.Text = " Período";
             // 
             // cbb_incomeAccount
             // 
-            this.cbb_incomeAccount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(157)))));
+            this.cbb_incomeAccount.BackColor = System.Drawing.Color.Transparent;
             this.cbb_incomeAccount.BorderRadius = 1;
             this.cbb_incomeAccount.Color = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.cbb_incomeAccount.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -626,7 +616,7 @@
             this.cbb_incomeAccount.FillDropDown = false;
             this.cbb_incomeAccount.FillIndicator = false;
             this.cbb_incomeAccount.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cbb_incomeAccount.Font = new System.Drawing.Font("Courier Prime Code", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbb_incomeAccount.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbb_incomeAccount.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.cbb_incomeAccount.FormattingEnabled = true;
             this.cbb_incomeAccount.Icon = null;
@@ -640,12 +630,12 @@
             this.cbb_incomeAccount.Location = new System.Drawing.Point(16, 194);
             this.cbb_incomeAccount.Name = "cbb_incomeAccount";
             this.cbb_incomeAccount.Size = new System.Drawing.Size(300, 35);
-            this.cbb_incomeAccount.TabIndex = 80;
+            this.cbb_incomeAccount.TabIndex = 7;
             this.cbb_incomeAccount.Text = " Conta";
             // 
             // cbb_incomeCategory
             // 
-            this.cbb_incomeCategory.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(157)))));
+            this.cbb_incomeCategory.BackColor = System.Drawing.Color.Transparent;
             this.cbb_incomeCategory.BorderRadius = 1;
             this.cbb_incomeCategory.Color = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.cbb_incomeCategory.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -658,7 +648,7 @@
             this.cbb_incomeCategory.FillDropDown = false;
             this.cbb_incomeCategory.FillIndicator = false;
             this.cbb_incomeCategory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cbb_incomeCategory.Font = new System.Drawing.Font("Courier Prime Code", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbb_incomeCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbb_incomeCategory.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.cbb_incomeCategory.FormattingEnabled = true;
             this.cbb_incomeCategory.Icon = null;
@@ -669,13 +659,11 @@
             this.cbb_incomeCategory.ItemForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.cbb_incomeCategory.ItemHeight = 29;
             this.cbb_incomeCategory.ItemHighLightColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(104)))), ((int)(((byte)(232)))));
-            this.cbb_incomeCategory.Items.AddRange(new object[] {
-            "Seleção"});
             this.cbb_incomeCategory.Location = new System.Drawing.Point(16, 148);
             this.cbb_incomeCategory.MinimumSize = new System.Drawing.Size(300, 0);
             this.cbb_incomeCategory.Name = "cbb_incomeCategory";
             this.cbb_incomeCategory.Size = new System.Drawing.Size(300, 35);
-            this.cbb_incomeCategory.TabIndex = 3;
+            this.cbb_incomeCategory.TabIndex = 6;
             this.cbb_incomeCategory.Text = " Categoria";
             // 
             // rbtn_parcelValue
@@ -689,7 +677,7 @@
             this.rbtn_parcelValue.OutlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.rbtn_parcelValue.RadioColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.rbtn_parcelValue.Size = new System.Drawing.Size(25, 25);
-            this.rbtn_parcelValue.TabIndex = 77;
+            this.rbtn_parcelValue.TabIndex = 15;
             this.rbtn_parcelValue.Text = null;
             this.rbtn_parcelValue.CheckedChanged += new System.EventHandler(this.rbtn_parcelValue_CheckedChanged);
             // 
@@ -697,36 +685,36 @@
             // 
             this.lbl_repeatOrParcelValue.AutoSize = true;
             this.lbl_repeatOrParcelValue.BackColor = System.Drawing.Color.Transparent;
-            this.lbl_repeatOrParcelValue.Font = new System.Drawing.Font("Courier Prime Code", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_repeatOrParcelValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_repeatOrParcelValue.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.lbl_repeatOrParcelValue.Location = new System.Drawing.Point(63, 359);
             this.lbl_repeatOrParcelValue.Name = "lbl_repeatOrParcelValue";
-            this.lbl_repeatOrParcelValue.Size = new System.Drawing.Size(200, 21);
-            this.lbl_repeatOrParcelValue.TabIndex = 76;
+            this.lbl_repeatOrParcelValue.Size = new System.Drawing.Size(144, 20);
+            this.lbl_repeatOrParcelValue.TabIndex = 12;
             this.lbl_repeatOrParcelValue.Text = "Repetir ou parcelar";
             // 
             // lbl_parcelValue
             // 
             this.lbl_parcelValue.AutoSize = true;
             this.lbl_parcelValue.BackColor = System.Drawing.Color.Transparent;
-            this.lbl_parcelValue.Font = new System.Drawing.Font("Courier Prime Code", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_parcelValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_parcelValue.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.lbl_parcelValue.Location = new System.Drawing.Point(64, 431);
             this.lbl_parcelValue.Name = "lbl_parcelValue";
-            this.lbl_parcelValue.Size = new System.Drawing.Size(170, 21);
-            this.lbl_parcelValue.TabIndex = 74;
+            this.lbl_parcelValue.Size = new System.Drawing.Size(117, 20);
+            this.lbl_parcelValue.TabIndex = 16;
             this.lbl_parcelValue.Text = "Parcelar o valor";
             // 
             // lbl_fixedValue
             // 
             this.lbl_fixedValue.AutoSize = true;
             this.lbl_fixedValue.BackColor = System.Drawing.Color.Transparent;
-            this.lbl_fixedValue.Font = new System.Drawing.Font("Courier Prime Code", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_fixedValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_fixedValue.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.lbl_fixedValue.Location = new System.Drawing.Point(64, 395);
             this.lbl_fixedValue.Name = "lbl_fixedValue";
-            this.lbl_fixedValue.Size = new System.Drawing.Size(110, 21);
-            this.lbl_fixedValue.TabIndex = 73;
+            this.lbl_fixedValue.Size = new System.Drawing.Size(74, 20);
+            this.lbl_fixedValue.TabIndex = 14;
             this.lbl_fixedValue.Text = "Valor fixo";
             // 
             // rbtn_fixedValue
@@ -740,7 +728,7 @@
             this.rbtn_fixedValue.OutlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.rbtn_fixedValue.RadioColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.rbtn_fixedValue.Size = new System.Drawing.Size(25, 25);
-            this.rbtn_fixedValue.TabIndex = 70;
+            this.rbtn_fixedValue.TabIndex = 13;
             this.rbtn_fixedValue.Text = null;
             this.rbtn_fixedValue.CheckedChanged += new System.EventHandler(this.rbtn_fixedValue_CheckedChanged);
             // 
@@ -751,25 +739,25 @@
             this.ckb_repeatOrParcelValue.Checked = true;
             this.ckb_repeatOrParcelValue.CheckedOnColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.ckb_repeatOrParcelValue.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ckb_repeatOrParcelValue.Font = new System.Drawing.Font("Courier Prime Code", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ckb_repeatOrParcelValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ckb_repeatOrParcelValue.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(157)))));
             this.ckb_repeatOrParcelValue.Location = new System.Drawing.Point(26, 358);
-            this.ckb_repeatOrParcelValue.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.ckb_repeatOrParcelValue.Margin = new System.Windows.Forms.Padding(5);
             this.ckb_repeatOrParcelValue.Name = "ckb_repeatOrParcelValue";
             this.ckb_repeatOrParcelValue.Size = new System.Drawing.Size(20, 20);
-            this.ckb_repeatOrParcelValue.TabIndex = 69;
+            this.ckb_repeatOrParcelValue.TabIndex = 11;
             this.ckb_repeatOrParcelValue.OnChange += new System.EventHandler(this.ckb_repeatOrParcelValue_OnChange);
             // 
             // lbl_incomeReceived
             // 
             this.lbl_incomeReceived.AutoSize = true;
             this.lbl_incomeReceived.BackColor = System.Drawing.Color.Transparent;
-            this.lbl_incomeReceived.Font = new System.Drawing.Font("Courier Prime Code", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_incomeReceived.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_incomeReceived.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.lbl_incomeReceived.Location = new System.Drawing.Point(63, 323);
             this.lbl_incomeReceived.Name = "lbl_incomeReceived";
-            this.lbl_incomeReceived.Size = new System.Drawing.Size(90, 21);
-            this.lbl_incomeReceived.TabIndex = 66;
+            this.lbl_incomeReceived.Size = new System.Drawing.Size(77, 20);
+            this.lbl_incomeReceived.TabIndex = 10;
             this.lbl_incomeReceived.Text = "Recebido";
             // 
             // ckb_incomeReceived
@@ -779,13 +767,13 @@
             this.ckb_incomeReceived.Checked = true;
             this.ckb_incomeReceived.CheckedOnColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.ckb_incomeReceived.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ckb_incomeReceived.Font = new System.Drawing.Font("Courier Prime Code", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ckb_incomeReceived.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ckb_incomeReceived.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(157)))));
             this.ckb_incomeReceived.Location = new System.Drawing.Point(26, 322);
-            this.ckb_incomeReceived.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.ckb_incomeReceived.Margin = new System.Windows.Forms.Padding(5);
             this.ckb_incomeReceived.Name = "ckb_incomeReceived";
             this.ckb_incomeReceived.Size = new System.Drawing.Size(20, 20);
-            this.ckb_incomeReceived.TabIndex = 65;
+            this.ckb_incomeReceived.TabIndex = 9;
             // 
             // label1
             // 
@@ -814,36 +802,96 @@
             this.dtp_expenseDate.Size = new System.Drawing.Size(217, 32);
             this.dtp_expenseDate.TabIndex = 0;
             // 
+            // lbl_btnCancelTag
+            // 
+            this.lbl_btnCancelTag.AutoSize = true;
+            this.lbl_btnCancelTag.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_btnCancelTag.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lbl_btnCancelTag.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lbl_btnCancelTag.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.lbl_btnCancelTag.Location = new System.Drawing.Point(127, 302);
+            this.lbl_btnCancelTag.Name = "lbl_btnCancelTag";
+            this.lbl_btnCancelTag.Size = new System.Drawing.Size(174, 20);
+            this.lbl_btnCancelTag.TabIndex = 22;
+            this.lbl_btnCancelTag.Text = "CANCELAR EDIÇÃO///";
+            this.lbl_btnCancelTag.Click += new System.EventHandler(this.lbl_btnCancelTag_Click);
+            // 
+            // lbl_btnDeleteTag
+            // 
+            this.lbl_btnDeleteTag.AutoSize = true;
+            this.lbl_btnDeleteTag.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_btnDeleteTag.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lbl_btnDeleteTag.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lbl_btnDeleteTag.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.lbl_btnDeleteTag.Location = new System.Drawing.Point(127, 226);
+            this.lbl_btnDeleteTag.Name = "lbl_btnDeleteTag";
+            this.lbl_btnDeleteTag.Size = new System.Drawing.Size(166, 20);
+            this.lbl_btnDeleteTag.TabIndex = 21;
+            this.lbl_btnDeleteTag.Text = "EXCLUIR RECEITA///";
+            this.lbl_btnDeleteTag.Click += new System.EventHandler(this.lbl_btnDeleteTag_Click);
+            // 
+            // lbl_btnUpdateTag
+            // 
+            this.lbl_btnUpdateTag.AutoSize = true;
+            this.lbl_btnUpdateTag.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_btnUpdateTag.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lbl_btnUpdateTag.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lbl_btnUpdateTag.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.lbl_btnUpdateTag.Location = new System.Drawing.Point(127, 150);
+            this.lbl_btnUpdateTag.Name = "lbl_btnUpdateTag";
+            this.lbl_btnUpdateTag.Size = new System.Drawing.Size(185, 20);
+            this.lbl_btnUpdateTag.TabIndex = 20;
+            this.lbl_btnUpdateTag.Text = "ATUALIZAR RECEITA///";
+            this.lbl_btnUpdateTag.Click += new System.EventHandler(this.lbl_btnUpdateTag_Click);
+            // 
+            // lbl_incomeRegisterTag
+            // 
+            this.lbl_incomeRegisterTag.AutoSize = true;
+            this.lbl_incomeRegisterTag.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_incomeRegisterTag.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lbl_incomeRegisterTag.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lbl_incomeRegisterTag.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.lbl_incomeRegisterTag.Location = new System.Drawing.Point(127, 74);
+            this.lbl_incomeRegisterTag.Name = "lbl_incomeRegisterTag";
+            this.lbl_incomeRegisterTag.Size = new System.Drawing.Size(195, 20);
+            this.lbl_incomeRegisterTag.TabIndex = 19;
+            this.lbl_incomeRegisterTag.Text = "CADASTRAR RECEITA///";
+            this.lbl_incomeRegisterTag.Click += new System.EventHandler(this.lbl_incomeRegisterTag_Click);
+            // 
             // AddIncome
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(1030, 530);
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.ClientSize = new System.Drawing.Size(773, 381);
+            this.Controls.Add(this.lbl_btnCancelTag);
+            this.Controls.Add(this.lbl_btnDeleteTag);
+            this.Controls.Add(this.lbl_btnUpdateTag);
+            this.Controls.Add(this.lbl_incomeRegisterTag);
             this.Controls.Add(this.panel_income);
             this.Controls.Add(this.pcb_incomeRegister);
             this.Controls.Add(this.pcb_btnUpdate);
             this.Controls.Add(this.pcb_btnDelete);
             this.Controls.Add(this.pcb_btnCancel);
-            this.Controls.Add(this.pcb_appClose);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "AddIncome";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "addIncome";
+            this.Text = "Painel principal";
             ((System.ComponentModel.ISupportInitialize)(this.pcb_incomeRegister)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcb_btnUpdate)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcb_btnDelete)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcb_btnCancel)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pcb_appClose)).EndInit();
             this.panel_income.ResumeLayout(false);
             this.panel_income.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.PictureBox pcb_appClose;
         private System.Windows.Forms.PictureBox pcb_btnCancel;
         public System.Windows.Forms.PictureBox pcb_btnUpdate;
         public System.Windows.Forms.PictureBox pcb_incomeRegister;
@@ -869,5 +917,9 @@
         private Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox txt_incomeObservations;
         private System.Windows.Forms.MaskedTextBox mtb_incomeDate;
         private Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox border_mtbIncomeDate;
+        protected internal System.Windows.Forms.Label lbl_btnCancelTag;
+        protected internal System.Windows.Forms.Label lbl_btnDeleteTag;
+        protected internal System.Windows.Forms.Label lbl_btnUpdateTag;
+        protected internal System.Windows.Forms.Label lbl_incomeRegisterTag;
     }
 }

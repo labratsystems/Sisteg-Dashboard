@@ -18,6 +18,8 @@
                 components.Dispose();
             }
             base.Dispose(disposing);
+            //backGroundTemp.Dispose();
+            //backGround.Dispose();
         }
 
         #region Windows Form Designer generated code
@@ -28,6 +30,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ClientForm));
             Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties1 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
             Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties2 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
@@ -59,6 +62,19 @@
             this.lbl_lastParcelDate = new System.Windows.Forms.Label();
             this.txt_lastParcelValue = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
             this.sfd_saveInvoice = new System.Windows.Forms.SaveFileDialog();
+            this.lbl_configTag = new System.Windows.Forms.Label();
+            this.lbl_budgetTag = new System.Windows.Forms.Label();
+            this.lbl_productTag = new System.Windows.Forms.Label();
+            this.lbl_clientTag = new System.Windows.Forms.Label();
+            this.lbl_mainTag = new System.Windows.Forms.Label();
+            this.lbl_searchTag = new System.Windows.Forms.Label();
+            this.lbl_lastParcelValueTag = new System.Windows.Forms.Label();
+            this.lbl_btnEditTag = new System.Windows.Forms.Label();
+            this.lbl_btnAddTag = new System.Windows.Forms.Label();
+            this.lbl_btnPayTag = new System.Windows.Forms.Label();
+            this.pcb_minimizeProgram = new System.Windows.Forms.PictureBox();
+            this.ttp_lastParcelNumber = new System.Windows.Forms.ToolTip(this.components);
+            this.ttp_lastParcelDate = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pcb_btnConfig)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcb_btnBudget)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcb_btnProduct)).BeginInit();
@@ -70,13 +86,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.pcb_appClose)).BeginInit();
             this.bunifuShadowPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_clients)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcb_minimizeProgram)).BeginInit();
             this.SuspendLayout();
             // 
             // pcb_btnConfig
             // 
             this.pcb_btnConfig.BackColor = System.Drawing.Color.Transparent;
+            this.pcb_btnConfig.BackgroundImage = global::Sisteg_Dashboard.Properties.Resources.btn_config_main;
             this.pcb_btnConfig.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pcb_btnConfig.Image = ((System.Drawing.Image)(resources.GetObject("pcb_btnConfig.Image")));
             this.pcb_btnConfig.Location = new System.Drawing.Point(22, 339);
             this.pcb_btnConfig.Name = "pcb_btnConfig";
             this.pcb_btnConfig.Size = new System.Drawing.Size(328, 70);
@@ -89,8 +106,8 @@
             // pcb_btnBudget
             // 
             this.pcb_btnBudget.BackColor = System.Drawing.Color.Transparent;
+            this.pcb_btnBudget.BackgroundImage = global::Sisteg_Dashboard.Properties.Resources.btn_budget_form;
             this.pcb_btnBudget.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pcb_btnBudget.Image = ((System.Drawing.Image)(resources.GetObject("pcb_btnBudget.Image")));
             this.pcb_btnBudget.Location = new System.Drawing.Point(22, 263);
             this.pcb_btnBudget.Name = "pcb_btnBudget";
             this.pcb_btnBudget.Size = new System.Drawing.Size(328, 70);
@@ -103,8 +120,8 @@
             // pcb_btnProduct
             // 
             this.pcb_btnProduct.BackColor = System.Drawing.Color.Transparent;
+            this.pcb_btnProduct.BackgroundImage = global::Sisteg_Dashboard.Properties.Resources.btn_product_form;
             this.pcb_btnProduct.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pcb_btnProduct.Image = ((System.Drawing.Image)(resources.GetObject("pcb_btnProduct.Image")));
             this.pcb_btnProduct.Location = new System.Drawing.Point(22, 187);
             this.pcb_btnProduct.Name = "pcb_btnProduct";
             this.pcb_btnProduct.Size = new System.Drawing.Size(328, 70);
@@ -117,8 +134,8 @@
             // pcb_btnMain
             // 
             this.pcb_btnMain.BackColor = System.Drawing.Color.Transparent;
+            this.pcb_btnMain.BackgroundImage = global::Sisteg_Dashboard.Properties.Resources.btn_main_form;
             this.pcb_btnMain.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pcb_btnMain.Image = ((System.Drawing.Image)(resources.GetObject("pcb_btnMain.Image")));
             this.pcb_btnMain.Location = new System.Drawing.Point(22, 35);
             this.pcb_btnMain.Name = "pcb_btnMain";
             this.pcb_btnMain.Size = new System.Drawing.Size(328, 70);
@@ -131,8 +148,8 @@
             // pcb_btnClient
             // 
             this.pcb_btnClient.BackColor = System.Drawing.Color.Transparent;
+            this.pcb_btnClient.BackgroundImage = global::Sisteg_Dashboard.Properties.Resources.btn_client_form_active;
             this.pcb_btnClient.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pcb_btnClient.Image = ((System.Drawing.Image)(resources.GetObject("pcb_btnClient.Image")));
             this.pcb_btnClient.Location = new System.Drawing.Point(22, 111);
             this.pcb_btnClient.Name = "pcb_btnClient";
             this.pcb_btnClient.Size = new System.Drawing.Size(328, 70);
@@ -156,7 +173,7 @@
             this.txt_searchClient.BorderThickness = 1;
             this.txt_searchClient.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
             this.txt_searchClient.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txt_searchClient.DefaultFont = new System.Drawing.Font("Courier Prime Code", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_searchClient.DefaultFont = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_searchClient.DefaultText = "";
             this.txt_searchClient.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(157)))));
             this.txt_searchClient.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
@@ -204,7 +221,7 @@
             this.txt_searchClient.ShortcutsEnabled = true;
             this.txt_searchClient.Size = new System.Drawing.Size(200, 35);
             this.txt_searchClient.Style = Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox._Style.Material;
-            this.txt_searchClient.TabIndex = 45;
+            this.txt_searchClient.TabIndex = 11;
             this.txt_searchClient.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.txt_searchClient.TextMarginBottom = 0;
             this.txt_searchClient.TextMarginLeft = -5;
@@ -218,24 +235,24 @@
             // 
             this.lbl_parcelValue.AutoSize = true;
             this.lbl_parcelValue.BackColor = System.Drawing.Color.Transparent;
-            this.lbl_parcelValue.Font = new System.Drawing.Font("Courier Prime Code", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_parcelValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_parcelValue.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.lbl_parcelValue.Location = new System.Drawing.Point(484, 136);
             this.lbl_parcelValue.Name = "lbl_parcelValue";
-            this.lbl_parcelValue.Size = new System.Drawing.Size(190, 21);
-            this.lbl_parcelValue.TabIndex = 44;
+            this.lbl_parcelValue.Size = new System.Drawing.Size(136, 20);
+            this.lbl_parcelValue.TabIndex = 9;
             this.lbl_parcelValue.Text = "Clientes em dívida";
             // 
             // lbl_fixedValue
             // 
             this.lbl_fixedValue.AutoSize = true;
             this.lbl_fixedValue.BackColor = System.Drawing.Color.Transparent;
-            this.lbl_fixedValue.Font = new System.Drawing.Font("Courier Prime Code", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_fixedValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_fixedValue.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.lbl_fixedValue.Location = new System.Drawing.Point(484, 96);
             this.lbl_fixedValue.Name = "lbl_fixedValue";
-            this.lbl_fixedValue.Size = new System.Drawing.Size(180, 21);
-            this.lbl_fixedValue.TabIndex = 43;
+            this.lbl_fixedValue.Size = new System.Drawing.Size(132, 20);
+            this.lbl_fixedValue.TabIndex = 7;
             this.lbl_fixedValue.Text = "Todos os clientes";
             // 
             // rbtn_clientsInDebt
@@ -248,7 +265,7 @@
             this.rbtn_clientsInDebt.OutlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.rbtn_clientsInDebt.RadioColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.rbtn_clientsInDebt.Size = new System.Drawing.Size(25, 25);
-            this.rbtn_clientsInDebt.TabIndex = 42;
+            this.rbtn_clientsInDebt.TabIndex = 8;
             this.rbtn_clientsInDebt.Text = null;
             this.rbtn_clientsInDebt.CheckedChanged += new System.EventHandler(this.rbtn_clientsInDebt_CheckedChanged);
             // 
@@ -263,16 +280,16 @@
             this.rbtn_allClients.OutlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.rbtn_allClients.RadioColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.rbtn_allClients.Size = new System.Drawing.Size(25, 25);
-            this.rbtn_allClients.TabIndex = 41;
+            this.rbtn_allClients.TabIndex = 6;
             this.rbtn_allClients.Text = null;
             this.rbtn_allClients.CheckedChanged += new System.EventHandler(this.rbtn_allClients_CheckedChanged);
             // 
             // pcb_btnEdit
             // 
             this.pcb_btnEdit.BackColor = System.Drawing.Color.Transparent;
+            this.pcb_btnEdit.BackgroundImage = global::Sisteg_Dashboard.Properties.Resources.btn_edit;
             this.pcb_btnEdit.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pcb_btnEdit.Image = ((System.Drawing.Image)(resources.GetObject("pcb_btnEdit.Image")));
-            this.pcb_btnEdit.Location = new System.Drawing.Point(765, 577);
+            this.pcb_btnEdit.Location = new System.Drawing.Point(765, 501);
             this.pcb_btnEdit.Name = "pcb_btnEdit";
             this.pcb_btnEdit.Size = new System.Drawing.Size(328, 70);
             this.pcb_btnEdit.TabIndex = 48;
@@ -284,9 +301,9 @@
             // pcb_btnAdd
             // 
             this.pcb_btnAdd.BackColor = System.Drawing.Color.Transparent;
+            this.pcb_btnAdd.BackgroundImage = global::Sisteg_Dashboard.Properties.Resources.btn_add;
             this.pcb_btnAdd.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pcb_btnAdd.Image = ((System.Drawing.Image)(resources.GetObject("pcb_btnAdd.Image")));
-            this.pcb_btnAdd.Location = new System.Drawing.Point(765, 501);
+            this.pcb_btnAdd.Location = new System.Drawing.Point(765, 425);
             this.pcb_btnAdd.Name = "pcb_btnAdd";
             this.pcb_btnAdd.Size = new System.Drawing.Size(328, 70);
             this.pcb_btnAdd.TabIndex = 47;
@@ -298,8 +315,9 @@
             // pcb_btnPay
             // 
             this.pcb_btnPay.BackColor = System.Drawing.Color.Transparent;
+            this.pcb_btnPay.BackgroundImage = global::Sisteg_Dashboard.Properties.Resources.btn_pay_parcel;
             this.pcb_btnPay.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pcb_btnPay.Location = new System.Drawing.Point(765, 425);
+            this.pcb_btnPay.Location = new System.Drawing.Point(765, 577);
             this.pcb_btnPay.Name = "pcb_btnPay";
             this.pcb_btnPay.Size = new System.Drawing.Size(328, 70);
             this.pcb_btnPay.TabIndex = 46;
@@ -311,7 +329,7 @@
             // pcb_appClose
             // 
             this.pcb_appClose.BackColor = System.Drawing.Color.Transparent;
-            this.pcb_appClose.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pcb_appClose.BackgroundImage")));
+            this.pcb_appClose.BackgroundImage = global::Sisteg_Dashboard.Properties.Resources.cancel__2_;
             this.pcb_appClose.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pcb_appClose.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pcb_appClose.Location = new System.Drawing.Point(965, 7);
@@ -332,7 +350,7 @@
             this.bunifuShadowPanel1.ShadowDept = 2;
             this.bunifuShadowPanel1.ShadowTopLeftVisible = false;
             this.bunifuShadowPanel1.Size = new System.Drawing.Size(715, 168);
-            this.bunifuShadowPanel1.TabIndex = 58;
+            this.bunifuShadowPanel1.TabIndex = 13;
             // 
             // dgv_clients
             // 
@@ -340,14 +358,13 @@
             this.dgv_clients.AllowUserToDeleteRows = false;
             this.dgv_clients.AllowUserToResizeColumns = false;
             this.dgv_clients.AllowUserToResizeRows = false;
-            this.dgv_clients.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgv_clients.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(157)))));
             this.dgv_clients.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgv_clients.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dgv_clients.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(157)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Courier Prime Code", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(6, 0, 0, 0);
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(157)))));
@@ -364,10 +381,11 @@
             this.dgv_clients.ReadOnly = true;
             this.dgv_clients.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dgv_clients.RowHeadersVisible = false;
+            this.dgv_clients.RowHeadersWidth = 142;
             this.dgv_clients.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(157)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Courier Prime Code", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(6, 0, 0, 0);
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(104)))), ((int)(((byte)(232)))));
@@ -377,7 +395,7 @@
             this.dgv_clients.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
             this.dgv_clients.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv_clients.Size = new System.Drawing.Size(707, 160);
-            this.dgv_clients.TabIndex = 21;
+            this.dgv_clients.TabIndex = 12;
             this.dgv_clients.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgv_clients_DataBindingComplete);
             this.dgv_clients.SelectionChanged += new System.EventHandler(this.dgv_clients_SelectionChanged);
             // 
@@ -385,25 +403,27 @@
             // 
             this.lbl_parcelsNumber.AutoSize = true;
             this.lbl_parcelsNumber.BackColor = System.Drawing.Color.Transparent;
-            this.lbl_parcelsNumber.Font = new System.Drawing.Font("Courier Prime Code", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_parcelsNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_parcelsNumber.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.lbl_parcelsNumber.Location = new System.Drawing.Point(589, 483);
+            this.lbl_parcelsNumber.Location = new System.Drawing.Point(595, 485);
             this.lbl_parcelsNumber.Name = "lbl_parcelsNumber";
-            this.lbl_parcelsNumber.Size = new System.Drawing.Size(110, 123);
-            this.lbl_parcelsNumber.TabIndex = 59;
+            this.lbl_parcelsNumber.Size = new System.Drawing.Size(98, 108);
+            this.lbl_parcelsNumber.TabIndex = 17;
             this.lbl_parcelsNumber.Text = "0";
+            this.lbl_parcelsNumber.MouseHover += new System.EventHandler(this.lbl_parcelsNumber_MouseHover);
             // 
             // lbl_lastParcelDate
             // 
             this.lbl_lastParcelDate.AutoSize = true;
             this.lbl_lastParcelDate.BackColor = System.Drawing.Color.Transparent;
-            this.lbl_lastParcelDate.Font = new System.Drawing.Font("Courier Prime Code", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_lastParcelDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_lastParcelDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.lbl_lastParcelDate.Location = new System.Drawing.Point(329, 481);
+            this.lbl_lastParcelDate.Location = new System.Drawing.Point(338, 481);
             this.lbl_lastParcelDate.Name = "lbl_lastParcelDate";
-            this.lbl_lastParcelDate.Size = new System.Drawing.Size(110, 21);
-            this.lbl_lastParcelDate.TabIndex = 60;
+            this.lbl_lastParcelDate.Size = new System.Drawing.Size(89, 20);
+            this.lbl_lastParcelDate.TabIndex = 18;
             this.lbl_lastParcelDate.Text = "00/00/0000";
+            this.lbl_lastParcelDate.MouseHover += new System.EventHandler(this.lbl_lastParcelDate_MouseHover);
             // 
             // txt_lastParcelValue
             // 
@@ -422,7 +442,7 @@
             this.txt_lastParcelValue.BorderThickness = 1;
             this.txt_lastParcelValue.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
             this.txt_lastParcelValue.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txt_lastParcelValue.DefaultFont = new System.Drawing.Font("Courier Prime Code", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_lastParcelValue.DefaultFont = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_lastParcelValue.DefaultText = "";
             this.txt_lastParcelValue.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(157)))));
             this.txt_lastParcelValue.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
@@ -470,7 +490,7 @@
             this.txt_lastParcelValue.ShortcutsEnabled = true;
             this.txt_lastParcelValue.Size = new System.Drawing.Size(200, 35);
             this.txt_lastParcelValue.Style = Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox._Style.Material;
-            this.txt_lastParcelValue.TabIndex = 61;
+            this.txt_lastParcelValue.TabIndex = 20;
             this.txt_lastParcelValue.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.txt_lastParcelValue.TextMarginBottom = 0;
             this.txt_lastParcelValue.TextMarginLeft = -5;
@@ -483,12 +503,173 @@
             // 
             this.sfd_saveInvoice.Title = "Salvar arquivo";
             // 
+            // lbl_configTag
+            // 
+            this.lbl_configTag.AutoSize = true;
+            this.lbl_configTag.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_configTag.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lbl_configTag.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lbl_configTag.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.lbl_configTag.Location = new System.Drawing.Point(105, 367);
+            this.lbl_configTag.Name = "lbl_configTag";
+            this.lbl_configTag.Size = new System.Drawing.Size(163, 20);
+            this.lbl_configTag.TabIndex = 5;
+            this.lbl_configTag.Text = "CONFIGURAÇÕES///";
+            this.lbl_configTag.Click += new System.EventHandler(this.lbl_configTag_Click);
+            // 
+            // lbl_budgetTag
+            // 
+            this.lbl_budgetTag.AutoSize = true;
+            this.lbl_budgetTag.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_budgetTag.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lbl_budgetTag.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lbl_budgetTag.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.lbl_budgetTag.Location = new System.Drawing.Point(105, 291);
+            this.lbl_budgetTag.Name = "lbl_budgetTag";
+            this.lbl_budgetTag.Size = new System.Drawing.Size(134, 20);
+            this.lbl_budgetTag.TabIndex = 4;
+            this.lbl_budgetTag.Text = "ORÇAMENTOS///";
+            this.lbl_budgetTag.Click += new System.EventHandler(this.lbl_budgetTag_Click);
+            // 
+            // lbl_productTag
+            // 
+            this.lbl_productTag.AutoSize = true;
+            this.lbl_productTag.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_productTag.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lbl_productTag.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lbl_productTag.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.lbl_productTag.Location = new System.Drawing.Point(105, 215);
+            this.lbl_productTag.Name = "lbl_productTag";
+            this.lbl_productTag.Size = new System.Drawing.Size(111, 20);
+            this.lbl_productTag.TabIndex = 3;
+            this.lbl_productTag.Text = "PRODUTOS///";
+            this.lbl_productTag.Click += new System.EventHandler(this.lbl_productTag_Click);
+            // 
+            // lbl_clientTag
+            // 
+            this.lbl_clientTag.AutoSize = true;
+            this.lbl_clientTag.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_clientTag.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lbl_clientTag.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lbl_clientTag.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.lbl_clientTag.Location = new System.Drawing.Point(105, 139);
+            this.lbl_clientTag.Name = "lbl_clientTag";
+            this.lbl_clientTag.Size = new System.Drawing.Size(99, 20);
+            this.lbl_clientTag.TabIndex = 2;
+            this.lbl_clientTag.Text = "CLIENTES///";
+            // 
+            // lbl_mainTag
+            // 
+            this.lbl_mainTag.AutoSize = true;
+            this.lbl_mainTag.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_mainTag.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lbl_mainTag.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lbl_mainTag.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.lbl_mainTag.Location = new System.Drawing.Point(105, 63);
+            this.lbl_mainTag.Name = "lbl_mainTag";
+            this.lbl_mainTag.Size = new System.Drawing.Size(166, 20);
+            this.lbl_mainTag.TabIndex = 1;
+            this.lbl_mainTag.Text = "PAINEL PRINCIPAL///";
+            this.lbl_mainTag.Click += new System.EventHandler(this.lbl_mainTag_Click);
+            // 
+            // lbl_searchTag
+            // 
+            this.lbl_searchTag.AutoSize = true;
+            this.lbl_searchTag.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_searchTag.Cursor = System.Windows.Forms.Cursors.Default;
+            this.lbl_searchTag.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lbl_searchTag.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.lbl_searchTag.Location = new System.Drawing.Point(910, 92);
+            this.lbl_searchTag.Name = "lbl_searchTag";
+            this.lbl_searchTag.Size = new System.Drawing.Size(113, 20);
+            this.lbl_searchTag.TabIndex = 10;
+            this.lbl_searchTag.Text = "PROCURAR///";
+            // 
+            // lbl_lastParcelValueTag
+            // 
+            this.lbl_lastParcelValueTag.AutoSize = true;
+            this.lbl_lastParcelValueTag.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_lastParcelValueTag.Cursor = System.Windows.Forms.Cursors.Default;
+            this.lbl_lastParcelValueTag.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lbl_lastParcelValueTag.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.lbl_lastParcelValueTag.Location = new System.Drawing.Point(169, 551);
+            this.lbl_lastParcelValueTag.Name = "lbl_lastParcelValueTag";
+            this.lbl_lastParcelValueTag.Size = new System.Drawing.Size(76, 20);
+            this.lbl_lastParcelValueTag.TabIndex = 19;
+            this.lbl_lastParcelValueTag.Text = "VALOR///";
+            // 
+            // lbl_btnEditTag
+            // 
+            this.lbl_btnEditTag.AutoSize = true;
+            this.lbl_btnEditTag.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_btnEditTag.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lbl_btnEditTag.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lbl_btnEditTag.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.lbl_btnEditTag.Location = new System.Drawing.Point(848, 529);
+            this.lbl_btnEditTag.Name = "lbl_btnEditTag";
+            this.lbl_btnEditTag.Size = new System.Drawing.Size(152, 20);
+            this.lbl_btnEditTag.TabIndex = 15;
+            this.lbl_btnEditTag.Text = "EDITAR CLIENTE///";
+            this.lbl_btnEditTag.Click += new System.EventHandler(this.lbl_pcbEditTag_Click);
+            // 
+            // lbl_btnAddTag
+            // 
+            this.lbl_btnAddTag.AutoSize = true;
+            this.lbl_btnAddTag.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_btnAddTag.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lbl_btnAddTag.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lbl_btnAddTag.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.lbl_btnAddTag.Location = new System.Drawing.Point(848, 453);
+            this.lbl_btnAddTag.Name = "lbl_btnAddTag";
+            this.lbl_btnAddTag.Size = new System.Drawing.Size(182, 20);
+            this.lbl_btnAddTag.TabIndex = 14;
+            this.lbl_btnAddTag.Text = "ADICIONAR CLIENTE///";
+            this.lbl_btnAddTag.Click += new System.EventHandler(this.lbl_btnAddTag_Click);
+            // 
+            // lbl_btnPayTag
+            // 
+            this.lbl_btnPayTag.AutoSize = true;
+            this.lbl_btnPayTag.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_btnPayTag.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lbl_btnPayTag.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lbl_btnPayTag.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.lbl_btnPayTag.Location = new System.Drawing.Point(848, 605);
+            this.lbl_btnPayTag.Name = "lbl_btnPayTag";
+            this.lbl_btnPayTag.Size = new System.Drawing.Size(157, 20);
+            this.lbl_btnPayTag.TabIndex = 16;
+            this.lbl_btnPayTag.Text = "PAGAR PARCELA///";
+            this.lbl_btnPayTag.Click += new System.EventHandler(this.lbl_btnPayTag_Click);
+            // 
+            // pcb_minimizeProgram
+            // 
+            this.pcb_minimizeProgram.BackColor = System.Drawing.Color.Transparent;
+            this.pcb_minimizeProgram.BackgroundImage = global::Sisteg_Dashboard.Properties.Resources.minus;
+            this.pcb_minimizeProgram.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pcb_minimizeProgram.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pcb_minimizeProgram.Location = new System.Drawing.Point(1003, 7);
+            this.pcb_minimizeProgram.Name = "pcb_minimizeProgram";
+            this.pcb_minimizeProgram.Size = new System.Drawing.Size(32, 32);
+            this.pcb_minimizeProgram.TabIndex = 72;
+            this.pcb_minimizeProgram.TabStop = false;
+            this.pcb_minimizeProgram.Click += new System.EventHandler(this.pcb_minimizeProgram_Click);
+            // 
             // ClientForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImage = global::Sisteg_Dashboard.Properties.Resources.product_sisteg_bg;
             this.ClientSize = new System.Drawing.Size(1220, 686);
+            this.Controls.Add(this.pcb_minimizeProgram);
+            this.Controls.Add(this.lbl_btnEditTag);
+            this.Controls.Add(this.lbl_btnAddTag);
+            this.Controls.Add(this.lbl_btnPayTag);
+            this.Controls.Add(this.lbl_lastParcelValueTag);
+            this.Controls.Add(this.lbl_searchTag);
+            this.Controls.Add(this.lbl_configTag);
+            this.Controls.Add(this.lbl_budgetTag);
+            this.Controls.Add(this.lbl_productTag);
+            this.Controls.Add(this.lbl_clientTag);
+            this.Controls.Add(this.lbl_mainTag);
             this.Controls.Add(this.txt_lastParcelValue);
             this.Controls.Add(this.lbl_lastParcelDate);
             this.Controls.Add(this.lbl_parcelsNumber);
@@ -508,9 +689,10 @@
             this.Controls.Add(this.pcb_btnMain);
             this.Controls.Add(this.pcb_btnClient);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ClientForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Client";
+            this.Text = "Clientes";
             ((System.ComponentModel.ISupportInitialize)(this.pcb_btnConfig)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcb_btnBudget)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcb_btnProduct)).EndInit();
@@ -522,6 +704,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pcb_appClose)).EndInit();
             this.bunifuShadowPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_clients)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcb_minimizeProgram)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -549,5 +732,18 @@
         private System.Windows.Forms.Label lbl_lastParcelDate;
         private Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox txt_lastParcelValue;
         private System.Windows.Forms.SaveFileDialog sfd_saveInvoice;
+        protected internal System.Windows.Forms.Label lbl_configTag;
+        protected internal System.Windows.Forms.Label lbl_budgetTag;
+        protected internal System.Windows.Forms.Label lbl_productTag;
+        protected internal System.Windows.Forms.Label lbl_clientTag;
+        protected internal System.Windows.Forms.Label lbl_mainTag;
+        protected internal System.Windows.Forms.Label lbl_searchTag;
+        protected internal System.Windows.Forms.Label lbl_lastParcelValueTag;
+        protected internal System.Windows.Forms.Label lbl_btnEditTag;
+        protected internal System.Windows.Forms.Label lbl_btnAddTag;
+        protected internal System.Windows.Forms.Label lbl_btnPayTag;
+        private System.Windows.Forms.PictureBox pcb_minimizeProgram;
+        private System.Windows.Forms.ToolTip ttp_lastParcelNumber;
+        private System.Windows.Forms.ToolTip ttp_lastParcelDate;
     }
 }

@@ -63,17 +63,19 @@
             this.pcb_btnUpdate = new System.Windows.Forms.PictureBox();
             this.pcb_btnDelete = new System.Windows.Forms.PictureBox();
             this.pcb_btnCancel = new System.Windows.Forms.PictureBox();
-            this.pcb_appClose = new System.Windows.Forms.PictureBox();
             this.panel_client = new System.Windows.Forms.Panel();
             this.txt_clientCity = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
             this.txt_clientEmail = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
             this.bunifuLabel1 = new Bunifu.UI.WinForms.BunifuLabel();
             this.bsp_telephones = new Bunifu.UI.WinForm.BunifuShadowPanel.BunifuShadowPanel();
+            this.lbl_phoneRegisterTag = new System.Windows.Forms.Label();
+            this.lbl_btnDeletePhoneTag = new System.Windows.Forms.Label();
+            this.lbl_btnUpdatePhoneTag = new System.Windows.Forms.Label();
             this.pcb_btnUpdateTelephone = new System.Windows.Forms.PictureBox();
             this.pcb_btnDeleteTelephone = new System.Windows.Forms.PictureBox();
             this.bsp_dgvTelephones = new Bunifu.UI.WinForm.BunifuShadowPanel.BunifuShadowPanel();
             this.dgv_telephones = new System.Windows.Forms.DataGridView();
-            this.pcb_btnAdd = new System.Windows.Forms.PictureBox();
+            this.pcb_btnPhoneRegister = new System.Windows.Forms.PictureBox();
             this.cbb_telephoneType = new Bunifu.UI.WinForms.BunifuDropdown();
             this.mtb_telephoneNumber = new System.Windows.Forms.MaskedTextBox();
             this.border_mtbTelephoneNumber = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
@@ -82,26 +84,29 @@
             this.txt_clientHouseNumber = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
             this.txt_clientAddress = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
             this.txt_clientName = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
+            this.lbl_btnCancelTag = new System.Windows.Forms.Label();
+            this.lbl_btnDeleteTag = new System.Windows.Forms.Label();
+            this.lbl_btnUpdateTag = new System.Windows.Forms.Label();
+            this.lbl_clientRegisterTag = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pcb_clientRegister)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcb_btnUpdate)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcb_btnDelete)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcb_btnCancel)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pcb_appClose)).BeginInit();
             this.panel_client.SuspendLayout();
             this.bsp_telephones.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pcb_btnUpdateTelephone)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcb_btnDeleteTelephone)).BeginInit();
             this.bsp_dgvTelephones.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_telephones)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pcb_btnAdd)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcb_btnPhoneRegister)).BeginInit();
             this.SuspendLayout();
             // 
             // pcb_clientRegister
             // 
             this.pcb_clientRegister.BackColor = System.Drawing.Color.Transparent;
+            this.pcb_clientRegister.BackgroundImage = global::Sisteg_Dashboard.Properties.Resources.btn_client_form;
             this.pcb_clientRegister.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pcb_clientRegister.Image = ((System.Drawing.Image)(resources.GetObject("pcb_clientRegister.Image")));
-            this.pcb_clientRegister.Location = new System.Drawing.Point(628, 160);
+            this.pcb_clientRegister.Location = new System.Drawing.Point(27, 46);
             this.pcb_clientRegister.Name = "pcb_clientRegister";
             this.pcb_clientRegister.Size = new System.Drawing.Size(327, 70);
             this.pcb_clientRegister.TabIndex = 38;
@@ -113,9 +118,9 @@
             // pcb_btnUpdate
             // 
             this.pcb_btnUpdate.BackColor = System.Drawing.Color.Transparent;
+            this.pcb_btnUpdate.BackgroundImage = global::Sisteg_Dashboard.Properties.Resources.btn_update;
             this.pcb_btnUpdate.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pcb_btnUpdate.Image = ((System.Drawing.Image)(resources.GetObject("pcb_btnUpdate.Image")));
-            this.pcb_btnUpdate.Location = new System.Drawing.Point(628, 236);
+            this.pcb_btnUpdate.Location = new System.Drawing.Point(27, 122);
             this.pcb_btnUpdate.Name = "pcb_btnUpdate";
             this.pcb_btnUpdate.Size = new System.Drawing.Size(327, 70);
             this.pcb_btnUpdate.TabIndex = 37;
@@ -127,9 +132,9 @@
             // pcb_btnDelete
             // 
             this.pcb_btnDelete.BackColor = System.Drawing.Color.Transparent;
+            this.pcb_btnDelete.BackgroundImage = global::Sisteg_Dashboard.Properties.Resources.btn_delete;
             this.pcb_btnDelete.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pcb_btnDelete.Image = ((System.Drawing.Image)(resources.GetObject("pcb_btnDelete.Image")));
-            this.pcb_btnDelete.Location = new System.Drawing.Point(628, 312);
+            this.pcb_btnDelete.Location = new System.Drawing.Point(27, 198);
             this.pcb_btnDelete.Name = "pcb_btnDelete";
             this.pcb_btnDelete.Size = new System.Drawing.Size(327, 70);
             this.pcb_btnDelete.TabIndex = 36;
@@ -141,9 +146,9 @@
             // pcb_btnCancel
             // 
             this.pcb_btnCancel.BackColor = System.Drawing.Color.Transparent;
+            this.pcb_btnCancel.BackgroundImage = global::Sisteg_Dashboard.Properties.Resources.btn_cancel;
             this.pcb_btnCancel.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pcb_btnCancel.Image = ((System.Drawing.Image)(resources.GetObject("pcb_btnCancel.Image")));
-            this.pcb_btnCancel.Location = new System.Drawing.Point(628, 388);
+            this.pcb_btnCancel.Location = new System.Drawing.Point(27, 274);
             this.pcb_btnCancel.Name = "pcb_btnCancel";
             this.pcb_btnCancel.Size = new System.Drawing.Size(327, 70);
             this.pcb_btnCancel.TabIndex = 35;
@@ -152,24 +157,11 @@
             this.pcb_btnCancel.MouseEnter += new System.EventHandler(this.pcb_btnCancel_MouseEnter);
             this.pcb_btnCancel.MouseLeave += new System.EventHandler(this.pcb_btnCancel_MouseLeave);
             // 
-            // pcb_appClose
-            // 
-            this.pcb_appClose.BackColor = System.Drawing.Color.Transparent;
-            this.pcb_appClose.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pcb_appClose.BackgroundImage")));
-            this.pcb_appClose.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pcb_appClose.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pcb_appClose.Location = new System.Drawing.Point(744, 6);
-            this.pcb_appClose.Name = "pcb_appClose";
-            this.pcb_appClose.Size = new System.Drawing.Size(32, 32);
-            this.pcb_appClose.TabIndex = 34;
-            this.pcb_appClose.TabStop = false;
-            this.pcb_appClose.Click += new System.EventHandler(this.pcb_appClose_Click);
-            // 
             // panel_client
             // 
             this.panel_client.AutoScroll = true;
             this.panel_client.AutoScrollMargin = new System.Drawing.Size(0, 15);
-            this.panel_client.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(157)))));
+            this.panel_client.BackColor = System.Drawing.Color.Transparent;
             this.panel_client.Controls.Add(this.txt_clientCity);
             this.panel_client.Controls.Add(this.txt_clientEmail);
             this.panel_client.Controls.Add(this.bunifuLabel1);
@@ -179,10 +171,10 @@
             this.panel_client.Controls.Add(this.txt_clientHouseNumber);
             this.panel_client.Controls.Add(this.txt_clientAddress);
             this.panel_client.Controls.Add(this.txt_clientName);
-            this.panel_client.Location = new System.Drawing.Point(112, 103);
+            this.panel_client.Location = new System.Drawing.Point(359, 29);
             this.panel_client.Name = "panel_client";
-            this.panel_client.Size = new System.Drawing.Size(443, 318);
-            this.panel_client.TabIndex = 56;
+            this.panel_client.Size = new System.Drawing.Size(394, 338);
+            this.panel_client.TabIndex = 5;
             // 
             // txt_clientCity
             // 
@@ -201,7 +193,7 @@
             this.txt_clientCity.BorderThickness = 1;
             this.txt_clientCity.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
             this.txt_clientCity.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txt_clientCity.DefaultFont = new System.Drawing.Font("Courier Prime Code", 12F);
+            this.txt_clientCity.DefaultFont = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.txt_clientCity.DefaultText = "";
             this.txt_clientCity.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(157)))));
             this.txt_clientCity.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
@@ -249,7 +241,7 @@
             this.txt_clientCity.ShortcutsEnabled = true;
             this.txt_clientCity.Size = new System.Drawing.Size(300, 35);
             this.txt_clientCity.Style = Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox._Style.Bunifu;
-            this.txt_clientCity.TabIndex = 113;
+            this.txt_clientCity.TabIndex = 10;
             this.txt_clientCity.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.txt_clientCity.TextMarginBottom = 0;
             this.txt_clientCity.TextMarginLeft = 5;
@@ -276,7 +268,7 @@
             this.txt_clientEmail.BorderThickness = 1;
             this.txt_clientEmail.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
             this.txt_clientEmail.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txt_clientEmail.DefaultFont = new System.Drawing.Font("Courier Prime Code", 12F);
+            this.txt_clientEmail.DefaultFont = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.txt_clientEmail.DefaultText = "";
             this.txt_clientEmail.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(157)))));
             this.txt_clientEmail.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
@@ -324,7 +316,7 @@
             this.txt_clientEmail.ShortcutsEnabled = true;
             this.txt_clientEmail.Size = new System.Drawing.Size(302, 35);
             this.txt_clientEmail.Style = Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox._Style.Bunifu;
-            this.txt_clientEmail.TabIndex = 112;
+            this.txt_clientEmail.TabIndex = 12;
             this.txt_clientEmail.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.txt_clientEmail.TextMarginBottom = 0;
             this.txt_clientEmail.TextMarginLeft = 5;
@@ -339,13 +331,13 @@
             this.bunifuLabel1.AutoEllipsis = false;
             this.bunifuLabel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(157)))));
             this.bunifuLabel1.CursorType = null;
-            this.bunifuLabel1.Font = new System.Drawing.Font("Courier Prime Code", 12F);
+            this.bunifuLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.bunifuLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.bunifuLabel1.Location = new System.Drawing.Point(30, 331);
             this.bunifuLabel1.Name = "bunifuLabel1";
             this.bunifuLabel1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.bunifuLabel1.Size = new System.Drawing.Size(93, 23);
-            this.bunifuLabel1.TabIndex = 111;
+            this.bunifuLabel1.Size = new System.Drawing.Size(69, 22);
+            this.bunifuLabel1.TabIndex = 14;
             this.bunifuLabel1.Text = "Telefone:";
             this.bunifuLabel1.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
             this.bunifuLabel1.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
@@ -354,10 +346,13 @@
             // 
             this.bsp_telephones.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(157)))));
             this.bsp_telephones.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.bsp_telephones.Controls.Add(this.lbl_phoneRegisterTag);
+            this.bsp_telephones.Controls.Add(this.lbl_btnDeletePhoneTag);
+            this.bsp_telephones.Controls.Add(this.lbl_btnUpdatePhoneTag);
             this.bsp_telephones.Controls.Add(this.pcb_btnUpdateTelephone);
             this.bsp_telephones.Controls.Add(this.pcb_btnDeleteTelephone);
             this.bsp_telephones.Controls.Add(this.bsp_dgvTelephones);
-            this.bsp_telephones.Controls.Add(this.pcb_btnAdd);
+            this.bsp_telephones.Controls.Add(this.pcb_btnPhoneRegister);
             this.bsp_telephones.Controls.Add(this.cbb_telephoneType);
             this.bsp_telephones.Controls.Add(this.mtb_telephoneNumber);
             this.bsp_telephones.Controls.Add(this.border_mtbTelephoneNumber);
@@ -366,14 +361,56 @@
             this.bsp_telephones.PanelColor = System.Drawing.Color.Empty;
             this.bsp_telephones.ShadowDept = 2;
             this.bsp_telephones.ShadowTopLeftVisible = false;
-            this.bsp_telephones.Size = new System.Drawing.Size(394, 518);
-            this.bsp_telephones.TabIndex = 57;
+            this.bsp_telephones.Size = new System.Drawing.Size(358, 518);
+            this.bsp_telephones.TabIndex = 13;
+            // 
+            // lbl_phoneRegisterTag
+            // 
+            this.lbl_phoneRegisterTag.AutoSize = true;
+            this.lbl_phoneRegisterTag.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_phoneRegisterTag.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lbl_phoneRegisterTag.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lbl_phoneRegisterTag.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.lbl_phoneRegisterTag.Location = new System.Drawing.Point(105, 145);
+            this.lbl_phoneRegisterTag.Name = "lbl_phoneRegisterTag";
+            this.lbl_phoneRegisterTag.Size = new System.Drawing.Size(209, 20);
+            this.lbl_phoneRegisterTag.TabIndex = 17;
+            this.lbl_phoneRegisterTag.Text = "CADASTRAR TELEFONE///";
+            this.lbl_phoneRegisterTag.Click += new System.EventHandler(this.lbl_phoneRegisterTag_Click);
+            // 
+            // lbl_btnDeletePhoneTag
+            // 
+            this.lbl_btnDeletePhoneTag.AutoSize = true;
+            this.lbl_btnDeletePhoneTag.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_btnDeletePhoneTag.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lbl_btnDeletePhoneTag.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lbl_btnDeletePhoneTag.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.lbl_btnDeletePhoneTag.Location = new System.Drawing.Point(96, 453);
+            this.lbl_btnDeletePhoneTag.Name = "lbl_btnDeletePhoneTag";
+            this.lbl_btnDeletePhoneTag.Size = new System.Drawing.Size(180, 20);
+            this.lbl_btnDeletePhoneTag.TabIndex = 21;
+            this.lbl_btnDeletePhoneTag.Text = "EXCLUIR TELEFONE///";
+            this.lbl_btnDeletePhoneTag.Click += new System.EventHandler(this.lbl_btnDeletePhoneTag_Click);
+            // 
+            // lbl_btnUpdatePhoneTag
+            // 
+            this.lbl_btnUpdatePhoneTag.AutoSize = true;
+            this.lbl_btnUpdatePhoneTag.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_btnUpdatePhoneTag.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lbl_btnUpdatePhoneTag.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lbl_btnUpdatePhoneTag.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.lbl_btnUpdatePhoneTag.Location = new System.Drawing.Point(96, 377);
+            this.lbl_btnUpdatePhoneTag.Name = "lbl_btnUpdatePhoneTag";
+            this.lbl_btnUpdatePhoneTag.Size = new System.Drawing.Size(199, 20);
+            this.lbl_btnUpdatePhoneTag.TabIndex = 20;
+            this.lbl_btnUpdatePhoneTag.Text = "ATUALIZAR TELEFONE///";
+            this.lbl_btnUpdatePhoneTag.Click += new System.EventHandler(this.lbl_btnUpdatePhoneTag_Click);
             // 
             // pcb_btnUpdateTelephone
             // 
             this.pcb_btnUpdateTelephone.BackColor = System.Drawing.Color.Transparent;
+            this.pcb_btnUpdateTelephone.BackgroundImage = global::Sisteg_Dashboard.Properties.Resources.btn_update;
             this.pcb_btnUpdateTelephone.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pcb_btnUpdateTelephone.Image = ((System.Drawing.Image)(resources.GetObject("pcb_btnUpdateTelephone.Image")));
             this.pcb_btnUpdateTelephone.Location = new System.Drawing.Point(13, 349);
             this.pcb_btnUpdateTelephone.Name = "pcb_btnUpdateTelephone";
             this.pcb_btnUpdateTelephone.Size = new System.Drawing.Size(327, 70);
@@ -386,8 +423,8 @@
             // pcb_btnDeleteTelephone
             // 
             this.pcb_btnDeleteTelephone.BackColor = System.Drawing.Color.Transparent;
+            this.pcb_btnDeleteTelephone.BackgroundImage = global::Sisteg_Dashboard.Properties.Resources.btn_delete;
             this.pcb_btnDeleteTelephone.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pcb_btnDeleteTelephone.Image = ((System.Drawing.Image)(resources.GetObject("pcb_btnDeleteTelephone.Image")));
             this.pcb_btnDeleteTelephone.Location = new System.Drawing.Point(13, 430);
             this.pcb_btnDeleteTelephone.Name = "pcb_btnDeleteTelephone";
             this.pcb_btnDeleteTelephone.Size = new System.Drawing.Size(327, 70);
@@ -407,8 +444,8 @@
             this.bsp_dgvTelephones.PanelColor = System.Drawing.Color.Empty;
             this.bsp_dgvTelephones.ShadowDept = 2;
             this.bsp_dgvTelephones.ShadowTopLeftVisible = false;
-            this.bsp_dgvTelephones.Size = new System.Drawing.Size(360, 140);
-            this.bsp_dgvTelephones.TabIndex = 110;
+            this.bsp_dgvTelephones.Size = new System.Drawing.Size(324, 140);
+            this.bsp_dgvTelephones.TabIndex = 19;
             // 
             // dgv_telephones
             // 
@@ -423,7 +460,7 @@
             this.dgv_telephones.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(157)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Courier Prime Code", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(6, 0, 0, 0);
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(157)))));
@@ -443,7 +480,7 @@
             this.dgv_telephones.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(157)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Courier Prime Code", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(6, 0, 0, 0);
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(104)))), ((int)(((byte)(232)))));
@@ -452,24 +489,24 @@
             this.dgv_telephones.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dgv_telephones.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
             this.dgv_telephones.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv_telephones.Size = new System.Drawing.Size(350, 130);
-            this.dgv_telephones.TabIndex = 22;
+            this.dgv_telephones.Size = new System.Drawing.Size(314, 130);
+            this.dgv_telephones.TabIndex = 18;
             this.dgv_telephones.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgv_telephones_DataBindingComplete);
             this.dgv_telephones.SelectionChanged += new System.EventHandler(this.dgv_telephones_SelectionChanged);
             // 
-            // pcb_btnAdd
+            // pcb_btnPhoneRegister
             // 
-            this.pcb_btnAdd.BackColor = System.Drawing.Color.Transparent;
-            this.pcb_btnAdd.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pcb_btnAdd.BackgroundImage")));
-            this.pcb_btnAdd.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pcb_btnAdd.Location = new System.Drawing.Point(13, 115);
-            this.pcb_btnAdd.Name = "pcb_btnAdd";
-            this.pcb_btnAdd.Size = new System.Drawing.Size(328, 70);
-            this.pcb_btnAdd.TabIndex = 109;
-            this.pcb_btnAdd.TabStop = false;
-            this.pcb_btnAdd.Click += new System.EventHandler(this.pcb_btnAdd_Click);
-            this.pcb_btnAdd.MouseEnter += new System.EventHandler(this.pcb_btnAdd_MouseEnter);
-            this.pcb_btnAdd.MouseLeave += new System.EventHandler(this.pcb_btnAdd_MouseLeave);
+            this.pcb_btnPhoneRegister.BackColor = System.Drawing.Color.Transparent;
+            this.pcb_btnPhoneRegister.BackgroundImage = global::Sisteg_Dashboard.Properties.Resources.btn_add_phone;
+            this.pcb_btnPhoneRegister.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pcb_btnPhoneRegister.Location = new System.Drawing.Point(13, 115);
+            this.pcb_btnPhoneRegister.Name = "pcb_btnPhoneRegister";
+            this.pcb_btnPhoneRegister.Size = new System.Drawing.Size(328, 70);
+            this.pcb_btnPhoneRegister.TabIndex = 109;
+            this.pcb_btnPhoneRegister.TabStop = false;
+            this.pcb_btnPhoneRegister.Click += new System.EventHandler(this.pcb_btnPhoneRegister_Click);
+            this.pcb_btnPhoneRegister.MouseEnter += new System.EventHandler(this.pcb_btnPhoneRegister_MouseEnter);
+            this.pcb_btnPhoneRegister.MouseLeave += new System.EventHandler(this.pcb_btnPhoneRegister_MouseLeave);
             // 
             // cbb_telephoneType
             // 
@@ -486,7 +523,7 @@
             this.cbb_telephoneType.FillDropDown = false;
             this.cbb_telephoneType.FillIndicator = false;
             this.cbb_telephoneType.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cbb_telephoneType.Font = new System.Drawing.Font("Courier Prime Code", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbb_telephoneType.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbb_telephoneType.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.cbb_telephoneType.FormattingEnabled = true;
             this.cbb_telephoneType.Icon = null;
@@ -504,7 +541,7 @@
             this.cbb_telephoneType.Location = new System.Drawing.Point(13, 24);
             this.cbb_telephoneType.Name = "cbb_telephoneType";
             this.cbb_telephoneType.Size = new System.Drawing.Size(300, 35);
-            this.cbb_telephoneType.TabIndex = 106;
+            this.cbb_telephoneType.TabIndex = 15;
             this.cbb_telephoneType.Text = " Tipo do telefone";
             this.cbb_telephoneType.SelectedIndexChanged += new System.EventHandler(this.cbb_telephoneType_SelectedIndexChanged);
             // 
@@ -512,15 +549,16 @@
             // 
             this.mtb_telephoneNumber.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(157)))));
             this.mtb_telephoneNumber.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.mtb_telephoneNumber.Font = new System.Drawing.Font("Courier Prime Code", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mtb_telephoneNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mtb_telephoneNumber.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.mtb_telephoneNumber.Location = new System.Drawing.Point(26, 78);
+            this.mtb_telephoneNumber.Location = new System.Drawing.Point(26, 79);
             this.mtb_telephoneNumber.Mask = "(99) 00000-0000";
             this.mtb_telephoneNumber.Name = "mtb_telephoneNumber";
             this.mtb_telephoneNumber.PromptChar = ' ';
-            this.mtb_telephoneNumber.Size = new System.Drawing.Size(275, 21);
+            this.mtb_telephoneNumber.Size = new System.Drawing.Size(275, 19);
             this.mtb_telephoneNumber.TabIndex = 108;
             this.mtb_telephoneNumber.Enter += new System.EventHandler(this.mtb_telephoneNumber_Enter);
+            this.mtb_telephoneNumber.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.mtb_telephoneNumber_KeyPress);
             this.mtb_telephoneNumber.Leave += new System.EventHandler(this.mtb_telephoneNumber_Leave);
             this.mtb_telephoneNumber.MouseEnter += new System.EventHandler(this.mtb_telephoneNumber_MouseEnter);
             this.mtb_telephoneNumber.MouseLeave += new System.EventHandler(this.mtb_telephoneNumber_MouseLeave);
@@ -542,7 +580,7 @@
             this.border_mtbTelephoneNumber.BorderThickness = 1;
             this.border_mtbTelephoneNumber.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
             this.border_mtbTelephoneNumber.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.border_mtbTelephoneNumber.DefaultFont = new System.Drawing.Font("Courier Prime Code", 12F);
+            this.border_mtbTelephoneNumber.DefaultFont = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.border_mtbTelephoneNumber.DefaultText = "";
             this.border_mtbTelephoneNumber.FillColor = System.Drawing.Color.Empty;
             this.border_mtbTelephoneNumber.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
@@ -590,7 +628,7 @@
             this.border_mtbTelephoneNumber.ShortcutsEnabled = true;
             this.border_mtbTelephoneNumber.Size = new System.Drawing.Size(300, 35);
             this.border_mtbTelephoneNumber.Style = Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox._Style.Bunifu;
-            this.border_mtbTelephoneNumber.TabIndex = 107;
+            this.border_mtbTelephoneNumber.TabIndex = 16;
             this.border_mtbTelephoneNumber.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.border_mtbTelephoneNumber.TextMarginBottom = 0;
             this.border_mtbTelephoneNumber.TextMarginLeft = 5;
@@ -602,7 +640,7 @@
             // 
             // cbb_clientState
             // 
-            this.cbb_clientState.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(157)))));
+            this.cbb_clientState.BackColor = System.Drawing.Color.Transparent;
             this.cbb_clientState.BorderRadius = 1;
             this.cbb_clientState.Color = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.cbb_clientState.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -610,17 +648,19 @@
             this.cbb_clientState.DisabledColor = System.Drawing.Color.Gray;
             this.cbb_clientState.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.cbb_clientState.DropdownBorderThickness = Bunifu.UI.WinForms.BunifuDropdown.BorderThickness.Thin;
+            this.cbb_clientState.DropDownHeight = 100;
             this.cbb_clientState.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbb_clientState.DropDownTextAlign = Bunifu.UI.WinForms.BunifuDropdown.TextAlign.Left;
             this.cbb_clientState.FillDropDown = false;
             this.cbb_clientState.FillIndicator = false;
             this.cbb_clientState.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cbb_clientState.Font = new System.Drawing.Font("Courier Prime Code", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbb_clientState.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbb_clientState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.cbb_clientState.FormattingEnabled = true;
             this.cbb_clientState.Icon = null;
             this.cbb_clientState.IndicatorColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.cbb_clientState.IndicatorLocation = Bunifu.UI.WinForms.BunifuDropdown.Indicator.Right;
+            this.cbb_clientState.IntegralHeight = false;
             this.cbb_clientState.ItemBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(157)))));
             this.cbb_clientState.ItemBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(157)))));
             this.cbb_clientState.ItemForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
@@ -655,9 +695,10 @@
             " SE",
             " TO"});
             this.cbb_clientState.Location = new System.Drawing.Point(14, 239);
+            this.cbb_clientState.MaxDropDownItems = 4;
             this.cbb_clientState.Name = "cbb_clientState";
             this.cbb_clientState.Size = new System.Drawing.Size(300, 35);
-            this.cbb_clientState.TabIndex = 105;
+            this.cbb_clientState.TabIndex = 11;
             this.cbb_clientState.Text = " Estado";
             // 
             // txt_clientNeighbourhood
@@ -677,7 +718,7 @@
             this.txt_clientNeighbourhood.BorderThickness = 1;
             this.txt_clientNeighbourhood.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
             this.txt_clientNeighbourhood.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txt_clientNeighbourhood.DefaultFont = new System.Drawing.Font("Courier Prime Code", 12F);
+            this.txt_clientNeighbourhood.DefaultFont = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.txt_clientNeighbourhood.DefaultText = "";
             this.txt_clientNeighbourhood.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(157)))));
             this.txt_clientNeighbourhood.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
@@ -725,7 +766,7 @@
             this.txt_clientNeighbourhood.ShortcutsEnabled = true;
             this.txt_clientNeighbourhood.Size = new System.Drawing.Size(300, 35);
             this.txt_clientNeighbourhood.Style = Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox._Style.Bunifu;
-            this.txt_clientNeighbourhood.TabIndex = 104;
+            this.txt_clientNeighbourhood.TabIndex = 9;
             this.txt_clientNeighbourhood.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.txt_clientNeighbourhood.TextMarginBottom = 0;
             this.txt_clientNeighbourhood.TextMarginLeft = 5;
@@ -752,7 +793,7 @@
             this.txt_clientHouseNumber.BorderThickness = 1;
             this.txt_clientHouseNumber.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
             this.txt_clientHouseNumber.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txt_clientHouseNumber.DefaultFont = new System.Drawing.Font("Courier Prime Code", 12F);
+            this.txt_clientHouseNumber.DefaultFont = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.txt_clientHouseNumber.DefaultText = "";
             this.txt_clientHouseNumber.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(157)))));
             this.txt_clientHouseNumber.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
@@ -800,7 +841,7 @@
             this.txt_clientHouseNumber.ShortcutsEnabled = true;
             this.txt_clientHouseNumber.Size = new System.Drawing.Size(300, 35);
             this.txt_clientHouseNumber.Style = Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox._Style.Bunifu;
-            this.txt_clientHouseNumber.TabIndex = 103;
+            this.txt_clientHouseNumber.TabIndex = 8;
             this.txt_clientHouseNumber.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.txt_clientHouseNumber.TextMarginBottom = 0;
             this.txt_clientHouseNumber.TextMarginLeft = 5;
@@ -827,7 +868,7 @@
             this.txt_clientAddress.BorderThickness = 1;
             this.txt_clientAddress.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
             this.txt_clientAddress.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txt_clientAddress.DefaultFont = new System.Drawing.Font("Courier Prime Code", 12F);
+            this.txt_clientAddress.DefaultFont = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.txt_clientAddress.DefaultText = "";
             this.txt_clientAddress.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(157)))));
             this.txt_clientAddress.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
@@ -875,7 +916,7 @@
             this.txt_clientAddress.ShortcutsEnabled = true;
             this.txt_clientAddress.Size = new System.Drawing.Size(300, 35);
             this.txt_clientAddress.Style = Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox._Style.Bunifu;
-            this.txt_clientAddress.TabIndex = 102;
+            this.txt_clientAddress.TabIndex = 7;
             this.txt_clientAddress.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.txt_clientAddress.TextMarginBottom = 0;
             this.txt_clientAddress.TextMarginLeft = 5;
@@ -902,7 +943,7 @@
             this.txt_clientName.BorderThickness = 1;
             this.txt_clientName.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
             this.txt_clientName.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txt_clientName.DefaultFont = new System.Drawing.Font("Courier Prime Code", 12F);
+            this.txt_clientName.DefaultFont = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.txt_clientName.DefaultText = "";
             this.txt_clientName.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(157)))));
             this.txt_clientName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
@@ -950,7 +991,7 @@
             this.txt_clientName.ShortcutsEnabled = true;
             this.txt_clientName.Size = new System.Drawing.Size(300, 35);
             this.txt_clientName.Style = Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox._Style.Bunifu;
-            this.txt_clientName.TabIndex = 101;
+            this.txt_clientName.TabIndex = 6;
             this.txt_clientName.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.txt_clientName.TextMarginBottom = 0;
             this.txt_clientName.TextMarginLeft = 5;
@@ -961,27 +1002,87 @@
             this.txt_clientName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_clientName_KeyPress);
             this.txt_clientName.Leave += new System.EventHandler(this.txt_clientName_Leave);
             // 
+            // lbl_btnCancelTag
+            // 
+            this.lbl_btnCancelTag.AutoSize = true;
+            this.lbl_btnCancelTag.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_btnCancelTag.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lbl_btnCancelTag.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lbl_btnCancelTag.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.lbl_btnCancelTag.Location = new System.Drawing.Point(115, 300);
+            this.lbl_btnCancelTag.Name = "lbl_btnCancelTag";
+            this.lbl_btnCancelTag.Size = new System.Drawing.Size(174, 20);
+            this.lbl_btnCancelTag.TabIndex = 4;
+            this.lbl_btnCancelTag.Text = "CANCELAR EDIÇÃO///";
+            this.lbl_btnCancelTag.Click += new System.EventHandler(this.lbl_btnCancelTag_Click);
+            // 
+            // lbl_btnDeleteTag
+            // 
+            this.lbl_btnDeleteTag.AutoSize = true;
+            this.lbl_btnDeleteTag.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_btnDeleteTag.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lbl_btnDeleteTag.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lbl_btnDeleteTag.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.lbl_btnDeleteTag.Location = new System.Drawing.Point(115, 224);
+            this.lbl_btnDeleteTag.Name = "lbl_btnDeleteTag";
+            this.lbl_btnDeleteTag.Size = new System.Drawing.Size(163, 20);
+            this.lbl_btnDeleteTag.TabIndex = 3;
+            this.lbl_btnDeleteTag.Text = "EXCLUIR CLIENTE///";
+            this.lbl_btnDeleteTag.Click += new System.EventHandler(this.lbl_btnDeleteTag_Click);
+            // 
+            // lbl_btnUpdateTag
+            // 
+            this.lbl_btnUpdateTag.AutoSize = true;
+            this.lbl_btnUpdateTag.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_btnUpdateTag.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lbl_btnUpdateTag.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lbl_btnUpdateTag.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.lbl_btnUpdateTag.Location = new System.Drawing.Point(115, 148);
+            this.lbl_btnUpdateTag.Name = "lbl_btnUpdateTag";
+            this.lbl_btnUpdateTag.Size = new System.Drawing.Size(182, 20);
+            this.lbl_btnUpdateTag.TabIndex = 2;
+            this.lbl_btnUpdateTag.Text = "ATUALIZAR CLIENTE///";
+            this.lbl_btnUpdateTag.Click += new System.EventHandler(this.lbl_btnUpdateTag_Click);
+            // 
+            // lbl_clientRegisterTag
+            // 
+            this.lbl_clientRegisterTag.AutoSize = true;
+            this.lbl_clientRegisterTag.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_clientRegisterTag.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lbl_clientRegisterTag.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lbl_clientRegisterTag.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.lbl_clientRegisterTag.Location = new System.Drawing.Point(115, 72);
+            this.lbl_clientRegisterTag.Name = "lbl_clientRegisterTag";
+            this.lbl_clientRegisterTag.Size = new System.Drawing.Size(192, 20);
+            this.lbl_clientRegisterTag.TabIndex = 1;
+            this.lbl_clientRegisterTag.Text = "CADASTRAR CLIENTE///";
+            this.lbl_clientRegisterTag.Click += new System.EventHandler(this.lbl_clientRegisterTag_Click);
+            // 
             // AddClient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(1030, 530);
+            this.BackgroundImage = global::Sisteg_Dashboard.Properties.Resources.budget_step_bg;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.ClientSize = new System.Drawing.Size(773, 381);
+            this.Controls.Add(this.lbl_btnCancelTag);
+            this.Controls.Add(this.lbl_btnDeleteTag);
+            this.Controls.Add(this.lbl_btnUpdateTag);
+            this.Controls.Add(this.lbl_clientRegisterTag);
             this.Controls.Add(this.panel_client);
             this.Controls.Add(this.pcb_clientRegister);
             this.Controls.Add(this.pcb_btnUpdate);
             this.Controls.Add(this.pcb_btnDelete);
             this.Controls.Add(this.pcb_btnCancel);
-            this.Controls.Add(this.pcb_appClose);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "AddClient";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "AddClient";
+            this.Text = "Clientes";
             ((System.ComponentModel.ISupportInitialize)(this.pcb_clientRegister)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcb_btnUpdate)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcb_btnDelete)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcb_btnCancel)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pcb_appClose)).EndInit();
             this.panel_client.ResumeLayout(false);
             this.panel_client.PerformLayout();
             this.bsp_telephones.ResumeLayout(false);
@@ -990,8 +1091,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.pcb_btnDeleteTelephone)).EndInit();
             this.bsp_dgvTelephones.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_telephones)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pcb_btnAdd)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcb_btnPhoneRegister)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -1001,7 +1103,6 @@
         public System.Windows.Forms.PictureBox pcb_btnUpdate;
         public System.Windows.Forms.PictureBox pcb_btnDelete;
         private System.Windows.Forms.PictureBox pcb_btnCancel;
-        private System.Windows.Forms.PictureBox pcb_appClose;
         private System.Windows.Forms.Panel panel_client;
         private Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox txt_clientAddress;
         private Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox txt_clientName;
@@ -1011,7 +1112,7 @@
         private Bunifu.UI.WinForms.BunifuDropdown cbb_telephoneType;
         private System.Windows.Forms.MaskedTextBox mtb_telephoneNumber;
         private Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox border_mtbTelephoneNumber;
-        private System.Windows.Forms.PictureBox pcb_btnAdd;
+        private System.Windows.Forms.PictureBox pcb_btnPhoneRegister;
         private Bunifu.UI.WinForm.BunifuShadowPanel.BunifuShadowPanel bsp_telephones;
         private Bunifu.UI.WinForms.BunifuLabel bunifuLabel1;
         private Bunifu.UI.WinForm.BunifuShadowPanel.BunifuShadowPanel bsp_dgvTelephones;
@@ -1020,5 +1121,12 @@
         public System.Windows.Forms.PictureBox pcb_btnDeleteTelephone;
         private Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox txt_clientCity;
         private Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox txt_clientEmail;
+        protected internal System.Windows.Forms.Label lbl_btnCancelTag;
+        protected internal System.Windows.Forms.Label lbl_btnDeleteTag;
+        protected internal System.Windows.Forms.Label lbl_btnUpdateTag;
+        protected internal System.Windows.Forms.Label lbl_clientRegisterTag;
+        protected internal System.Windows.Forms.Label lbl_phoneRegisterTag;
+        protected internal System.Windows.Forms.Label lbl_btnDeletePhoneTag;
+        protected internal System.Windows.Forms.Label lbl_btnUpdatePhoneTag;
     }
 }

@@ -1,50 +1,32 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Sisteg_Dashboard
 {
     public partial class ExpenseGraphs : Form
     {
-        //DECLARAÇÃO DE VARIÁVEIS
-        Color[] myPalette = new Color[6]{
-            Color.FromArgb(0, 104, 232),
-            Color.FromKnownColor(KnownColor.Transparent),
-            Color.FromArgb(0, 104, 232),
-            Color.FromKnownColor(KnownColor.Transparent),
-            Color.FromArgb(0, 104, 232),
-            Color.FromKnownColor(KnownColor.Transparent),
-        };
-        private Main expenseGraphsMain;
-        private static DateTime dateTimeMonth = DateTime.Now.Date;
-        protected internal int expenseGraphsMonth = 0, idConta = 0;
-        protected internal string nomeConta;
-
         public ExpenseGraphs(Main main, int month)
         {
             InitializeComponent();
-            expenseGraphsMain = main;
-            expenseGraphsMonth = month;
-            expenseGraphsMain.BackgroundImage = Properties.Resources.expense_homepage_bg;
-            expenseGraphsMain.lbl_balance.Visible = false;
-            expenseGraphsMain.lbl_monthIncomes.Visible = false;
-            expenseGraphsMain.pcb_addIncome.Visible = false;
-            expenseGraphsMain.pcb_btnGoBack.Visible = true;
-            expenseGraphsMain.pcb_btnGoForward.Visible = false;
-            expenseGraphsMain.lbl_dailyExpenses.Visible = true;
-            expenseGraphsMain.lbl_monthExpenses.Visible = true;
-            expenseGraphsMain.pcb_addExpense.Visible = true;
-            expenseGraphsMain.cbb_activeAccount.Visible = false;
+            Globals.main = main;
+            Globals.month = month;
+            Globals.main.BackgroundImage = Properties.Resources.expense_homepage_bg;
+            Globals.main.lbl_balance.Visible = false;
+            Globals.main.lbl_monthIncomes.Visible = false;
+            Globals.main.pcb_addIncome.Visible = false;
+            Globals.main.pcb_btnGoBack.Visible = true;
+            Globals.main.lbl_btnGoBackTag.Visible = true;
+            Globals.main.pcb_btnGoForward.Visible = false;
+            Globals.main.lbl_btnGoForwardTag.Visible = false;
+            Globals.main.lbl_dailyExpenses.Visible = true;
+            Globals.main.lbl_dailyExpensesTag.Visible = true;
+            Globals.main.lbl_monthExpenses.Visible = true;
+            Globals.main.lbl_monthExpensesTag.Visible = true;
+            Globals.main.pcb_addExpense.Visible = true;
+            Globals.main.cbb_activeAccount.Visible = false;
 
-            idConta = expenseGraphsMain.idConta;
-
-            if (expenseGraphsMonth == 0)
+            if (Globals.month == 0)
             {
                 DataTable accountDataTable = Database.query("SELECT idConta, nomeConta FROM conta;");
                 DataTable categoryDataTable = Database.query("SELECT idCategoria, nomeCategoria FROM categoria WHERE categoriaDespesa != 0;");
@@ -53,9 +35,9 @@ namespace Sisteg_Dashboard
                 {
                     foreach (DataRow categoryDataRow in categoryDataTable.Rows)
                     {
-                        this.renderExpenseChart(this.chart_expenseCategory, "SELECT SUM(valorTotal) valorTotal FROM (SELECT SUM(valorDespesa) valorTotal FROM despesa WHERE despesa.pagamentoConfirmado = true AND despesa.idConta = " + idConta + " AND despesa.idCategoria = " + categoryDataRow.ItemArray[0].ToString() + " AND despesa.dataTransacao > datetime('now', 'start of month') " +
-                                                                               "UNION ALL SELECT SUM(valorRepeticao) valorTotal FROM repeticao WHERE repeticao.pagamentoConfirmado = true AND repeticao.idConta = " + idConta + " AND repeticao.idCategoria = " + categoryDataRow.ItemArray[0].ToString() + " AND repeticao.dataTransacao > datetime('now', 'start of month') " +
-                                                                               "UNION ALL SELECT SUM(valorParcela) valorTotal FROM parcela WHERE parcela.pagamentoConfirmado = true AND parcela.idConta = " + idConta + " AND parcela.idCategoria = " + categoryDataRow.ItemArray[0].ToString() + " AND parcela.dataTransacao > datetime('now', 'start of month'));", categoryDataRow);
+                        this.renderExpenseChart(this.chart_expenseCategory, "SELECT SUM(valorTotal) valorTotal FROM (SELECT SUM(valorDespesa) valorTotal FROM despesa WHERE despesa.pagamentoConfirmado = true AND despesa.idConta = " + Globals.idConta + " AND despesa.idCategoria = " + categoryDataRow.ItemArray[0].ToString().Trim() + " AND despesa.dataTransacao > datetime('now', 'start of month', 'localtime') " +
+                                                                            "UNION ALL SELECT SUM(valorRepeticao) valorTotal FROM repeticao WHERE repeticao.pagamentoConfirmado = true AND repeticao.idConta = " + Globals.idConta + " AND repeticao.idCategoria = " + categoryDataRow.ItemArray[0].ToString().Trim() + " AND repeticao.dataTransacao < datetime('start of month', '+1 month', 'localtime') " +
+                                                                            "UNION ALL SELECT SUM(valorParcela) valorTotal FROM parcela WHERE parcela.pagamentoConfirmado = true AND parcela.idConta = " + Globals.idConta + " AND parcela.idCategoria = " + categoryDataRow.ItemArray[0].ToString().Trim() + " AND parcela.dataTransacao < datetime('start of month', '+1 month', 'localtime'));", categoryDataRow);
                     }
                 }
                 else this.chart_expenseCategory.Hide();
@@ -64,26 +46,22 @@ namespace Sisteg_Dashboard
                 {
                     foreach (DataRow accountDataRow in accountDataTable.Rows)
                     {
-                        this.renderExpenseChart(this.chart_expenseAccount, "SELECT SUM(valorTotal) valorTotal FROM (SELECT SUM(valorDespesa) valorTotal FROM despesa WHERE despesa.pagamentoConfirmado = true AND despesa.idConta = " + accountDataRow.ItemArray[0].ToString() + " AND despesa.dataTransacao > datetime('now', 'start of month') " +
-                                                                                 "UNION ALL SELECT SUM(valorRepeticao) valorTotal FROM repeticao WHERE repeticao.pagamentoConfirmado = true AND repeticao.idConta = " + accountDataRow.ItemArray[0].ToString() + " AND repeticao.dataTransacao > datetime('now', 'start of month') " +
-                                                                                 "UNION ALL SELECT SUM(valorParcela) valorTotal FROM parcela WHERE parcela.pagamentoConfirmado = true AND parcela.idConta = " + accountDataRow.ItemArray[0].ToString() + " AND parcela.dataTransacao > datetime('now', 'start of month'));", accountDataRow);
+                        this.renderExpenseChart(this.chart_expenseAccount, "SELECT SUM(valorTotal) valorTotal FROM (SELECT SUM(valorDespesa) valorTotal FROM despesa WHERE despesa.pagamentoConfirmado = true AND despesa.idConta = " + accountDataRow.ItemArray[0].ToString().Trim() + " AND despesa.dataTransacao > datetime('now', 'start of month', 'localtime') " +
+                                                                           "UNION ALL SELECT SUM(valorRepeticao) valorTotal FROM repeticao WHERE repeticao.pagamentoConfirmado = true AND repeticao.idConta = " + accountDataRow.ItemArray[0].ToString().Trim() + " AND repeticao.dataTransacao < datetime('start of month', '+1 month', 'localtime') " +
+                                                                           "UNION ALL SELECT SUM(valorParcela) valorTotal FROM parcela WHERE parcela.pagamentoConfirmado = true AND parcela.idConta = " + accountDataRow.ItemArray[0].ToString().Trim() + " AND parcela.dataTransacao < datetime('start of month', '+1 month', 'localtime'));", accountDataRow);
                     }
                 }
                 else this.chart_expenseAccount.Hide();
 
-                expenseGraphsMain.renderLabels(expenseGraphsMain.lbl_dailyExpenses, "SELECT SUM(valorTotal) valorTotal FROM (SELECT SUM(valorDespesa) valorTotal FROM despesa WHERE despesa.pagamentoConfirmado = true AND despesa.idConta = " + idConta + " AND despesa.dataTransacao = DATE('now', 'localtime') " +
-                                                                                    "UNION ALL SELECT SUM(valorRepeticao) valorTotal FROM repeticao WHERE repeticao.pagamentoConfirmado = true AND repeticao.idConta = " + idConta + " AND repeticao.dataTransacao = DATE('now', 'localtime') " +
-                                                                                    "UNION ALL SELECT SUM(valorParcela) valorTotal FROM parcela WHERE parcela.pagamentoConfirmado = true AND parcela.idConta = " + idConta + " AND parcela.dataTransacao = DATE('now', 'localtime'));");
+                Globals.main.renderLabels(Globals.main.lbl_dailyExpenses, "SELECT SUM(valorTotal) valorTotal FROM (SELECT SUM(valorDespesa) valorTotal FROM despesa WHERE despesa.pagamentoConfirmado = true AND despesa.idConta = " + Globals.idConta + " AND despesa.dataTransacao = DATE('now', 'localtime') " +
+                                                                          "UNION ALL SELECT SUM(valorRepeticao) valorTotal FROM repeticao WHERE repeticao.pagamentoConfirmado = true AND repeticao.idConta = " + Globals.idConta + " AND repeticao.dataTransacao = DATE('start of month', '+1 month', 'localtime') " +
+                                                                          "UNION ALL SELECT SUM(valorParcela) valorTotal FROM parcela WHERE parcela.pagamentoConfirmado = true AND parcela.idConta = " + Globals.idConta + " AND parcela.dataTransacao = DATE('start of month', '+1 month', 'localtime'));");
 
-                expenseGraphsMain.renderLabels(expenseGraphsMain.lbl_monthExpenses, "SELECT SUM(valorTotal) valorTotal FROM (SELECT SUM(valorDespesa) valorTotal FROM despesa WHERE despesa.pagamentoConfirmado = true AND despesa.idConta = " + idConta + " AND despesa.dataTransacao > datetime('now', 'start of month') " +
-                                                                                    "UNION ALL SELECT SUM(valorRepeticao) valorTotal FROM repeticao WHERE repeticao.pagamentoConfirmado = true AND repeticao.idConta = " + idConta + " AND repeticao.dataTransacao > datetime('now', 'start of month') " +
-                                                                                    "UNION ALL SELECT SUM(valorParcela) valorTotal FROM parcela WHERE parcela.pagamentoConfirmado = true AND parcela.idConta = " + idConta + " AND parcela.dataTransacao > datetime('now', 'start of month'));");
+                Globals.main.renderLabels(Globals.main.lbl_monthExpenses, "SELECT SUM(valorTotal) valorTotal FROM (SELECT SUM(valorDespesa) valorTotal FROM despesa WHERE despesa.pagamentoConfirmado = true AND despesa.idConta = " + Globals.idConta + " AND despesa.dataTransacao > datetime('now', 'start of month', 'localtime') " +
+                                                                          "UNION ALL SELECT SUM(valorRepeticao) valorTotal FROM repeticao WHERE repeticao.pagamentoConfirmado = true AND repeticao.idConta = " + Globals.idConta + " AND repeticao.dataTransacao < datetime('start of month', '+1 month', 'localtime') " +
+                                                                          "UNION ALL SELECT SUM(valorParcela) valorTotal FROM parcela WHERE parcela.pagamentoConfirmado = true AND parcela.idConta = " + Globals.idConta + " AND parcela.dataTransacao < datetime('start of month', '+1 month', 'localtime'));");
             }
-            else
-            {
-                MessageBox.Show(expenseGraphsMonth.ToString());
-                changeMonth();
-            }
+            else changeMonth();
         }
 
         //EVITA TREMULAÇÃO DE COMPONENTES
@@ -97,237 +75,30 @@ namespace Sisteg_Dashboard
             }
         }
 
-        private void changeMonth()
-        {
-            DataTable accountDataTable = Database.query("SELECT idConta, nomeConta FROM conta;");
-            DataTable categoryDataTable = Database.query("SELECT idCategoria, nomeCategoria FROM categoria WHERE categoriaDespesa != 0;");
-            if (expenseGraphsMonth < -1)
-            {
-                if (expenseGraphsMonth == -2)
-                {
-                    clearChartData();
-                    if(categoryDataTable.Rows.Count > 0)
-                    {
-                        foreach (DataRow categoryDataRow in categoryDataTable.Rows)
-                        {
-                            this.renderExpenseChart(this.chart_expenseCategory, "SELECT SUM(valorTotal) valorTotal FROM (SELECT SUM(valorDespesa) valorTotal FROM despesa WHERE despesa.pagamentoConfirmado = true AND despesa.idConta = " + idConta + " AND despesa.idCategoria = " + categoryDataRow.ItemArray[0].ToString() + " AND despesa.dataTransacao > datetime('now', 'start of month', '-2 month') AND despesa.dataTransacao < datetime('now', 'start of month', '-1 month') " +
-                                                                                   "UNION ALL SELECT SUM(valorRepeticao) valorTotal FROM repeticao WHERE repeticao.pagamentoConfirmado = true AND repeticao.idConta = " + idConta + " AND repeticao.idCategoria = " + categoryDataRow.ItemArray[0].ToString() + " AND repeticao.dataTransacao > datetime('now', 'start of month', '-2 month') AND repeticao.dataTransacao < datetime('now', 'start of month', '-1 month') " +
-                                                                                   "UNION ALL SELECT SUM(valorParcela) valorTotal FROM parcela WHERE parcela.pagamentoConfirmado = true AND parcela.idConta = " + idConta + " AND parcela.idCategoria = " + categoryDataRow.ItemArray[0].ToString() + " AND parcela.dataTransacao > datetime('now', 'start of month', '-2 month') AND parcela.dataTransacao < datetime('now', 'start of month', '-1 month'));", categoryDataRow);
-                        }
-                    }
-                    else this.chart_expenseCategory.Hide();
+        //FUNÇÕES
 
-                    if(accountDataTable.Rows.Count > 0)
-                    {
-                        foreach (DataRow accountDataRow in accountDataTable.Rows)
-                        {
-                            this.renderExpenseChart(this.chart_expenseAccount, "SELECT SUM(valorTotal) valorTotal FROM (SELECT SUM(valorDespesa) valorTotal FROM despesa WHERE despesa.pagamentoConfirmado = true AND despesa.idConta = " + accountDataRow.ItemArray[0].ToString() + " AND despesa.dataTransacao > datetime('now', 'start of month', '-2 month') AND despesa.dataTransacao < datetime('now', 'start of month', '-1 month') " +
-                                                                                     "UNION ALL SELECT SUM(valorRepeticao) valorTotal FROM repeticao WHERE repeticao.pagamentoConfirmado = true AND repeticao.idConta = " + accountDataRow.ItemArray[0].ToString() + " AND repeticao.dataTransacao > datetime('now', 'start of month', '-2 month') AND repeticao.dataTransacao < datetime('now', 'start of month', '-1 month') " +
-                                                                                     "UNION ALL SELECT SUM(valorParcela) valorTotal FROM parcela WHERE parcela.pagamentoConfirmado = true AND parcela.idConta = " + accountDataRow.ItemArray[0].ToString() + " AND parcela.dataTransacao > datetime('now', 'start of month', '-2 month') AND parcela.dataTransacao < datetime('now', 'start of month', '-1 month'));", accountDataRow);
-                        }
-                    }
-                    else this.chart_expenseAccount.Hide();
-
-                    expenseGraphsMain.renderLabels(expenseGraphsMain.lbl_dailyExpenses, "SELECT SUM(valorTotal) valorTotal FROM (SELECT SUM(valorDespesa) valorTotal FROM despesa WHERE despesa.pagamentoConfirmado = true AND despesa.idConta = " + idConta + " AND despesa.dataTransacao = datetime('now', 'start of day', '-2 month', 'localtime') " +
-                                                                                        "UNION ALL SELECT SUM(valorRepeticao) valorTotal FROM repeticao WHERE repeticao.pagamentoConfirmado = true AND repeticao.idConta = " + idConta + " AND repeticao.dataTransacao = datetime('now', 'start of day', '-2 month', 'localtime') " +
-                                                                                        "UNION ALL SELECT SUM(valorParcela) valorTotal FROM parcela WHERE parcela.pagamentoConfirmado = true AND parcela.idConta = " + idConta + " AND parcela.dataTransacao = datetime('now', 'start of day', '-2 month', 'localtime'));");
-
-                    expenseGraphsMain.renderLabels(expenseGraphsMain.lbl_monthExpenses, "SELECT SUM(valorTotal) valorTotal FROM (SELECT SUM(valorDespesa) valorTotal FROM despesa WHERE despesa.pagamentoConfirmado = true AND despesa.idConta = " + idConta + " AND despesa.dataTransacao > datetime('now', 'start of month', '-2 month') AND despesa.dataTransacao < datetime('now', 'start of month', '-1 month') " +
-                                                                                        "UNION ALL SELECT SUM(valorRepeticao) valorTotal FROM repeticao WHERE repeticao.pagamentoConfirmado = true AND repeticao.idConta = " + idConta + " AND repeticao.dataTransacao > datetime('now', 'start of month', '-2 month') AND repeticao.dataTransacao < datetime('now', 'start of month', '-1 month') " +
-                                                                                        "UNION ALL SELECT SUM(valorParcela) valorTotal FROM parcela WHERE parcela.pagamentoConfirmado = true AND parcela.idConta = " + idConta + " AND parcela.dataTransacao > datetime('now', 'start of month', '-2 month') AND parcela.dataTransacao < datetime('now', 'start of month', '-1 month'));");
-                }
-                else
-                {
-                    clearChartData();
-                    int monthLess = expenseGraphsMonth + 1;
-                    if(categoryDataTable.Rows.Count > 0)
-                    {
-                        foreach (DataRow categoryDataRow in categoryDataTable.Rows)
-                        {
-                            this.renderExpenseChart(this.chart_expenseCategory, "SELECT SUM(valorTotal) valorTotal FROM (SELECT SUM(valorDespesa) valorTotal FROM despesa WHERE despesa.pagamentoConfirmado = true AND despesa.idConta = " + idConta + " AND despesa.idCategoria = " + categoryDataRow.ItemArray[0].ToString() + " AND despesa.dataTransacao > datetime('now', 'start of month', '" + expenseGraphsMonth + " month') AND despesa.dataTransacao < datetime('now', 'start of month', '" + monthLess + " month') " +
-                                                                                   "UNION ALL SELECT SUM(valorRepeticao) valorTotal FROM repeticao WHERE repeticao.pagamentoConfirmado = true AND repeticao.idConta = " + idConta + " AND repeticao.idCategoria = " + categoryDataRow.ItemArray[0].ToString() + " AND repeticao.dataTransacao > datetime('now', 'start of month', '" + expenseGraphsMonth + " month') AND repeticao.dataTransacao < datetime('now', 'start of month', '" + monthLess + " month') " +
-                                                                                   "UNION ALL SELECT SUM(valorParcela) valorTotal FROM parcela WHERE parcela.pagamentoConfirmado = true AND parcela.idConta = " + idConta + " AND parcela.idCategoria = " + categoryDataRow.ItemArray[0].ToString() + " AND parcela.dataTransacao > datetime('now', 'start of month', '" + expenseGraphsMonth + " month') AND parcela.dataTransacao < datetime('now', 'start of month', '" + monthLess + " month'));", categoryDataRow);
-                        }
-                    }
-                    else this.chart_expenseCategory.Hide();
-
-                    if(accountDataTable.Rows.Count > 0)
-                    {
-                        foreach (DataRow accountDataRow in accountDataTable.Rows)
-                        {
-                            this.renderExpenseChart(this.chart_expenseAccount, "SELECT SUM(valorTotal) valorTotal FROM (SELECT SUM(valorDespesa) valorTotal FROM despesa WHERE despesa.pagamentoConfirmado = true AND despesa.idConta = " + accountDataRow.ItemArray[0].ToString() + " AND despesa.dataTransacao > datetime('now', 'start of month', '" + expenseGraphsMonth + " month') AND despesa.dataTransacao < datetime('now', 'start of month', '" + monthLess + " month') " +
-                                                                                     "UNION ALL SELECT SUM(valorRepeticao) valorTotal FROM repeticao WHERE repeticao.pagamentoConfirmado = true AND repeticao.idConta = " + accountDataRow.ItemArray[0].ToString() + " AND repeticao.dataTransacao > datetime('now', 'start of month', '" + expenseGraphsMonth + " month') AND repeticao.dataTransacao < datetime('now', 'start of month', '" + monthLess + " month') " +
-                                                                                     "UNION ALL SELECT SUM(valorParcela) valorTotal FROM parcela WHERE parcela.pagamentoConfirmado = true AND parcela.idConta = " + accountDataRow.ItemArray[0].ToString() + " AND parcela.dataTransacao > datetime('now', 'start of month', '" + expenseGraphsMonth + " month') AND parcela.dataTransacao < datetime('now', 'start of month', '" + monthLess + " month'));", accountDataRow);
-                        }
-                    }
-                    else this.chart_expenseAccount.Hide();
-
-                    expenseGraphsMain.renderLabels(expenseGraphsMain.lbl_dailyExpenses, "SELECT SUM(valorTotal) valorTotal FROM (SELECT SUM(valorDespesa) valorTotal FROM despesa WHERE despesa.pagamentoConfirmado = true AND despesa.idConta = " + idConta + " AND despesa.dataTransacao = datetime('now', 'start of day', '" + expenseGraphsMonth + " month', 'localtime') " +
-                                                                                        "UNION ALL SELECT SUM(valorRepeticao) valorTotal FROM repeticao WHERE repeticao.pagamentoConfirmado = true AND repeticao.idConta = " + idConta + " AND repeticao.dataTransacao = datetime('now', 'start of day', '" + expenseGraphsMonth + " month', 'localtime') " +
-                                                                                        "UNION ALL SELECT SUM(valorParcela) valorTotal FROM parcela WHERE parcela.pagamentoConfirmado = true AND parcela.idConta = " + idConta + " AND parcela.dataTransacao = datetime('now', 'start of day', '" + expenseGraphsMonth + " month', 'localtime'));");
-
-                    expenseGraphsMain.renderLabels(expenseGraphsMain.lbl_monthExpenses, "SELECT SUM(valorTotal) valorTotal FROM (SELECT SUM(valorDespesa) valorTotal FROM despesa WHERE despesa.pagamentoConfirmado = true AND despesa.idConta = " + idConta + " AND despesa.dataTransacao > datetime('now', 'start of month', '" + expenseGraphsMonth + " month') AND despesa.dataTransacao < datetime('now', 'start of month', '" + monthLess + " month') " +
-                                                                                        "UNION ALL SELECT SUM(valorRepeticao) valorTotal FROM repeticao WHERE repeticao.pagamentoConfirmado = true AND repeticao.idConta = " + idConta + " AND repeticao.dataTransacao > datetime('now', 'start of month', '" + expenseGraphsMonth + " month') AND repeticao.dataTransacao < datetime('now', 'start of month', '" + monthLess + " month') " +
-                                                                                        "UNION ALL SELECT SUM(valorParcela) valorTotal FROM parcela WHERE parcela.pagamentoConfirmado = true AND parcela.idConta = " + idConta + " AND parcela.dataTransacao > datetime('now', 'start of month', '" + expenseGraphsMonth + " month') AND parcela.dataTransacao < datetime('now', 'start of month', '" + monthLess + " month'));");
-                }
-            }
-            else if (expenseGraphsMonth == -1)
-            {
-                clearChartData();
-                if(categoryDataTable.Rows.Count > 0)
-                {
-                    foreach (DataRow categoryDataRow in categoryDataTable.Rows)
-                    {
-                        this.renderExpenseChart(this.chart_expenseCategory, "SELECT SUM(valorTotal) valorTotal FROM (SELECT SUM(valorDespesa) valorTotal FROM despesa WHERE despesa.pagamentoConfirmado = true AND despesa.idConta = " + idConta + " AND despesa.idCategoria = " + categoryDataRow.ItemArray[0].ToString() + " AND despesa.dataTransacao > datetime('now', 'start of month', '-1 month') AND despesa.dataTransacao < datetime('now', 'start of month') " +
-                                                                               "UNION ALL SELECT SUM(valorRepeticao) valorTotal FROM repeticao WHERE repeticao.pagamentoConfirmado = true AND repeticao.idConta = " + idConta + " AND repeticao.idCategoria = " + categoryDataRow.ItemArray[0].ToString() + " AND repeticao.dataTransacao > datetime('now', 'start of month', '-1 month') AND repeticao.dataTransacao < datetime('now', 'start of month') " +
-                                                                               "UNION ALL SELECT SUM(valorParcela) valorTotal FROM parcela WHERE parcela.pagamentoConfirmado = true AND parcela.idConta = " + idConta + " AND parcela.idCategoria = " + categoryDataRow.ItemArray[0].ToString() + " AND parcela.dataTransacao > datetime('now', 'start of month', '-1 month') AND parcela.dataTransacao < datetime('now', 'start of month'));", categoryDataRow);
-                    }
-                }
-                else this.chart_expenseCategory.Hide();
-
-                if(accountDataTable.Rows.Count > 0)
-                {
-                    foreach (DataRow accountDataRow in accountDataTable.Rows)
-                    {
-                        this.renderExpenseChart(this.chart_expenseAccount, "SELECT SUM(valorTotal) valorTotal FROM (SELECT SUM(valorDespesa) valorTotal FROM despesa WHERE despesa.pagamentoConfirmado = true AND despesa.idConta = " + accountDataRow.ItemArray[0].ToString() + " AND despesa.dataTransacao > datetime('now', 'start of month', '-1 month') AND despesa.dataTransacao < datetime('now', 'start of month') " +
-                                                                                 "UNION ALL SELECT SUM(valorRepeticao) valorTotal FROM repeticao WHERE repeticao.pagamentoConfirmado = true AND repeticao.idConta = " + accountDataRow.ItemArray[0].ToString() + " AND repeticao.dataTransacao > datetime('now', 'start of month', '-1 month') AND repeticao.dataTransacao < datetime('now', 'start of month') " +
-                                                                                 "UNION ALL SELECT SUM(valorParcela) valorTotal FROM parcela WHERE parcela.pagamentoConfirmado = true AND parcela.idConta = " + accountDataRow.ItemArray[0].ToString() + " AND parcela.dataTransacao > datetime('now', 'start of month', '-1 month') AND parcela.dataTransacao < datetime('now', 'start of month'));", accountDataRow);
-                    }
-                }
-                else this.chart_expenseAccount.Hide();
-
-                expenseGraphsMain.renderLabels(expenseGraphsMain.lbl_dailyExpenses, "SELECT SUM(valorTotal) valorTotal FROM (SELECT SUM(valorDespesa) valorTotal FROM despesa WHERE despesa.pagamentoConfirmado = true AND despesa.idConta = " + idConta + " AND despesa.dataTransacao = datetime('now', 'start of day', '-1 month', 'localtime') " +
-                                                                                    "UNION ALL SELECT SUM(valorRepeticao) valorTotal FROM repeticao WHERE repeticao.pagamentoConfirmado = true AND repeticao.idConta = " + idConta + " AND repeticao.dataTransacao = datetime('now', 'start of day', '-1 month', 'localtime') " +
-                                                                                    "UNION ALL SELECT SUM(valorParcela) valorTotal FROM parcela WHERE parcela.pagamentoConfirmado = true AND parcela.idConta = " + idConta + " AND parcela.dataTransacao = datetime('now', 'start of day', '-1 month', 'localtime'));");
-
-                expenseGraphsMain.renderLabels(expenseGraphsMain.lbl_monthExpenses, "SELECT SUM(valorTotal) valorTotal FROM (SELECT SUM(valorDespesa) valorTotal FROM despesa WHERE despesa.pagamentoConfirmado = true AND despesa.idConta = " + idConta + " AND despesa.dataTransacao > datetime('now', 'start of month', '-1 month') AND despesa.dataTransacao < datetime('now', 'start of month') " +
-                                                                                    "UNION ALL SELECT SUM(valorRepeticao) valorTotal FROM repeticao WHERE repeticao.pagamentoConfirmado = true AND repeticao.idConta = " + idConta + " AND repeticao.dataTransacao > datetime('now', 'start of month', '-1 month') AND repeticao.dataTransacao < datetime('now', 'start of month') " +
-                                                                                    "UNION ALL SELECT SUM(valorParcela) valorTotal FROM parcela WHERE parcela.pagamentoConfirmado = true AND parcela.idConta = " + idConta + " AND parcela.dataTransacao > datetime('now', 'start of month', '-1 month') AND parcela.dataTransacao < datetime('now', 'start of month'));");
-            }
-            else if (expenseGraphsMonth == 0)
-            {
-                clearChartData();
-                if(categoryDataTable.Rows.Count > 0)
-                {
-                    foreach (DataRow categoryDataRow in categoryDataTable.Rows)
-                    {
-                        this.renderExpenseChart(this.chart_expenseCategory, "SELECT SUM(valorTotal) valorTotal FROM (SELECT SUM(valorDespesa) valorTotal FROM despesa WHERE despesa.pagamentoConfirmado = true AND despesa.idConta = " + idConta + " AND despesa.idCategoria = " + categoryDataRow.ItemArray[0].ToString() + " AND despesa.dataTransacao > datetime('now', 'start of month') " +
-                                                                               "UNION ALL SELECT SUM(valorRepeticao) valorTotal FROM repeticao WHERE repeticao.pagamentoConfirmado = true AND repeticao.idConta = " + idConta + " AND repeticao.idCategoria = " + categoryDataRow.ItemArray[0].ToString() + " AND repeticao.dataTransacao > datetime('now', 'start of month') " +
-                                                                               "UNION ALL SELECT SUM(valorParcela) valorTotal FROM parcela WHERE parcela.pagamentoConfirmado = true AND parcela.idConta = " + idConta + " AND parcela.idCategoria = " + categoryDataRow.ItemArray[0].ToString() + " AND parcela.dataTransacao > datetime('now', 'start of month'));", categoryDataRow);
-                    }
-                }
-                else this.chart_expenseCategory.Hide();
-
-                if(accountDataTable.Rows.Count > 0)
-                {
-                    foreach (DataRow accountDataRow in accountDataTable.Rows)
-                    {
-                        this.renderExpenseChart(this.chart_expenseAccount, "SELECT SUM(valorTotal) valorTotal FROM (SELECT SUM(valorDespesa) valorTotal FROM despesa WHERE despesa.pagamentoConfirmado = true AND despesa.idConta = " + accountDataRow.ItemArray[0].ToString() + " AND despesa.dataTransacao > datetime('now', 'start of month') " +
-                                                                                 "UNION ALL SELECT SUM(valorRepeticao) valorTotal FROM repeticao WHERE repeticao.pagamentoConfirmado = true AND repeticao.idConta = " + accountDataRow.ItemArray[0].ToString() + " AND repeticao.dataTransacao > datetime('now', 'start of month') " +
-                                                                                 "UNION ALL SELECT SUM(valorParcela) valorTotal FROM parcela WHERE parcela.pagamentoConfirmado = true AND parcela.idConta = " + accountDataRow.ItemArray[0].ToString() + " AND parcela.dataTransacao > datetime('now', 'start of month'));", accountDataRow);
-                    }
-                }
-                else this.chart_expenseAccount.Hide();
-
-                expenseGraphsMain.renderLabels(expenseGraphsMain.lbl_dailyExpenses, "SELECT SUM(valorTotal) valorTotal FROM (SELECT SUM(valorDespesa) valorTotal FROM despesa WHERE despesa.pagamentoConfirmado = true AND despesa.idConta = " + idConta + " AND despesa.dataTransacao = DATE('now', 'localtime') " +
-                                                                                    "UNION ALL SELECT SUM(valorRepeticao) valorTotal FROM repeticao WHERE repeticao.pagamentoConfirmado = true AND repeticao.idConta = " + idConta + " AND repeticao.dataTransacao = DATE('now', 'localtime') " +
-                                                                                    "UNION ALL SELECT SUM(valorParcela) valorTotal FROM parcela WHERE parcela.pagamentoConfirmado = true AND parcela.idConta = " + idConta + " AND parcela.dataTransacao = DATE('now', 'localtime'));");
-                
-                expenseGraphsMain.renderLabels(expenseGraphsMain.lbl_monthExpenses, "SELECT SUM(valorTotal) valorTotal FROM (SELECT SUM(valorDespesa) valorTotal FROM despesa WHERE despesa.pagamentoConfirmado = true AND despesa.idConta = " + idConta + " AND despesa.dataTransacao > datetime('now', 'start of month') " +
-                                                                                    "UNION ALL SELECT SUM(valorRepeticao) valorTotal FROM repeticao WHERE repeticao.pagamentoConfirmado = true AND repeticao.idConta = " + idConta + " AND repeticao.dataTransacao > datetime('now', 'start of month') " +
-                                                                                    "UNION ALL SELECT SUM(valorParcela) valorTotal FROM parcela WHERE parcela.pagamentoConfirmado = true AND parcela.idConta = " + idConta + " AND parcela.dataTransacao > datetime('now', 'start of month'));");
-            }
-            else if (expenseGraphsMonth == 1)
-            {
-                clearChartData();
-                if(categoryDataTable.Rows.Count > 0)
-                {
-                    foreach (DataRow categoryDataRow in categoryDataTable.Rows)
-                    {
-                        this.renderExpenseChart(this.chart_expenseCategory, "SELECT SUM(valorTotal) valorTotal FROM (SELECT SUM(valorDespesa) valorTotal FROM despesa WHERE despesa.pagamentoConfirmado = true AND despesa.idConta = " + idConta + " AND despesa.idCategoria = " + categoryDataRow.ItemArray[0].ToString() + " AND despesa.dataTransacao < datetime('now', 'start of month', '+2 month') AND despesa.dataTransacao > datetime('now', 'start of month', '+1 month') " +
-                                                                               "UNION ALL SELECT SUM(valorRepeticao) valorTotal FROM repeticao WHERE repeticao.pagamentoConfirmado = true AND repeticao.idConta = " + idConta + " AND repeticao.idCategoria = " + categoryDataRow.ItemArray[0].ToString() + " AND repeticao.dataTransacao < datetime('now', 'start of month', '+2 month') AND repeticao.dataTransacao > datetime('now', 'start of month', '+1 month') " +
-                                                                               "UNION ALL SELECT SUM(valorParcela) valorTotal FROM parcela WHERE parcela.pagamentoConfirmado = true AND parcela.idConta = " + idConta + " AND parcela.idCategoria = " + categoryDataRow.ItemArray[0].ToString() + " AND parcela.dataTransacao < datetime('now', 'start of month', '+2 month') AND parcela.dataTransacao > datetime('now', 'start of month', '+1 month'));", categoryDataRow);
-                    }
-                }
-                else this.chart_expenseCategory.Hide();
-
-                if(accountDataTable.Rows.Count > 0)
-                {
-                    foreach (DataRow accountDataRow in accountDataTable.Rows)
-                    {
-                        this.renderExpenseChart(this.chart_expenseAccount, "SELECT SUM(valorTotal) valorTotal FROM (SELECT SUM(valorDespesa) valorTotal FROM despesa WHERE despesa.pagamentoConfirmado = true AND despesa.idConta = " + accountDataRow.ItemArray[0].ToString() + " AND despesa.dataTransacao < datetime('now', 'start of month', '+2 month') AND despesa.dataTransacao > datetime('now', 'start of month', '+1 month') " +
-                                                                                 "UNION ALL SELECT SUM(valorRepeticao) valorTotal FROM repeticao WHERE repeticao.pagamentoConfirmado = true AND repeticao.idConta = " + accountDataRow.ItemArray[0].ToString() + " AND repeticao.dataTransacao < datetime('now', 'start of month', '+2 month') AND repeticao.dataTransacao > datetime('now', 'start of month', '+1 month') " +
-                                                                                 "UNION ALL SELECT SUM(valorParcela) valorTotal FROM parcela WHERE parcela.pagamentoConfirmado = true AND parcela.idConta = " + accountDataRow.ItemArray[0].ToString() + " AND parcela.dataTransacao < datetime('now', 'start of month', '+2 month') AND parcela.dataTransacao > datetime('now', 'start of month', '+1 month'));", accountDataRow);
-                    }
-                }
-                else this.chart_expenseAccount.Hide();
-
-                expenseGraphsMain.renderLabels(expenseGraphsMain.lbl_dailyExpenses, "SELECT SUM(valorTotal) valorTotal FROM (SELECT SUM(valorDespesa) valorTotal FROM despesa WHERE despesa.pagamentoConfirmado = true AND despesa.idConta = " + idConta + " AND despesa.dataTransacao = datetime('now', 'start of day', '+1 month', 'localtime') " +
-                                                                                    "UNION ALL SELECT SUM(valorRepeticao) valorTotal FROM repeticao WHERE repeticao.pagamentoConfirmado = true AND repeticao.idConta = " + idConta + " AND repeticao.dataTransacao = datetime('now', 'start of day', '+1 month', 'localtime') " +
-                                                                                    "UNION ALL SELECT SUM(valorParcela) valorTotal FROM parcela WHERE parcela.pagamentoConfirmado = true AND parcela.idConta = " + idConta + " AND parcela.dataTransacao = datetime('now', 'start of day', '+1 month', 'localtime'));");
-
-                expenseGraphsMain.renderLabels(expenseGraphsMain.lbl_monthExpenses, "SELECT SUM(valorTotal) valorTotal FROM (SELECT SUM(valorDespesa) valorTotal FROM despesa WHERE despesa.pagamentoConfirmado = true AND despesa.idConta = " + idConta + " AND despesa.dataTransacao < datetime('now', 'start of month', '+2 month') AND despesa.dataTransacao > datetime('now', 'start of month', '+1 month') " +
-                                                                                    "UNION ALL SELECT SUM(valorRepeticao) valorTotal FROM repeticao WHERE repeticao.pagamentoConfirmado = true AND repeticao.idConta = " + idConta + " AND repeticao.dataTransacao < datetime('now', 'start of month', '+2 month') AND repeticao.dataTransacao > datetime('now', 'start of month', '+1 month') " +
-                                                                                    "UNION ALL SELECT SUM(valorParcela) valorTotal FROM parcela WHERE parcela.pagamentoConfirmado = true AND parcela.idConta = " + idConta + " AND parcela.dataTransacao < datetime('now', 'start of month', '+2 month') AND parcela.dataTransacao > datetime('now', 'start of month', '+1 month'));");
-            }
-            else if (expenseGraphsMonth > 1)
-            {
-                clearChartData();
-                int monthMore = expenseGraphsMonth + 1;
-                if(categoryDataTable.Rows.Count > 0)
-                {
-                    foreach (DataRow categoryDataRow in categoryDataTable.Rows)
-                    {
-                        this.renderExpenseChart(this.chart_expenseCategory, "SELECT SUM(valorTotal) valorTotal FROM (SELECT SUM(valorDespesa) valorTotal FROM despesa WHERE despesa.pagamentoConfirmado = true AND despesa.idConta = " + idConta + " AND despesa.idCategoria = " + categoryDataRow.ItemArray[0].ToString() + " AND despesa.dataTransacao < datetime('now', 'start of month', '+" + monthMore + " month') AND despesa.dataTransacao > datetime('now', 'start of month', '+" + expenseGraphsMonth + " month') " +
-                                                                               "UNION ALL SELECT SUM(valorRepeticao) valorTotal FROM repeticao WHERE repeticao.pagamentoConfirmado = true AND repeticao.idConta = " + idConta + " AND repeticao.idCategoria = " + categoryDataRow.ItemArray[0].ToString() + " AND repeticao.dataTransacao < datetime('now', 'start of month', '+" + monthMore + " month') AND repeticao.dataTransacao > datetime('now', 'start of month', '+" + expenseGraphsMonth + " month') " +
-                                                                               "UNION ALL SELECT SUM(valorParcela) valorTotal FROM parcela WHERE parcela.pagamentoConfirmado = true AND parcela.idConta = " + idConta + " AND parcela.idCategoria = " + categoryDataRow.ItemArray[0].ToString() + " AND parcela.dataTransacao < datetime('now', 'start of month', '+" + monthMore + " month') AND parcela.dataTransacao > datetime('now', 'start of month', '+" + expenseGraphsMonth + " month'));", categoryDataRow);
-                    }
-                }
-                else this.chart_expenseCategory.Hide();
-
-                if(accountDataTable.Rows.Count > 0)
-                {
-                    foreach (DataRow accountDataRow in accountDataTable.Rows)
-                    {
-                        this.renderExpenseChart(this.chart_expenseAccount, "SELECT SUM(valorTotal) valorTotal FROM (SELECT SUM(valorDespesa) valorTotal FROM despesa WHERE despesa.pagamentoConfirmado = true AND despesa.idConta = " + accountDataRow.ItemArray[0].ToString() + " AND despesa.dataTransacao < datetime('now', 'start of month', '+" + monthMore + " month') AND despesa.dataTransacao > datetime('now', 'start of month', '+" + expenseGraphsMonth + " month') " +
-                                                                                 "UNION ALL SELECT SUM(valorRepeticao) valorTotal FROM repeticao WHERE repeticao.pagamentoConfirmado = true AND repeticao.idConta = " + accountDataRow.ItemArray[0].ToString() + " AND repeticao.dataTransacao < datetime('now', 'start of month', '+" + monthMore + " month') AND repeticao.dataTransacao > datetime('now', 'start of month', '+" + expenseGraphsMonth + " month') " +
-                                                                                 "UNION ALL SELECT SUM(valorParcela) valorTotal FROM parcela WHERE parcela.pagamentoConfirmado = true AND parcela.idConta = " + accountDataRow.ItemArray[0].ToString() + " AND parcela.dataTransacao < datetime('now', 'start of month', '+" + monthMore + " month') AND parcela.dataTransacao > datetime('now', 'start of month', '+" + expenseGraphsMonth + " month'));", accountDataRow);
-                    }
-                }
-                else this.chart_expenseAccount.Hide();
-
-                expenseGraphsMain.renderLabels(expenseGraphsMain.lbl_dailyExpenses, "SELECT SUM(valorTotal) valorTotal FROM (SELECT SUM(valorDespesa) valorTotal FROM despesa WHERE despesa.pagamentoConfirmado = true AND despesa.idConta = " + idConta + " AND despesa.dataTransacao = datetime('now', 'start of day', '+" + expenseGraphsMonth + " month', 'localtime') " +
-                                                                    "UNION ALL SELECT SUM(valorRepeticao) valorTotal FROM repeticao WHERE repeticao.pagamentoConfirmado = true AND repeticao.idConta = " + idConta + " AND repeticao.dataTransacao = datetime('now', 'start of day', '+" + expenseGraphsMonth + " month', 'localtime') " +
-                                                                    "UNION ALL SELECT SUM(valorParcela) valorTotal FROM parcela WHERE parcela.pagamentoConfirmado = true AND parcela.idConta = " + idConta + " AND parcela.dataTransacao = datetime('now', 'start of day', '+" + expenseGraphsMonth + " month', 'localtime');");
-
-                expenseGraphsMain.renderLabels(expenseGraphsMain.lbl_monthExpenses, "SELECT SUM(valorTotal) valorTotal FROM (SELECT SUM(valorDespesa) valorTotal FROM despesa WHERE despesa.pagamentoConfirmado = true AND despesa.idConta = " + idConta + " AND despesa.dataTransacao < datetime('now', 'start of month', '+" + monthMore + " month') AND despesa.dataTransacao > datetime('now', 'start of month', '+" + expenseGraphsMonth + " month') " +
-                                                                                    "UNION ALL SELECT SUM(valorRepeticao) valorTotal FROM repeticao WHERE repeticao.pagamentoConfirmado = true AND repeticao.idConta = " + idConta + " AND repeticao.dataTransacao < datetime('now', 'start of month', '+" + monthMore + " month') AND repeticao.dataTransacao > datetime('now', 'start of month', '+" + expenseGraphsMonth + " month') " +
-                                                                                    "UNION ALL SELECT SUM(valorParcela) valorTotal FROM parcela WHERE parcela.pagamentoConfirmado = true AND parcela.idConta = " + idConta + " AND parcela.dataTransacao < datetime('now', 'start of month', '+" + monthMore + " month') AND parcela.dataTransacao > datetime('now', 'start of month', '+" + expenseGraphsMonth + " month'));");
-            }
-        }
-
-        //LIMPAR DADOS DO FORMULÁRIO
+        //Função que limpa os dados do formulário
         private void clearChartData()
         {
             foreach (var series in this.chart_expenseAccount.Series) series.Points.Clear();
             foreach (var series in this.chart_expenseCategory.Series) series.Points.Clear();
         }
 
-        //FUNÇÃO QUE RENDERIZA OS GRÁFICOS DE PIZZA DE ACORDO COM AS INFORMAÇÕES VINDAS DO BANCO DE DADOS
+        //Função que renderiza os gráficos de pizza de acordo com as informações vindas do banco de dados
         protected internal void renderExpenseChart(System.Windows.Forms.DataVisualization.Charting.Chart chart, string query, DataRow accountDataRow)
         {
             chart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
-            chart.PaletteCustomColors = myPalette;
+            chart.PaletteCustomColors = Globals.myPalette;
             DataTable dataTable = Database.query(query);
             if (dataTable.Rows.Count > 0)
             {
                 chart.Show();
                 foreach (DataRow dataRow in dataTable.Rows)
                 {
-                    string category = accountDataRow.ItemArray[1].ToString();
-                    if ((!string.IsNullOrEmpty(dataRow.ItemArray[0].ToString())) && ((Convert.ToInt32(dataRow.ItemArray[0])) != 0))
+                    string category = accountDataRow.ItemArray[1].ToString().Trim();
+                    if ((!string.IsNullOrEmpty(dataRow.ItemArray[0].ToString().Trim())) && ((Convert.ToInt32(dataRow.ItemArray[0])) != 0))
                     {
-                        string graph = dataRow.ItemArray[0].ToString();
+                        string graph = dataRow.ItemArray[0].ToString().Trim();
                         string sum = String.Format("{0:C}", dataRow.ItemArray[0]);
                         string label = category + "\n" + sum;
                         chart.Series[0].Points.AddXY(label, graph);
@@ -335,6 +106,230 @@ namespace Sisteg_Dashboard
                 }
             }
             else chart.Hide();
+        }
+
+        //Função que muda o período mensal para atualização dos gráficos, tabelas e inscrições no formulário
+        private void changeMonth()
+        {
+            DataTable accountDataTable = Database.query("SELECT idConta, nomeConta FROM conta;");
+            DataTable categoryDataTable = Database.query("SELECT idCategoria, nomeCategoria FROM categoria WHERE categoriaDespesa != 0;");
+            if (Globals.month < -1)
+            {
+                if (Globals.month == -2)
+                {
+                    clearChartData();
+                    if(categoryDataTable.Rows.Count > 0)
+                    {
+                        foreach (DataRow categoryDataRow in categoryDataTable.Rows)
+                        {
+                            this.renderExpenseChart(this.chart_expenseCategory, "SELECT SUM(valorTotal) valorTotal FROM (SELECT SUM(valorDespesa) valorTotal FROM despesa WHERE despesa.pagamentoConfirmado = true AND despesa.idConta = " + Globals.idConta + " AND despesa.idCategoria = " + categoryDataRow.ItemArray[0].ToString().Trim() + " AND despesa.dataTransacao > datetime('now', 'start of month', '-2 month', 'localtime') AND despesa.dataTransacao < datetime('now', 'start of month', '-1 month', 'localtime') " +
+                                                                                "UNION ALL SELECT SUM(valorRepeticao) valorTotal FROM repeticao WHERE repeticao.pagamentoConfirmado = true AND repeticao.idConta = " + Globals.idConta + " AND repeticao.idCategoria = " + categoryDataRow.ItemArray[0].ToString().Trim() + " AND repeticao.dataTransacao > datetime('now', 'start of month', '-2 month', 'localtime') AND repeticao.dataTransacao < datetime('now', 'start of month', '-1 month', 'localtime') " +
+                                                                                "UNION ALL SELECT SUM(valorParcela) valorTotal FROM parcela WHERE parcela.pagamentoConfirmado = true AND parcela.idConta = " + Globals.idConta + " AND parcela.idCategoria = " + categoryDataRow.ItemArray[0].ToString().Trim() + " AND parcela.dataTransacao > datetime('now', 'start of month', '-2 month', 'localtime') AND parcela.dataTransacao < datetime('now', 'start of month', '-1 month', 'localtime'));", categoryDataRow);
+                        }
+                    }
+                    else this.chart_expenseCategory.Hide();
+
+                    if(accountDataTable.Rows.Count > 0)
+                    {
+                        foreach (DataRow accountDataRow in accountDataTable.Rows)
+                        {
+                            this.renderExpenseChart(this.chart_expenseAccount, "SELECT SUM(valorTotal) valorTotal FROM (SELECT SUM(valorDespesa) valorTotal FROM despesa WHERE despesa.pagamentoConfirmado = true AND despesa.idConta = " + accountDataRow.ItemArray[0].ToString().Trim() + " AND despesa.dataTransacao > datetime('now', 'start of month', '-2 month', 'localtime') AND despesa.dataTransacao < datetime('now', 'start of month', '-1 month', 'localtime') " +
+                                                                               "UNION ALL SELECT SUM(valorRepeticao) valorTotal FROM repeticao WHERE repeticao.pagamentoConfirmado = true AND repeticao.idConta = " + accountDataRow.ItemArray[0].ToString().Trim() + " AND repeticao.dataTransacao > datetime('now', 'start of month', '-2 month', 'localtime') AND repeticao.dataTransacao < datetime('now', 'start of month', '-1 month', 'localtime') " +
+                                                                               "UNION ALL SELECT SUM(valorParcela) valorTotal FROM parcela WHERE parcela.pagamentoConfirmado = true AND parcela.idConta = " + accountDataRow.ItemArray[0].ToString().Trim() + " AND parcela.dataTransacao > datetime('now', 'start of month', '-2 month', 'localtime') AND parcela.dataTransacao < datetime('now', 'start of month', '-1 month', 'localtime'));", accountDataRow);
+                        }
+                    }
+                    else this.chart_expenseAccount.Hide();
+
+                    Globals.main.renderLabels(Globals.main.lbl_dailyExpenses, "SELECT SUM(valorTotal) valorTotal FROM (SELECT SUM(valorDespesa) valorTotal FROM despesa WHERE despesa.pagamentoConfirmado = true AND despesa.idConta = " + Globals.idConta + " AND despesa.dataTransacao = datetime('now', 'start of day', '-2 month', 'localtime') " +
+                                                                              "UNION ALL SELECT SUM(valorRepeticao) valorTotal FROM repeticao WHERE repeticao.pagamentoConfirmado = true AND repeticao.idConta = " + Globals.idConta + " AND repeticao.dataTransacao = datetime('now', 'start of day', '-2 month', 'localtime') " +
+                                                                              "UNION ALL SELECT SUM(valorParcela) valorTotal FROM parcela WHERE parcela.pagamentoConfirmado = true AND parcela.idConta = " + Globals.idConta + " AND parcela.dataTransacao = datetime('now', 'start of day', '-2 month', 'localtime'));");
+
+                    Globals.main.renderLabels(Globals.main.lbl_monthExpenses, "SELECT SUM(valorTotal) valorTotal FROM (SELECT SUM(valorDespesa) valorTotal FROM despesa WHERE despesa.pagamentoConfirmado = true AND despesa.idConta = " + Globals.idConta + " AND despesa.dataTransacao > datetime('now', 'start of month', '-2 month', 'localtime') AND despesa.dataTransacao < datetime('now', 'start of month', '-1 month', 'localtime') " +
+                                                                              "UNION ALL SELECT SUM(valorRepeticao) valorTotal FROM repeticao WHERE repeticao.pagamentoConfirmado = true AND repeticao.idConta = " + Globals.idConta + " AND repeticao.dataTransacao > datetime('now', 'start of month', '-2 month', 'localtime') AND repeticao.dataTransacao < datetime('now', 'start of month', '-1 month', 'localtime') " +
+                                                                              "UNION ALL SELECT SUM(valorParcela) valorTotal FROM parcela WHERE parcela.pagamentoConfirmado = true AND parcela.idConta = " + Globals.idConta + " AND parcela.dataTransacao > datetime('now', 'start of month', '-2 month', 'localtime') AND parcela.dataTransacao < datetime('now', 'start of month', '-1 month', 'localtime'));");
+                }
+                else
+                {
+                    clearChartData();
+                    int monthLess = Globals.month + 1;
+                    if(categoryDataTable.Rows.Count > 0)
+                    {
+                        foreach (DataRow categoryDataRow in categoryDataTable.Rows)
+                        {
+                            this.renderExpenseChart(this.chart_expenseCategory, "SELECT SUM(valorTotal) valorTotal FROM (SELECT SUM(valorDespesa) valorTotal FROM despesa WHERE despesa.pagamentoConfirmado = true AND despesa.idConta = " + Globals.idConta + " AND despesa.idCategoria = " + categoryDataRow.ItemArray[0].ToString().Trim() + " AND despesa.dataTransacao > datetime('now', 'start of month', '" + Globals.month + " month', 'localtime') AND despesa.dataTransacao < datetime('now', 'start of month', '" + monthLess + " month', 'localtime') " +
+                                                                                "UNION ALL SELECT SUM(valorRepeticao) valorTotal FROM repeticao WHERE repeticao.pagamentoConfirmado = true AND repeticao.idConta = " + Globals.idConta + " AND repeticao.idCategoria = " + categoryDataRow.ItemArray[0].ToString().Trim() + " AND repeticao.dataTransacao > datetime('now', 'start of month', '" + Globals.month + " month', 'localtime') AND repeticao.dataTransacao < datetime('now', 'start of month', '" + monthLess + " month', 'localtime') " +
+                                                                                "UNION ALL SELECT SUM(valorParcela) valorTotal FROM parcela WHERE parcela.pagamentoConfirmado = true AND parcela.idConta = " + Globals.idConta + " AND parcela.idCategoria = " + categoryDataRow.ItemArray[0].ToString().Trim() + " AND parcela.dataTransacao > datetime('now', 'start of month', '" + Globals.month + " month', 'localtime') AND parcela.dataTransacao < datetime('now', 'start of month', '" + monthLess + " month', 'localtime'));", categoryDataRow);
+                        }
+                    }
+                    else this.chart_expenseCategory.Hide();
+
+                    if(accountDataTable.Rows.Count > 0)
+                    {
+                        foreach (DataRow accountDataRow in accountDataTable.Rows)
+                        {
+                            this.renderExpenseChart(this.chart_expenseAccount, "SELECT SUM(valorTotal) valorTotal FROM (SELECT SUM(valorDespesa) valorTotal FROM despesa WHERE despesa.pagamentoConfirmado = true AND despesa.idConta = " + accountDataRow.ItemArray[0].ToString().Trim() + " AND despesa.dataTransacao > datetime('now', 'start of month', '" + Globals.month + " month', 'localtime') AND despesa.dataTransacao < datetime('now', 'start of month', '" + monthLess + " month', 'localtime') " +
+                                                                               "UNION ALL SELECT SUM(valorRepeticao) valorTotal FROM repeticao WHERE repeticao.pagamentoConfirmado = true AND repeticao.idConta = " + accountDataRow.ItemArray[0].ToString().Trim() + " AND repeticao.dataTransacao > datetime('now', 'start of month', '" + Globals.month + " month', 'localtime') AND repeticao.dataTransacao < datetime('now', 'start of month', '" + monthLess + " month', 'localtime') " +
+                                                                               "UNION ALL SELECT SUM(valorParcela) valorTotal FROM parcela WHERE parcela.pagamentoConfirmado = true AND parcela.idConta = " + accountDataRow.ItemArray[0].ToString().Trim() + " AND parcela.dataTransacao > datetime('now', 'start of month', '" + Globals.month + " month', 'localtime') AND parcela.dataTransacao < datetime('now', 'start of month', '" + monthLess + " month', 'localtime'));", accountDataRow);
+                        }
+                    }
+                    else this.chart_expenseAccount.Hide();
+
+                    Globals.main.renderLabels(Globals.main.lbl_dailyExpenses, "SELECT SUM(valorTotal) valorTotal FROM (SELECT SUM(valorDespesa) valorTotal FROM despesa WHERE despesa.pagamentoConfirmado = true AND despesa.idConta = " + Globals.idConta + " AND despesa.dataTransacao = datetime('now', 'start of day', '" + Globals.month + " month', 'localtime') " +
+                                                                              "UNION ALL SELECT SUM(valorRepeticao) valorTotal FROM repeticao WHERE repeticao.pagamentoConfirmado = true AND repeticao.idConta = " + Globals.idConta + " AND repeticao.dataTransacao = datetime('now', 'start of day', '" + Globals.month + " month', 'localtime') " +
+                                                                              "UNION ALL SELECT SUM(valorParcela) valorTotal FROM parcela WHERE parcela.pagamentoConfirmado = true AND parcela.idConta = " + Globals.idConta + " AND parcela.dataTransacao = datetime('now', 'start of day', '" + Globals.month + " month', 'localtime'));");
+
+                    Globals.main.renderLabels(Globals.main.lbl_monthExpenses, "SELECT SUM(valorTotal) valorTotal FROM (SELECT SUM(valorDespesa) valorTotal FROM despesa WHERE despesa.pagamentoConfirmado = true AND despesa.idConta = " + Globals.idConta + " AND despesa.dataTransacao > datetime('now', 'start of month', '" + Globals.month + " month', 'localtime') AND despesa.dataTransacao < datetime('now', 'start of month', '" + monthLess + " month', 'localtime') " +
+                                                                              "UNION ALL SELECT SUM(valorRepeticao) valorTotal FROM repeticao WHERE repeticao.pagamentoConfirmado = true AND repeticao.idConta = " + Globals.idConta + " AND repeticao.dataTransacao > datetime('now', 'start of month', '" + Globals.month + " month', 'localtime') AND repeticao.dataTransacao < datetime('now', 'start of month', '" + monthLess + " month', 'localtime') " +
+                                                                              "UNION ALL SELECT SUM(valorParcela) valorTotal FROM parcela WHERE parcela.pagamentoConfirmado = true AND parcela.idConta = " + Globals.idConta + " AND parcela.dataTransacao > datetime('now', 'start of month', '" + Globals.month + " month', 'localtime') AND parcela.dataTransacao < datetime('now', 'start of month', '" + monthLess + " month', 'localtime'));");
+                }
+            }
+            else if (Globals.month == -1)
+            {
+                clearChartData();
+                if(categoryDataTable.Rows.Count > 0)
+                {
+                    foreach (DataRow categoryDataRow in categoryDataTable.Rows)
+                    {
+                        this.renderExpenseChart(this.chart_expenseCategory, "SELECT SUM(valorTotal) valorTotal FROM (SELECT SUM(valorDespesa) valorTotal FROM despesa WHERE despesa.pagamentoConfirmado = true AND despesa.idConta = " + Globals.idConta + " AND despesa.idCategoria = " + categoryDataRow.ItemArray[0].ToString().Trim() + " AND despesa.dataTransacao > datetime('now', 'start of month', '-1 month', 'localtime') AND despesa.dataTransacao < datetime('now', 'start of month', 'localtime') " +
+                                                                            "UNION ALL SELECT SUM(valorRepeticao) valorTotal FROM repeticao WHERE repeticao.pagamentoConfirmado = true AND repeticao.idConta = " + Globals.idConta + " AND repeticao.idCategoria = " + categoryDataRow.ItemArray[0].ToString().Trim() + " AND repeticao.dataTransacao > datetime('now', 'start of month', '-1 month', 'localtime') AND repeticao.dataTransacao < datetime('now', 'start of month', 'localtime') " +
+                                                                            "UNION ALL SELECT SUM(valorParcela) valorTotal FROM parcela WHERE parcela.pagamentoConfirmado = true AND parcela.idConta = " + Globals.idConta + " AND parcela.idCategoria = " + categoryDataRow.ItemArray[0].ToString().Trim() + " AND parcela.dataTransacao > datetime('now', 'start of month', '-1 month', 'localtime') AND parcela.dataTransacao < datetime('now', 'start of month', 'localtime'));", categoryDataRow);
+                    }
+                }
+                else this.chart_expenseCategory.Hide();
+
+                if(accountDataTable.Rows.Count > 0)
+                {
+                    foreach (DataRow accountDataRow in accountDataTable.Rows)
+                    {
+                        this.renderExpenseChart(this.chart_expenseAccount, "SELECT SUM(valorTotal) valorTotal FROM (SELECT SUM(valorDespesa) valorTotal FROM despesa WHERE despesa.pagamentoConfirmado = true AND despesa.idConta = " + accountDataRow.ItemArray[0].ToString().Trim() + " AND despesa.dataTransacao > datetime('now', 'start of month', '-1 month', 'localtime') AND despesa.dataTransacao < datetime('now', 'start of month', 'localtime') " +
+                                                                           "UNION ALL SELECT SUM(valorRepeticao) valorTotal FROM repeticao WHERE repeticao.pagamentoConfirmado = true AND repeticao.idConta = " + accountDataRow.ItemArray[0].ToString().Trim() + " AND repeticao.dataTransacao > datetime('now', 'start of month', '-1 month', 'localtime') AND repeticao.dataTransacao < datetime('now', 'start of month', 'localtime') " +
+                                                                           "UNION ALL SELECT SUM(valorParcela) valorTotal FROM parcela WHERE parcela.pagamentoConfirmado = true AND parcela.idConta = " + accountDataRow.ItemArray[0].ToString().Trim() + " AND parcela.dataTransacao > datetime('now', 'start of month', '-1 month', 'localtime') AND parcela.dataTransacao < datetime('now', 'start of month', 'localtime'));", accountDataRow);
+                    }
+                }
+                else this.chart_expenseAccount.Hide();
+
+                Globals.main.renderLabels(Globals.main.lbl_dailyExpenses, "SELECT SUM(valorTotal) valorTotal FROM (SELECT SUM(valorDespesa) valorTotal FROM despesa WHERE despesa.pagamentoConfirmado = true AND despesa.idConta = " + Globals.idConta + " AND despesa.dataTransacao = datetime('now', 'start of day', '-1 month', 'localtime') " +
+                                                                          "UNION ALL SELECT SUM(valorRepeticao) valorTotal FROM repeticao WHERE repeticao.pagamentoConfirmado = true AND repeticao.idConta = " + Globals.idConta + " AND repeticao.dataTransacao = datetime('now', 'start of day', '-1 month', 'localtime') " +
+                                                                          "UNION ALL SELECT SUM(valorParcela) valorTotal FROM parcela WHERE parcela.pagamentoConfirmado = true AND parcela.idConta = " + Globals.idConta + " AND parcela.dataTransacao = datetime('now', 'start of day', '-1 month', 'localtime'));");
+
+                Globals.main.renderLabels(Globals.main.lbl_monthExpenses, "SELECT SUM(valorTotal) valorTotal FROM (SELECT SUM(valorDespesa) valorTotal FROM despesa WHERE despesa.pagamentoConfirmado = true AND despesa.idConta = " + Globals.idConta + " AND despesa.dataTransacao > datetime('now', 'start of month', '-1 month', 'localtime') AND despesa.dataTransacao < datetime('now', 'start of month', 'localtime') " +
+                                                                          "UNION ALL SELECT SUM(valorRepeticao) valorTotal FROM repeticao WHERE repeticao.pagamentoConfirmado = true AND repeticao.idConta = " + Globals.idConta + " AND repeticao.dataTransacao > datetime('now', 'start of month', '-1 month', 'localtime') AND repeticao.dataTransacao < datetime('now', 'start of month', 'localtime') " +
+                                                                          "UNION ALL SELECT SUM(valorParcela) valorTotal FROM parcela WHERE parcela.pagamentoConfirmado = true AND parcela.idConta = " + Globals.idConta + " AND parcela.dataTransacao > datetime('now', 'start of month', '-1 month', 'localtime') AND parcela.dataTransacao < datetime('now', 'start of month', 'localtime'));");
+            }
+            else if (Globals.month == 0)
+            {
+                clearChartData();
+                if(categoryDataTable.Rows.Count > 0)
+                {
+                    foreach (DataRow categoryDataRow in categoryDataTable.Rows)
+                    {
+                        this.renderExpenseChart(this.chart_expenseCategory, "SELECT SUM(valorTotal) valorTotal FROM (SELECT SUM(valorDespesa) valorTotal FROM despesa WHERE despesa.pagamentoConfirmado = true AND despesa.idConta = " + Globals.idConta + " AND despesa.idCategoria = " + categoryDataRow.ItemArray[0].ToString().Trim() + " AND despesa.dataTransacao > datetime('now', 'start of month', 'localtime') " +
+                                                                            "UNION ALL SELECT SUM(valorRepeticao) valorTotal FROM repeticao WHERE repeticao.pagamentoConfirmado = true AND repeticao.idConta = " + Globals.idConta + " AND repeticao.idCategoria = " + categoryDataRow.ItemArray[0].ToString().Trim() + " AND repeticao.dataTransacao < datetime('start of month', '+1 month', 'localtime') " +
+                                                                            "UNION ALL SELECT SUM(valorParcela) valorTotal FROM parcela WHERE parcela.pagamentoConfirmado = true AND parcela.idConta = " + Globals.idConta + " AND parcela.idCategoria = " + categoryDataRow.ItemArray[0].ToString().Trim() + " AND parcela.dataTransacao < datetime('start of month', '+1 month', 'localtime'));", categoryDataRow);
+                    }
+                }
+                else this.chart_expenseCategory.Hide();
+
+                if(accountDataTable.Rows.Count > 0)
+                {
+                    foreach (DataRow accountDataRow in accountDataTable.Rows)
+                    {
+                        this.renderExpenseChart(this.chart_expenseAccount, "SELECT SUM(valorTotal) valorTotal FROM (SELECT SUM(valorDespesa) valorTotal FROM despesa WHERE despesa.pagamentoConfirmado = true AND despesa.idConta = " + accountDataRow.ItemArray[0].ToString().Trim() + " AND despesa.dataTransacao > datetime('now', 'start of month', 'localtime') " +
+                                                                           "UNION ALL SELECT SUM(valorRepeticao) valorTotal FROM repeticao WHERE repeticao.pagamentoConfirmado = true AND repeticao.idConta = " + accountDataRow.ItemArray[0].ToString().Trim() + " AND repeticao.dataTransacao < datetime('start of month', '+1 month', 'localtime') " +
+                                                                           "UNION ALL SELECT SUM(valorParcela) valorTotal FROM parcela WHERE parcela.pagamentoConfirmado = true AND parcela.idConta = " + accountDataRow.ItemArray[0].ToString().Trim() + " AND parcela.dataTransacao < datetime('start of month', '+1 month', 'localtime'));", accountDataRow);
+                    }
+                }
+                else this.chart_expenseAccount.Hide();
+
+                Globals.main.renderLabels(Globals.main.lbl_dailyExpenses, "SELECT SUM(valorTotal) valorTotal FROM (SELECT SUM(valorDespesa) valorTotal FROM despesa WHERE despesa.pagamentoConfirmado = true AND despesa.idConta = " + Globals.idConta + " AND despesa.dataTransacao = DATE('now', 'localtime') " +
+                                                                          "UNION ALL SELECT SUM(valorRepeticao) valorTotal FROM repeticao WHERE repeticao.pagamentoConfirmado = true AND repeticao.idConta = " + Globals.idConta + " AND repeticao.dataTransacao = DATE('start of month', '+1 month', 'localtime') " +
+                                                                          "UNION ALL SELECT SUM(valorParcela) valorTotal FROM parcela WHERE parcela.pagamentoConfirmado = true AND parcela.idConta = " + Globals.idConta + " AND parcela.dataTransacao = DATE('start of month', '+1 month', 'localtime'));");
+
+                Globals.main.renderLabels(Globals.main.lbl_monthExpenses, "SELECT SUM(valorTotal) valorTotal FROM (SELECT SUM(valorDespesa) valorTotal FROM despesa WHERE despesa.pagamentoConfirmado = true AND despesa.idConta = " + Globals.idConta + " AND despesa.dataTransacao > datetime('now', 'start of month', 'localtime') " +
+                                                                          "UNION ALL SELECT SUM(valorRepeticao) valorTotal FROM repeticao WHERE repeticao.pagamentoConfirmado = true AND repeticao.idConta = " + Globals.idConta + " AND repeticao.dataTransacao < datetime('start of month', '+1 month', 'localtime') " +
+                                                                          "UNION ALL SELECT SUM(valorParcela) valorTotal FROM parcela WHERE parcela.pagamentoConfirmado = true AND parcela.idConta = " + Globals.idConta + " AND parcela.dataTransacao < datetime('start of month', '+1 month', 'localtime'));");
+            }
+            else if (Globals.month == 1)
+            {
+                clearChartData();
+                if(categoryDataTable.Rows.Count > 0)
+                {
+                    foreach (DataRow categoryDataRow in categoryDataTable.Rows)
+                    {
+                        this.renderExpenseChart(this.chart_expenseCategory, "SELECT SUM(valorTotal) valorTotal FROM (SELECT SUM(valorDespesa) valorTotal FROM despesa WHERE despesa.pagamentoConfirmado = true AND despesa.idConta = " + Globals.idConta + " AND despesa.idCategoria = " + categoryDataRow.ItemArray[0].ToString().Trim() + " AND despesa.dataTransacao < datetime('now', 'start of month', '+2 month', 'localtime') AND despesa.dataTransacao > datetime('now', 'start of month', '+1 month', 'localtime') " +
+                                                                            "UNION ALL SELECT SUM(valorRepeticao) valorTotal FROM repeticao WHERE repeticao.pagamentoConfirmado = true AND repeticao.idConta = " + Globals.idConta + " AND repeticao.idCategoria = " + categoryDataRow.ItemArray[0].ToString().Trim() + " AND repeticao.dataTransacao < datetime('now', 'start of month', '+2 month', 'localtime') AND repeticao.dataTransacao > datetime('now', 'start of month', '+1 month', 'localtime') " +
+                                                                            "UNION ALL SELECT SUM(valorParcela) valorTotal FROM parcela WHERE parcela.pagamentoConfirmado = true AND parcela.idConta = " + Globals.idConta + " AND parcela.idCategoria = " + categoryDataRow.ItemArray[0].ToString().Trim() + " AND parcela.dataTransacao < datetime('now', 'start of month', '+2 month', 'localtime') AND parcela.dataTransacao > datetime('now', 'start of month', '+1 month', 'localtime'));", categoryDataRow);
+                    }
+                }
+                else this.chart_expenseCategory.Hide();
+
+                if(accountDataTable.Rows.Count > 0)
+                {
+                    foreach (DataRow accountDataRow in accountDataTable.Rows)
+                    {
+                        this.renderExpenseChart(this.chart_expenseAccount, "SELECT SUM(valorTotal) valorTotal FROM (SELECT SUM(valorDespesa) valorTotal FROM despesa WHERE despesa.pagamentoConfirmado = true AND despesa.idConta = " + accountDataRow.ItemArray[0].ToString().Trim() + " AND despesa.dataTransacao < datetime('now', 'start of month', '+2 month', 'localtime') AND despesa.dataTransacao > datetime('now', 'start of month', '+1 month', 'localtime') " +
+                                                                           "UNION ALL SELECT SUM(valorRepeticao) valorTotal FROM repeticao WHERE repeticao.pagamentoConfirmado = true AND repeticao.idConta = " + accountDataRow.ItemArray[0].ToString().Trim() + " AND repeticao.dataTransacao < datetime('now', 'start of month', '+2 month', 'localtime') AND repeticao.dataTransacao > datetime('now', 'start of month', '+1 month', 'localtime') " +
+                                                                           "UNION ALL SELECT SUM(valorParcela) valorTotal FROM parcela WHERE parcela.pagamentoConfirmado = true AND parcela.idConta = " + accountDataRow.ItemArray[0].ToString().Trim() + " AND parcela.dataTransacao < datetime('now', 'start of month', '+2 month', 'localtime') AND parcela.dataTransacao > datetime('now', 'start of month', '+1 month', 'localtime'));", accountDataRow);
+                    }
+                }
+                else this.chart_expenseAccount.Hide();
+
+                Globals.main.renderLabels(Globals.main.lbl_dailyExpenses, "SELECT SUM(valorTotal) valorTotal FROM (SELECT SUM(valorDespesa) valorTotal FROM despesa WHERE despesa.pagamentoConfirmado = true AND despesa.idConta = " + Globals.idConta + " AND despesa.dataTransacao = datetime('now', 'start of day', '+1 month', 'localtime') " +
+                                                                          "UNION ALL SELECT SUM(valorRepeticao) valorTotal FROM repeticao WHERE repeticao.pagamentoConfirmado = true AND repeticao.idConta = " + Globals.idConta + " AND repeticao.dataTransacao = datetime('now', 'start of day', '+1 month', 'localtime') " +
+                                                                          "UNION ALL SELECT SUM(valorParcela) valorTotal FROM parcela WHERE parcela.pagamentoConfirmado = true AND parcela.idConta = " + Globals.idConta + " AND parcela.dataTransacao = datetime('now', 'start of day', '+1 month', 'localtime'));");
+
+                Globals.main.renderLabels(Globals.main.lbl_monthExpenses, "SELECT SUM(valorTotal) valorTotal FROM (SELECT SUM(valorDespesa) valorTotal FROM despesa WHERE despesa.pagamentoConfirmado = true AND despesa.idConta = " + Globals.idConta + " AND despesa.dataTransacao < datetime('now', 'start of month', '+2 month', 'localtime') AND despesa.dataTransacao > datetime('now', 'start of month', '+1 month', 'localtime') " +
+                                                                          "UNION ALL SELECT SUM(valorRepeticao) valorTotal FROM repeticao WHERE repeticao.pagamentoConfirmado = true AND repeticao.idConta = " + Globals.idConta + " AND repeticao.dataTransacao < datetime('now', 'start of month', '+2 month', 'localtime') AND repeticao.dataTransacao > datetime('now', 'start of month', '+1 month', 'localtime') " +
+                                                                          "UNION ALL SELECT SUM(valorParcela) valorTotal FROM parcela WHERE parcela.pagamentoConfirmado = true AND parcela.idConta = " + Globals.idConta + " AND parcela.dataTransacao < datetime('now', 'start of month', '+2 month', 'localtime') AND parcela.dataTransacao > datetime('now', 'start of month', '+1 month', 'localtime'));");
+            }
+            else if (Globals.month > 1)
+            {
+                clearChartData();
+                int monthMore = Globals.month + 1;
+                if(categoryDataTable.Rows.Count > 0)
+                {
+                    foreach (DataRow categoryDataRow in categoryDataTable.Rows)
+                    {
+                        this.renderExpenseChart(this.chart_expenseCategory, "SELECT SUM(valorTotal) valorTotal FROM (SELECT SUM(valorDespesa) valorTotal FROM despesa WHERE despesa.pagamentoConfirmado = true AND despesa.idConta = " + Globals.idConta + " AND despesa.idCategoria = " + categoryDataRow.ItemArray[0].ToString().Trim() + " AND despesa.dataTransacao < datetime('now', 'start of month', '+" + monthMore + " month', 'localtime') AND despesa.dataTransacao > datetime('now', 'start of month', '+" + Globals.month + " month', 'localtime') " +
+                                                                            "UNION ALL SELECT SUM(valorRepeticao) valorTotal FROM repeticao WHERE repeticao.pagamentoConfirmado = true AND repeticao.idConta = " + Globals.idConta + " AND repeticao.idCategoria = " + categoryDataRow.ItemArray[0].ToString().Trim() + " AND repeticao.dataTransacao < datetime('now', 'start of month', '+" + monthMore + " month', 'localtime') AND repeticao.dataTransacao > datetime('now', 'start of month', '+" + Globals.month + " month', 'localtime') " +
+                                                                            "UNION ALL SELECT SUM(valorParcela) valorTotal FROM parcela WHERE parcela.pagamentoConfirmado = true AND parcela.idConta = " + Globals.idConta + " AND parcela.idCategoria = " + categoryDataRow.ItemArray[0].ToString().Trim() + " AND parcela.dataTransacao < datetime('now', 'start of month', '+" + monthMore + " month', 'localtime') AND parcela.dataTransacao > datetime('now', 'start of month', '+" + Globals.month + " month', 'localtime'));", categoryDataRow);
+                    }
+                }
+                else this.chart_expenseCategory.Hide();
+
+                if(accountDataTable.Rows.Count > 0)
+                {
+                    foreach (DataRow accountDataRow in accountDataTable.Rows)
+                    {
+                        this.renderExpenseChart(this.chart_expenseAccount, "SELECT SUM(valorTotal) valorTotal FROM (SELECT SUM(valorDespesa) valorTotal FROM despesa WHERE despesa.pagamentoConfirmado = true AND despesa.idConta = " + accountDataRow.ItemArray[0].ToString().Trim() + " AND despesa.dataTransacao < datetime('now', 'start of month', '+" + monthMore + " month', 'localtime') AND despesa.dataTransacao > datetime('now', 'start of month', '+" + Globals.month + " month', 'localtime') " +
+                                                                           "UNION ALL SELECT SUM(valorRepeticao) valorTotal FROM repeticao WHERE repeticao.pagamentoConfirmado = true AND repeticao.idConta = " + accountDataRow.ItemArray[0].ToString().Trim() + " AND repeticao.dataTransacao < datetime('now', 'start of month', '+" + monthMore + " month', 'localtime') AND repeticao.dataTransacao > datetime('now', 'start of month', '+" + Globals.month + " month', 'localtime') " +
+                                                                           "UNION ALL SELECT SUM(valorParcela) valorTotal FROM parcela WHERE parcela.pagamentoConfirmado = true AND parcela.idConta = " + accountDataRow.ItemArray[0].ToString().Trim() + " AND parcela.dataTransacao < datetime('now', 'start of month', '+" + monthMore + " month', 'localtime') AND parcela.dataTransacao > datetime('now', 'start of month', '+" + Globals.month + " month', 'localtime'));", accountDataRow);
+                    }
+                }
+                else this.chart_expenseAccount.Hide();
+
+                Globals.main.renderLabels(Globals.main.lbl_dailyExpenses, "SELECT SUM(valorTotal) valorTotal FROM (SELECT SUM(valorDespesa) valorTotal FROM despesa WHERE despesa.pagamentoConfirmado = true AND despesa.idConta = " + Globals.idConta + " AND despesa.dataTransacao = datetime('now', 'start of day', '+" + Globals.month + " month', 'localtime') " +
+                                                                          "UNION ALL SELECT SUM(valorRepeticao) valorTotal FROM repeticao WHERE repeticao.pagamentoConfirmado = true AND repeticao.idConta = " + Globals.idConta + " AND repeticao.dataTransacao = datetime('now', 'start of day', '+" + Globals.month + " month', 'localtime') " +
+                                                                          "UNION ALL SELECT SUM(valorParcela) valorTotal FROM parcela WHERE parcela.pagamentoConfirmado = true AND parcela.idConta = " + Globals.idConta + " AND parcela.dataTransacao = datetime('now', 'start of day', '+" + Globals.month + " month', 'localtime'));");
+
+                Globals.main.renderLabels(Globals.main.lbl_monthExpenses, "SELECT SUM(valorTotal) valorTotal FROM (SELECT SUM(valorDespesa) valorTotal FROM despesa WHERE despesa.pagamentoConfirmado = true AND despesa.idConta = " + Globals.idConta + " AND despesa.dataTransacao < datetime('now', 'start of month', '+" + monthMore + " month', 'localtime') AND despesa.dataTransacao > datetime('now', 'start of month', '+" + Globals.month + " month', 'localtime') " +
+                                                                          "UNION ALL SELECT SUM(valorRepeticao) valorTotal FROM repeticao WHERE repeticao.pagamentoConfirmado = true AND repeticao.idConta = " + Globals.idConta + " AND repeticao.dataTransacao < datetime('now', 'start of month', '+" + monthMore + " month', 'localtime') AND repeticao.dataTransacao > datetime('now', 'start of month', '+" + Globals.month + " month', 'localtime') " +
+                                                                          "UNION ALL SELECT SUM(valorParcela) valorTotal FROM parcela WHERE parcela.pagamentoConfirmado = true AND parcela.idConta = " + Globals.idConta + " AND parcela.dataTransacao < datetime('now', 'start of month', '+" + monthMore + " month', 'localtime') AND parcela.dataTransacao > datetime('now', 'start of month', '+" + Globals.month + " month', 'localtime'));");
+            }
+        }
+
+        //FORMATAÇÃO DOS COMPONENTES DO FORMULÁRIO
+
+        //Tooltip do gráfico de despesas da conta ativa por categoria
+        private void chart_expenseCategory_MouseHover(object sender, EventArgs e)
+        {
+            this.ttp_expenseCategory.Show("Despesas da conta ativa por categoria.", this.chart_expenseCategory);
+        }
+
+        //Tooltip do gráfico de despesas por conta
+        private void chart_expenseAccount_MouseHover(object sender, EventArgs e)
+        {
+            this.ttp_expenseAccount.Show("Despesas por conta.", this.chart_expenseAccount);
         }
     }
 }

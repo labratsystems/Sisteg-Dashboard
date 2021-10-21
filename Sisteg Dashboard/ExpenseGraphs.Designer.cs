@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
@@ -37,6 +38,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ExpenseGraphs));
             this.chart_expenseCategory = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.chart_expenseAccount = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.ttp_expenseCategory = new System.Windows.Forms.ToolTip(this.components);
+            this.ttp_expenseAccount = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.chart_expenseCategory)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart_expenseAccount)).BeginInit();
             this.SuspendLayout();
@@ -57,14 +60,14 @@
             series1.ChartArea = "ChartArea1";
             series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
             series1.Color = System.Drawing.Color.Transparent;
-            series1.Font = new System.Drawing.Font("Courier Prime Code", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            series1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             series1.LabelForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(104)))), ((int)(((byte)(82)))));
             series1.Legend = "Legend2";
             series1.Name = "Series1";
             this.chart_expenseCategory.Series.Add(series1);
             this.chart_expenseCategory.Size = new System.Drawing.Size(277, 241);
-            this.chart_expenseCategory.TabIndex = 18;
-            this.chart_expenseCategory.Text = "chart1";
+            this.chart_expenseCategory.TabIndex = 1;
+            this.chart_expenseCategory.MouseHover += new System.EventHandler(this.chart_expenseCategory_MouseHover);
             // 
             // chart_expenseAccount
             // 
@@ -82,14 +85,14 @@
             series2.ChartArea = "ChartArea1";
             series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
             series2.Color = System.Drawing.Color.Transparent;
-            series2.Font = new System.Drawing.Font("Courier Prime Code", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            series2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             series2.LabelForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(104)))), ((int)(((byte)(82)))));
             series2.Legend = "Legend2";
             series2.Name = "Series1";
             this.chart_expenseAccount.Series.Add(series2);
             this.chart_expenseAccount.Size = new System.Drawing.Size(277, 241);
-            this.chart_expenseAccount.TabIndex = 21;
-            this.chart_expenseAccount.Text = "chart1";
+            this.chart_expenseAccount.TabIndex = 2;
+            this.chart_expenseAccount.MouseHover += new System.EventHandler(this.chart_expenseAccount_MouseHover);
             // 
             // ExpenseGraphs
             // 
@@ -114,5 +117,7 @@
 
         protected internal System.Windows.Forms.DataVisualization.Charting.Chart chart_expenseCategory;
         protected internal System.Windows.Forms.DataVisualization.Charting.Chart chart_expenseAccount;
+        private System.Windows.Forms.ToolTip ttp_expenseCategory;
+        private System.Windows.Forms.ToolTip ttp_expenseAccount;
     }
 }
